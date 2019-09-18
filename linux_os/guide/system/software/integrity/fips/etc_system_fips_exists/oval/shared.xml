@@ -4,7 +4,6 @@
       <title>Check /etc/system-fips exists</title>
       <affected family="unix">
         <platform>Red Hat Enterprise Linux 8</platform>
-        <platform>multi_platform_fedora</platform>
         <platform>Oracle Linux 8</platform>
       </affected>
       <description>Check /etc/system-fips exists</description>

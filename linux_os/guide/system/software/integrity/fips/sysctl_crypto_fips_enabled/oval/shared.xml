@@ -3,7 +3,6 @@
     <metadata>
       <title>Kernel "crypto.fips_enabled" Parameter Runtime Check</title>
       <affected family="unix">
-        <platform>multi_platform_fedora</platform>
         <platform>Red Hat Enterprise Linux 8</platform>
         <platform>Oracle Linux 8</platform>
       </affected>
