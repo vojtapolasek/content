@@ -3,10 +3,12 @@ from __future__ import print_function
 import os
 import sys
 import re
+import importlib.util
 
 import ssg.build_yaml
 
 languages = ["anaconda", "ansible", "bash", "oval", "puppet"]
+preprocessing_file_name = "preprocess.py"
 
 lang_to_ext_map = {
     "anaconda": ".anaconda",
@@ -219,18 +221,6 @@ def mount_option_removable_partitions(data, lang):
     return _mount_option(data, lang)
 
 
-@template(["anaconda", "ansible", "bash", "oval", "puppet"])
-def package_installed(data, lang):
-    if "evr" in data:
-        evr = data["evr"]
-        if evr and not re.match(r'\d:\d[\d\w+.]*-\d[\d\w+.]*', evr, 0):
-            raise RuntimeError(
-                "ERROR: input violation: evr key should be in "
-                "epoch:version-release format, but package {0} has set "
-                "evr to {1}".format(data["pkgname"], evr))
-    return data
-
-
 @template(["ansible", "bash", "oval"])
 def sysctl(data, lang):
     data["sysctlid"] = re.sub(r'[-\.]', '_', data["sysctlvar"])
@@ -326,14 +316,33 @@ class Builder(object):
                 output_dir = self.remediations_dir
             dir_ = os.path.join(output_dir, lang)
             self.output_dirs[lang] = dir_
+        # scan directory structure and dynamically create list of templates
+        for item in os.scandir(self.templates_dir):
+            if item.is_dir(follow_symlinks=False):
+                preprocessing_file_path = os.path.join(item.path, preprocessing_file_name)
+                if os.path.exists(preprocessing_file_path):
+                    templates[item.name] = preprocessing_file_path
+                else:
+                    templates[item.name] = None
+
+
+
 
     def preprocess_data(self, template, lang, raw_parameters):
         """
         Processes template data using a callback before the data will be
         substituted into the Jinja template.
         """
-        template_func = templates[template]
-        parameters = template_func(raw_parameters.copy(), lang)
+        # testing rule
+        if template == "package_installed":
+            preprocess_mod = None #temporarily imported module containing preprocessing function
+            spec = importlib.util.spec_from_file_location("preprocess_mod", templates[template])
+            preprocess_mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(preprocessmod)
+            parameters = preprocessmod.preprocess(raw_parameters.copy(), lang)
+        else:
+            template_func = templates[template]
+            parameters = template_func(raw_parameters.copy(), lang)
         # TODO: Remove this right after the variables in templates are renamed
         # to lowercase
         uppercases = dict()
