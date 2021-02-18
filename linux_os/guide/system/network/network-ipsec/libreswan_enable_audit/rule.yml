@@ -1,0 +1,17 @@
+documentation_complete: true
+
+title: "Enable auditing of Libreswan connections"
+
+description: |-
+    some description here
+
+rationale: |-
+    some rationale here
+
+severity: medium
+
+identifiers:
+    cce@rhel8: CCE-83399-6
+
+references:
+    ospp: FAU_GEN.1/VPN
