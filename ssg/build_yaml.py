@@ -14,7 +14,7 @@ import glob
 
 import yaml
 
-from .build_cpe import CPEDoesNotExist, parse_platform_definition
+from .build_cpe import CPEDoesNotExist, CPEALPlatform
 from .constants import (XCCDF_REFINABLE_PROPERTIES,
                         SCE_SYSTEM,
                         cce_uri,
@@ -1046,7 +1046,7 @@ class Group(XCCDFEntity):
         # parse platform definition and get CPEAL platform
         if data["platforms"]:
             for platform in data["platforms"]:
-                cpe_platform = parse_platform_definition(platform, env_yaml["product_cpes"])
+                cpe_platform = CPEALPlatform(platform, env_yaml["product_cpes"])
                 data["cpe_platform_names"].add(cpe_platform.id)
                 # add platform to platform specification
                 env_yaml["product_cpes"].cpe_platform_specification.add_platform(cpe_platform)
@@ -1193,8 +1193,7 @@ class Group(XCCDFEntity):
         # Once the group has inherited properties, update cpe_names
         if env_yaml:
             for platform in group.platforms:
-                cpe_platform = parse_platform_definition(
-                    platform, env_yaml["product_cpes"])
+                cpe_platform = CPEALPlatform(platform, env_yaml["product_cpes"])
                 group.cpe_platform_names.add(cpe_platform.id)
                 env_yaml["product_cpes"].cpe_platform_specification.add_platform(
                     cpe_platform)
@@ -1215,8 +1214,7 @@ class Group(XCCDFEntity):
         # Once the rule has inherited properties, update cpe_platform_names
         if env_yaml:
             for platform in rule.platforms:
-                cpe_platform = parse_platform_definition(
-                    platform, env_yaml["product_cpes"])
+                cpe_platform = CPEALPlatform(platform, env_yaml["product_cpes"])
                 rule.cpe_platform_names.add(cpe_platform.id)
                 env_yaml["product_cpes"].cpe_platform_specification.add_platform(
                     cpe_platform)
@@ -1318,8 +1316,7 @@ class Rule(XCCDFEntity):
                 or env_yaml and rule.prodtype == "all"):
             # parse platform definition and get CPEAL platform
             for platform in rule.platforms:
-                cpe_platform = parse_platform_definition(
-                    platform, env_yaml["product_cpes"])
+                cpe_platform = CPEALPlatform(platform, env_yaml["product_cpes"])
                 rule.cpe_platform_names.add(cpe_platform.id)
                 # add platform to platform specification
                 env_yaml["product_cpes"].cpe_platform_specification.add_platform(
