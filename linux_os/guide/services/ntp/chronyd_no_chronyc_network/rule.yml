@@ -15,7 +15,7 @@ rationale: |-
 
 severity: low
 
-platform: machine  # The check uses service_... extended definition, which doesnt support offline mode
+platform: chrony and machine  # The check uses service_... extended definition, which doesnt support offline mode
 
 identifiers:
     cce@rhcos4: CCE-82466-4

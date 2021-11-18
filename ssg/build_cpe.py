@@ -30,10 +30,11 @@ class ProductCPEs(object):
         self.cpes_by_name = {}
         self.product_cpes = {}
         self.cpe_platforms = {}
-        self.cpe_platform_specification = CPEALPlatformSpecification()
+
 
         self.load_product_cpes()
         self.load_content_cpes()
+        self.cpe_platform_specification = CPEALPlatformSpecification(self)
 
     def _load_cpes_list(self, map_, cpes_list):
         for cpe in cpes_list:
@@ -174,12 +175,35 @@ class CPEALPlatformSpecification(object):
     prefix = "cpe-lang"
     ns = PREFIX_TO_NS[prefix]
 
-    def __init__(self):
+    def __init__(self, cpe_products):
+        self.algebra = Algebra(symbol_cls=CPEALFactRef, function_cls=CPEALLogicalTest)
         self.platforms = []
+        self.cpe_products = cpe_products
 
-    def add_platform(self, platform):
+
+    def parse_platform(self, expression):
+        """
+        parses the expression and returns a CPEALPlatform instance
+        It either creates a new one or if equal instance already exists, it returns the existing one.
+        """
+        platform = CPEALPlatform(expression, self.algebra, self.cpe_products)
+        print ("trying to add " + platform.id)
+        if platform.id == "cpe_platform_chrony_and_machine":
+            print (platform.test)
         if platform not in self.platforms:
+            print ([p.test for p in self.platforms])
+            for p in self.platforms:
+                print ("comparing platform with {0}".format(p.id))
+                print (platform == p)
+                print ("comparing test with {0}".format(p.id))
+                print (platform.test == p.test)
             self.platforms.append(platform)
+            print ("added")
+            print ([p.test for p in self.platforms])
+            return platform
+        else:
+            platform_idx = self.platforms.index(platform)
+            return self.platforms[platform_idx]
 
 
     def to_xml_element(self):
@@ -190,23 +214,31 @@ class CPEALPlatformSpecification(object):
         return cpe_platform_spec
 
 
-class CPEALPlatform(Algebra):
+class CPEALPlatform(object):
 
     prefix = "cpe-lang"
     ns = PREFIX_TO_NS[prefix]
 
-    def __init__(self, expression, cpe_products):
-        super (CPEALPlatform, self).__init__(symbol_cls=CPEALFactRef, function_cls=CPEALLogicalTest)
-        self.test = self.parse(expression, simplify=True)
+    def __init__(self, expression, algebra, cpe_products):
+        self.test = algebra.parse(expression, simplify=True)
         self.id = "cpe_platform_" + self.test.as_id()
         self.cpe_products = cpe_products
+        if self.id == "cpe_platform_chrony_and_machine":
+            print ("original")
+            print (self.test)
+            print (self.test.args)
         self._replace_cpe_names(self.test)
+        if self.id == "cpe_platform_chrony_and_machine":
+            print ("modified")
+            print (self.test.args)
+            print (self.test)
 
     def _replace_cpe_names(self, exp):
         if isinstance(exp, CPEALFactRef):
-            exp.obj = self.cpe_products.get_cpe_name(exp.obj)
+            exp.cpe_name = self.cpe_products.get_cpe_name(exp.obj)
         else:
-            exp.args = [self._replace_cpe_names(arg) for arg in exp.args]
+            for arg in exp.args:
+                self._replace_cpe_names(arg)
 
     def add_test(self, test):
         self.test = test
@@ -241,6 +273,7 @@ class CPEALLogicalTest(Function):
     prefix = "cpe-lang"
     ns = PREFIX_TO_NS[prefix]
 
+
     def to_xml_element(self):
         cpe_test = ET.Element("{%s}logical-test" % CPEALLogicalTest.ns)
         cpe_test.set('operator', ('OR' if self.is_or() else 'AND'))
@@ -267,10 +300,11 @@ class CPEALFactRef (Symbol):
 
     def __init__(self, obj):
         super(CPEALFactRef, self).__init__(obj)
+        self.cpe_name = "" # we do not want to modify original name used for platforms
 
     def to_xml_element(self):
         cpe_factref = ET.Element("{%s}fact-ref" % CPEALFactRef.ns)
-        cpe_factref.set('name', self.as_id())
+        cpe_factref.set('name', self.cpe_name)
 
         return cpe_factref
 
