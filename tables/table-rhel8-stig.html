@@ -173,7 +173,8 @@ Output will be similar to:
 /dev/sda2: UUID=" bc98d7ef-6g54-321h-1d24-9870de2ge1a2
 " TYPE="crypto_LUKS"
 
-Pseudo-file systems, such as /proc, /sys, and tmpfs, are not required to use disk encryption and are not a finding.
+The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
+are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
       </td>
 <td>Red Hat Enterprise Linux 8 natively supports partition encryption through the
@@ -4422,7 +4423,7 @@ more complex a password, the greater the number of possible combinations that ne
 password is compromised.</td>
 <td>To check the value for maximum consecutive repeating characters, run the following command:
 $ grep maxclassrepeat /etc/security/pwquality.conf
-For DoD systems, the output should show maxclassrepeat=4.
+For DoD systems, the output should show maxclassrepeat=4 or less but greater than zero.
       Is it the case that that is not the case?
       </td>
 <td>The pam_pwquality module's <code>maxclassrepeat</code> parameter controls requirements for
@@ -5937,38 +5938,33 @@ gain access to information that would otherwise be disallowed. Auditing DAC modi
 can facilitate the identification of patterns of abuse among both authorized and
 unauthorized users.</td>
 <td>To determine if the system is configured to audit calls to the
-lremovexattr system call, run the following command:
-$ sudo grep "lremovexattr" /etc/audit/audit.*
+setxattr system call, run the following command:
+$ sudo grep "setxattr" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
       </td>
 <td>At a minimum, the audit system should collect file permission
-changes for all users and root.
-<br><br>
-If the <code>auditd</code> daemon is configured
+changes for all users and root. If the <code>auditd</code> daemon is configured
 to use the <code>augenrules</code> program to read audit rules during daemon
 startup (the default), add the following line to a file with suffix
 <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid=0 -F key=perm_mod</pre>
-<br><br>
+<pre>-a always,exit -F arch=b32 -S setxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S setxattr -F auid=0 -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid=0 -F key=perm_mod</pre>
-<br><br>
+<pre>-a always,exit -F arch=b64 -S setxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S setxattr -F auid=0 -F key=perm_mod</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid=0 -F key=perm_mod</pre>
-<br><br>
+<pre>-a always,exit -F arch=b32 -S setxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S setxattr -F auid=0 -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid=0 -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S setxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S setxattr -F auid=0 -F key=perm_mod</pre>
 </td>
 <td>RHEL-08-030200</td>
-<td>audit_rules_dac_modification_lremovexattr</td>
+<td>audit_rules_dac_modification_setxattr</td>
 </tr>
 <tr>
 <td>V-230418</td>
@@ -6667,8 +6663,8 @@ add the line to file <code>/etc/audit/audit.rules</code>.</td>
 from the system. The audit trail could aid in system troubleshooting, as well as, detecting
 malicious processes that attempt to delete log files to conceal their presence.</td>
 <td>To determine if the system is configured to audit calls to the
-rename system call, run the following command:
-$ sudo grep "rename" /etc/audit/audit.*
+unlinkat system call, run the following command:
+$ sudo grep "unlinkat" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
@@ -6679,15 +6675,15 @@ for all users and root. If the <code>auditd</code> daemon is configured to use t
 default), add the following line to a file with suffix <code>.rules</code> in the
 directory <code>/etc/audit/rules.d</code>, setting ARCH to either b32 or b64 as
 appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S rename -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
+<pre>-a always,exit -F arch=ARCH -S unlinkat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to
 <code>/etc/audit/audit.rules</code> file, setting ARCH to either b32 or b64 as
 appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S rename -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
+<pre>-a always,exit -F arch=ARCH -S unlinkat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
 <td>RHEL-08-030361</td>
-<td>audit_rules_file_deletion_events_rename</td>
+<td>audit_rules_file_deletion_events_unlinkat</td>
 </tr>
 <tr>
 <td>V-230444</td>
@@ -6873,29 +6869,29 @@ gain access to information that would otherwise be disallowed. Auditing DAC modi
 can facilitate the identification of patterns of abuse among both authorized and
 unauthorized users.</td>
 <td>To determine if the system is configured to audit calls to the
-chown system call, run the following command:
-$ sudo grep "chown" /etc/audit/audit.*
+lchown system call, run the following command:
+$ sudo grep "lchown" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
       </td>
 <td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured to
-use the <code>augenrules</code> program to read audit rules during daemon startup
-(the default), add the following line to a file with suffix <code>.rules</code> in
-the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+changes for all users and root. If the <code>auditd</code> daemon is configured
+to use the <code>augenrules</code> program to read audit rules during daemon
+startup (the default), add the following line to a file with suffix
+<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
+<pre>-a always,exit -F arch=b32 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td>RHEL-08-030480</td>
-<td>audit_rules_dac_modification_chown</td>
+<td>audit_rules_dac_modification_lchown</td>
 </tr>
 <tr>
 <td>V-230456</td>
@@ -6907,8 +6903,8 @@ gain access to information that would otherwise be disallowed. Auditing DAC modi
 can facilitate the identification of patterns of abuse among both authorized and
 unauthorized users.</td>
 <td>To determine if the system is configured to audit calls to the
-chmod system call, run the following command:
-$ sudo grep "chmod" /etc/audit/audit.*
+fchmodat system call, run the following command:
+$ sudo grep "fchmodat" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
@@ -6918,18 +6914,18 @@ changes for all users and root. If the <code>auditd</code> daemon is configured 
 use the <code>augenrules</code> program to read audit rules during daemon startup
 (the default), add the following line to a file with suffix <code>.rules</code> in
 the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td>RHEL-08-030490</td>
-<td>audit_rules_dac_modification_chmod</td>
+<td>audit_rules_dac_modification_fchmodat</td>
 </tr>
 <tr>
 <td>V-230462</td>
