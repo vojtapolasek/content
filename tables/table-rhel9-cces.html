@@ -1744,13 +1744,27 @@ in <code>/etc/security/pwquality.conf</code> to equal <xccdf-1.1:sub xmlns:xccdf
 to require use of a special character in passwords.</td>
 </tr>
 <tr>
+<td>CCE-85878-7</td>
+<td>Ensure PAM password complexity module is enabled in password-auth</td>
+<td xml:lang="en-US">To enable PAM password complexity in password-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/password-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+</tr>
+<tr>
+<td>CCE-85873-8</td>
+<td>Ensure PAM password complexity module is enabled in system-auth</td>
+<td xml:lang="en-US">To enable PAM password complexity in system-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/system-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+</tr>
+<tr>
 <td>CCE-83569-4</td>
 <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
+Edit the <code>/etc/security/pwquality.conf</code> to include
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -1919,7 +1933,11 @@ The console can now be locked with the following key combination:
 <td>Support session locking with tmux</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 </tr>
 <tr>
 <td>CCE-89876-7</td>
@@ -6205,10 +6223,10 @@ This is the default setting.</td>
 
 The following rules configure audit as described above:
 <pre>## Unsuccessful file access (any other opens) This has to go last.
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
 
 Load new Audit rules into kernel by running:
 <pre>augenrules --load</pre>
@@ -6223,8 +6241,8 @@ Note: This rule utilizes a file provided by <code>Audit</code> package to comply
 The following rules configure audit as described above:
 <pre>## Successful file access (any other opens) This has to go last.
 ## These next two are likely to result in a whole lot of events
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access    </pre>
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access    </pre>
 
 The <code>Audit</code> package provides pre-configured  rules in <code>/usr/share/audit/sample-rules</code>. The above content can be found in <code>/usr/share/audit/sample-rules/30-ospp-v42-3-access-success.rules</code>.
 To deploy this configuration, it is recommended to copy it over to the <code>/etc/audit/rules.d/</code> directory:
@@ -12896,7 +12914,9 @@ for management connections made by chronyc.</td>
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 </tr>
 <tr>
 <td>CCE-84108-0</td>
@@ -12911,6 +12931,11 @@ To ensure that chronyd is running under chrony user account, Add or edit the
 <code>OPTIONS</code> variable in <code>/etc/sysconfig/chronyd</code> to include <code>-u chrony</code>:
 <pre>OPTIONS="-u chrony"</pre>
 This recommendation only applies if chrony is in use on the system.</td>
+</tr>
+<tr>
+<td>CCE-87077-4</td>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
 </tr>
 <tr>
 <td>CCE-84218-7</td>
@@ -13748,8 +13773,14 @@ To explicitly enable LastLog in SSH, add or correct the following line in
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 </tr>
 <tr>
 <td>CCE-90811-1</td>

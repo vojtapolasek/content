@@ -69,6 +69,7 @@ file_integrity_notification_enabled
 file_permissions_proxy_kubeconfig
 fips_mode_enabled
 idp_is_configured
+ingress_controller_certificate
 kubeadmin_removed
 kubelet_configure_tls_cert
 kubelet_configure_tls_key
