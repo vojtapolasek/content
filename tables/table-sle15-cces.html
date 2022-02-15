@@ -2064,9 +2064,8 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
+GRUB 2 command line for the Linux operating system.
+Configure the default Grub2 kernel command line to contain audit=1 as follows:
 <pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
 </td>
 </tr>
@@ -2075,9 +2074,9 @@ GRUB 2 command line for the Linux operating system in
 <td>Extend Audit Backlog Limit for the Audit Daemon</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+Configure the default Grub2 kernel command line to contain audit_backlog_limit=8192 as follows:
+<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit_backlog_limit=8192"</pre>
 </td>
 </tr>
 <tr>
@@ -4221,7 +4220,10 @@ The <code>apparmor</code> service can be enabled with the following command:
 <td></td>
 <td>IOMMU configuration directive</td>
 <td xml:lang="en-US">On x86 architecture supporting VT-d, the IOMMU manages the access control policy between the hardware devices and some
-    of the system critical units such as the memory.</td>
+    of the system critical units such as the memory.
+Configure the default Grub2 kernel command line to contain iommu=force as follows:
+<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) iommu=force"</pre>
+</td>
 </tr>
 <tr>
 <td>CCE-85849-8</td>
@@ -4646,10 +4648,9 @@ add or correct the following line in
 <td>Ensure IPv6 is disabled through kernel boot parameter</td>
 <td xml:lang="en-US">To disable IPv6 protocol support in the Linux kernel,
 add the argument <code>ipv6.disable=1</code> to the default
-GRUB2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre>sudo  grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) ipv6.disable=1"</pre>
+GRUB2 command line for the Linux operating system.
+Configure the default Grub2 kernel command line to contain ipv6.disable=1 as follows:
+<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) ipv6.disable=1"</pre>
 </td>
 </tr>
 <tr>

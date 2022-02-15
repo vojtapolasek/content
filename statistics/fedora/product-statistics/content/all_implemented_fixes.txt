@@ -558,6 +558,7 @@ sudo_custom_logfile
 sudo_remove_no_authenticate
 sudo_remove_nopasswd
 sudo_require_authentication
+sudoers_default_includedir
 sudoers_validate_passwd
 sysctl_fs_protected_hardlinks
 sysctl_fs_protected_symlinks
