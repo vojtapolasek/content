@@ -2771,7 +2771,7 @@ default authenticators, then anyone can gather data about the system and the net
 and use the information to potentially compromise the integrity of the system and
 network(s).
   </td>
-  <td>var_snmpd_ro_string=changemero<br/>var_snmpd_rw_string=changemerw</td>
+  <td>var_snmpd_rw_string=changemerw<br/>var_snmpd_ro_string=changemero</td>
 </tr>
 <tr>
   <td>CM-5(1)<br/>AU-7(a)<br/>AU-7(b)<br/>AU-8(b)<br/>AU-12(3)<br/>AC-6(9)</td>
@@ -6216,6 +6216,26 @@ above (or their subset), keeping the given order of algorithms.
   <td xml:lang="en-US">
 DoD Information Systems are required to use FIPS-approved cryptographic hash
 functions. The only SSHv2 hash algorithms meeting this requirement is SHA2.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>N/A</td>
+  <td>Ensure sudo only includes the default configuration directory</td>
+  <td xml:lang="en-US">
+Administrators can configure authorized <tt>sudo</tt> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <tt>/etc/sudoers</tt> only includes drop-in configuration files from <tt>/etc/sudoers.d</tt>.
+The <tt>/etc/sudoers</tt> should contain only one <tt>#includedir</tt> directive pointing to
+<tt>/etc/sudoers.d</tt>, and no file in <tt>/etc/sudoers.d/</tt> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.
+  </td>
+  <td xml:lang="en-US">
+Some <tt>sudo</tt> configurtion options allow users to run programs without re-authenticating.
+Use of these configuration options makes it easier for one compromised accound to be used to
+compromise other accounts.
   </td>
   <td></td>
 </tr>
