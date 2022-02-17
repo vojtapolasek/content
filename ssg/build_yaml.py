@@ -907,8 +907,8 @@ class Benchmark(XCCDFEntity):
     def to_xml_element(self, env_yaml=None, product_cpes=None):
         root = ET.Element('Benchmark')
         root.set('id', self.id_)
-        root.set('xmlns', "http://checklists.nist.gov/xccdf/1.1")
-        root.set('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
+        root.set('xmlns', PREFIX_TO_NS["xccdf-1.1"])
+        root.set('xmlns:xsi', PREFIX_TO_NS["xsi"])
         root.set('xsi:schemaLocation',
                  'http://checklists.nist.gov/xccdf/1.1 xccdf-1.1.4.xsd')
         root.set('style', 'SCAP_1.1')
