@@ -84,6 +84,7 @@ directory_ownership_var_log_audit
 directory_permissions_var_log_audit
 disable_ctrlaltdel_burstaction
 disable_ctrlaltdel_reboot
+disallow_bypass_password_sudo
 dnf-automatic_apply_updates
 dnf-automatic_security_updates_only
 enable_dconf_user_profile

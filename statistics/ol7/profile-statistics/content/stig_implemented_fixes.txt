@@ -126,6 +126,7 @@ dconf_gnome_screensaver_user_locks
 dconf_gnome_session_idle_user_locks
 disable_ctrlaltdel_reboot
 disable_host_auth
+disallow_bypass_password_sudo
 display_login_attempts
 ensure_gpgcheck_globally_activated
 ensure_gpgcheck_local_packages

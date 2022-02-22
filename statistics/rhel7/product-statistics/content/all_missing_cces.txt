@@ -27,6 +27,7 @@ dir_ownership_library_dirs
 dir_permissions_binary_dirs
 dir_permissions_library_dirs
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 etc_system_fips_exists
 file_groupowner_var_log
 file_groupowner_var_log_messages

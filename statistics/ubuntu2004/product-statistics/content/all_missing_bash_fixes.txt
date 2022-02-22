@@ -44,6 +44,7 @@ dhcp_client_restrict_options
 dhcp_server_minimize_served_info
 dir_perms_world_writable_sticky_bits
 disable_users_coredumps
+disallow_bypass_password_sudo
 enable_dconf_user_profile
 encrypt_partitions
 ensure_sudo_group_restricted

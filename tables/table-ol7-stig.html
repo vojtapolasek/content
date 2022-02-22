@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>237</td>
-<td>7</td>
-<td>230</td>
-<td>97.05%</td>
-<td>OL07-00-010118OL07-00-010291OL07-00-010344OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
+<td>6</td>
+<td>231</td>
+<td>97.47%</td>
+<td>OL07-00-010118OL07-00-010291OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -1346,14 +1346,23 @@ and the user will not have to re-authenticate for privileged actions until the u
 </tr>
 <tr>
 <td>V-251700</td>
-<td></td>
+<td>2038</td>
 <td>medium</td>
 <td>The Oracle Linux operating system must not be configured to bypass password requirements for privilege escalation.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Without re-authentication, users may access resources or perform tasks for which they do not
+have authorization. When operating systems provide the capability to escalate a functional
+capability, it is critical the user re-authenticate.</td>
+<td>Verify the operating system is not configured to bypass password requirements for privilege
+escalation. Check the configuration of the "/etc/pam.d/sudo" file with the following command:
+$ sudo grep pam_succeed_if /etc/pam.d/sudo
+      Is it the case that system is configured to bypass password requirements for privilege escalation?
+      </td>
+<td>Verify the operating system is not configured to bypass password requirements for privilege
+escalation. Check the configuration of the "/etc/pam.d/sudo" file with the following command:
+<pre>$ sudo grep pam_succeed_if /etc/pam.d/sudo</pre>
+If any occurrences of "pam_succeed_if" is returned from the command, this is a finding.</td>
 <td>OL07-00-010344</td>
-<td>Missing Rule</td>
+<td>disallow_bypass_password_sudo</td>
 </tr>
 <tr>
 <td>V-228569</td>

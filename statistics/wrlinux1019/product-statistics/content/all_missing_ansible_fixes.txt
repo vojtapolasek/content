@@ -124,6 +124,7 @@ directory_access_var_log_audit
 directory_permissions_var_log_audit
 disable_ctrlaltdel_reboot
 disable_prelink
+disallow_bypass_password_sudo
 etc_system_fips_exists
 file_ownership_binary_dirs
 file_ownership_var_log_audit

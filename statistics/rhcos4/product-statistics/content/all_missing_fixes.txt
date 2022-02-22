@@ -66,6 +66,7 @@ dir_permissions_library_dirs
 dir_perms_world_writable_sticky_bits
 directory_permissions_var_log_audit
 disable_prelink
+disallow_bypass_password_sudo
 display_login_attempts
 enable_dracut_fips_module
 enable_fips_mode

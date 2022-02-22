@@ -106,6 +106,7 @@ dir_perms_world_writable_sticky_bits
 directory_access_var_log_audit
 directory_permissions_var_log_audit
 disable_host_auth
+disallow_bypass_password_sudo
 display_login_attempts
 ensure_gpgcheck_globally_activated
 ensure_logrotate_activated

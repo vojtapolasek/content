@@ -156,6 +156,7 @@ directory_permissions_var_log_audit
 disable_ctrlaltdel_reboot
 disable_host_auth
 disable_prelink
+disallow_bypass_password_sudo
 display_login_attempts
 ensure_gpgcheck_local_packages
 ensure_logrotate_activated

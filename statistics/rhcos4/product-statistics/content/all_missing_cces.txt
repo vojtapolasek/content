@@ -60,6 +60,7 @@ dir_permissions_binary_dirs
 dir_permissions_library_dirs
 disable_host_auth
 disable_prelink
+disallow_bypass_password_sudo
 display_login_attempts
 encrypt_partitions
 etc_system_fips_exists

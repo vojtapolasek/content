@@ -291,6 +291,7 @@ directory_access_var_log_audit
 directory_group_ownership_var_log_audit
 directory_ownership_var_log_audit
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 display_login_attempts
 dnf-automatic_apply_updates
 dnf-automatic_security_updates_only
