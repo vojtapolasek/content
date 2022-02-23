@@ -151,6 +151,7 @@ mount_option_var_tmp_noexec
 mount_option_var_tmp_nosuid
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_netrc_files
 no_rsh_trust_files
 ntpd_specify_multiple_servers

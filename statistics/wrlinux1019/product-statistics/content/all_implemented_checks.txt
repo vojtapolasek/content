@@ -256,6 +256,7 @@ network_configure_name_resolution
 network_sniffer_disabled
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_netrc_files

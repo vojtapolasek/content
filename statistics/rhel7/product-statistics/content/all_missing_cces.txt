@@ -63,6 +63,7 @@ iptables_sshd_disabled
 kerberos_disable_no_keytab
 kernel_disable_entropy_contribution_for_solid_state_drives
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 ntpd_specify_multiple_servers
 package_audit-audispd-plugins_installed
 package_cron_installed

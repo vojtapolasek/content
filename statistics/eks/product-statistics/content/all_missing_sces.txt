@@ -1,6 +1,7 @@
 approved_registries
 audit_logging
 configure_network_policies_namespaces
+dedicated_service_accounts
 file_groupowner_kubelet_conf
 file_groupowner_worker_kubeconfig
 file_owner_kubelet_conf
@@ -21,3 +22,4 @@ kubelet_enable_streaming_connections
 kubelet_read_only_port_secured
 read_only_registry_access
 registry_access
+secret_encryption

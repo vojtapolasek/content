@@ -1665,6 +1665,21 @@ a container anyway.</td>
 </tr>
 <tr>
 <td></td>
+<td>Ensure There Are No Accounts With Blank or Null Passwords</td>
+<td xml:lang="en-US">Check the "/etc/shadow" file for blank passwords with the
+following command:
+<pre>$ sudo awk -F: '!$2 {print $1}' /etc/shadow</pre>
+If the command returns any results, this is a finding.
+Configure all accounts on the system to have a password or lock
+the account with the following commands:
+Perform a password reset:
+<pre>$ sudo passwd [username]</pre>
+Lock an account:
+<pre>$ sudo passwd -l [username]</pre>
+</td>
+</tr>
+<tr>
+<td></td>
 <td>Ensure there are no legacy + NIS entries in /etc/group</td>
 <td xml:lang="en-US">The <code>+</code> character in <code>/etc/group</code> file marks a place where
 entries from a network information service (NIS) should be directly inserted.</td>

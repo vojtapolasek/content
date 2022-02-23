@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>237</td>
-<td>6</td>
-<td>231</td>
-<td>97.47%</td>
-<td>OL07-00-010118OL07-00-010291OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
+<td>5</td>
+<td>232</td>
+<td>97.89%</td>
+<td>OL07-00-010118OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -1093,14 +1093,37 @@ a container anyway.</td>
 </tr>
 <tr>
 <td>V-251698</td>
-<td></td>
+<td>366</td>
 <td>high</td>
 <td>The Oracle Linux operating system must not have accounts configured with blank or null passwords.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>If an account has an empty password, anyone could log in and
+run commands with the privileges of that account. Accounts with
+empty passwords should never be used in operational environments.</td>
+<td>To verify that null passwords cannot be used, run the following command:
+$ sudo awk -F: '!$2 {print $1}' /etc/shadow
+If this produces any output, it may be possible to log into accounts
+with empty passwords.
+Configure all accounts on the system to have a password or lock
+the account with the following commands:
+Perform a password reset:
+$ sudo passwd [username]
+Lock an account:
+$ sudo passwd -l [username]
+      Is it the case that Blank or NULL passwords can be used?
+      </td>
+<td>Check the "/etc/shadow" file for blank passwords with the
+following command:
+<pre>$ sudo awk -F: '!$2 {print $1}' /etc/shadow</pre>
+If the command returns any results, this is a finding.
+Configure all accounts on the system to have a password or lock
+the account with the following commands:
+Perform a password reset:
+<pre>$ sudo passwd [username]</pre>
+Lock an account:
+<pre>$ sudo passwd -l [username]</pre>
+</td>
 <td>OL07-00-010291</td>
-<td>Missing Rule</td>
+<td>no_empty_passwords_etc_shadow</td>
 </tr>
 <tr>
 <td>V-221688</td>
