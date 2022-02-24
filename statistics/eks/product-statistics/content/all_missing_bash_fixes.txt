@@ -8,6 +8,7 @@ file_owner_kubelet_conf
 file_owner_worker_kubeconfig
 file_permissions_kubelet_conf
 file_permissions_worker_kubeconfig
+iam_integration
 image_scanning
 kubelet_anonymous_auth
 kubelet_authorization_mode
