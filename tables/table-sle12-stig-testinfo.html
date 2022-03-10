@@ -2170,6 +2170,57 @@ If the system is 64 bit then also add the following lines:
 <td></td>
 </tr>
 <tr>
+<td>audit_rules_unsuccessful_file_modification_rename</td>
+<td>medium</td>
+<td>Record Unsuccessul Delete Attempts to Files - rename</td>
+<td xml:lang="en-US">Unsuccessful attempts to delete files could be an indicator of malicious activity on a system. Auditing
+these events could serve as evidence of potential system compromise.</td>
+<td xml:lang="en-US">The audit system should collect unsuccessful file deletion
+attempts for all users and root. If the <code>auditd</code> daemon is configured
+to use the <code>augenrules</code> program to read audit rules during daemon
+startup (the default), add the following lines to a file with suffix
+<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>.
+If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
+utility to read audit rules during daemon startup, add the following lines to
+<code>/etc/audit/audit.rules</code> file.
+<pre>-a always,exit -F arch=b32 -S rename -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-delete
+-a always,exit -F arch=b32 -S rename -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-delete</pre>
+If the system is 64 bit then also add the following lines:
+<pre>
+-a always,exit -F arch=b64 -S rename -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-delete
+-a always,exit -F arch=b64 -S rename -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-delete</pre>
+</td>
+<td></td>
+<td></td>
+<td>CCI-000172<br>CCI-002884<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>audit_rules_unsuccessful_file_modification_renameat</td>
+<td>medium</td>
+<td>Record Unsuccessul Delete Attempts to Files - renameat</td>
+<td xml:lang="en-US">Unsuccessful attempts to delete files could be an indicator of malicious activity on a system. Auditing
+these events could serve as evidence of potential system compromise.</td>
+<td xml:lang="en-US">
+The operating system must generate audit records for all uses of the <code>renameat</code> system call.
+Without generating audit records specific to the security and mission needs of the organization, it would be 
+difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+Audit records can be generated from various components within the information system (e.g., module or policy filter).
+Add or update the following lines to <code>/etc/audit/rules.d/audit.rules</code> to configure the the operating system to generate 
+an audit record for all uses of the <code>renameat</code> system call:  
+<pre>
+-a always,exit -F arch=b32 -S renameat -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod
+-a always,exit -F arch=b64 -S renameat -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod 
+</pre>
+</td>
+<td></td>
+<td></td>
+<td>CCI-000172<br>CCI-002884<br>
+</td>
+<td></td>
+</tr>
+<tr>
 <td>audit_rules_unsuccessful_file_modification_truncate</td>
 <td>medium</td>
 <td>Record Unsuccessful Access Attempts to Files - truncate</td>
@@ -2202,6 +2253,52 @@ If the system is 64 bit then also add the following lines:
 <td></td>
 <td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-002884<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>audit_rules_unsuccessful_file_modification_unlink</td>
+<td>medium</td>
+<td>Record Unsuccessul Delete Attempts to Files - unlink</td>
+<td xml:lang="en-US">Unsuccessful attempts to delete files could be an indicator of malicious activity on a system. Auditing
+these events could serve as evidence of potential system compromise.</td>
+<td xml:lang="en-US">
+The operating system must generate audit records for all uses of the <code>unlink</code> system call.
+Without generating audit records specific to the security and mission needs of the organization, it would be 
+difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+Audit records can be generated from various components within the information system (e.g., module or policy filter).
+Add or update the following lines to <code>/etc/audit/rules.d/audit.rules</code> to configure the the operating system to generate 
+an audit record for all uses of the <code>unlink</code> system call:  
+<pre>
+-a always,exit -F arch=b32 -S unlink -F auid&gt;=1000 -F auid!=-1 -k perm_mod
+-a always,exit -F arch=b64 -S unlink -F auid&gt;=1000 -F auid!=-1 -k perm_mod </pre>
+</td>
+<td></td>
+<td></td>
+<td>CCI-000172<br>CCI-002884<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>audit_rules_unsuccessful_file_modification_unlinkat</td>
+<td>medium</td>
+<td>Record Unsuccessul Delete Attempts to Files - unlinkat</td>
+<td xml:lang="en-US">Unsuccessful attempts to delete files could be an indicator of malicious activity on a system. Auditing
+these events could serve as evidence of potential system compromise.</td>
+<td xml:lang="en-US">
+The operating system must generate audit records for all uses of the <code>unlinkat</code> system call.
+Without generating audit records specific to the security and mission needs of the organization, it would be 
+difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+Audit records can be generated from various components within the information system (e.g., module or policy filter).
+Add or update the following lines to <code>/etc/audit/rules.d/audit.rules</code> to configure the the operating system to generate 
+an audit record for all uses of the <code>unlinkat</code> system call:  
+<pre>
+-a always,exit -F arch=b32 -S unlinkat -F auid&gt;=1000 -F auid!=-1 -k perm_mod
+-a always,exit -F arch=b64 -S unlinkat -F auid&gt;=1000 -F auid!=-1 -k perm_mod</pre>
+</td>
+<td></td>
+<td></td>
+<td>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
 </tr>
@@ -4067,11 +4164,7 @@ into the account without authentication. Remove any instances of the
 
 password authentication configurations in <code>/etc/pam.d/</code>
 
-to prevent logins with empty passwords.
-Note that this rule is not applicable for systems running within a
-container. Having user with empty password within a container is not
-considered a risk, because it should not be possible to directly login into
-a container anyway.</td>
+to prevent logins with empty passwords.</td>
 <td></td>
 <td></td>
 <td>CCI-000366<br>
@@ -4477,7 +4570,7 @@ their next login.</td>
 </tr>
 <tr>
 <td>postfix_client_configure_mail_alias</td>
-<td>low</td>
+<td>medium</td>
 <td>Configure System to Forward All Mail For The Root Account</td>
 <td xml:lang="en-US">A number of system services utilize email messages sent to the root user to
 notify system administrators of active or impending issues.  These messages must
@@ -4599,7 +4692,7 @@ Set the correct permissions with the following command:
 </tr>
 <tr>
 <td>security_patches_up_to_date</td>
-<td>high</td>
+<td>medium</td>
 <td>Ensure Software Patches Installed</td>
 <td xml:lang="en-US">Installing software updates is a fundamental mitigation against
 the exploitation of publicly-known vulnerabilities. If the most
@@ -5541,8 +5634,8 @@ kernel writeable structures that can contain functions pointers. If a write vuln
 in the kernel allowing a write access to any of this structure, the kernel can be compromise. This
 option disallow any program withtout the CAP_SYSLOG capability from getting the kernel pointers addresses,
 replacing them with 0.</td>
-<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=1</pre>
-To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = 1</pre>
+<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
 <td></td>
