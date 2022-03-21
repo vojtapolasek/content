@@ -3332,11 +3332,11 @@ can be enabled on the login screen by setting <tt>enable-smartcard-authenticatio
 to <tt>true</tt>.
 <br /><br />
 To enable, add or edit <tt>enable-smartcard-authentication</tt> to
-<tt>/etc/dconf/db/gdm.d/00-security-settings</tt>. For example:
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
 <pre>[org/gnome/login-screen]
 enable-smartcard-authentication=true</pre>
 Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</tt> to prevent user modification.
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
 For example:
 <pre>/org/gnome/login-screen/enable-smartcard-authentication</pre>
 After the settings have been set, run <tt>dconf update</tt>.
@@ -5541,10 +5541,12 @@ administrators of the system, who can take appropriate action.
 Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <tt>/etc/audit/audit.rules</tt></pre>
 
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
+<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -k setuid</pre>
+<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -k setuid</pre>
+<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -k setgid</pre>
+<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.
@@ -6957,11 +6959,11 @@ This functionality should be disabled by setting <tt>disable-user-list</tt>
 to <tt>true</tt>.
 <br /><br />
 To disable, add or edit <tt>disable-user-list</tt> to
-<tt>/etc/dconf/db/gdm.d/00-security-settings</tt>. For example:
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
 <pre>[org/gnome/login-screen]
 disable-user-list=true</pre>
 Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</tt> to prevent
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent
 user modification. For example:
 <pre>/org/gnome/login-screen/disable-user-list</pre>
 After the settings have been set, run <tt>dconf update</tt>.
@@ -7648,11 +7650,11 @@ functionality should be disabled by setting
 <tt>disable-restart-buttons</tt> to <tt>true</tt>.
 <br /><br />
 To disable, add or edit <tt>disable-restart-buttons</tt> to
-<tt>/etc/dconf/db/gdm.d/00-security-settings</tt>. For example:
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
 <pre>[org/gnome/login-screen]
 disable-restart-buttons=true</pre>
 Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</tt> to prevent
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent
 user modification. For example:
 <pre>/org/gnome/login-screen/disable-restart-buttons</pre>
 After the settings have been set, run <tt>dconf update</tt>.
@@ -10894,11 +10896,11 @@ where <i>APPROVED_BANNER</i> is the approved banner for your environment.
 <br /><br />
 To enable, add or edit <tt>banner-message-text</tt> to
 
-<tt>/etc/dconf/db/gdm.d/00-security-settings</tt>. For example:
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
 <pre>[org/gnome/login-screen]
 banner-message-text='<i>APPROVED_BANNER</i>'</pre>
 Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</tt> to prevent user modification.
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
 For example:
 <pre>/org/gnome/login-screen/banner-message-text</pre>
 
@@ -10920,11 +10922,11 @@ in the GNOME Display Manager's login screen can be enabled on the login
 screen by setting <tt>banner-message-enable</tt> to <tt>true</tt>.
 <br /><br />
 To enable, add or edit <tt>banner-message-enable</tt> to
-<tt>/etc/dconf/db/gdm.d/00-security-settings</tt>. For example:
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
 <pre>[org/gnome/login-screen]
 banner-message-enable=true</pre>
 Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</tt> to prevent user modification.
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
 For example:
 <pre>/org/gnome/login-screen/banner-message-enable</pre>
 After the settings have been set, run <tt>dconf update</tt>.
@@ -12284,7 +12286,7 @@ normal usage of the wireless capability.
 
 Configure the system to disable all wireless network interfaces with the
 following command:
-<pre>$ sudo nmcli radio wifi off</pre>
+<pre>$ sudo nmcli radio all off</pre>
   </td>
   <td xml:lang="en-US">
 The use of wireless networking can introduce many different attack vectors into
@@ -12350,6 +12352,19 @@ flaws in its implementation.
   <td>SC-20(a)<br/>CM-6(a)</td>
   <td>Configure Multiple DNS Servers in /etc/resolv.conf</td>
   <td xml:lang="en-US">
+
+Determine whether the system is using local or DNS name resolution with the
+following command:
+<pre>$ sudo grep hosts /etc/nsswitch.conf
+hosts: files dns</pre>
+If the DNS entry is missing from the host's line in the "/etc/nsswitch.conf"
+file, the "/etc/resolv.conf" file must be empty.
+Verify the "/etc/resolv.conf" file is empty with the following command:
+<pre>$ sudo ls -al /etc/resolv.conf
+-rw-r--r-- 1 root root 0 Aug 19 08:31 resolv.conf</pre>
+If the DNS entry is found on the host's line of the "/etc/nsswitch.conf" file,
+then verify the following:<br/>
+
 Multiple Domain Name System (DNS) Servers should be configured
 in <tt>/etc/resolv.conf</tt>. This provides redundant name resolution services
 in the event that a domain server crashes. To configure the system to contain
