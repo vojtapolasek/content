@@ -1790,6 +1790,54 @@ After the settings have been set, run dconf update.</td>
 <td>SRG-OS-000029-GPOS-00010</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must initiate a session lock after a 15-minute period of inactivity for all connection types.</td>
+<td>CCE-80776-8:Set GNOME3 Screensaver Lock Delay After Activation Period</td>
+<td>A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not log out because of the temporary nature of the absence. Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity, operating systems need to be able to identify when a user's session has idled and take action to initiate the session lock.
+
+The session lock is implemented at the point where session activity can be determined and/or controlled.</td>
+<td>To activate the locking delay of the screensaver in the GNOME3 desktop when
+the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub></code> in
+<code>/etc/dconf/db/local.d/00-security-settings</code>. For example:
+<pre>[org/gnome/desktop/screensaver]
+lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
+</pre>
+Once the setting has been added, add a lock to
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system initiates a session lock after a 15-minute period of inactivity for all connection types. If it does not, this is a finding.</td>
+<td>To check that the screen locks immediately when activated, run the following command:
+$ gsettings get org.gnome.desktop.screensaver lock-delay
+If properly configured, the output should be 'uint32 '.
+
+To ensure that users cannot change how long until the the screensaver locks, run the following:
+$ grep lock-delay /etc/dconf/db/local.d/locks/*
+If properly configured, the output for lock-delay should be /org/gnome/desktop/screensaver/lock-delay
+      Is it the case that the screensaver lock delay is missing, or is set to a value greater than 5?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3724r557054_fix">Configure the operating system to initiate a session lock after a 15-minute period of inactivity for all connection types.</fixtext></td>
+<td>To activate the locking delay of the screensaver in the GNOME3 desktop when
+the screensaver is activated, add or set lock-delay to uint32  in
+/etc/dconf/db/local.d/00-security-settings. For example:
+[org/gnome/desktop/screensaver]
+lock-delay=uint32 
+
+Once the setting has been added, add a lock to
+/etc/dconf/db/local.d/locks/00-security-settings-lock to prevent user modification.
+For example:
+/org/gnome/desktop/screensaver/lock-delay
+After the settings have been set, run dconf update.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V-56633</td>
+<td>SRG-OS-000029-GPOS-00010</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must initiate a session lock after a 15-minute period of inactivity for all connection types.</td>
 <td>CCE-82199-1:Configure tmux to lock session after inactivity</td>
 <td>A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not log out because of the temporary nature of the absence. Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity, operating systems need to be able to identify when a user's session has idled and take action to initiate the session lock.
 
@@ -2191,7 +2239,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3729r557069_fix">Configure the operating system to produce audit records containing information to establish what type of events occurred.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -5583,7 +5631,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3730r557072_fix">Configure the operating system to produce audit records containing information to establish when (date and time) the events occurred.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -5623,7 +5671,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3731r557075_fix">Configure the operating system to produce audit records containing information to establish where the events occurred.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -5697,7 +5745,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3732r557078_fix">Configure the operating system to produce audit records containing information to establish the source of the events.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -5735,7 +5783,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3733r557081_fix">Configure the operating system to produce audit records containing information to establish the outcome of the events.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -9026,7 +9074,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3735r557087_fix">Configure the operating system to produce audit records containing the individual identities of group account users.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -9249,7 +9297,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3738r557096_fix">Configure the operating system to provide the capability to centrally review and analyze audit records from multiple components within the system.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -9314,7 +9362,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3739r557099_fix">Configure the operating system to provide the capability to filter audit records for events of interest based upon all audit fields within audit records.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -10436,7 +10484,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3744r557582_fix">Configure the operating system to provide audit record generation capability for DoD-defined auditable events for all operating system components.
 
@@ -20225,7 +20273,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3776r557199_fix">Configure the operating system to provide an audit reduction capability that supports on-demand reporting requirements.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -23362,7 +23410,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3795r374838_fix">Configure the operating system to initiate session audits at system start-up.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -23494,7 +23542,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3796r374901_fix">Configure the operating system to produce audit records containing information to establish the identity of any individual or process associated with the event.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -27295,6 +27343,46 @@ This requirement is specific to operating systems with audit reduction capabilit
 <td>SRG-OS-000349-GPOS-00137</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must provide an audit reduction capability that supports after-the-fact investigations of security incidents.</td>
+<td>CCE-80872-5:Enable auditd Service</td>
+<td>If the audit reduction capability does not support after-the-fact investigations, it is difficult to establish, correlate, and investigate the events leading up to an outage or attack or identify those responses for one. This capability is also required to comply with applicable Federal laws and DoD policies.
+
+Audit reduction capability must support after-the-fact investigations of security incidents either natively or through the use of third-party tools.
+
+This requirement is specific to operating systems with audit reduction capabilities.</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system provides an audit reduction capability that supports after-the-fact investigations of security incidents. If it does not, this is a finding.</td>
+<td>
+
+Run the following command to determine the current status of the
+auditd service:
+$ systemctl is-active auditd
+If the service is running, it should return the following: active
+      Is it the case that the auditd service is not running?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3830r375063_fix">Configure the operating system to provide an audit reduction capability that supports after-the-fact investigations of security incidents.</fixtext></td>
+<td>The auditd service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The auditd service can be enabled with the following command:
+$ sudo systemctl enable auditd.service</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V-57255</td>
+<td>SRG-OS-000349-GPOS-00137</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must provide an audit reduction capability that supports after-the-fact investigations of security incidents.</td>
 <td>CCE-83556-1:Record Events When Privileged Executables Are Run</td>
 <td>If the audit reduction capability does not support after-the-fact investigations, it is difficult to establish, correlate, and investigate the events leading up to an outage or attack or identify those responses for one. This capability is also required to comply with applicable Federal laws and DoD policies.
 
@@ -28367,7 +28455,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3844r375165_fix">Configure the operating system to audit the enforcement actions used to restrict access associated with changes to the system.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -30224,7 +30312,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3860r375270_fix">Configure the operating system to audit all activities performed during nonlocal maintenance and diagnostic sessions.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -49682,7 +49770,7 @@ Run the following command to determine the current status of the
 auditd service:
 $ systemctl is-active auditd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the auditd service is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>The auditd service is an essential userspace component of
@@ -50849,6 +50937,41 @@ $ sudo find PART -xdev -type d -perm -0002 -uid +0 -print
 by root. If any world-writable directories are not owned by root, this
 should be investigated. Following this, the files should be deleted or
 assigned to root user.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-70851</td>
+<td>SRG-OS-000480-GPOS-00227</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
+<td>CCE-85886-0:Ensure All World-Writable Directories Are Group Owned by a System Account</td>
+<td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.
+
+Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
+<td>All directories in local partitions which are
+world-writable should be group owned by root or another
+system account. If any world-writable directories are not
+group owned by a system account, this should be investigated.
+Following this, the files should be deleted or assigned to an
+appropriate group.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
+<td>The following command will discover and print world-writable directories that
+are not group owned by a system account, given the assumption that only system
+accounts have a gid lower than 1000.  Run it once for each local partition PART:
+$ sudo find PART -xdev -type d -perm -0002 -gid +999 -print
+      Is it the case that there is output?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
+<td>All directories in local partitions which are
+world-writable should be group owned by root or another
+system account. If any world-writable directories are not
+group owned by a system account, this should be investigated.
+Following this, the files should be deleted or assigned to an
+appropriate group.</td>
 <td>medium</td>
 <td></td>
 <td></td>
