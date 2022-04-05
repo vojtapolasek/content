@@ -7738,6 +7738,20 @@ The configuration that was used to build kernel is available at <code>/boot/conf
     </td>
 </tr>
 <tr>
+<td>CCE-87304-2</td>
+<td>Trigger a kernel BUG when data corruption is detected</td>
+<td>This option makes the kernel BUG when it encounters data corruption in kernel memory structures
+when they get checked for validity.
+This configuration is available from kernel 4.10.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_BUG_ON_DATA_CORRUPTION</code>, run the following command:
+    <code>grep CONFIG_BUG_ON_DATA_CORRUPTION /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
 <td>CCE-88962-6</td>
 <td>Disable compatibility with brk()</td>
 <td>Enabling compatiliby with <code>brk()</code> allows legacy binaries to run (i.e. those linked
@@ -7771,6 +7785,23 @@ The configuration that was used to build kernel is available at <code>/boot/conf
     </td>
 </tr>
 <tr>
+<td>CCE-86656-6</td>
+<td>Enable checks on credential management</td>
+<td>Enable this to turn on some debug checking for credential management. The additional code keeps
+track of the number of pointers from task_structs to any given cred struct, and checks to see
+that this number never exceeds the usage count of the cred struct.
+
+Furthermore, if SELinux is enabled, this also checks that the security pointer in the cred
+struct is never seen to be invalid.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEBUG_CREDENTIALS</code>, run the following command:
+    <code>grep CONFIG_DEBUG_CREDENTIALS /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
 <td>CCE-88033-6</td>
 <td>Disable kernel debugfs</td>
 <td>
@@ -7783,6 +7814,44 @@ The configuration that was used to build kernel is available at <code>/boot/conf
     
     Configs with value 'n' are not explicitly set in the file, so either commented lines or no
     lines should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-86986-7</td>
+<td>Enable checks on linked list manipulation</td>
+<td>Enable this to turn on extended checks in the linked-list walking routines.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEBUG_LIST</code>, run the following command:
+    <code>grep CONFIG_DEBUG_LIST /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-86814-1</td>
+<td>Enable checks on notifier call chains</td>
+<td>Enable this to turn on sanity checking for notifier call chains. This is most useful for kernel
+developers to make sure that modules properly unregister themselves from notifier chains.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEBUG_NOTIFIERS</code>, run the following command:
+    <code>grep CONFIG_DEBUG_NOTIFIERS /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-87148-3</td>
+<td>Enable checks on scatter-gather (SG) table operations</td>
+<td>Scatter-gather tables are mechanism used for high performance I/O on DMA devices.
+Enable this to turn on checks on scatter-gather tables.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEBUG_SG</code>, run the following command:
+    <code>grep CONFIG_DEBUG_SG /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
     </td>
 </tr>
 <tr>
