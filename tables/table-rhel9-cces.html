@@ -7295,6 +7295,22 @@ The configuration that was used to build kernel is available at <code>/boot/conf
     </td>
 </tr>
 <tr>
+<td>CCE-89060-8</td>
+<td>Emulate Privileged Access Never (PAN)</td>
+<td>Enabling this option prevents the kernel from accessing user-space memory directly by pointing
+TTBR0_EL1 to a reserved zeroed area and reserved ASID.
+The user access routines restore the valid TTBR0_EL1 temporarily.
+This configuration is available from kernel 4.10, but may be available if backported
+by distros.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_ARM64_SW_TTBR0_PAN</code>, run the following command:
+    <code>grep CONFIG_ARM64_SW_TTBR0_PAN /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
 <td>CCE-87767-0</td>
 <td>Disable kernel support for MISC binaries</td>
 <td>Enabling <code>CONFIG_BINFMT_MISC</code> makes it possible to plug wrapper-driven binary formats
@@ -7991,6 +8007,22 @@ to enable legitimate users to continue to connect, even when your machine is und
 The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
     To check the configuration value for <code>CONFIG_SYN_COOKIES</code>, run the following command:
     <code>grep CONFIG_SYN_COOKIES /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-89180-4</td>
+<td>Unmap kernel when running in userspace (aka KAISER)</td>
+<td>Speculation attacks against some high-performance processors can be used to bypass MMU
+permission checks and leak kernel data to userspace. This can be defended against by unmapping
+the kernel when running in userspace, mapping it back in on exception entry via a trampoline
+page in the vector table.
+This configuration is available from kernel 4.16, but may be available if backported
+by distros.
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_UNMAP_KERNEL_AT_EL0</code>, run the following command:
+    <code>grep CONFIG_UNMAP_KERNEL_AT_EL0 /boot/config-*</code>
     
     For each kernel installed, a line with value "y" should be returned.
     </td>
