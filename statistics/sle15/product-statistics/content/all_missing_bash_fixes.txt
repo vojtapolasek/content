@@ -29,7 +29,6 @@ auditd_data_disk_error_action
 auditd_data_retention_flush
 auditd_overflow_action
 avahi_disable_publishing
-banner_etc_motd
 bios_enable_execution_restrictions
 chronyd_server_directive
 configure_etc_hosts_deny
