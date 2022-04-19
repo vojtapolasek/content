@@ -2023,18 +2023,18 @@ thead
       <td>SRG-OS-000380-GPOS-00165</td>
       <td></td>
       <td>The operating system must allow the use of a temporary password for system logons with an immediate change to a permanent password.</td>
-      <td>The operating system must allow the use of a temporary password for system logons with an immediate change to a permanent password.</td>
+      <td>Red Hat Enterprise Linux 9 must allow the use of a temporary password for system logons with an immediate change to a permanent password.</td>
       <td>Without providing this capability, an account may be created without a password. Non-repudiation cannot be guaranteed once an account is created if a user is not forced to change the temporary password upon initial logon.<br><br>Temporary passwords are typically used to allow access when new accounts are created or passwords are changed. It is common practice for administrators to create temporary passwords for user accounts which allow the users to log on, yet force them to change the password once they have successfully authenticated.</td>
-      <td></td>
-      <td>Applicable - Configurable</td>
+      <td>Without providing this capability, an account may be created without a password.<br>Non-repudiation cannot be guaranteed once an account is created if a user is not forced to change the temporary password upon initial logon.<br><br>Temporary passwords are typically used to allow access when new accounts are created or passwords are changed.<br>It is common practice for administrators to create temporary passwords for user accounts that allow the users to log on, yet force them to change the password once they have successfully authenticated.</td>
+      <td>Applicable - Inherently Met</td>
       <td>Verify the operating system allows the use of a temporary password for system logons with an immediate change to a permanent password. If it does not, this is a finding.</td>
-      <td></td>
+      <td>Red Hat Enterprise Linux 9 supports this requirement and cannot be configured to be out of compliance.<br>Red Hat Enterprise Linux 9 inherently meets this requirement.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>Red Hat Enterprise Linux 9 offers the following commands to facilitate the use of a temporary password.<br><br>chage -d 0 [username]<br>(forces the user to change their password at next logon)<br><br>passwd -e [username]<br>(expires the passwd for a given user forcing a change at next logon.)</td>
+      <td>Red Hat Enterprise Linux 9 has the capability to perform temporary passwords based on organization policy.<br>Configuration is not appropriate to define at an enterprise level.</td>
     </tr>
     <tr>
       <th>99</th>
@@ -2083,18 +2083,18 @@ thead
       <td>SRG-OS-000113-GPOS-00058</td>
       <td></td>
       <td>The operating system must implement replay-resistant authentication mechanisms for network access to non-privileged accounts.</td>
-      <td>The operating system must implement replay-resistant authentication mechanisms for network access to non-privileged accounts.</td>
+      <td>Red Hat Enterprise Linux 9 system must implement replay-resistant authentication mechanisms for network access to non-privileged accounts.</td>
       <td>A replay attack may enable an unauthorized user to gain access to the operating system. Authentication sessions between the authenticator and the operating system validating the user credentials must not be vulnerable to a replay attack.<br><br>An authentication process resists replay attacks if it is impractical to achieve a successful authentication by recording and replaying a previous authentication message.<br><br>A non-privileged account is any operating system account with authorizations of a non-privileged user.<br><br>Techniques used to address this include protocols using nonces (e.g., numbers generated for a specific one-time use) or challenges (e.g., TLS, WS_Security). Additional techniques include time-synchronous or challenge-response one-time authenticators.</td>
       <td></td>
-      <td>Applicable - Configurable</td>
+      <td>Applicable - Inherently Met</td>
       <td>Verify the operating system implements replay-resistant authentication mechanisms for network access to non-privileged accounts. If it does not, this is a finding.</td>
+      <td>Red Hat Enterprise Linux 9 supports this requirement and cannot be configured to be out of compliance.<br>Red Hat Enterprise Linux 9 inherently meets this requirement.</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>Red Hat Enterprise Linux 9 inherently meets this requirement.<br>No fix is required.</td>
       <td>CAT II</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>The release notes of OpenSSH 7.6 states "OpenSSH is a 100% complete SSH protocol 2.0 implementation and includes sftp client and server support."<br>https://www.openssh.com/txt/release-7.6</td>
+      <td>The OpenSSH package in Red Hat Enterprise Linux 9 is version 8.7, which is newer than 7.6 which only supports SSH protocol 2.0 which is restraint to replay attacks.</td>
     </tr>
     <tr>
       <th>102</th>
