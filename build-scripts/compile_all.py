@@ -117,7 +117,6 @@ def main():
 
     env_yaml = get_env_yaml(args.build_config_yaml, args.product_yaml)
     product_cpes = ProductCPEs()
-    product_cpes.load_product_cpes(env_yaml)
     product_cpes.load_content_cpes(env_yaml)
 
     build_root = os.path.dirname(args.build_config_yaml)
