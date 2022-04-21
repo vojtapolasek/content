@@ -140,7 +140,6 @@ def product_cpes():
     product_yaml = open_raw(product_yaml_path)
     product_yaml["product_dir"] = os.path.dirname(product_yaml_path)
     product_cpes = ProductCPEs()
-    product_cpes.load_product_cpes(product_yaml)
     product_cpes.load_content_cpes(product_yaml)
     return product_cpes
 
