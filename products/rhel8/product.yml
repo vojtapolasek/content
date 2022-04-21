@@ -96,3 +96,6 @@ centos_major_version: "8"
 
 reference_uris:
   cis: 'https://www.cisecurity.org/benchmark/red_hat_linux/'
+
+platforms:
+    - os_release[rhel]==8
