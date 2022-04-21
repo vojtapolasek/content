@@ -631,13 +631,13 @@ class Benchmark(XCCDFEntity):
         notice_description=lambda: "",
         front_matter=lambda: "",
         rear_matter=lambda: "",
-        cpes=lambda: list(),
+        cpe_platform_names=lambda: set(),
         version=lambda: "",
         profiles=lambda: list(),
         values=lambda: dict(),
         groups=lambda: dict(),
         rules=lambda: dict(),
-        platforms=lambda: dict(),
+        platforms=lambda: set(),
         product_cpe_names=lambda: list(),
         ** XCCDFEntity.KEYS
     )
@@ -698,10 +698,15 @@ class Benchmark(XCCDFEntity):
     def from_yaml(cls, yaml_file, env_yaml=None, product_cpes=None):
         benchmark = super(Benchmark, cls).from_yaml(yaml_file, env_yaml)
         if env_yaml:
-            benchmark.product_cpe_names = product_cpes.get_product_cpe_names()
             benchmark.product_cpes = product_cpes
             benchmark.id_ = env_yaml["benchmark_id"]
             benchmark.version = env_yaml["ssg_version_str"]
+            if env_yaml["platforms"]:
+                benchmark.platforms.update(env_yaml["platforms"])
+                for platform in benchmark.platforms:
+                    cpe_platform = Platform.from_text(platform, product_cpes)
+                    cpe_platform = add_platform_if_not_defined(cpe_platform, product_cpes)
+                    benchmark.cpe_platform_names.add(cpe_platform.id_)
         else:
             benchmark.id_ = "product-name"
             benchmark.version = "0.0"
@@ -765,9 +770,9 @@ class Benchmark(XCCDFEntity):
 
         # The Benchmark applicability is determined by the CPEs
         # defined in the product.yml
-        for cpe_name in self.product_cpe_names:
+        for cpe_name in self.cpe_platform_names:
             plat = ET.SubElement(root, "platform")
-            plat.set("idref", cpe_name)
+            plat.set("idref", "#"+cpe_name)
 
         version = ET.SubElement(root, 'version')
         version.text = self.version
