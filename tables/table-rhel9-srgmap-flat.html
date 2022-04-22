@@ -1466,7 +1466,7 @@ a file under <code>/etc/security/limits.d/</code>:
 <td>Verify the operating system limits the number of concurrent sessions to ten for all accounts and/or account types. If it does not, this is a finding.</td>
 <td>Run the following command to ensure the maxlogins value is
 configured for all users on the system:
-# grep "maxlogins" /etc/security/limits.conf
+# grep "maxlogins" /etc/security/limits.conf /etc/security/limits.d/*.conf
 You should receive output similar to the following:
 *\t\thard\tmaxlogins\t
       Is it the case that maxlogins is not equal to or less than the expected value?
@@ -27582,11 +27582,13 @@ If no <code>server</code> or <code>pool</code> directives are configured, the ru
 to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system, for networked systems, compares internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS). If it does not, this is a finding.</td>
-<td>To verify that maxpoll has been set properly, perform the following:
+<td>Verify Red Hat Enterprise Linux 9 is securely comparing internal information system clocks at a regular interval with an NTP server with the following commands:
+
+To verify that maxpoll has been set properly, perform the following:
 $ sudo grep maxpoll /etc/ntp.conf /etc/chrony.conf
 The output should return:
 maxpoll .
-      Is it the case that it does not exist or maxpoll has not been set to the expected value?
+      Is it the case that maxpoll does not exist or maxpoll has not been set to the expected value of &lt;sub idref="var_time_service_set_maxpoll" /&gt;?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3836r375141_fix">Configure the operating system to, for networked systems, compare internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).</fixtext></td>
 <td>The maxpoll should be configured to
@@ -27653,11 +27655,13 @@ If no <code>server</code> or <code>pool</code> directives are configured, the ru
 to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system synchronizes internal information system clocks to the authoritative time source when the time difference is greater than one second. If it does not, this is a finding.</td>
-<td>To verify that maxpoll has been set properly, perform the following:
+<td>Verify Red Hat Enterprise Linux 9 is securely comparing internal information system clocks at a regular interval with an NTP server with the following commands:
+
+To verify that maxpoll has been set properly, perform the following:
 $ sudo grep maxpoll /etc/ntp.conf /etc/chrony.conf
 The output should return:
 maxpoll .
-      Is it the case that it does not exist or maxpoll has not been set to the expected value?
+      Is it the case that maxpoll does not exist or maxpoll has not been set to the expected value of &lt;sub idref="var_time_service_set_maxpoll" /&gt;?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3837r375144_fix">Configure the operating system to synchronize internal information system clocks to the authoritative time source when the time difference is greater than the organization-defined time period.</fixtext></td>
 <td>The maxpoll should be configured to
@@ -27876,11 +27880,13 @@ If no <code>server</code> or <code>pool</code> directives are configured, the ru
 to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system records time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT). If it does not, this is a finding.</td>
-<td>To verify that maxpoll has been set properly, perform the following:
+<td>Verify Red Hat Enterprise Linux 9 is securely comparing internal information system clocks at a regular interval with an NTP server with the following commands:
+
+To verify that maxpoll has been set properly, perform the following:
 $ sudo grep maxpoll /etc/ntp.conf /etc/chrony.conf
 The output should return:
 maxpoll .
-      Is it the case that it does not exist or maxpoll has not been set to the expected value?
+      Is it the case that maxpoll does not exist or maxpoll has not been set to the expected value of &lt;sub idref="var_time_service_set_maxpoll" /&gt;?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3839r375150_fix">Configure the operating system to record time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT).</fixtext></td>
 <td>The maxpoll should be configured to
