@@ -4,4 +4,6 @@
 # complexity = low
 # disruption = low
 
+(bash-populate var_compare_function)
+
 {{{ bash_package_install(package=PKGNAME) }}}
