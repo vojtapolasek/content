@@ -7825,12 +7825,12 @@ Audit processing failures include software/hardware errors, failures in the audi
 This requirement applies to each audit data storage repository (i.e., distinct information system component where audit records are stored), the centralized audit storage capacity of organizations (i.e., all audit data storage repositories combined), or both.</td>
 <td>If the <code>auditd</code> daemon is configured to use the
 <code>augenrules</code> program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix <code>.rules</code> in the
-directory <code>/etc/audit/rules.d</code>:
+default), add the following line to to the bottom of a file with suffix
+<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
 <pre>-f 2</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to the
-top of the <code>/etc/audit/audit.rules</code> file:
+bottom of the <code>/etc/audit/audit.rules</code> file:
 <pre>-f 2</pre>
 </td>
 <td>Applicable - Configurable</td>
@@ -7845,12 +7845,12 @@ The output should contain:
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3736r557090_fix">Configure the operating system to alert the ISSO and SA (at a minimum) in the event of an audit processing failure.</fixtext></td>
 <td>If the auditd daemon is configured to use the
 augenrules program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix .rules in the
-directory /etc/audit/rules.d:
+default), add the following line to to the bottom of a file with suffix
+.rules in the directory /etc/audit/rules.d:
 -f 2
 If the auditd daemon is configured to use the auditctl
 utility to read audit rules during daemon startup, add the following line to the
-top of the /etc/audit/audit.rules file:
+bottom of the /etc/audit/audit.rules file:
 -f 2</td>
 <td>medium</td>
 <td></td>
@@ -7908,12 +7908,12 @@ When availability is an overriding concern, other approved actions in response t
 2) If audit records are sent to a centralized collection server and communication with this server is lost or the server fails, the operating system must queue audit records locally until communication is restored or until the audit records are retrieved manually. Upon restoration of the connection to the centralized collection server, action should be taken to synchronize the local audit data with the collection server.</td>
 <td>If the <code>auditd</code> daemon is configured to use the
 <code>augenrules</code> program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix <code>.rules</code> in the
-directory <code>/etc/audit/rules.d</code>:
+default), add the following line to to the bottom of a file with suffix
+<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
 <pre>-f 2</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to the
-top of the <code>/etc/audit/audit.rules</code> file:
+bottom of the <code>/etc/audit/audit.rules</code> file:
 <pre>-f 2</pre>
 </td>
 <td>Applicable - Configurable</td>
@@ -7928,12 +7928,12 @@ The output should contain:
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3737r557093_fix">Configure the operating system to shut down by default upon audit failure (unless availability is an overriding concern).</fixtext></td>
 <td>If the auditd daemon is configured to use the
 augenrules program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix .rules in the
-directory /etc/audit/rules.d:
+default), add the following line to to the bottom of a file with suffix
+.rules in the directory /etc/audit/rules.d:
 -f 2
 If the auditd daemon is configured to use the auditctl
 utility to read audit rules during daemon startup, add the following line to the
-top of the /etc/audit/audit.rules file:
+bottom of the /etc/audit/audit.rules file:
 -f 2</td>
 <td>medium</td>
 <td></td>
@@ -14185,9 +14185,8 @@ length credit for each uppercase character. Modify the <code>ucredit</code> sett
 <td>To check how many uppercase characters are required in a password, run the following command:
 $ grep ucredit /etc/security/pwquality.conf
 The ucredit parameter (as a negative number) will indicate how many uppercase characters are required.
-The DoD and FISMA require at least one uppercase character in a password.
 This would appear as ucredit = -1.
-      Is it the case that ucredit is not found or not set less than or equal to the required value?
+      Is it the case that ucredit is not found or not set to the required value?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3750r557600_fix">Configure the operating system to enforce password complexity by requiring that at least one upper-case character be used.</fixtext></td>
 <td>The pam_pwquality module's ucredit= parameter controls requirements for
@@ -16041,7 +16040,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that the autofs service is not disabled?
+      Is it the case that the "autofs" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3772r557187_fix">Configure the operating system to uniquely identify peripherals before establishing a connection.</fixtext></td>
 <td>The autofs daemon mounts and unmounts filesystems, such as user
@@ -21395,7 +21394,7 @@ If using TCP, a line similar to the following should be present:
  *.* @@
 If using RELP, a line similar to the following should be present:
  *.* :omrelp:
-      Is it the case that none of these are present?
+      Is it the case that no evidence that the audit logs are being off-loaded to another system or media?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3826r375051_fix">Configure the operating system to off-load audit records onto a different system or media from the system being audited.</fixtext></td>
 <td>To configure rsyslog to send logs to a remote log server,
@@ -23582,7 +23581,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that the autofs service is not disabled?
+      Is it the case that the "autofs" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3855r375198_fix">Configure the operating system to authenticate peripherals before establishing a connection.</fixtext></td>
 <td>The autofs daemon mounts and unmounts filesystems, such as user
@@ -39627,7 +39626,7 @@ If using TCP, a line similar to the following should be present:
  *.* @@
 If using RELP, a line similar to the following should be present:
  *.* :omrelp:
-      Is it the case that none of these are present?
+      Is it the case that no evidence that the audit logs are being off-loaded to another system or media?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3902r375723_fix">Configure the operating system to, at a minimum, off-load interconnected systems in real time and off-load standalone systems weekly.</fixtext></td>
 <td>To configure rsyslog to send logs to a remote log server,
@@ -41341,7 +41340,7 @@ If using TCP, a line similar to the following should be present:
  *.* @@
 If using RELP, a line similar to the following should be present:
  *.* :omrelp:
-      Is it the case that none of these are present?
+      Is it the case that no evidence that the audit logs are being off-loaded to another system or media?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>To configure rsyslog to send logs to a remote log server,
@@ -42264,7 +42263,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that the autofs service is not disabled?
+      Is it the case that the "autofs" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>The autofs daemon mounts and unmounts filesystems, such as user
@@ -42525,7 +42524,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that ?
+      Is it the case that the "kdump" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>The kdump service provides a kernel crash dump analyzer. It uses the kexec

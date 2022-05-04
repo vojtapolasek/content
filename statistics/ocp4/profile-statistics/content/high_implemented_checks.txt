@@ -49,6 +49,7 @@ cluster_version_operator_verify_integrity
 cluster_wide_proxy_set
 compliance_notification_enabled
 compliancesuite_exists
+configure_network_policies
 configure_network_policies_namespaces
 controller_insecure_port_disabled
 controller_rotate_kubelet_server_certs
@@ -69,6 +70,7 @@ file_integrity_exists
 file_integrity_notification_enabled
 file_permissions_proxy_kubeconfig
 fips_mode_enabled
+gitops_operator_exists
 idp_is_configured
 ingress_controller_certificate
 kubeadmin_removed
