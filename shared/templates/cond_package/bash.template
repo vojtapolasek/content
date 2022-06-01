@@ -1,3 +1,5 @@
-# include = bash_pkg_compare
-
-{{{ bash_pkg_conditional(PKGNAME) }}}
+{{%- if SPECS|length >= 1 -%}}
+  {{{ bash_package_version_conditional(PKGNAME, SPECS).rstrip().split("\n")|join(" && ") }}}
+  {{%- else -%}}
+    {{{ bash_package_installed(pkgname) }}}
+{{%- endif -%}}

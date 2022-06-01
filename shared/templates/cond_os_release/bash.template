@@ -1,3 +1,6 @@
-# include = bash_os_compare
-
-{{{ bash_os_release_conditional(OS_ID) }}}
+{{%- set os_name_cond = bash_os_release_name_conditional(OS_ID) -%}}
+{{%- if SPECS|length >= 1 -%}}
+  {{{ os_name_cond }}} && {{{ bash_os_release_version_conditional(SPECS).split("\n")|join(" && ") }}}
+{{%- else -%}}
+  {{{ os_name_cond }}}
+{{%- endif -%}}

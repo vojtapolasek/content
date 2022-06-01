@@ -190,8 +190,7 @@ class BashRemediation(Remediation):
                     rule_specific_conditionals.append(stripped)
 
         if inherited_conditionals or rule_specific_conditionals:
-            wrapped_fix_text = ["# Remediation is applicable only in certain platforms",
-                                "do_something_magical"]
+            wrapped_fix_text = ["# Remediation is applicable only in certain platforms"]
             all_conditions = ""
             if inherited_conditionals:
                 all_conditions += " && ".join(inherited_conditionals)

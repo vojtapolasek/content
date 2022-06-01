@@ -1746,14 +1746,37 @@ Part of the grub2_bootloader_argument_absent template.
 {{{ grub_command("remove", arg_name) }}}
 {{% endmacro %}}
 
+
+{{%- macro bash_package_version_conditional(pkgname, specs) -%}}
+  {{%- for spec in specs -%}}
+  {{% if spec.evr_op == "equals" %}}
+    {{%- if pkg_manager == "apt_get" -%}}
+      dpkg --compare-versions "$(dpkg-query --showformat='${source:Upstream-Version}' --show {{{ pkgname }}})" eq {{{ spec.ver }}}
+    {{%- else -%}}
+      [ "$(rpm -q --queryformat='%{VERSION}' {{{ pkgname }}})" == "{{{ spec.ver }}}" ]
+    {{%- endif -%}}
+  {{%- endif -%}}
+  {{%- endfor -%}}
+{{%- endmacro -%}}
+
+
 {{#
   This macro creates a bash conditional which is used to determine if a remediation is applicable.
   The macro takes OS id as an argument and matches it against ID field from /etc/os-release.
   If id are the same, the Bash remediation will be applied.
 #}}
-{{%- macro bash_os_release_conditional(os_id) -%}}
-grep ID /etc/os-release | grep "{{{ os_id }}}"
+{{%- macro bash_os_release_name_conditional(os_id) -%}}
+grep -q 'ID=\("\)\?{{{ os_id }}}\("\)\?' /etc/os-release
 {{%- endmacro -%}}
+
+{{%- macro bash_os_release_version_conditional(specs) -%}}
+  {{%- for spec in specs -%}}
+    {{%- if spec.evr_op == "equals" -%}}
+      grep -q 'VERSION_ID=\("\)\?{{{ spec.ver }}}\("\)\?' /etc/os-release
+    {{%- endif -%}}
+{{%- endfor -%}}
+{{%- endmacro -%}}
+
 
 
 {{#
