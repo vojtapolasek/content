@@ -18,6 +18,14 @@ rationale: |-
 
 severity: medium
 
+{{% if product == "rhel8" %}}
+platforms:
+    - rhel_greater_equal_8_7
+{{% elif product == "rhel9" %}}
+platforms:
+    - rhel_greater_equal_9_1
+{{% endif %}}
+
 identifiers:
     cce@rhel8: CCE-90784-0
     cce@rhel9: CCE-90785-7
