@@ -27,7 +27,7 @@ SSG_REF_URIS = {
     'pcidss4': 'https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf',
     'ospp': 'https://www.niap-ccevs.org/Profile/PP.cfm',
     'hipaa': 'https://www.gpo.gov/fdsys/pkg/CFR-2007-title45-vol1/pdf/CFR-2007-title45-vol1-chapA-subchapC.pdf',
-    'ism': 'https://www.cyber.gov.au/acsc/view-all-content/ism',
+    'ism': 'https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism',
     'iso27001-2013': 'https://www.iso.org/standard/54534.html',
     'nerc-cip': 'https://www.nerc.com/pa/Stand/Standard%20Purpose%20Statement%20DL/US_Standard_One-Stop-Shop.xlsx',
     'stigid': 'https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=operating-systems%2Cunix-linux',
