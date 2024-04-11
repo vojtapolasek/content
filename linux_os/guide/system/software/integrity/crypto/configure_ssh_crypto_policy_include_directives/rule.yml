@@ -1,0 +1,53 @@
+documentation_complete: true
+
+title: 'Configure SSH to use System Crypto Policy'
+
+description: |-
+    Crypto Policies provide a centralized control over crypto algorithms usage of many packages.
+    SSH consumes configuration prescribed by Crypto Policies by including special configuration files.
+    To check that Crypto Policies settings are configured correctly, ensure that
+    the file <tt>/etc/ssh/sshd_config.d/50-redhat.conf</tt> is included by the
+    main SSH server configuration.
+    Additionally, the file <tt>/etc/ssh/sshd_config.d/50-redhat.conf</tt> should
+    include the file provided by Crypto Policy at
+    <tt>/etc/crypto-policies/back-ends/opensshserver.config</tt>
+
+rationale: |-
+    It is important to ensure that the correct configuration provided by Crypto Policies is loaded by the SSH server.
+
+severity: medium
+
+identifiers:
+    cce@rhel9: CCE-86101-3
+
+references:
+    disa: CCI-001453
+    srg: SRG-OS-000250-GPOS-00093
+
+ocil_clause: |-
+    "Include /etc/ssh/sshd_config.d/*.conf" or "Include
+    /etc/crypto-policies/back-ends/opensshserver.config" are not included in the
+    system sshd config or the file "/etc/ssh/sshd_config.d/50-redhat.conf" is
+    missing
+
+ocil: |-
+    Verify that system-wide crypto policies are in effect with the following
+    command:
+    <pre>
+    $ sudo grep Include /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*
+    </pre>
+    The output should show the following:
+    <pre>
+    /etc/ssh/sshd_config:Include /etc/ssh/sshd_config.d/*.conf
+    /etc/ssh/sshd_config.d/50-redhat.conf:Include /etc/crypto-policies/back-ends/opensshserver.config
+    </pre>
+
+fixtext: |-
+    Configure the RHEL 9 SSH daemon to use system-wide crypto policies by
+    running the following commands:
+    <pre>
+    $ sudo dnf reinstall openssh-server
+    </pre>
+
+srg_requirement: |-
+    {{{ full_name }}} must implement DoD-approved encryption in the OpenSSH package.
