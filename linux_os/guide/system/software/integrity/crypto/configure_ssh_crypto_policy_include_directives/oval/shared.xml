@@ -1,0 +1,40 @@
+<def-group>
+  <definition class="compliance" id="{{{rule_id}}}" version="1">
+    {{{ oval_metadata("SSH should be configured to use the system-wide crypto policy setting.") }}}
+    <criteria operator="AND">
+      <criterion test_ref="test_configure_ssh_crypto_policy_include_directive_sshd_config"
+      comment="Check that config files from within /etc/ssh/sshd_config.d/*.conf are included by /etc/ssh/sshd_config" />
+      <criterion test_ref="test_configure_ssh_crypto_policy_include_directive_backends_openssh"
+      comment="Check that the file /etc/crypto-policies/back-ends/opensshserver.config is included by /etc/ssh/sshd_config.d/50-redhat.conf" />
+    </criteria>
+  </definition>
+
+  <ind:textfilecontent54_test id="test_configure_ssh_crypto_policy_include_directive_sshd_config"
+  comment="Check that config files from within /etc/ssh/sshd_config.d/*.conf are included by /etc/ssh/sshd_config"
+  check="all" check_existence="all_exist" version="1">
+    <ind:object object_ref="object_configure_ssh_crypto_policy_include_directive_sshd_config" />
+  </ind:textfilecontent54_test>
+
+  <ind:textfilecontent54_object id="object_configure_ssh_crypto_policy_include_directive_sshd_config" version="1"
+  comment="Check that config files from within /etc/ssh/sshd_config.d/*.conf are included by /etc/ssh/sshd_config">
+    <ind:filepath>/etc/ssh/sshd_config</ind:filepath>
+    <ind:pattern operation="pattern match">^\s*Include /etc/ssh/sshd_config.d/\*.conf$</ind:pattern>
+    <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+  </ind:textfilecontent54_object>
+
+  <ind:textfilecontent54_test id="test_configure_ssh_crypto_policy_include_directive_backends_openssh"
+  comment="Check that the file /etc/crypto-policies/back-ends/opensshserver.config is included by /etc/ssh/sshd_config.d/50-redhat.conf"
+  check="all" check_existence="all_exist" version="1">
+    <ind:object object_ref="object_configure_ssh_crypto_policy_include_directive_backends_openssh" />
+  </ind:textfilecontent54_test>
+
+  <ind:textfilecontent54_object id="object_configure_ssh_crypto_policy_include_directive_backends_openssh" version="1"
+  comment="Check that the file /etc/crypto-policies/back-ends/opensshserver.config is included by /etc/ssh/sshd_config.d/50-redhat.conf">
+    <ind:filepath>/etc/ssh/sshd_config.d/50-redhat.conf</ind:filepath>
+    <ind:pattern operation="pattern match">^\s*Include /etc/crypto-policies/back-ends/opensshserver.config$</ind:pattern>
+    <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+  </ind:textfilecontent54_object>
+
+
+
+</def-group>
