@@ -1865,8 +1865,7 @@ controls:
             RHEL 9 must implement DOD-approved encryption ciphers to protect the confidentiality
             of SSH client connections.
         rules:
-            - harden_sshd_ciphers_openssh_conf_crypto_policy
-            - sshd_approved_ciphers=stig_rhel9
+            - configure_ssh_crypto_policy_include_directives
         status: automated
 
     -   id: RHEL-09-255065

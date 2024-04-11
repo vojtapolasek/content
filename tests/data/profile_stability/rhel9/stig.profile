@@ -194,6 +194,7 @@ selections:
 - configure_openssl_crypto_policy
 - configure_openssl_tls_crypto_policy
 - configure_ssh_crypto_policy
+- configure_ssh_crypto_policy_include_directives
 - configure_tmux_lock_after_time
 - configure_tmux_lock_command
 - configure_tmux_lock_keybinding
@@ -322,7 +323,6 @@ selections:
 - grub2_pti_argument
 - grub2_slub_debug_argument
 - grub2_vsyscall_argument
-- harden_sshd_ciphers_openssh_conf_crypto_policy
 - harden_sshd_ciphers_opensshserver_conf_crypto_policy
 - install_smartcard_packages
 - installed_OS_is_vendor_supported
@@ -571,7 +571,6 @@ selections:
 - var_sshd_set_keepalive=1
 - var_rekey_limit_size=1G
 - var_rekey_limit_time=1hour
-- sshd_approved_ciphers=stig_rhel9
 - var_networkmanager_dns_mode=none
 - var_multiple_time_servers=stig
 - var_time_service_set_maxpoll=18_hours
