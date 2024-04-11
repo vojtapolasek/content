@@ -9,6 +9,7 @@ packages:
 - openssh-clients
 - openssh-server
 rules:
+- configure_ssh_crypto_policy_include_directives
 - disable_host_auth
 - file_groupowner_sshd_config
 - file_groupownership_sshd_private_key
