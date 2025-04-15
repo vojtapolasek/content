@@ -4,7 +4,7 @@
 # complexity = low
 # disruption = medium
 
-- name: "Get root paths which are not symbolic links"
+- name: "{{{ RULE_TITLE }}} - Get root paths which are not symbolic links"
   stat:
     path: "{{ item }}"
   changed_when: False
