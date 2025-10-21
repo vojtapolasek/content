@@ -1,0 +1,1413 @@
+policy: Indian Telecom Security Assurance Requirements (ITSAR)
+title: Network Function Virtualization (NFV)
+id: itsar
+version: 1.0.0
+source: National Centre for Communication Security (NCCS), Government of India
+
+levels:
+  - id: common_security_requirements
+  - id: nfv_infrastructure
+  - id: virtualization_security
+  - id: virtual_machine
+    inherits_from:
+      - virtualization_security
+  - id: container
+    inherits_from:
+      - virtualization_security
+  - id: vnf_cnf_related
+    inherits_from:
+      - virtualization_security
+  - id: sdn
+  - id: mano
+
+reference_type: ITSAR
+product: nfv
+
+controls:
+
+  - id: 2.1.1
+    title: Management Protocols Mutual Authentication
+    levels:
+      - common_security_requirements
+    description: |
+      The system management shall support mutual authentication mechanisms...
+      Secure cryptographic controls... shall only be used...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_mutual_auth_config
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.4.4.1.
+      Adaptation likely needed for specific crypto requirements.'
+
+  - id: 2.1.2
+    title: Management Traffic Protection
+    levels:
+      - common_security_requirements
+    description: |
+      The management traffic shall be protected strictly using secure cryptographic controls...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_secure_management_protocols
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.2.4.
+      Adaptation likely needed for specific crypto requirements.'
+
+  - id: 2.1.3
+    title: Role-based access control policy
+    levels:
+      - common_security_requirements
+    description: |
+      The system shall support Role-Based Access Control (RBAC)... minimum of 3 user roles...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_log_failed_password_attempts
+    rules:
+        # TODO: Implement application/platform-specific RBAC checks. Existing OS rules offer minimal coverage.
+      - sudo_require_authentication
+    notes: 'Reference TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.4.6.2. Gap: Requires application/platform-specific checks beyond typical
+      OS rules.'
+
+  - id: 2.1.4
+    title: User Authentication - Local/Remote
+    levels:
+      - common_security_requirements
+    description: |
+      ...authentication attribute... Cryptographic keys, Token, Passwords...
+      Minimum two... combined for protecting all the accounts from misuse...
+      Exception... local access and machine accounts... one attribute...
+      Same authentication credentials must not be reused...
+
+# TODO: The following rules need to be implemented or were placeholders: configure_pam_auth_methods, placeholder_require_mfa
+    rules:
+        # TODO: Implement logic to verify the *combination* of two factors and check for credential reuse across components. Replace placeholder MFA rule.
+      - sshd_enable_pubkey_auth
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.4.2.1. Gap/Adaptation: Enforcing *combination* of two factors and checking
+      credential reuse across components needs specific logic beyond standard rules.'
+
+  - id: 2.1.5
+    title: Remote login restrictions for privileged users
+    levels:
+      - common_security_requirements
+    description: |
+      Login to system as root or equivalent... limited to the system console only.
+      Root user will not be allowed to login to remotely...
+
+# TODO: The following rules need to be implemented or were placeholders: sshd_permit_root_login_no
+    rules:
+      - securetty_root_login_console_only
+    notes: 'Reference TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.3.2.6.'
+
+  - id: 2.1.6
+    title: Authorization Policy
+    levels:
+      - common_security_requirements
+    description: |
+      ...authorizations... reduced to the minimum required (least privilege)...
+      ...Applications shall not be executed with administrator or system rights.
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_sudo_used_appropriately, file_ownership_unauthorized_users, services_run_as_non_root
+    rules:
+        # TODO: Implement application-specific checks for least privilege execution.
+      - file_permissions_unauthorized_world_writable
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.4.6.1. Partially covered by file permission/ownership rules and service
+      configurations. Application-specific checks are gaps.'
+
+  - id: 2.1.7
+    title: Unambiguous identification of the user & group accounts removal
+    levels:
+      - common_security_requirements
+    description: |
+      Users shall be identified unambiguously... assignment of individual accounts per user...
+      System shall not enable the use of group accounts or group credentials...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_no_uid_0_multiple_users
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.4.1.2.
+      Gap: Rule for preventing shared non-root accounts or group credential usage
+      is likely missing.'
+
+  - id: 2.1.8
+    title: Out of band Management
+    levels:
+      - common_security_requirements
+    description: |
+      Management interfaces shall be secured... Out-of-band management network... not accessible from the internet.
+      Multi-factor authentication (MFA) shall be used for remote access through VPN.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_require_mfa
+    notes: 'Reference: ENISA NFV Security in 5G - Challenges and Best Practices (Feb2022),
+      BP-T08. Gap: Network segmentation (OOB) requires infrastructure checks, not
+      host rules. MFA part potentially covered.'
+
+  - id: 2.2.1
+    title: Authentication Policy
+    levels:
+      - common_security_requirements
+    description: |
+      ...without successful authentication... at least two authentication attributes... shall be prevented.
+      For machine accounts and local access one... sufficient.
+
+# TODO: The following rules need to be implemented or were placeholders: configure_pam_auth_methods, placeholder_require_mfa, require_single_user_mode_auth
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.4.1.1.
+      Gap/Adaptation: Enforcing *combination* of two factors needs specific logic.'
+
+  - id: 2.2.2
+    title: Authentication Support - External
+    levels:
+      - common_security_requirements
+    description: |
+      If the system supports external authentication mechanism such as AAA server...
+      communication... shall be protected using... Secure cryptographic controls...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_secure_external_auth_protocol
+    notes: 'Adaptation likely needed for specific crypto requirements.'
+
+  - id: 2.2.3
+    title: Protection against brute force and dictionary attacks
+    levels:
+      - common_security_requirements
+    description: |
+      ...protection against brute force and dictionary attacks...
+      Measures: i) timer delay... ii) Blocking an account... iii) authentication attribute blacklist... iv) CAPTCHA...
+      ...two or more... shall be mandatorily supported...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_password_pam_faildelay, accounts_passwords_pam_faillock_fail_interval, security_pam_pwquality_enforce_complexity
+    rules:
+        # TODO: Implement checks for password blacklists/CAPTCHA if relevant/feasible for the target. Verify combination logic.
+      - accounts_password_pam_unix_remember
+      - accounts_passwords_pam_faillock_deny
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.4.3.3. Mostly covered by PAM rules. Blacklist/CAPTCHA are less common
+      in OS rules. Enforcing *combination* is a policy/meta-check.'
+
+  - id: 2.2.4
+    title: Enforce Strong Password
+    levels:
+      - common_security_requirements
+    description: |
+      ...complexity criteria: (i) minimum length 8... (ii) ...all... four categories...
+      ...configurable... operator... salted and hashed... pepper may be included...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_password_ensure_shadow_like_group_exist, accounts_password_storage_encrypted_shadow, security_pam_pwquality_enforce_complexity
+    rules:
+        # TODO: Implement check for pepper usage if feasible. Adapt parameters (min length, categories) as needed.
+      - accounts_password_minlen_login_defs
+      - accounts_password_pam_minlen
+      - accounts_password_pam_dcredit
+      - accounts_password_pam_lcredit
+      - accounts_password_pam_ocredit
+      - accounts_password_pam_ucredit
+    notes: 'Reference: 1) TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0.
+      Section 4.2.3.4.3 2) IETF draft-ietf-kitten-password-storage-04-BCP. Well covered
+      by PAM/pwquality rules. Pepper check is likely a gap.'
+
+  - id: 2.2.5
+    title: Inactive Session timeout
+    levels:
+      - common_security_requirements
+    description: |
+      ...session shall be terminated automatically after a specified period of inactivity...
+      ...configurable inactivity time-out period...
+      ...locking mechanism... Unlocking... by authentication...
+      Reauthentication... after 15 minutes or longer.
+
+# TODO: The following rules need to be implemented or were placeholders: dconf_gnome_session_idle_delay
+    rules:
+        # TODO: Implement checks for GUI screen lock timeouts/re-auth if applicable (servers often lack GUI). Implement check for 15min re-auth requirement.
+      - accounts_tmout
+      - dconf_gnome_screensaver_lock_delay
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.5.2. Shell timeout covered. GUI lock/reauth depends on environment (Gap
+      for servers). Reauth after 15min specifically is likely a gap.'
+
+  - id: 2.2.6
+    title: Password Changes
+    levels:
+      - common_security_requirements
+    description: |
+      ...user to change his password... enforced after initial login... enforce password expiry...
+      ...configurable period for expiry... Previously used passwords shall not be allowed (History)... minimum value shall be 3...
+      ...password expiry notification... minimum password age shall be set as one day...
+
+# TODO: The following rules need to be implemented or were placeholders: account_password_selinux_faillock_check, accounts_password_set_max_life_login_defs, accounts_password_set_min_life_login_defs, accounts_password_set_warn_age_login_defs
+    rules:
+        # TODO: Implement check for enforcing password change on first login (might require custom PAM check). Adapt parameters (history count, expiry days).
+      - accounts_password_pam_unix_remember
+    notes: 'Reference: 1) TEC 25848:2022/ TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0.
+      Section 4.2.3.4.3.2 2) CIS Password Policy Guide. Mostly covered by login.defs/PAM
+      rules. Force change on first login might be a gap.'
+
+  - id: 2.2.7
+    title: Protected Authentication feedback
+    levels:
+      - common_security_requirements
+    description: |
+      Authentication attribute shall not be displayed... replaced by a character such as *
+
+# TODO: The following rules need to be implemented or were placeholders: sudo_remove_visiblepw
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.4.3.4.
+      Generally default behavior, sudo check possible.'
+
+  - id: 2.2.8
+    title: Removal of predefined or default authentication attributes
+    levels:
+      - common_security_requirements
+    description: |
+      Predefined or default authentication attributes shall be deleted or disabled (or changed)...
+      ...forcing a user to change it on 1st time login...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_password_change_first_login
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.4.2.3.
+      Force change covered. Checking arbitrary defaults is hard (Gap).'
+
+  - id: 2.2.9
+    title: Logout function
+    levels:
+      - common_security_requirements
+    description: |
+      ...function that allows a signed-in user to logout...
+      All processes under the logged-in user ID shall be terminated on logout...
+      ...continue to operate without interactive sessions...
+
+# TODO: The following rules need to be implemented or were placeholders: service_systemd-logind_killuserprocesses_set
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.5.1. Mostly standard behavior, systemd config is relevant.'
+
+  - id: 2.2.10
+    title: Policy regarding consecutive failed login attempts
+    levels:
+      - common_security_requirements
+    description: |
+      ...maximum permissible number... consecutive failed... login attempts shall be configurable... default... <= 8, typically 5...
+      ...block delay... configurable... default... >= 5 sec...
+      ...infinite (permanent) locking... possible... exception of administrative accounts... temporarily locked.
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_password_pam_faildelay
+    rules:
+        # TODO: Adapt parameters (max attempts, lock time, delay) to match ITSAR defaults/policy. Check handling of admin accounts specifically.
+      - accounts_passwords_pam_faillock_deny
+      - accounts_passwords_pam_faillock_unlock_time
+    notes: 'Reference TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.4.5. Well covered by pam_faillock/pam_tally2 rules. Specific default values
+      need parameterization/adaptation.'
+
+  - id: 2.2.11
+    title: Suspend accounts on non-use
+    levels:
+      - common_security_requirements
+    description: |
+      ...automatically suspend an account after 'X' days without a valid login...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_passwords_inactive_for_30_days
+    notes: 'Reference: CIS Password Policy Guide. Covered by shadow file INACTIVEsetting.
+      Needs parameterization for X days.'
+
+  - id: 2.3.1
+    title: Secure Update
+    levels:
+      - common_security_requirements
+    description: |
+      ...software updates... software package integrity validation via cryptographic means... digital signature, code signing certificate... Secure cryptographic controls...
+      ...list of public keys or certificates... verify... originated from only these sources.
+
+# TODO: The following rules need to be implemented or were placeholders: package_manager_gpgcheck_enabled, uefi_secure_boot_enabled
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.3.5.
+      Package manager checks covered. Specific crypto controls might need adaptation.'
+
+  - id: 2.3.2
+    title: Secure Upgrade
+    levels:
+      - common_security_requirements
+    description: |
+      ...Software package integrity shall be validated in the installation /upgrade stage... via cryptographic means...
+      ...Tampered software shall not be executed or installed...
+      ...authorized individuals can initiate and deploy... modify the list [of keys]...
+
+# TODO: The following rules need to be implemented or were placeholders: package_manager_gpgcheck_enabled, require_appropriate_auth_for_package_install
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.3.5.
+      Integrity check covered. Authorization covered by standard OS access control
+      (partially).'
+
+  - id: 2.3.3
+    title: Source code security assurance
+    levels:
+      - common_security_requirements
+    description: |
+      a) OEM shall follow best security practices... Source code shall be made available...
+      b) ...OEM shall submit the undertaking... (i) secure coding... (ii) free from CWE top 25, OWASP top 10... (iii) binaries... free from... vulnerabilities...
+    notes: 'Gap: This is a process/assurance requirement, not directly checkable viatechnical
+      rules.'
+
+  - id: 2.3.4
+    title: Known Malware and backdoor Check
+    levels:
+      - common_security_requirements
+    description: |
+      OEM shall submit an undertaking... system is free from all known malware and backdoors... submit their internal Malware Test Document (MTD)...
+    notes: 'Gap: This is a process/assurance requirement.'
+
+  - id: 2.3.5
+    title: No unused software
+    levels:
+      - common_security_requirements
+    description: |
+      Software components... not needed... shall not be present... Orphaned... shall not be present...
+      OEM shall provide the list... furnish an undertaking...
+    rules:
+        # TODO: Adapt list of removed packages based on OEM provided list of necessary software.
+      - package_nis_removed
+      - package_telnet-server_removed
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.3.2.3. Partially covered by rules removing specific packages. Requires defining
+      the "needed" list (adaptation/profile customization).'
+
+  - id: 2.3.6
+    title: Unnecessary Services Removal
+    levels:
+      - common_security_requirements
+    description: |
+      ...only run protocol handlers and services which are needed... do not have any known security vulnerabilities...
+      ...permanently disabled... Shall not support: FTP, TFTP, Telnet, rlogin, RCP, RSH, HTTP, SNMPv1/v2, SSHv1... Small Servers... Finger... BOOTP... Discovery protocols... Identd... PAD... MOP...
+
+# TODO: The following rules need to be implemented or were placeholders: package_finger-server_removed, service_chargen_disabled, service_daytime_disabled, service_discard_disabled, service_echo_disabled, service_rcp_disabled, snmp_disable_public_community, sshd_disable_protocol_1
+    rules:
+        # TODO: Ensure all listed services/protocols are covered by rules.
+      - service_telnet_disabled
+      - service_tftp_disabled
+      - service_rsh_disabled
+      - service_rlogin_disabled
+      - service_httpd_disabled
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.3.2.1. Well covered by existing service/package removal rules.'
+
+  - id: 2.3.7
+    title: Restricting System Boot Source
+    levels:
+      - common_security_requirements
+    description: |
+      The system can boot only from the memory devices intended for this purpose.
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section-4.2.3.3.2.
+      Gap: Typically requires BIOS/UEFI checks, outside standard OS scanning.'
+
+  - id: 2.3.8
+    title: Secure Time Synchronization
+    levels:
+      - common_security_requirements
+    description: |
+      ...time... provided through NTP/PTP server... establish secure communication channel... Secure cryptographic controls... with NTP/PTP server.
+      Audit logs... for all changes to time settings.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_configure_ntp_nts, service_chrony_enabled
+    rules:
+        # TODO: Implement check for NTS (Network Time Security) or adapt for other secure channel mechanisms if used. Check PTP config if applicable.
+      - chronyd_or_ntpd_set_maxpoll
+      - audit_rules_time_adjtimex
+      - audit_rules_time_settimeofday
+      - audit_rules_time_stime
+      - audit_rules_time_clock_settime
+      - audit_rules_time_watch_localtime
+    notes: 'Adaptation needed for specific crypto requirements if NTS isn''t used/checked.
+      Audit rules cover time changes.'
+
+  - id: 2.3.9
+    title: Restricted reachability of services
+    levels:
+      - common_security_requirements
+    description: |
+      ...restrict the reachability of services... only on interfaces meant for the purpose... limited to legitimate communication peers.
+      Administrative services... restricted to interfaces in the management plane...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_firewall_rules_configured, sshd_set_listen_address
+    rules:
+        # TODO: Adapt firewall/service rules based on defined management plane interfaces/peers.
+      - configure_firewalld_rate_limiting
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.3.2.2. Covered by firewall rules and service-specific address binding configurations.'
+
+  - id: 2.3.10
+    title: Self Testing
+    levels:
+      - common_security_requirements
+    description: |
+      A cryptographic module shall perform power-up self-tests and conditional self-tests...
+      ...If a cryptographic module fails... enter an error state... output an error indicator... shall not perform... operations...
+    rules:
+        # TODO: Verify if enabling FIPS mode is sufficient or if other checks are needed.
+      - sysctl_crypto_fips_enabled
+    notes: 'Often covered by enabling FIPS mode on the OS/crypto libraries.'
+
+  - id: 2.4.1
+    title: No unused functions
+    levels:
+      - common_security_requirements
+    description: |
+      Unused functions... software and hardware... not needed... shall be deactivated...
+      List... shall match... necessary...
+    rules:
+        # TODO: Adapt based on necessary software list. Implement checks for disabling hardware via kernel modules/BIOS if feasible.
+      - kernel_module_usb-storage_disabled
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.3.2.4. Software part similar to 2.3.5. Hardware part is a Gap.'
+
+  - id: 2.4.2
+    title: No unsupported components
+    levels:
+      - common_security_requirements
+    description: |
+      ...system shall not contain software and hardware components that are no longer supported... end-of-life or end-of-support... Undertaking...
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.3.2.5.
+      Gap: This is primarily a lifecycle management/assurance issue, not a static
+      config check.'
+
+  - id: 2.4.3
+    title: Avoidance of Unspecified mode of Access
+    levels:
+      - common_security_requirements
+    description: |
+      System shall not contain any wireless access mechanism which is unspecified... Undertaking... "covert channel"...
+
+# TODO: The following rules need to be implemented or were placeholders: service_wpa_supplicant_disabled
+    rules:
+        # TODO: Add rules for other potential wireless interfaces (WiFi, cellular modems). Covert channel check is a major gap.
+      - kernel_module_bluetooth_disabled
+    notes: 'Partially covered by disabling known wireless kernel modules/services.
+      Checking for *unspecified* or covert channels is a significant gap.'
+
+  - id: 2.5.1
+    title: Audit trail storage and protection
+    levels:
+      - common_security_requirements
+    description: |
+      ...security event log shall be access controlled (file access rights)... only privilege users have access...
+
+# TODO: The following rules need to be implemented or were placeholders: file_permissions_audit_log_files
+    rules:
+      - directory_permissions_var_log_audit
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.6.3. Covered by file permission rules.'
+
+  - id: 2.5.2
+    title: Audit Event Generation
+    levels:
+      - common_security_requirements
+    description: |
+      ...log all important Security events... Date and time... type... subject identity... protocol... source and destination IP... outcome...
+      Table specifies events: Incorrect login, Admin access, Account admin, Resource Usage, Config change, Reboot/shutdown, Interface status, Group membership change, PW reset, Services start/stop, Cert Validation, Secure Update, Time change, Session unlocking/termination, Comm paths, Audit data changes, User Login/Logoff.
+
+# TODO: The following rules need to be implemented or were placeholders: audit_rules_sudoers_modification, audit_rules_system_shutdown_reboot
+    rules:
+        # TODO: Implement specific audit rules for missing events (Resource Usage, Interface status, Cert Validation, Secure Update, Session unlock/term, Comm paths) if feasible via auditd or check system/app logs.
+      - audit_rules_login_events
+      - audit_rules_session_events
+      - audit_rules_usergroup_modification
+      - audit_rules_networkconfig_modification
+      - audit_rules_time_adjtimex
+      - audit_rules_time_settimeofday
+      - audit_rules_unsuccessful_file_modification
+      - audit_rules_privileged_commands
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.6.1. Partially covered by standard auditd rules. Some events require application-level
+      logging or specific system logs, representing gaps for auditd-focused checks.'
+
+  - id: 2.5.3
+    title: Secure Log Export
+    levels:
+      - common_security_requirements
+    description: |
+      ...support... forwarding... to an external system... redundant configuration... push or pull... redundant links...
+      ...secure uploading...
+      ...store... locally... two days...
+      Secure Log export shall comply... secure cryptographic controls...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_audispd_network_configuration, ensure_rsyslog_remote_loghost_configured, rsyslog_remote_tls_enabled
+    rules:
+        # TODO: Implement checks for redundancy (network/destination). Check local storage duration policy. Adapt crypto checks.
+      - ensure_logrotate_activated
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.6.2. Covered by log shipper (rsyslog, audispd) configuration rules. Redundancy/local
+      storage duration are harder to check statically (Partial Gap/Adaptation).'
+
+  - id: 2.5.4
+    title: Logging access to personal data
+    levels:
+      - common_security_requirements
+    description: |
+      ...access to personal data in a clear text... shall be logged... log shall contain who accessed what data without revealing personal data...
+
+# TODO: The following rules need to be implemented or were placeholders: audit_rules_file_access_sensitive_files
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.2.5.
+      Requires defining "personal data" files and creating specific audit rules (Adaptation/Customization).
+      Preventing logging of the data itself is application logic (Gap).'
+
+  - id: 2.5.5
+    title: 'Security audit log:'
+    levels:
+      - common_security_requirements
+    description: |
+      The security audit log must not contain 1) Authentication credentials... 2) Access Tokens... 3) Proprietary or sensitive personal information
+    notes: 'Reference: GSMA NG 133 Cloud Infrastructure Reference Architecture Ver2.0
+      6.3.7.3. Gap: Primarily depends on application behavior, hard to enforce with
+      OS rules alone.'
+
+  - id: 2.5.6
+    title: Audit Logs
+    levels:
+      - common_security_requirements
+    description: |
+      1) ...active from system initialization... 2) time synchronized... 3) protected in transit and at rest...
+      4) ...events must be logged: a) privilege level changes... b) security policy changes... c) start/stop logging... d) start/stop processes... e) command line activity...
+
+# TODO: The following rules need to be implemented or were placeholders: audit_rules_apparmor_changes, audit_rules_auditconfig_modification, audit_rules_auditctl, audit_rules_execution_events, audit_rules_selinux_violation, audit_rules_sudoers_modification, ensure_bash_history_logging, file_permissions_audit_log_files, rsyslog_remote_tls_enabled, service_chrony_enabled
+    rules:
+        # TODO: Implement more specific rules for privilege changes, policy changes, detailed command logging (e.g., via auditd execve filters or session logging).
+      - service_auditd_enabled
+      - audit_rules_privileged_commands
+      - audit_rules_usergroup_modification
+    notes: 'Reference: GSMA NG 133 Cloud Infrastructure Reference Architecture ver
+      2.0 6.3.7.1 and 6.3.7.2. Mostly covered by auditd service config, time sync,
+      log protection rules, and specific audit event rules. Detailed command logging
+      might need adaptation.'
+
+  - id: 2.5.7
+    title: Centralized log Auditing
+    levels:
+      - common_security_requirements
+    description: |
+      All... elements shall submit security events... to a centralized platform... monitor and analyse...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_audispd_network_configuration, ensure_rsyslog_remote_loghost_configured
+    notes: 'Reference: ENISA NFV Security in 5G - Challenges and Best Practices (Feb2022),
+      BP-T17. Technical part (log export) covered by 2.5.3. Analysis part is external
+      system (Gap).'
+
+  - id: 2.6.1
+    title: Cryptographic Based Secure Communication
+    levels:
+      - common_security_requirements
+    description: |
+      ...Communicate... strictly using the secure cryptographic controls...
+      OEM shall submit... list... method of secure communication...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_tls_cipher_suite_check, sshd_set_ciphers_algorithms_unapproved, sshd_set_macs_algorithms_unapproved
+    notes: 'Requires specific rules per protocol/service. Adaptation needed for ITSAR-specificcrypto
+      requirements.'
+
+  - id: 2.6.2
+    title: Cryptographic Module Security Assurance
+    levels:
+      - common_security_requirements
+    description: |
+      Cryptographic module... compliance with FIPS 140-2 or later... Undertaking...
+    rules:
+        # TODO: Verify undertaking. If FIPS mode is required, check rule below.
+      - sysctl_crypto_fips_enabled
+    notes: 'Partially covered if FIPS mode is used. General compliance check beyond
+      FIPS mode is an assurance task (Gap).'
+
+  - id: 2.6.3
+    title: Cryptographic Algorithms implementation Security Assurance
+    levels:
+      - common_security_requirements
+    description: |
+      Cryptographic algorithm... compliance with the respective FIPS standards... Undertaking...
+    rules:
+        # TODO: Verify undertaking. If FIPS mode is required, check rule below.
+      - sysctl_crypto_fips_enabled
+    notes: 'Partially covered if FIPS mode is used. General compliance check beyond
+      FIPS mode is an assurance task (Gap).'
+
+  - id: 2.6.4
+    title: 'Protecting data and information - Confidential System Internal Data'
+    levels:
+      - common_security_requirements
+    description: |
+      a) ...normal operational mode... no system function that reveals confidential system internal data in the clear text...
+      b) Access to maintenance mode... restricted... authorised privileged user.
+
+# TODO: The following rules need to be implemented or were placeholders: require_single_user_mode_auth
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.2.2.
+      Point a) is a Gap. Point b) partially covered.'
+
+  - id: 2.6.5
+    title: Protecting data and information in storage
+    levels:
+      - common_security_requirements
+    description: |
+      a) ...sensitive data... read access rights shall be restricted... protected against manipulation... Secure cryptographic controls...
+      b) (i) Systems needing cleartext access... shall not store... clear/readable form... scramble or encrypt...
+      (ii) Systems not needing cleartext... shall hash... Secure cryptographic controls...
+      (iii) Stored files... protected against manipulation... Secure cryptographic controls...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_password_storage_encrypted_shadow, file_ownership_unauthorized_users, file_permissions_unauthorized_world_readable
+    rules:
+        # TODO: Adapt crypto checks for hashing/manipulation protection per ITSAR Table 1. Implement checks for application-specific scrambling/encryption if feasible.
+      - aide_check_audit_tools
+      - aide_periodic_cron_checking
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.2.3. Access rights covered by permission rules. Integrity covered by AIDE/IMA.
+      Password hashing covered. Application-specific encryption/hashing is a Gap.
+      Adaptation needed for specific crypto controls.'
+
+  - id: 2.6.6
+    title: Protection against Copy of Data
+    levels:
+      - common_security_requirements
+    description: |
+      a) Without authentication... system shall not create a copy of data...
+      b) Protective measures... against use of available system functions... to create copy... for illegal transmission.
+
+# TODO: The following rules need to be implemented or were placeholders: configure_firewall_rules
+    rules:
+        # TODO: Implement DLP-like checks if feasible (e.g., restrict usage of 'cp', 'scp', 'rsync' via sudoers/SELinux, enforce strict outbound firewall). Major Gap.
+      - kernel_module_usb-storage_disabled
+    notes: 'Gap: This requires DLP capabilities beyond standard OS hardening rules.'
+
+  - id: 2.6.7
+    title: Protection against Data Exfiltration - Overt Channel
+    levels:
+      - common_security_requirements
+    description: |
+      a) ...mechanisms to prevent data exfiltration...
+      b) Establishment of outbound overt channels... HTTPS, IM, P2P, Email... forbidden if... auto-initiated...
+      c) Session logs shall be generated...
+
+# TODO: The following rules need to be implemented or were placeholders: configure_firewall_outbound_rules, ensure_default_deny_firewall_policy
+    notes: 'Partially covered by outbound firewall rules (needs customization). Detecting*auto-initiated*
+      requires behavioral analysis (Gap). Logging covered elsewhere.'
+
+  - id: 2.6.8
+    title: Protection against Data Exfiltration - Covert Channel
+    levels:
+      - common_security_requirements
+    description: |
+      a) ...mechanisms to prevent data exfiltration...
+      b) Establishment of outbound covert channels and tunnels... DNS Tunnel, HTTPS Tunnel, ICMP Tunnel, TLS, SSL, SSH, IPSEC VPN, RTP... forbidden if... auto-initiated...
+      c) Session logs shall be generated...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_default_deny_firewall_policy, sysctl_net_ipv4_icmp_echo_ignore_all
+    notes: 'Partially covered by strict firewall rules. Detecting tunneling techniquesoften
+      requires deeper packet inspection or behavioral analysis (Gap). Detecting *auto-initiated*
+      is a Gap.'
+
+  - id: 2.7.1
+    title: Traffic Filtering - Network Level
+    levels:
+      - common_security_requirements
+    description: |
+      ...mechanism to filter incoming IP packets... Network Layer and Transport Layer...
+      Actions: Discard/Drop, Accept, Account... Logging for Dropped... Filter on source/dest IP/port... Reset accounting... Disable/enable rule...
+
+# TODO: The following rules need to be implemented or were placeholders: configure_firewall_logging, ensure_default_deny_firewall_policy, ensure_firewall_enabled, ensure_firewall_rules_configured
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.6.2.1.
+      Well covered by firewall configuration rules (iptables, nftables, firewalld).'
+
+  - id: 2.7.2
+    title: Traffic Separation
+    levels:
+      - common_security_requirements
+    description: |
+      ...support the physical or logical separation of traffic... different network domains... O&M traffic and control plane traffic...
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section
+      4.3.5.1. Implemented via network configuration and firewall rules, covered indirectly
+      by other controls.'
+
+  - id: 2.7.3
+    title: 'Traffic Protection -Anti-Spoofing'
+    levels:
+      - common_security_requirements
+    description: |
+      ...not process IP Packets if their source address is not reachable via the incoming interface... Reverse Path Filter (RPF)...
+    rules:
+        # TODO: Ensure rp_filter is set to strict (1) if required by policy.
+      - sysctl_net_ipv4_conf_all_rp_filter
+      - sysctl_net_ipv4_conf_default_rp_filter
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section
+      4.3.3.1.1. Covered by sysctl rules for rp_filter.'
+
+  - id: 2.7.4
+    title: Network security
+    levels:
+      - common_security_requirements
+    description: |
+      a) Topology hiding (private IPs)... b) Separate interfaces (physical/logical/VLAN)... c) Production/O&M traffic separation (NIC/VNIC/VLAN)... d) Firewall between MANO/production clusters... e) Network resource pools (DoS prevention)... f) vSwitch positive enabling policy... g) Virtual network monitoring restricted... h) VLAN/VXLAN zoning... i) Dedicated infra for 3rd party XaaS... j) Protect OAM traffic (HTTPS, SFTP, SNMPv3, TLS, IPsec)...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_user_ulimit_settings, placeholder_secure_management_protocols
+    notes: 'Reference: ENISA NFV Security in 5G - Challenges and Best Practices (February2022)
+      BP-T21. Mostly architecture, NFVi config, or process requirements. Significant
+      Gaps for OS-level rules.'
+
+  - id: 2.8.1
+    title: Network Level and application-level DDoS
+    levels:
+      - common_security_requirements
+    description: |
+      ...protection mechanism against Network level and Application-level DDoS attacks... deal with overload situations...
+      Measures: RAM limits, session limits, dataset size limits, CPU limits, process priority, transaction limits...
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_user_ulimit_settings, configure_cgroup_resource_limits
+    rules:
+        # TODO: Implement cgroup checks (CPU/RAM limits). Application-level checks are gaps.
+      - sysctl_net_ipv4_tcp_syncookies
+      - configure_firewalld_rate_limiting
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.3.3.1. Partially covered by kernel SYN cookies, OS resource limits (ulimit/cgroups),
+      firewall rate-limiting. Application specifics are Gaps.'
+
+  - id: 2.8.2
+    title: Excessive Overload Protection
+    levels:
+      - common_security_requirements
+    description: |
+      ...act in a predictable way if an overload situation cannot be prevented... react... in a controlled way... cannot reach an undefined... insecure state.
+      OEM shall provide description...
+
+# TODO: The following rules need to be implemented or were placeholders: partition_var_log_separate
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.3.3.3.
+      Gap: Primarily a system/application design quality, not a specific configuration
+      setting.'
+
+  - id: 2.8.3
+    title: Manipulated packets... shall not lead to an impairment of availability
+    levels:
+      - common_security_requirements
+    description: |
+      ...not affected... by incoming packets... manipulated or differing the norm... detected as invalid and be discarded...
+      Examples: SYN flooding, Land attack, Smurf attack, Teardrop attack, Ping-of-death, Uncorrelated replies.
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_firewall_rules_configured
+    rules:
+        # TODO: Add firewall rules to explicitly block Land/Teardrop fragments if deemed necessary beyond kernel handling.
+      - sysctl_net_ipv4_tcp_syncookies
+      - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+      - sysctl_net_ipv4_icmp_ignore_bogus_error_responses
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section
+      4.2.6.2.2. Partially covered by kernel sysctl settings and firewall. Modern
+      stacks mitigate some attacks implicitly (potential Gaps for specific checks).'
+
+  - id: 2.9.1
+    title: 'Fuzzing - Network and Application Level'
+    levels:
+      - common_security_requirements
+    description: |
+      ...externally reachable services... reasonably robust when receiving unexpected input.
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.4.4.
+      Gap: This is a testing requirement.'
+
+  - id: 2.9.2
+    title: Port Scanning
+    levels:
+      - common_security_requirements
+    description: |
+      ...only documented ports... respond to requests...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_default_deny_firewall_policy
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.4.2.
+      Gap: Requires external documentation/inventory comparison. Firewall default
+      deny helps.'
+
+  - id: 2.9.3
+    title: Vulnerability Scanning
+    levels:
+      - common_security_requirements
+    description: |
+      ...vulnerabilities found... shall be remediated... Critical: immediately, High: 1 month, Medium: 3 months, Low: 1 year... Zero-day... immediately...
+    notes: 'Reference 1: TEC 25848:2022 / TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0.section
+      4.4.3 Reference 2: GSMA NG 133 Cloud Infrastructure Reference Architecture.
+      Gap: This is a vulnerability management process requirement.'
+
+  - id: 2.10.1
+    title: Growing Content Handling
+    levels:
+      - common_security_requirements
+    description: |
+      a) Growing or dynamic content shall not influence system functions.
+      b) A file system that reaches its maximum capacity... event getting logged... shall not stop the system...
+
+# TODO: The following rules need to be implemented or were placeholders: partition_home_separate, partition_tmp_separate, partition_var_log_audit_separate, partition_var_log_separate, partition_var_separate
+    rules:
+        # TODO: Verify partitioning scheme covers all potentially growing content areas. Check log rotation configs adequately limit size.
+      - ensure_logrotate_activated
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.4.1.1.1. Partially covered by partitioning scheme and log rotation.'
+
+  - id: 2.10.2
+    title: Handling of ICMP
+    levels:
+      - common_security_requirements
+    description: |
+      Processing of ICMPv4/v6 packets... not required... shall be disabled...
+      Table specifies permitted/optional/not permitted types (Echo, Dest Unreachable, Time Exceeded, Param Problem, Packet too Big, Neighbor Sol/Adv, Redirect, Timestamp, Router Sol/Adv).
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_firewall_rules_icmp_disabled, sysctl_net_ipv4_conf_all_accept_redirects=0, sysctl_net_ipv4_conf_default_accept_redirects=0, sysctl_net_ipv6_conf_all_accept_ra=0, sysctl_net_ipv6_conf_all_accept_redirects=0, sysctl_net_ipv6_conf_default_accept_ra=0, sysctl_net_ipv6_conf_default_accept_redirects=0
+    rules:
+        # TODO: Implement firewall rule checks to match the ITSAR allowed/disallowed ICMP types precisely.
+      - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+      - sysctl_net_ipv4_icmp_ignore_bogus_error_responses
+    notes: 'Reference: TEC 25848:2022/ TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.4.1.1.2. Partially covered by sysctl rules. Adaptation/Customization needed
+      for specific ICMP types via firewall rules to fully match the tables.'
+
+  - id: 2.10.3
+    title: Authenticated Privilege Escalation only
+    levels:
+      - common_security_requirements
+    description: |
+      ...not support a privilege escalation method... allows a user to gain administrator/root privileges... without re-authentication.
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_polkit_rules_enforce_auth
+    rules:
+        # TODO: Verify polkit rules ensure authentication.
+      - sudo_require_authentication
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.4.1.2.1. Generally covered by default sudo/polkit behavior, rules verify
+      this.'
+
+  - id: 2.10.4
+    title: System account identification
+    levels:
+      - common_security_requirements
+    description: |
+      Each system account shall have a unique identification... non-repudiation controls.
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_unique_gid, accounts_unique_uid
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      4.2.4.2.2. Covered by checks for unique UIDs/GIDs.'
+
+  - id: 2.10.5
+    title: 'OS Hardening - Minimized kernel network functions'
+    levels:
+      - common_security_requirements
+    description: |
+      Kernel-based network functions not needed... shall be deactivated...
+      1. IP Forwarding... 2. Proxy ARP... 3. Directed broadcast... 4. IPv4 Multicast handling... 5. Gratuitous ARP messages...
+
+# TODO: The following rules need to be implemented or were placeholders: sysctl_net_ipv4_conf_all_arp_accept, sysctl_net_ipv4_conf_all_proxy_arp=0, sysctl_net_ipv4_conf_default_proxy_arp=0, sysctl_net_ipv4_ip_forward=0, sysctl_net_ipv6_conf_all_forwarding=0
+    rules:
+        # TODO: Implement checks for disabling multicast if required. Adapt Gratuitous ARP sysctls based on policy.
+      - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      - 4.3.3.1.2. Mostly covered by sysctl rules. Multicast disabling might need
+      finer control (Gap/Adaptation).'
+
+  - id: 2.10.6
+    title: No automatic launch of removable media
+    levels:
+      - common_security_requirements
+    description: |
+      ...not automatically launch any application when a removable media device is connected.
+    rules:
+        # TODO: Implement checks for other desktop environments if needed. Note gap for servers.
+      - dconf_gnome_disable_autorun
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      - 4.3.3.1.3. Gap for server environments without GUI.'
+
+  - id: 2.10.7
+    title: External file system mount restrictions
+    levels:
+      - common_security_requirements
+    description: |
+      If normal users allowed to mount... OS-level restrictions... prevent privilege escalation... due to contents... (nosuid, nodev)...
+      ...restrictions shall apply... against mount / use of removable media... for data transfer.
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_removable_media_nodev, ensure_removable_media_noexec, ensure_removable_media_nosuid, ensure_users_cannot_mount_filesystems
+    rules:
+        # TODO: Ensure rules cover all relevant mount points/mechanisms (e.g., autofs).
+      - kernel_module_usb-storage_disabled
+    notes: 'Reference- TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      - 4.3.3.1.6. Covered by mount option checks or disabling kernel modules.'
+
+  - id: 2.10.8
+    title: File-system Authorization privileges
+    levels:
+      - common_security_requirements
+    description: |
+      ...only users that are authorized to modify files... have the necessary privileges...
+
+# TODO: The following rules need to be implemented or were placeholders: file_ownership_unauthorized_users, file_permissions_etc_gshadow_restricted, file_permissions_etc_shadow_restricted
+    rules:
+        # TODO: Ensure rule coverage is comprehensive for critical system files/directories.
+      - file_permissions_unauthorized_world_writable
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      - 4.3.2.7. Covered extensively by standard file permission/ownership rules.'
+
+  - id: 2.10.9
+    title: SYN Flood Prevention
+    levels:
+      - common_security_requirements
+    description: |
+      ...support a mechanism to prevent Syn Flood attacks... enabled by default.
+    rules:
+      - sysctl_net_ipv4_tcp_syncookies
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section
+      - 4.3.3.1.4. Covered by sysctl tcp_syncookies rule.'
+
+  - id: 2.10.10
+    title: Handling of IP options and extensions
+    levels:
+      - common_security_requirements
+    description: |
+      IP packets with unnecessary options or extension headers shall not be processed... source routing... shall be filtered.
+
+# TODO: The following rules need to be implemented or were placeholders: sysctl_net_ipv4_conf_all_accept_source_route=0, sysctl_net_ipv4_conf_default_accept_source_route=0, sysctl_net_ipv6_conf_all_accept_source_route=0, sysctl_net_ipv6_conf_default_accept_source_route=0
+    notes: 'Reference: TEC 25848:2022/ TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. Section4.2.4.1.1.3.
+      Source routing covered by sysctl. Filtering other options may require firewall
+      rules (Gap/Adaptation).'
+
+    # Section 2.11 Web Servers - Apply only if web management interface is supported
+  - id: 2.11.1
+    title: HTTPS
+    levels:
+      - common_security_requirements
+    description: |
+      ...communication... protected strictly using... Secure cryptographic controls...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_apache_ssl_protocol_strong, ensure_nginx_ssl_protocol_strong, placeholder_webserver_hsts_enabled, placeholder_webserver_redirect_http_to_https
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.2.5.1.
+      Covered by web server specific rules. Adaptation needed for ITSAR crypto requirements.'
+
+  - id: 2.11.2
+    title: Webserver logging
+    levels:
+      - common_security_requirements
+    description: |
+      Access... shall be logged... timestamp, source IP, account, attempted name, http request fields (URL), status code...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_access_logging_enabled_detailed
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.2.5.2.
+      Requires web server specific rule checking log format.'
+
+  - id: 2.11.3
+    title: HTTPS input validation
+    levels:
+      - common_security_requirements
+    description: |
+      ...mechanism... ensure... inputs are not vulnerable to command injection or cross-site scripting... Validate, filter, escape, and encode...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_modsecurity_installed_configured
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.2.5.4.
+      Gap: Primarily application logic. ModSecurity rules offer partial coverage.'
+
+  - id: 2.11.4
+    title: No system privileges
+    levels:
+      - common_security_requirements
+    description: |
+      No system web server processes shall run with system privileges [root].
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_runs_as_non_root
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.2.
+      Covered by web server specific config checks.'
+
+  - id: 2.11.5
+    title: No unused HTTPS methods
+    levels:
+      - common_security_requirements
+    description: |
+      HTTPS methods... not required... shall be deactivated.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_limit_http_methods
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.3.
+      Covered by web server specific config checks.'
+
+  - id: 2.11.6
+    title: No unused add-ons
+    levels:
+      - common_security_requirements
+    description: |
+      All optional add-ons and components... deactivated if not required... CGI, SSI, WebDAV...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_disable_unused_modules
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.4.
+      Covered by web server specific module checks.'
+
+  - id: 2.11.7
+    title: No compiler, interpreter, or shell via CGI or other server-side scripting
+    levels:
+      - common_security_requirements
+    description: |
+      If CGI... used... directory... shall not include compilers or interpreters.
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.5.
+      Gap: Requires file system scanning, not just config check.'
+
+  - id: 2.11.8
+    title: No CGI or other scripting for uploads
+    levels:
+      - common_security_requirements
+    description: |
+      If CGI... used... directory shall not be used for uploads.
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.6.
+      Gap: Depends on application configuration/behavior.'
+
+  - id: 2.11.9
+    title: No execution of system commands with SSI
+    levels:
+      - common_security_requirements
+    description: |
+      If Server Side Includes (SSI) is active, the execution of system commands shall be deactivated.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_ssi_noexec
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.7.
+      Covered by web server specific SSI config checks.'
+
+  - id: 2.11.10
+    title: Access rights for web server configuration
+    levels:
+      - common_security_requirements
+    description: |
+      Access rights for... web server configuration files shall only be granted to the owner... or... system privileges [root].
+
+# TODO: The following rules need to be implemented or were placeholders: file_ownership_webserver_config_files, file_permissions_webserver_config_files
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.8.
+      Covered by file permission/ownership rules, needs path adaptation.'
+
+  - id: 2.11.11
+    title: No default content
+    levels:
+      - common_security_requirements
+    description: |
+      Default content... provided with... standard installation... shall be removed.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_remove_default_content
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.9.
+      Requires specific checks for default content.'
+
+  - id: 2.11.12
+    title: No directory listings
+    levels:
+      - common_security_requirements
+    description: |
+      Directory listings (indexing) / "Directory browsing" shall be deactivated.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_disable_directory_listing
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.10.
+      Covered by web server specific config checks.'
+
+  - id: 2.11.13
+    title: Web server information in HTTPS headers
+    levels:
+      - common_security_requirements
+    description: |
+      ...HTTPS header shall not include information on the version... web server and... modules/add-ons...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_harden_http_headers
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.11.
+      Covered by web server specific config checks.'
+
+  - id: 2.11.14
+    title: Web server information in error pages
+    levels:
+      - common_security_requirements
+    description: |
+      ...error pages... shall not include version information... internal information... Default error pages... shall be replaced...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_custom_error_pages
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.12.
+      Config part checkable, content check is harder (Gap).'
+
+  - id: 2.11.15
+    title: Minimized file type mappings
+    levels:
+      - common_security_requirements
+    description: |
+      File type or script-mappings... not required... shall be deleted.
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.13.
+      Gap: Requires knowledge of required mappings for specific application.'
+
+  - id: 2.11.16
+    title: Restricted file access
+    levels:
+      - common_security_requirements
+    description: |
+      Restrictive access rights shall be assigned to all files... in... web server's document directory... web server shall not be able to access files which are not meant to be delivered.
+
+# TODO: The following rules need to be implemented or were placeholders: file_ownership_webserver_docroot_restricted, file_permissions_webserver_docroot_restricted
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.14.
+      Covered by file permission/ownership rules.'
+
+  - id: 2.11.17
+    title: Execute rights exclusive for CGI/Scripting directory
+    levels:
+      - common_security_requirements
+    description: |
+      If CGI... used, only the CGI/Scripting directory is configured with execute rights. Other directories... do not have execute rights.
+
+# TODO: The following rules need to be implemented or were placeholders: file_permissions_webserver_no_execute_non_scripts
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.3.4.15.
+      Covered by web server config and file permission checks.'
+
+  - id: 2.11.18
+    title: HTTP User session
+    levels:
+      - common_security_requirements
+    description: |
+      ...session ID... uniquely identify... unpredictable... not contain sensitive information... max lifetime... default 8 hours... regenerated... not reused...
+      ...not use persistent cookies... HttpOnly... domain attribute... path attribute...
+      ...not accept session identifiers from GET/POST variables... only accept server generated session ID.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_webserver_cookie_httponly, placeholder_webserver_cookie_samesite, placeholder_webserver_cookie_secure
+    notes: 'Reference: TEC 25848:2022/TSDSI STD T1.3GPP 33.117-16.7.0 V.1.0.0. section4.2.5.3.
+      Some cookie attributes checkable via web server config. Session ID generation,
+      lifetime, acceptance logic are Application Gaps.'
+
+  - id: 2.12.1
+    title: 'Remote Diagnostic Procedure - Verification'
+    levels:
+      - common_security_requirements
+    description: |
+      If... Remote access for troubleshooting... allowed only for authorized users, other than the root user... All activities... logged...
+
+# TODO: The following rules need to be implemented or were placeholders: sshd_permit_root_login_no
+    rules:
+        # TODO: Ensure logging rules cover required parameters (user, time, interface, level, command, result, IP).
+      - service_auditd_enabled
+      - service_rsyslog_enabled
+    notes: 'Covered by existing root login restriction and logging rules.'
+
+  - id: 2.12.2
+    title: No System Password Recovery
+    levels:
+      - common_security_requirements
+    description: |
+      No provision shall exist for System / Root password recovery.
+
+# TODO: The following rules need to be implemented or were placeholders: grub2_password_set
+    notes: 'Gap: Preventing all forms of recovery (e.g., booting from live media)is
+      complex and often relies on physical security or full disk encryption, not simple
+      config rules. Bootloader password helps.'
+
+  - id: 2.12.3
+    title: Secure System Software Revocation
+    levels:
+      - common_security_requirements
+    description: |
+      ...shall not be possible to roll back to a previous software image... In case roll back is essential... only by the administrator... control mechanism...
+    notes: 'Gap: This requires mechanisms beyond standard package management checks,possibly
+      related to secure boot or custom version control.'
+
+  - id: 2.12.4
+    title: Software Integrity Check-Installation
+    levels:
+      - common_security_requirements
+    description: |
+      ...validate the software package integrity before... installation/upgrade... Secure cryptographic controls... Tampered software shall not be executed or installed...
+# TODO: The following rules need to be implemented or were placeholders: package_manager_gpgcheck_enabled
+    notes: 'Covered by package manager GPG checks (2.3.1/2.3.2).'
+
+  - id: 2.12.5
+    title: Software Integrity Check - Boot
+    levels:
+      - common_security_requirements
+    description: |
+      ...verify the integrity of a software component [at boot]... comparing... measurement... cryptographic hash... Secure cryptographic controls... to the expected reference value.
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_ima_policy_enabled, uefi_secure_boot_enabled
+    notes: 'Covered by Secure Boot and potentially IMA/EVM kernel features.'
+
+  - id: 2.12.6
+    title: Unused Physical and Logical Interfaces Disabling
+    levels:
+      - common_security_requirements
+    description: |
+      ...verify... interfaces exist... Physical and logical... interfaces... not under use shall be disabled... remain inactive even in... reboot.
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_network_interfaces_configured_appropriately
+    rules:
+        # TODO: Adapt rule based on inventory of required interfaces. Needs customization.
+      - kernel_module_bluetooth_disabled
+    notes: 'Requires inventory of needed interfaces. Can be checked via network config
+      files or `ip link` status, but needs customization (Adaptation).'
+
+  - id: 2.12.7
+    title: No Default Profile
+    levels:
+      - common_security_requirements
+    description: |
+      Predefined or default user accounts (other than Admin/Root) in system shall be deleted or disabled.
+
+# TODO: The following rules need to be implemented or were placeholders: accounts_no_default_users_exist
+    notes: 'Requires definition/list of default accounts for the specific OS/platform(Adaptation).'
+
+    # --- Chapter 3 Specific Requirements ---
+    # Many controls below are highly specific to NFV/Virtualization/SDN/MANO
+    # and likely represent GAPS or require rules specific to those platforms (OpenStack, Kubernetes, etc.)
+
+  - id: 3.1.1
+    title: Launch Environment
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...hypervisor... hardware that supports an Measured Launch Environment (MLE)... attestation process... chain of trust starting from the hardware... boot integrity... virtual interface to... MLE.
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_ima_policy_enabled, tpm2_module_is_loaded, uefi_secure_boot_enabled
+    notes: 'Reference: NIST SP 800-125A REV. 1. Partially related to Secure Boot,TPM,
+      IMA rules. Full MLE/attestation checks are complex (Gap/Adaptation).'
+
+  - id: 3.1.2
+    title: CPU Pinning
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...CPU pinning shall be possible to bind an instance's vCPUs to a particular host' cores or SMT threads.
+    notes: 'Reference: GSMA NG.133 - Cloud Infrastructure Reference Architecture.Gap:
+      Hypervisor/VIM configuration, not OS rule.'
+
+  - id: 3.1.3
+    title: Workload Placement
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...segregate workloads based on server groups (affinity and non-affinity groups)...
+    notes: 'Reference: GSMA NG.133 - Cloud Infrastructure Reference Architecture.Gap:
+      Orchestrator/VIM configuration.'
+
+  - id: 3.1.4
+    title: SR-IOV and DPDK Considerations
+    levels:
+      - nfv_infrastructure
+    description: |
+      Acceleration techniques... bypasses security protections. Measures shall be taken...
+    notes: 'Gap: Requires checking specific configurations/compensating controls,likely
+      platform-specific.'
+
+  - id: 3.1.5
+    title: Isolation
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...physical management interfaces... BMC, ILO... dedicated network separate from virtualization fabric...
+    notes: 'Gap: Network architecture/physical setup.'
+
+  - id: 3.1.6
+    title: Top of the Rack (ToR) Switches
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...ToR switches... limit the VLAN/VXLANs used by hosts...
+    notes: 'Gap: Network device configuration.'
+
+  - id: 3.1.7
+    title: 'Hardware-Based Root of Trust (HBRT)'
+    levels:
+      - nfv_infrastructure
+    description: |
+      a) ...HBRT or Trusted Platform Module (TPM)... b) ...isolated instances... for individual workloads... c) ...hardware-based compute engine...
+
+# TODO: The following rules need to be implemented or were placeholders: tpm2_module_is_loaded, virtualization_support_enabled
+    notes: 'Reference: ETSI GS NFV-SEC 012 V3.1.1 (2017-01) Sec 8.10. Partially coveredby
+      checking TPM module. Isolated instances (vTPM) is platform config (Gap).'
+
+  - id: 3.1.8
+    title: Core Hardware -HBRT
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...HBRT... tamper-resistant... tamper-evident... interfaces... protected... certification process... restrict booting... tampering... detectable degradation... physical protection... bound to the host system... Immutable Unique Identification... attestation function... discover tampered... report tamper...
+    notes: 'Reference: ETSI GS NFV-SEC 012 V3.1.1 (2017-01) Sec 5.1. Gap: These arehardware
+      design, manufacturing, and attestation process requirements.'
+
+  - id: 3.1.9
+    title: Chain of Trust (CoT)
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...transitive trust... measure the next module before transitioning control... extend... measurement value to a root of trust for storage...
+      b) Static Root of Trust for Measurement (SRTM)... BIOS firmware... PCR storage...
+      c) Dynamic Root of Trust for Measurement (DRTM)... PCR 17+...
+      d) ...extended to the OS kernel... container runtimes... container images... TPM...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_ima_policy_enabled, tpm2_module_is_loaded, uefi_secure_boot_enabled
+    notes: 'Reference: GSMA NG.126 - Cloud Infrastructure Reference Model. Partiallyrelated
+      to Secure Boot, TPM, IMA. Verifying full SRTM/DRTM measurements requires external
+      attestation service (Gap).'
+
+  - id: 3.1.10
+    title: Remote attestation
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...remotely verify the trust status... HSM, TPM, vTPM/vHSM... shelter integrity measurements... attest a VNF through the full attestation chain... linked to the application layer... If fails, VNF shall not run... prior to deployment... during operations...
+    notes: 'Reference: 1) ENISA NFV Security in 5G Challenges and Best Practices (February2022),
+      BP-T9] 2) ETSI GR NFV-SEC 018. Gap: Relies on external attestation services
+      and orchestration logic.'
+
+  - id: 3.1.11
+    title: Asset Tagging and Trusted Location
+    levels:
+      - nfv_infrastructure
+    description: |
+      ...assign specific labels for each server... enforce isolation... remotely attest... measurement and label against policies... policy orchestrator...
+    notes: 'Reference: NISTIR 8320A Hardware-Enabled security. Gap: Functionalityof
+      external management/attestation systems.'
+
+  - id: 3.1.12
+    title: Trusted computing technologies
+    levels:
+      - nfv_infrastructure
+    description: |
+      a) Silicon-based security (Intel TXT, SGX, AMD SEV, ARM Trust zone)... implemented with a TPM... stores measurements...
+      b) Mechanism... identify... physical remove the TPM... If tampered... blade server... compromised...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_check_cpu_security_features, tpm2_module_is_loaded, virtualization_support_enabled
+    notes: 'Reference: ENISA NFV Security in 5G - Challenges and Best Practices (February2022)
+      BP-T15. Partially checkable (TPM presence, CPU features). Physical tamper detection
+      is hardware feature (Gap).'
+
+  - id: 3.1.13
+    title: 'Local or removable blade storage - SAN protection (applicable if SAN is
+      used)'
+    levels:
+      - nfv_infrastructure
+    description: |
+      (c) local blade storage... shall not store sensitive information [unencrypted]...
+      (e) Mutual authentication... VM/container and... SAN storage using CHAP...
+      (g) ...sensitive data in transit between NFV and SAN shall be protected using ESP... FC-SP...
+      (i) Separate physical interface... for connectivity to the SAN...
+      SAN storage shall protect against tampering... unauthorized local copies... alarm and log event...
+
+# TODO: The following rules need to be implemented or were placeholders: ensure_ipsec_configured, ensure_luks_encryption_used
+    notes: 'Reference: ENISA NFV Security in 5G - Challenges and Best Practices (February2022)
+      BP-T20. Local encryption checkable. SAN auth/encryption config depends on implementation
+      (Gap/Adaptation). Physical separation is architecture (Gap). SAN-level tamper
+      protection is storage feature (Gap).'
+
+    # ... Continuing mapping for remaining controls with TODO comments ...
+
+    # Example: Control needing K8s rule with TODO
+  - id: 3.2B.5
+    title: Securely Isolate Network Resources (Pod Security)
+    levels:
+      - container
+    description: |
+      a) Pods... run as privileged shall be rejected... b) Container shall not allow... root... c) ...prevent privilege escalation... d) ...restrict directories used by host Path... read only... e) Critical Containers... cryptographically isolated using TEEs...
+
+# TODO: The following rules need to be implemented or were placeholders: container_no_privilege_escalation, container_restrict_hostpath_mounts, container_run_as_non_root, ensure_kubernetes_pss_restricted
+    notes: 'Reference: NSA-CISA Security Guidance for 5G Cloud Infrastructures PartII:
+      Securely Isolate Network Resources, 2021. Covered by Kubernetes-specific rules
+      checking Pod Security Admission or equivalent. TEE isolation (e) is a deeper
+      infra config (Gap/Adaptation).'
+
+    # Example: Control needing SDN rule with TODO (Conceptual)
+  - id: 3.3.1
+    title: Mutual authentication within SDN
+    levels:
+      - sdn
+    description: |
+      ...mutual authentication between the controller and the switching/routing entities...
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_sdn_controller_switch_mutual_auth
+    notes: 'Reference: ETSI GS NFV SEC 001 V1.1.1 (2014-10) clause 6.1.3.1.1. Gap:Requires
+      SDN controller/switch specific configuration checks.'
+
+    # Example: Control needing MANO rule with TODO (Conceptual)
+  - id: 3.4.7
+    title: The client and authorization servers shall mutually authenticate
+    levels:
+      - mano
+    description: |
+      NFV-MANO APIs... accessed by authorized users... OAuth2.0... Mutual authentication... transport layer protection... required.
+
+# TODO: The following rules need to be implemented or were placeholders: placeholder_mano_api_tls_mutual_auth
+    notes: 'Reference: 1) ETSI GS NFV-SEC 022 V2.7.1 Section 4.3  2) ENISA NFV Securityin
+      5G - Challenges and Best Practices (Feb 2022), BP-T23, BP-P1. Gap: Requires
+      MANO component-specific API configuration checks.'
+
+    # ... (Add TODOs to all remaining controls identified previously as gaps/adaptations)
+    # --- Final controls omitted for brevity but should follow the same pattern ---
