@@ -1,0 +1,2127 @@
+---
+policy: 'Indian Telecom Security Assurance Requirements (ITSAR) - Network Function Virtualization (NFV)'
+title: 'ITSAR NFV Security Requirements'
+id: itsar
+version: '1.0.0'
+source: https://nccs.gov.in/
+
+# ITSAR uses a single compliance level - all requirements are mandatory for NFV deployments
+levels:
+    - id: mandatory
+
+reference_type: itsar
+product: nfv
+
+controls:
+    # ============================================================================
+    # Chapter 2: Common Security Requirements
+    # ============================================================================
+
+    # Section 1: Access and Authorization
+
+    - id: 2.1.1
+      title: Management Protocols Mutual Authentication
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sshd_enable_strictmodes
+          # TODO: Mutual authentication framework for management protocols
+      notes: |-
+          Requires mutual authentication using ITSAR-approved cryptographic controls.
+
+    - id: 2.1.2
+      title: Management Traffic Protection Using Cryptography
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sshd_use_strong_ciphers
+          - sshd_use_strong_macs
+          - sshd_use_strong_kex
+          # TODO: Management traffic encryption beyond SSH
+
+    - id: 2.1.3
+      title: Role-Based Access Control (RBAC) Policy with Minimum 3 Roles
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - file_permissions_var_log_audit
+          # TODO: RBAC framework for OAM privilege management
+
+    - id: 2.1.4
+      title: User Authentication - Local and Remote with Multi-Factor
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - require_singleuser_auth
+          # TODO: Multi-factor authentication (minimum 2 attributes)
+      notes: |-
+          Requires minimum two authentication attributes (keys, tokens, passwords).
+          Exception: local access and machine accounts may use single factor.
+
+    - id: 2.1.5
+      title: Remote Login Restrictions for Privileged Users (No Remote Root)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sshd_disable_root_login
+          - no_direct_root_logins
+
+    - id: 2.1.6
+      title: Authorization Policy - Principle of Least Privilege
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - file_permissions_unauthorized_world_writable
+          - dir_perms_world_writable_system_owned
+          # TODO: Least privilege enforcement for applications
+
+    - id: 2.1.7
+      title: Unambiguous User Identification - No Group Accounts
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - account_unique_id
+          - no_shelllogin_for_systemaccounts
+          # TODO: Prevent group credential sharing
+
+    - id: 2.1.8
+      title: Out-of-Band Management Network with MFA for VPN Access
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Management interfaces isolated from internet via out-of-band network.
+          Multi-factor authentication required for VPN remote access.
+
+    # Section 2: Authentication Attribute Management
+
+    - id: 2.2.1
+      title: Authentication Policy Framework
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_password_pam_minlen
+          # TODO: Comprehensive authentication policy management
+
+    - id: 2.2.2
+      title: External Authentication Support (RADIUS/LDAP)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sssd_enable_smartcards
+          # TODO: External authentication integration (RADIUS/LDAP)
+
+    - id: 2.2.3
+      title: Protection Against Brute Force and Dictionary Attacks
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_passwords_pam_faillock_deny
+          - accounts_passwords_pam_faillock_unlock_time
+          - accounts_password_pam_unix_remember
+
+    - id: 2.2.4
+      title: Enforce Strong Password Complexity Requirements
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_password_pam_minlen
+          - accounts_password_pam_minclass
+          - accounts_password_pam_dcredit
+          - accounts_password_pam_ucredit
+          - accounts_password_pam_lcredit
+          - accounts_password_pam_ocredit
+
+    - id: 2.2.5
+      title: Inactive Session Timeout Configuration
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_tmout
+          - sshd_set_idle_timeout
+          - sshd_set_keepalive
+
+    - id: 2.2.6
+      title: Password Change and Aging Requirements
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_maximum_age_login_defs
+          - accounts_minimum_age_login_defs
+          - accounts_password_minlen_login_defs
+
+    - id: 2.2.7
+      title: Protected Authentication Feedback (No Password Echo)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - grub2_password
+          # TODO: No password echo/display during authentication
+
+    - id: 2.2.8
+      title: Removal of Predefined and Default Authentication Credentials
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_no_uid_except_zero
+          - no_empty_passwords
+          - grub2_disable_interactive_boot
+
+    - id: 2.2.9
+      title: Logout Function Availability
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_tmout
+          # TODO: Explicit logout function for all interfaces
+
+    - id: 2.2.10
+      title: Policy for Consecutive Failed Login Attempts
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_passwords_pam_faillock_deny
+          - accounts_passwords_pam_faillock_interval
+          - accounts_passwords_pam_faillock_unlock_time
+
+    - id: 2.2.11
+      title: Suspend Accounts on Non-Use After Inactivity Period
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - account_disable_post_pw_expiration
+          - accounts_password_set_max_life_existing
+
+    # Section 3: Software Security
+
+    - id: 2.3.1
+      title: Secure Update with Integrity Verification
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - ensure_gpgcheck_globally_activated
+          - ensure_gpgcheck_never_disabled
+          - security_patches_up_to_date
+
+    - id: 2.3.2
+      title: Secure Upgrade Process with Verification
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - security_patches_up_to_date
+          # TODO: Secure upgrade verification mechanism
+
+    - id: 2.3.3
+      title: Source Code Security Assurance and Review
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Requires source code security analysis and review processes.
+
+    - id: 2.3.4
+      title: Known Malware and Backdoor Detection
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - package_aide_installed
+          - aide_periodic_cron_checking
+          # TODO: Malware scanning integration
+
+    - id: 2.3.5
+      title: Removal of All Unused Software Packages
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - package_telnet-server_removed
+          - package_rsh-server_removed
+          - package_ypserv_removed
+          - service_rexec_disabled
+          - service_rlogin_disabled
+          - service_rsh_disabled
+
+    - id: 2.3.6
+      title: Unnecessary Services Removal and Disabling
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_autofs_disabled
+          - service_avahi-daemon_disabled
+          - service_kdump_disabled
+          # TODO: Comprehensive unnecessary services inventory
+
+    - id: 2.3.7
+      title: Restricting System Boot Source (Bootloader Protection)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - grub2_disable_interactive_boot
+          - grub2_password
+          - grub2_uefi_password
+
+    - id: 2.3.8
+      title: Secure Time Synchronization with Authenticated Sources
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - chronyd_or_ntpd_specify_remote_server
+          - chronyd_client_only
+          - chronyd_no_chronyc_network
+
+    - id: 2.3.9
+      title: Restricted Network Reachability of Services
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_firewalld_enabled
+          # TODO: Service-specific network restriction rules
+
+    - id: 2.3.10
+      title: Self Testing on Startup and Periodically
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          System must perform self-testing on startup and during operation.
+
+    # Section 4: System Secure Execution Environment
+
+    - id: 2.4.1
+      title: Disable All Unused Functions and Kernel Modules
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - kernel_module_cramfs_disabled
+          - kernel_module_freevxfs_disabled
+          - kernel_module_hfs_disabled
+          - kernel_module_hfsplus_disabled
+          - kernel_module_udf_disabled
+
+    - id: 2.4.2
+      title: Remove Unsupported Components from System
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Unsupported or end-of-life components must be removed.
+
+    - id: 2.4.3
+      title: Avoidance of Unspecified Mode of Access
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - file_permissions_unauthorized_world_writable
+          - dir_perms_world_writable_system_owned
+          # TODO: Comprehensive access mode restriction
+
+    # Section 5: User Audit
+
+    - id: 2.5.1
+      title: Audit Trail Storage and Protection from Tampering
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - directory_permissions_var_log_audit
+          - file_permissions_var_log_audit
+          - auditd_data_retention_max_log_file_action
+          - auditd_data_retention_space_left_action
+
+    - id: 2.5.2
+      title: Comprehensive Audit Event Generation
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_auditd_enabled
+          - audit_rules_login_events
+          - audit_rules_usergroup_modification
+          - audit_rules_time_adjtimex
+          - audit_rules_time_settimeofday
+          - audit_rules_networkconfig_modification
+          - audit_rules_mac_modification
+          - audit_rules_dac_modification_chmod
+          - audit_rules_dac_modification_chown
+          - audit_rules_execution_chcon
+          - audit_rules_kernel_module_loading
+          - audit_rules_privileged_commands
+          - audit_rules_unsuccessful_file_modification
+
+    - id: 2.5.3
+      title: Secure Log Export to Remote System
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - rsyslog_remote_loghost
+          # TODO: Encrypted log transport
+
+    - id: 2.5.4
+      title: Logging Access to Personal Data
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - audit_rules_dac_modification_chmod
+          - audit_rules_dac_modification_chown
+          # TODO: Personal data access-specific logging
+
+    - id: 2.5.5
+      title: Security Audit Log Configuration
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_auditd_enabled
+          - auditd_data_retention_max_log_file
+
+    - id: 2.5.6
+      title: Audit Logs Protection and Access Control
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - file_permissions_var_log_audit
+          - directory_permissions_var_log_audit
+
+    - id: 2.5.7
+      title: Centralized Log Auditing Infrastructure
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - rsyslog_remote_loghost
+          - package_rsyslog_installed
+          - service_rsyslog_enabled
+
+    # Section 6: Data Protection
+
+    - id: 2.6.1
+      title: Cryptographic-Based Secure Communication Channels
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sshd_use_strong_ciphers
+          - sshd_use_strong_macs
+          - sshd_use_strong_kex
+          # TODO: System-wide crypto policy enforcement
+
+    - id: 2.6.2
+      title: Cryptographic Module Security Assurance (FIPS Validated)
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Requires FIPS 140-2/3 validated cryptographic modules.
+
+    - id: 2.6.3
+      title: Cryptographic Algorithms Implementation Security Assurance
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - configure_crypto_policy
+          # TODO: ITSAR-specific crypto algorithm enforcement
+
+    - id: 2.6.4
+      title: Protecting Confidential System Internal Data
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - file_permissions_etc_shadow
+          - file_owner_etc_shadow
+          - file_groupowner_etc_shadow
+
+    - id: 2.6.5
+      title: Protecting Data and Information in Storage (Encryption)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - partition_for_tmp
+          - partition_for_var
+          - partition_for_var_log
+          - partition_for_var_log_audit
+          # TODO: Data-at-rest encryption
+
+    - id: 2.6.6
+      title: Protection Against Unauthorized Copy of Data (DLP)
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Requires DLP/DRM mechanisms to prevent unauthorized data copying.
+
+    - id: 2.6.7
+      title: Protection Against Data Exfiltration via Overt Channels
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_firewalld_enabled
+          # TODO: Data exfiltration prevention rules
+
+    - id: 2.6.8
+      title: Protection Against Data Exfiltration via Covert Channels
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Requires covert channel analysis and mitigation.
+
+    # Section 7: Network Services
+
+    - id: 2.7.1
+      title: Traffic Filtering at Network Level (Firewall)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_firewalld_enabled
+          - set_firewalld_default_zone
+          # TODO: Network-level traffic filtering rules
+
+    - id: 2.7.2
+      title: Traffic Separation via VLANs or Network Segmentation
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Requires network segmentation and VLAN configuration.
+
+    - id: 2.7.3
+      title: Traffic Protection - Anti-Spoofing Mechanisms
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_conf_all_rp_filter
+          - sysctl_net_ipv4_conf_default_rp_filter
+
+    - id: 2.7.4
+      title: Network Security Hardening (IP Stack Protection)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_conf_all_accept_source_route
+          - sysctl_net_ipv4_conf_default_accept_source_route
+          - sysctl_net_ipv4_conf_all_accept_redirects
+          - sysctl_net_ipv4_conf_default_accept_redirects
+          - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+          - sysctl_net_ipv4_tcp_syncookies
+
+    # Section 8: Attack Prevention Mechanisms
+
+    - id: 2.8.1
+      title: Network Level and Application-Level DDoS Protection
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_tcp_syncookies
+          # TODO: DDoS mitigation rules
+
+    - id: 2.8.2
+      title: Excessive Overload Protection and Rate Limiting
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Requires rate limiting and resource quota mechanisms.
+
+    - id: 2.8.3
+      title: Manipulated Packets Protection - No Availability Impairment
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_conf_all_log_martians
+          - sysctl_net_ipv4_conf_default_log_martians
+          # TODO: Malformed packet handling
+
+    # Section 9: Vulnerability Testing Requirements
+
+    - id: 2.9.1
+      title: Fuzzing Testing - Network and Application Level
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Periodic fuzzing testing of network and application interfaces required.
+
+    - id: 2.9.2
+      title: Port Scanning to Identify Exposed Services
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Regular port scanning to identify exposed services.
+
+    - id: 2.9.3
+      title: Vulnerability Scanning and Assessment
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Periodic vulnerability assessments required.
+
+    # Section 10: Operating System
+
+    - id: 2.10.1
+      title: Growing Content Handling Without Resource Exhaustion
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          System must handle growing content without resource exhaustion.
+
+    - id: 2.10.2
+      title: ICMP Handling and Protection
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+          - sysctl_net_ipv4_icmp_ignore_bogus_error_responses
+
+    - id: 2.10.3
+      title: Authenticated Privilege Escalation Only (sudo/su)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sudo_require_authentication
+          - sudo_remove_nopasswd
+          - sudo_remove_no_authenticate
+
+    - id: 2.10.4
+      title: System Account Identification and Restrictions
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - no_shelllogin_for_systemaccounts
+          - account_unique_id
+
+    - id: 2.10.5
+      title: OS Hardening - Minimized Kernel Network Functions
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_conf_all_send_redirects
+          - sysctl_net_ipv4_conf_default_send_redirects
+          - sysctl_net_ipv4_ip_forward
+          # TODO: Additional kernel network function minimization
+
+    - id: 2.10.6
+      title: Disable Automatic Launch of Removable Media
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_autofs_disabled
+          - kernel_module_usb-storage_disabled
+
+    - id: 2.10.7
+      title: External File System Mount Restrictions
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - kernel_module_cramfs_disabled
+          - kernel_module_freevxfs_disabled
+          - kernel_module_jffs2_disabled
+          - kernel_module_hfs_disabled
+          - kernel_module_hfsplus_disabled
+          - kernel_module_squashfs_disabled
+          - kernel_module_udf_disabled
+
+    - id: 2.10.8
+      title: File-System Authorization Privileges and Mount Options
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - mount_option_home_nodev
+          - mount_option_tmp_nodev
+          - mount_option_tmp_nosuid
+          - mount_option_tmp_noexec
+          - mount_option_var_tmp_nodev
+          - mount_option_var_tmp_nosuid
+          - mount_option_var_tmp_noexec
+
+    - id: 2.10.9
+      title: SYN Flood Prevention Using TCP SYN Cookies
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_tcp_syncookies
+
+    - id: 2.10.10
+      title: Handling of IP Options and Extensions
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_conf_all_accept_source_route
+          - sysctl_net_ipv4_conf_default_accept_source_route
+          # TODO: IPv6 options handling
+
+    # Section 11: Web Servers
+
+    - id: 2.11.1
+      title: HTTPS Enforcement for Web Services
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          All web services must use HTTPS.
+
+    - id: 2.11.2
+      title: Web Server Logging of Access and Errors
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Web server must log all access and errors.
+
+    - id: 2.11.3
+      title: HTTPS Input Validation Against Injection Attacks
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          All HTTPS inputs must be validated against injection attacks.
+
+    - id: 2.11.4
+      title: Web Server Running Without System Privileges
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Web server must run with minimal privileges, not as root.
+
+    - id: 2.11.5
+      title: Disable Unused HTTP Methods (PUT, DELETE, TRACE)
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Disable unused HTTP methods (PUT, DELETE, TRACE, etc.).
+
+    - id: 2.11.6
+      title: Remove Unused Web Server Add-ons and Modules
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Remove unnecessary web server modules and add-ons.
+
+    - id: 2.11.7
+      title: No Compiler, Interpreter, or Shell Access via CGI
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.8
+      title: No CGI or Scripting for File Uploads
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.9
+      title: No Execution of System Commands with SSI
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.10
+      title: Restrict Access Rights for Web Server Configuration Files
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.11
+      title: Remove Default Content from Web Server
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.12
+      title: Disable Directory Listings in Web Server
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.13
+      title: Remove Web Server Information from HTTPS Headers
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.14
+      title: Remove Web Server Information from Error Pages
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.15
+      title: Minimize File Type Mappings in Web Server
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.16
+      title: Restrict File Access in Web Server Document Root
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.17
+      title: Execute Rights Exclusive for CGI/Scripting Directory
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.11.18
+      title: HTTP User Session Management and Security
+      levels:
+          - mandatory
+      status: manual
+
+    # Section 12: Other Security Requirements
+
+    - id: 2.12.1
+      title: Remote Diagnostic Procedure - Verification and Authorization
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 2.12.2
+      title: Disable System Password Recovery Mechanisms
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - grub2_password
+          - grub2_uefi_password
+
+    - id: 2.12.3
+      title: Secure System Software Revocation Mechanism
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Software revocation mechanism required.
+
+    - id: 2.12.4
+      title: Software Integrity Check During Installation
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - ensure_gpgcheck_globally_activated
+          - ensure_gpgcheck_never_disabled
+
+    - id: 2.12.5
+      title: Software Integrity Check During Boot Process
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - package_aide_installed
+          - aide_periodic_cron_checking
+          # TODO: Boot-time integrity verification (TPM/secure boot)
+
+    - id: 2.12.6
+      title: Disable Unused Physical and Logical Interfaces
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - kernel_module_bluetooth_disabled
+          - kernel_module_usb-storage_disabled
+          - wireless_disable_interfaces
+
+    - id: 2.12.7
+      title: Remove Default System Profiles and Configurations
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - grub2_disable_interactive_boot
+          - accounts_no_uid_except_zero
+
+    # ============================================================================
+    # Chapter 3: Specific Security Requirements for NFV
+    # ============================================================================
+
+    # Part 1: NFV Infrastructure (Platform)
+
+    - id: 3.1.1
+      title: Secure Launch Environment for VMs and Containers
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Secure VM/container launch environment configuration.
+
+    - id: 3.1.2
+      title: CPU Pinning for Performance Isolation
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: CPU pinning for performance isolation in virtualized workloads.
+
+    - id: 3.1.3
+      title: Workload Placement Policies and Security
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Secure workload placement policies based on trust domains.
+
+    - id: 3.1.4
+      title: SR-IOV and DPDK Security Considerations
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Security for SR-IOV and DPDK high-performance networking.
+
+    - id: 3.1.5
+      title: Isolation Between Workloads and Tenants
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Strong isolation between VMs/containers and tenants.
+
+    - id: 3.1.6
+      title: Top of Rack (ToR) Switch Security Configuration
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: ToR switch security and configuration hardening.
+
+    - id: 3.1.7
+      title: Hardware-Based Root of Trust (HBRT) Implementation
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Requires TPM or similar hardware root of trust.
+
+    - id: 3.1.8
+      title: Core Hardware HBRT for Platform Integrity
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Core hardware root of trust for platform.
+
+    - id: 3.1.9
+      title: Chain of Trust (CoT) for Measured Boot
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Measured boot and chain of trust from firmware to OS.
+
+    - id: 3.1.10
+      title: Remote Attestation of Platform Integrity
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Platform integrity remote attestation capability.
+
+    - id: 3.1.11
+      title: Asset Tagging and Trusted Location Verification
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Geolocation and asset tagging for compliance.
+
+    - id: 3.1.12
+      title: Trusted Computing Technologies (TPM, Secure Boot)
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: TPM, secure boot, and trusted execution environment.
+
+    - id: 3.1.14
+      title: Key Management System for NFV Infrastructure
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Centralized key management for virtualized infrastructure.
+
+    - id: 3.1.15
+      title: Server Boot Hardening and Protection
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - grub2_password
+          - grub2_uefi_password
+          - grub2_disable_interactive_boot
+
+    - id: 3.1.16
+      title: Secure De-provisioning of Workloads and Data Sanitization
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Secure workload deprovisioning and data sanitization.
+
+    - id: 3.1.17
+      title: Failure Handling and Recovery Procedures
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Secure failure handling and recovery procedures.
+
+    - id: 3.1.18
+      title: Direct Memory Access (DMA) Control and Protection
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Control and restrict direct memory access (DMA).
+
+    - id: 3.1.19
+      title: Function and Software Verification in NFV
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.1.20
+      title: System Hardening for NFV Infrastructure
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - configure_crypto_policy
+          - selinux_state
+          - selinux_policytype
+
+    - id: 3.1.21
+      title: Platform Access Control for Virtualization Layer
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Access control for hypervisor/CIS management.
+
+    - id: 3.1.22
+      title: VNF Workload Security Controls
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Security controls for VNF workloads.
+
+    - id: 3.1.23
+      title: VM and Container Image Security on Cloud Platform
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Image signing, scanning, and validation.
+
+    - id: 3.1.24
+      title: Lifecycle Management Security via MANO
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Secure lifecycle management through NFV MANO.
+
+    - id: 3.1.25
+      title: Platform Confidentiality and Integrity Protection
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - configure_crypto_policy
+          # TODO: Platform-level encryption and integrity
+
+    - id: 3.1.26
+      title: Data at Rest Protection with Encryption
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Encryption of data at rest in virtualized storage.
+
+    - id: 3.1.27
+      title: Data in Use Protection (Memory Encryption, TEE)
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Memory encryption, TEE usage for data in use.
+
+    - id: 3.1.28
+      title: Secure VNF Workload Provisioning Process
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Secure VNF provisioning through orchestration.
+
+    - id: 3.1.29
+      title: Secure Design and Architecture Principles
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.1.30
+      title: Secure Coding Practices for VNF Development
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Secure coding practices for VNF development.
+
+    - id: 3.1.31
+      title: Continuous Integration, Build and Testing Security
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: CI/CD security for VNF deployment pipeline.
+
+    - id: 3.1.33
+      title: Runtime Defense and Security Monitoring for VNFs
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Runtime security monitoring and defense for VNFs.
+
+    - id: 3.1.34
+      title: Software Integrity Protection and Verification Mechanisms
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - package_aide_installed
+          - aide_periodic_cron_checking
+          - ensure_gpgcheck_globally_activated
+
+    - id: 3.1.35
+      title: Communications Security Between NFV Components
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sshd_use_strong_ciphers
+          - configure_crypto_policy
+
+    - id: 3.1.37
+      title: Resource Usage Monitoring at VNFI and VNF Levels
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Monitor resource usage for infrastructure and VNFs.
+
+    - id: 3.1.38
+      title: Identity API Access Control (Keystone, IAM)
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: API access control for identity services.
+
+    - id: 3.1.39
+      title: Time Synchronization Across NFV Infrastructure
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - chronyd_or_ntpd_specify_remote_server
+          - service_chronyd_enabled
+
+    - id: 3.1.40
+      title: Compute Resource Isolation Between VNFs
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: CPU/memory isolation between VNF instances.
+
+    - id: 3.1.42
+      title: Entity Lifetime Management in NFV
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.1.43
+      title: Secure VNF Provisioning and Deployment Processes
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.1.44
+      title: Communications Confidentiality and Integrity in NFV
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - configure_crypto_policy
+          - sshd_use_strong_ciphers
+
+    - id: 3.1.45
+      title: Security Controls for Third-Party Hosting Environments
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.1.46
+      title: VM and Container Isolation - Prevent Breakout Attacks
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Prevent VM escape and hypervisor breakout.
+
+    - id: 3.1.47
+      title: Frontend Access Security for NFV Platform
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.1.48
+      title: Backend Access Security for NFV Platform
+      levels:
+          - mandatory
+      status: manual
+
+    # Part 2: Virtualization Security
+
+    - id: 3.2.1
+      title: Application of Security Hardening Policies
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - selinux_state
+          - configure_crypto_policy
+
+    - id: 3.2.2
+      title: Strong Password Policy for Virtualization Platform
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - accounts_password_pam_minlen
+          - accounts_password_pam_minclass
+
+    - id: 3.2.3
+      title: Hypervisor and Container Infrastructure Service (CIS) Protection
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Hypervisor/CIS hardening and protection.
+
+    - id: 3.2.4
+      title: VM Isolation and Hypervisor Breakout Prevention
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Strong VM isolation, prevent hypervisor breakout.
+
+    - id: 3.2.5
+      title: Data Synchronicity Through Network in NFV
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.6
+      title: VNF Protection Mechanisms and Controls
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: VNF-level security controls.
+
+    - id: 3.2.7
+      title: VNF Image Validation and Integrity Protection
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Image signing, validation, and integrity checks.
+
+    - id: 3.2.8
+      title: Identity and Access Management (IDAM) for NFV
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Comprehensive IDAM for NFV infrastructure.
+
+    - id: 3.2.9
+      title: Keep Mobile Cloud Software Updated and Vulnerability-Free
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - security_patches_up_to_date
+
+    - id: 3.2.10
+      title: High Availability and Redundancy Requirements
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: HA and redundancy for critical VNFs.
+
+    - id: 3.2.11
+      title: Secure Token Generation for API Authentication
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Cryptographically secure token generation.
+
+    - id: 3.2.12
+      title: Token Verification and Validation Mechanisms
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.13
+      title: Secure Token Transport Over Network
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.14
+      title: Software Package Integrity Verification During Installation
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - ensure_gpgcheck_globally_activated
+
+    - id: 3.2.15
+      title: Key Management Security Within Migrated VM Images
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.16
+      title: Comprehensive Logging in Virtualization Platform
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_auditd_enabled
+          - service_rsyslog_enabled
+
+    - id: 3.2.17
+      title: Event Notification System for Security Events
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.18
+      title: Encrypted Storage for VNF Data
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Encryption for VNF persistent storage.
+
+    - id: 3.2.19
+      title: Workload Placement Policies for Data Retention
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.20
+      title: Platform Backup and Recovery Procedures
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.21
+      title: Validating Topology of Virtualized Network Functions
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.22
+      title: Infrastructure Network Segmentation and Isolation
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Network segmentation within virtualized infrastructure.
+
+    - id: 3.2.23
+      title: Security Groups Configuration and Management
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          NFV-specific: Security groups (OpenStack/cloud platform).
+
+    - id: 3.2.24
+      title: Anti-Spoofing Protection in Virtualized Networks
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sysctl_net_ipv4_conf_all_rp_filter
+          - sysctl_net_ipv4_conf_default_rp_filter
+
+    - id: 3.2.25
+      title: Network Address Translation (NAT) Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.26
+      title: Network Isolation Between VNFs and Tenants
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.27
+      title: OS-Level Access Control (SELinux, AppArmor)
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - selinux_state
+          - selinux_policytype
+
+    - id: 3.2.28
+      title: Secure Configuration of Mobile Cloud Networking
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.29
+      title: Lock Down Communications Among Isolated Network Functions
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.30
+      title: Secure VNF Deployment Procedures
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.31
+      title: Software Compliance and Integrity Preservation Throughout Lifecycle
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - package_aide_installed
+          - aide_periodic_cron_checking
+
+    - id: 3.2.32
+      title: Security-by-Design Principles for VNF Development
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.33
+      title: Open-Source Software Security Assessment
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Security controls and vetting for open-source VNF components.
+
+    - id: 3.2.34
+      title: Secure Update Management for VNFs and Platform
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - security_patches_up_to_date
+          - ensure_gpgcheck_globally_activated
+
+    - id: 3.2.35
+      title: Restrictions on Installing Applications in VNFs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.36
+      title: Establishment of Trust Domains for Network Functions
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.37
+      title: Confidentiality Protection of Sensitive Data in NFV
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - file_permissions_etc_shadow
+          - configure_crypto_policy
+
+    - id: 3.2.38
+      title: Availability Requirements for Network Functions
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.39
+      title: Common Software Environment Across VNFs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.40
+      title: Data Location and Lifecycle Management
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.41
+      title: Function Isolation in Multi-Tenant Environments
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.42
+      title: Keys and Confidential Data Protection in VNFs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.43
+      title: Attestation at 3GPP Function Level
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.44
+      title: IP Layer vs Application Layer Security Separation
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.45
+      title: Secure Management APIs for NFV Components
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.46
+      title: Secure Execution Environment Creation for VNFs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.47
+      title: VM Escape Attack Prevention and Detection
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.48
+      title: Secure Hardware Resource Management Information
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.49
+      title: Remove Unnecessary Hypervisor Services
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.50
+      title: Hypervisor Boot Configuration Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.51
+      title: Hypervisor Platform Management Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2.52
+      title: Comprehensive Hypervisor Security Hardening
+      levels:
+          - mandatory
+      status: manual
+
+    # Part 2(A): Virtual Machine Specific Requirements
+
+    - id: 3.2A.1
+      title: Traffic Separation for Virtual Machines
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2A.2
+      title: Secure Crash Handling for VMs on Hypervisors
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2A.3
+      title: Memory Introspection for VM Security Monitoring
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2A.4
+      title: Prevent Direct Command Execution from Guest VMs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2A.5
+      title: Secure VM Lifecycle Management
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2A.6
+      title: Network Segmentation for Virtual Machines
+      levels:
+          - mandatory
+      status: manual
+
+    # Part 2(B): Container Specific Requirements
+
+    - id: 3.2B.1
+      title: Container Breakout Prevention and Detection
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Prevent container escape to host OS.
+
+    - id: 3.2B.2
+      title: Container Platform Integrity Verification
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.3
+      title: Container Launch Time Integrity Validation
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.4
+      title: Container Image Hygiene and Vulnerability Scanning
+      levels:
+          - mandatory
+      status: manual
+      notes: |-
+          Image scanning, minimal base images, no critical vulnerabilities.
+
+    - id: 3.2B.5
+      title: Securely Isolate Network Resources with Pod Security Policies
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.6
+      title: Container Runtime Security Controls
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.7
+      title: Real-Time Threat Detection and Incident Response for Containers
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.8
+      title: Container Security Hygiene Best Practices
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.9
+      title: Software Catalog Image Exposure Management
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.10
+      title: Container-Specific Security Controls
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.11
+      title: Host OS Security for Container Platform
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - selinux_state
+
+    - id: 3.2B.12
+      title: Container Resource Requests and Limits Configuration
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.13
+      title: Audit Log Analysis for Container Platform
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - service_auditd_enabled
+
+    - id: 3.2B.14
+      title: Control Plane Authentication and Certificate Root of Trust
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.15
+      title: Service Mesh Implementation for Container Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.16
+      title: Secure Storage for Container Persistent Volumes
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2B.17
+      title: Principle of Least Privilege for Containers
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - sudo_require_authentication
+
+    # Part 2(C): VNF/CNF Specific Requirements
+
+    - id: 3.2C.1
+      title: VNF/CNF Network Security Profile Configuration
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.2
+      title: Protection from Buffer Overflow Attacks in VNFs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.3
+      title: VNF/CNF Data at Rest Storage Encryption
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.4
+      title: Secure VNF/CNF Startup and Initialization
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.5
+      title: Trusted Time Source for VNF/CNF Synchronization
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.6
+      title: VNF/CNF Integration with Authentication and Authorization Services
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.7
+      title: VNF/CNF Host Spanning Security Controls
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.8
+      title: Input Validation for VNF/CNF Interfaces
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.9
+      title: Key Management Security in Cloned VNF Images
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.10
+      title: Encrypting VNF/CNF Volume and Swap Areas
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.11
+      title: Encrypted Data Processing in VNFs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.12
+      title: Guest VNF/CNF Lifecycle Management Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.13
+      title: Instantiate VNF from Trusted and Verified Image Only
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.14
+      title: Inter-VNF and Intra-VNF Traffic Separation
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.15
+      title: Security Requirements on Virtualization Resource Management
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.16
+      title: VNF Package and Image Integrity Verification
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.17
+      title: Secure VM Crash Handling on Hypervisors
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.18
+      title: Proper VM Image Management and Lifecycle
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.19
+      title: Prevent Secrets in NF Container/VM Images
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.20
+      title: Container Image Authorization and Access Control
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.2C.21
+      title: Security Management and Orchestration for VNFs
+      levels:
+          - mandatory
+      status: manual
+
+    # Part 3: SDN (Software Defined Networking) Requirements
+
+    - id: 3.3.1
+      title: Mutual Authentication Within SDN Components
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.2
+      title: Centralized Log Auditing for SDN Infrastructure
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.3
+      title: Software Compliance and Integrity for SDN Components
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.4
+      title: OS Hardening for SDN Controllers and Switches
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - selinux_state
+          - configure_crypto_policy
+
+    - id: 3.3.5
+      title: Host Security for SDN Infrastructure Nodes
+      levels:
+          - mandatory
+      status: automated
+      rules:
+          - selinux_state
+
+    - id: 3.3.6
+      title: SDN Controller and Communications Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.7
+      title: Prevent Attacks via SDN Forwarding Plane
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.8
+      title: Prevent Attacks via SDN Control Network
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.9
+      title: Prevent Attacks via SDN Controller Application Control Interface
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.10
+      title: Prevent Attacks via Virtualized SDN Environment
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.11
+      title: SDN Northbound Applications Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.3.12
+      title: SDN Security Management and Monitoring
+      levels:
+          - mandatory
+      status: manual
+
+    # Part 4: MANO (Management and Orchestration) Requirements
+
+    - id: 3.4.1
+      title: Secure Instantiation of MANO Components
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.2
+      title: Identity Verification at Receiver End in MANO Architecture
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.3
+      title: Resource Monitoring in VIM (Virtualized Infrastructure Manager)
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.4
+      title: Secure Message Handling in MANO Communications
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.5
+      title: Secure Data Transfer in MANO Infrastructure
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.6
+      title: Identity Verification Throughout MANO Components
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.7
+      title: Mutual Authentication Between Client and Authorization Servers
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.8
+      title: Authentication of Request Originator in MANO
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.9
+      title: Requirements for Client Credentials in OAuth/MANO
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.10
+      title: Access Token Signing for MANO APIs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.11
+      title: Format of Access Token in MANO (JWT)
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.12
+      title: Access Tokens with Limited Lifetimes
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.13
+      title: Access Tokens Restricted to Specific Operations
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.14
+      title: Access Token Binding to Intended Resource Server
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.15
+      title: Tokens Bound to Client ID for MANO APIs
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.16
+      title: Token Revocation Mechanism in MANO
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.17
+      title: Orchestrator Node Trust and Verification
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.18
+      title: Comprehensive Logging in MANO Components
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.19
+      title: MANO Access Control and Management Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.20
+      title: Security Management and Orchestration Integration
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.21
+      title: Hardware Security for MANO Infrastructure
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.22
+      title: Centralized Log Auditing for MANO Platform
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.23
+      title: VIM Connectivity to Virtualization Layer Security
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.24
+      title: MANO Recovery and Reinstallation Procedures
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.25
+      title: Deploying VMs/Containers of Different Trust Levels
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.26
+      title: NFVO (NFV Orchestrator) Security Management
+      levels:
+          - mandatory
+      status: manual
+
+    - id: 3.4.27
+      title: Secure VNF Deletion or Relocation Procedures
+      levels:
+          - mandatory
+      status: manual
