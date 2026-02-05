@@ -1,0 +1,5 @@
+name: "cpe:/a:mount_efi_is_vfat"
+title: "the /boot/efi partition is formatted as vfat filesystem"
+check_id: mount_efi_is_vfat
+bash_conditional: 'findmnt --kernel "/boot/efi" -o FSTYPE -n 2>/dev/null | grep -q "^vfat$" || ( findmnt --fstab "/boot/efi" -o FSTYPE -n 2>/dev/null | grep -q "^vfat$" )'
+ansible_conditional: '(ansible_mounts | selectattr("mount", "equalto", "/boot/efi") | selectattr("fstype", "equalto", "vfat") | list | length > 0)' 

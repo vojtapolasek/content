@@ -1,0 +1,53 @@
+<def-group>
+  <definition class="inventory" id="mount_efi_is_vfat" version="1">
+    <metadata>
+      <title>/boot/efi partition is formatted as vfat filesystem</title>
+      <affected family="unix">
+        <platform>multi_platform_all</platform>
+      </affected>
+      <description>Check if /boot/efi partition exists and is formatted as vfat filesystem.</description>
+      <reference ref_id="cpe:/a:mount_efi_is_vfat" source="CPE" />
+    </metadata>
+    <criteria operator="OR">
+      <criterion test_ref="test_mount_efi_is_vfat_active" comment="/boot/efi is mounted with vfat filesystem" />
+      <criterion test_ref="test_mount_efi_is_vfat_fstab" comment="/boot/efi configured in fstab with vfat filesystem" />
+    </criteria>
+  </definition>
+
+  <!-- Test for active mount with vfat filesystem -->
+  <linux:partition_test check="all" check_existence="at_least_one_exists" version="1"
+      comment="/boot/efi is mounted as vfat"
+      id="test_mount_efi_is_vfat_active">
+    <linux:object object_ref="object_mount_efi_partition" />
+    <linux:state state_ref="state_mount_efi_vfat" />
+  </linux:partition_test>
+
+  <linux:partition_object id="object_mount_efi_partition" version="1">
+    <linux:mount_point>/boot/efi</linux:mount_point>
+  </linux:partition_object>
+
+  <linux:partition_state id="state_mount_efi_vfat" version="1">
+    <linux:fs_type>vfat</linux:fs_type>
+  </linux:partition_state>
+
+  <!-- Test for /etc/fstab configuration with vfat filesystem -->
+  <ind:textfilecontent54_test check="all" check_existence="at_least_one_exists" version="1"
+      comment="/boot/efi is configured in /etc/fstab as vfat"
+      id="test_mount_efi_is_vfat_fstab">
+    <ind:object object_ref="object_mount_efi_fstab" />
+    <ind:state state_ref="state_mount_efi_fstab_vfat" />
+  </ind:textfilecontent54_test>
+
+  <ind:textfilecontent54_object id="object_mount_efi_fstab" version="1">
+    <ind:filepath>/etc/fstab</ind:filepath>
+    <!-- Pattern matches: <device> <mount_point> <fstype> <options> <dump> <pass>
+         Captures the filesystem type (3rd field) for /boot/efi mount -->
+    <ind:pattern operation="pattern match">^\s*[^#\s]+\s+/boot/efi\s+(\S+)\s+\S+\s+\S+\s+\S+\s*$</ind:pattern>
+    <ind:instance datatype="int">1</ind:instance>
+  </ind:textfilecontent54_object>
+
+  <ind:textfilecontent54_state id="state_mount_efi_fstab_vfat" version="1">
+    <ind:subexpression>vfat</ind:subexpression>
+  </ind:textfilecontent54_state>
+
+</def-group>
