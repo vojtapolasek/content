@@ -30,8 +30,10 @@ def setup_test_files(base_dir, benchmark_dirs, create_txt_file=False):
         os.makedirs(path, exist_ok=True)
         var_file = path / "test.var"
         var_file.write_text(
-            "options:\n  default: value\n  option1: value1\n  option2: value2\n"
+            "documentation_complete: true\n"
             "title: Test Title\ndescription: Test Description\n"
+            "type: string\noperator: equals\ninteractive: false\n"
+            "options:\n  default: value\n  option1: value1\n  option2: value2\n"
         )
         if create_txt_file:
             txt_file = path / "test.txt"

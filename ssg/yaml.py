@@ -4,11 +4,15 @@ Common functions for processing YAML in SSG
 
 from __future__ import absolute_import
 
+import json
+import os
 import re
 import sys
 import yaml
 
 from collections import OrderedDict
+
+from jsonschema import validate, ValidationError
 
 from .jinja import (
     load_macros_from_content_dir,
@@ -64,6 +68,67 @@ def _unicode_constructor(self, node):
 yaml_SafeLoader.add_constructor(u'tag:yaml.org,2002:bool', _bool_constructor)
 # Python2-relevant - become able to resolve "unicode strings"
 yaml_SafeLoader.add_constructor(u'tag:yaml.org,2002:python/unicode', _unicode_constructor)
+
+
+_SCHEMA_DIR = os.path.join(os.path.dirname(__file__), os.pardir, "shared", "schemas")
+_schema_cache = {}
+
+
+def _get_schema_for_file(yaml_file):
+    """Return the schema filename for a given YAML file path, or None if no schema applies."""
+    basename = os.path.basename(yaml_file)
+    normalized = yaml_file.replace(os.sep, "/")
+    # Skip test data files
+    if "/tests/" in normalized:
+        return None
+    if basename == "rule.yml":
+        return "rule.json"
+    if yaml_file.endswith(".var"):
+        return "variable.json"
+    if ("/controls/" in normalized or normalized.startswith("controls/")) \
+            and yaml_file.endswith(".yml"):
+        return "control.json"
+    if ("/policy/" in normalized or normalized.startswith("policy/")) \
+            and basename == "shared.yml":
+        return "rule_policy_content.json"
+    return None
+
+
+def _load_schema(schema_name):
+    """Load and cache a JSON schema by name."""
+    if schema_name not in _schema_cache:
+        schema_path = os.path.join(_SCHEMA_DIR, schema_name)
+        if not os.path.isfile(schema_path):
+            return None
+        with open(schema_path) as f:
+            _schema_cache[schema_name] = json.load(f)
+    return _schema_cache[schema_name]
+
+
+def _validate_yaml_schema(yaml_file, expanded_yaml_text):
+    """Validate expanded YAML text against the appropriate JSON schema.
+
+    Uses standard yaml.safe_load (not the custom SafeLoader) so that
+    boolean types match what the schemas expect.
+    """
+    schema_name = _get_schema_for_file(yaml_file)
+    if schema_name is None:
+        return
+
+    schema = _load_schema(schema_name)
+    if schema is None:
+        return
+
+    data = yaml.safe_load(expanded_yaml_text)
+    if data is None:
+        return
+
+    try:
+        validate(instance=data, schema=schema)
+    except ValidationError as e:
+        msg = "Schema validation error in {file}: {error}".format(
+            file=yaml_file, error=e.message)
+        raise ValueError(msg) from e
 
 
 class DocumentationNotComplete(Exception):
@@ -188,6 +253,7 @@ def open_and_expand(yaml_file, substitutions_dict=None):
         substitutions_dict = dict()
 
     expanded_template = process_file(yaml_file, substitutions_dict)
+    _validate_yaml_schema(yaml_file, expanded_template)
     try:
         yaml_contents = _open_yaml(expanded_template, yaml_file, substitutions_dict)
     except yaml.scanner.ScannerError:

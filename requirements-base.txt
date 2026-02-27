@@ -1,4 +1,5 @@
 pyyaml
 Jinja2
+jsonschema
 setuptools
 
