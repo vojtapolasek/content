@@ -365,8 +365,10 @@ controls:
       rules:
           - ensure_redhat_gpgkey_installed
       notes: >
-        In CIS Benchmark, the requirement is manual, because of GPG keys for 3rd party repositories.
-        But, add the rule ensure_redhat_gpgkey_installed to the profile because the requirement 1.2.1.2
+        In CIS Benchmark, the requirement is manual, because of GPG keys for 3rd party
+        repositories.
+        But, add the rule ensure_redhat_gpgkey_installed to the profile because the requirement
+        1.2.1.2
         adds ensure_gpgcheck_never_disabled which requires GPG key checking. If the Red Hat
         GPG key wouldn't be installed, people won't be able to install any RPM package using dnf.
 
@@ -567,7 +569,8 @@ controls:
           - l1_workstation
       status: not applicable
       notes: |-
-          The variable CRYPTO_POLICY required by this CIS requirement is no longer honored by sshd on any RHEL 9 system.
+          The variable CRYPTO_POLICY required by this CIS requirement is no longer honored by sshd
+          on any RHEL 9 system.
           This requirement will be removed from CIS Benchmark in future releases,
           see https://workbench.cisecurity.org/tickets/26215.
 
@@ -740,7 +743,8 @@ controls:
           - dconf_gnome_disable_automount_open
 
     - id: 1.8.7
-      title: Ensure GDM disabling automatic mounting of removable media is not overridden (Automated)
+      title: Ensure GDM disabling automatic mounting of removable media is not overridden
+          (Automated)
       levels:
           - l1_server
           - l2_workstation
@@ -1572,7 +1576,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          The requirement gives an example of 45 seconds, but is flexible about the values. It is only
+          The requirement gives an example of 45 seconds, but is flexible about the values. It is
+          only
           necessary to ensure there is a timeout configured in alignment to the site policy.
       rules:
           - sshd_idle_timeout_value=5_minutes
@@ -1639,7 +1644,8 @@ controls:
       status: automated
       notes: |-
           The CIS benchmark is not opinionated about which loglevel is selected here. Here, this
-          profile uses VERBOSE by default, as it allows for the capture of login and logout activity
+          profile uses VERBOSE by default, as it allows for the capture of login and logout
+          activity
           as well as key fingerprints.
       rules:
           - sshd_set_loglevel_verbose
@@ -1774,9 +1780,11 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          Members of "wheel" or GID 0 groups are checked by default if the group option is not set for
+          Members of "wheel" or GID 0 groups are checked by default if the group option is not set
+          for
           pam_wheel.so module. The recommendation states the group should be empty to reinforce the
-          use of "sudo" for privileged access. Therefore, members of these groups should be manually
+          use of "sudo" for privileged access. Therefore, members of these groups should be
+          manually
           checked or a different group should be informed.
       rules:
           - var_pam_wheel_group_for_su=cis
@@ -1902,7 +1910,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          The policy also accepts value 0, which means the locked accounts should be manually unlocked
+          The policy also accepts value 0, which means the locked accounts should be manually
+          unlocked
           by an administrator. However, it also mentions that using value 0 can facilitate a DoS
           attack to legitimate users.
       rules:
@@ -1947,7 +1956,8 @@ controls:
       status: automated
       notes: |-
           This requirement is expected to be manual. However, in previous versions of the policy
-          it was already automated the configuration of "minclass" option. This posture was kept for
+          it was already automated the configuration of "minclass" option. This posture was kept
+          for
           RHEL 9 in this new version. Rules related to other options are informed in related_rules.
           In short, minclass=4 alone can achieve the same result achieved by the combination of the
           other 4 options mentioned in the policy.
@@ -2007,7 +2017,8 @@ controls:
       status: automated
       notes: |-
           Although mentioned in the section 5.3.3.3, there is no explicit requirement to configure
-          retry option of pam_pwhistory. If come in the future, the rule accounts_password_pam_retry
+          retry option of pam_pwhistory. If come in the future, the rule
+          accounts_password_pam_retry
           can be used.
       rules:
           - accounts_password_pam_pwhistory_remember_password_auth
@@ -2072,7 +2083,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          Changes in logindefs mentioned in this requirement are more specifically covered by 5.4.1.4
+          Changes in logindefs mentioned in this requirement are more specifically covered by
+          5.4.1.4
       rules:
           - set_password_hashing_algorithm_systemauth
           - set_password_hashing_algorithm_passwordauth
@@ -2086,7 +2098,8 @@ controls:
       status: partial
       notes: |-
           In RHEL 9 pam_unix is enabled by default in all authselect profiles already with the
-          use_authtok option set. In any case, we don't have a rule to check this option specifically,
+          use_authtok option set. In any case, we don't have a rule to check this option
+          specifically,
           like in 5.3.3.3.3.
 
     - id: 5.4.1.1
@@ -2170,9 +2183,11 @@ controls:
           - l1_workstation
       status: partial
       notes: |-
-          The rule confirms the primary group for root, but doesn't check if any other user are also
+          The rule confirms the primary group for root, but doesn't check if any other user are
+          also
           using GID 0. New rule is necessary.
-          There is assessment but no automated remediation for this rule and this sounds reasonable.
+          There is assessment but no automated remediation for this rule and this sounds
+          reasonable.
       rules:
           - accounts_root_gid_zero
 
@@ -2183,7 +2198,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          There is assessment but no automated remediation for this rule and this sounds reasonable.
+          There is assessment but no automated remediation for this rule and this sounds
+          reasonable.
       rules:
           - groups_no_zero_gid_except_root
 
@@ -2215,7 +2231,8 @@ controls:
           - l1_workstation
       status: pending
       notes: |-
-          There is no rule to ensure umask in /root/.bash_profile and /root/.bashrc. A new rule have
+          There is no rule to ensure umask in /root/.bash_profile and /root/.bashrc. A new rule
+          have
           to be created. It can be based on accounts_umask_interactive_users.
 
     - id: 5.4.2.7
@@ -2289,7 +2306,8 @@ controls:
           - aide_periodic_cron_checking
 
     - id: 6.1.3
-      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
+      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+          (Automated)
       levels:
           - l1_server
           - l1_workstation
@@ -2658,7 +2676,8 @@ controls:
           - audit_rules_usergroup_modification_pamd
 
     - id: 6.3.3.9
-      title: Ensure discretionary access control permission modification events are collected (Automated)
+      title: Ensure discretionary access control permission modification events are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2722,7 +2741,8 @@ controls:
           - audit_rules_file_deletion_events_unlinkat
 
     - id: 6.3.3.14
-      title: Ensure events that modify the system's Mandatory Access Controls are collected (Automated)
+      title: Ensure events that modify the system's Mandatory Access Controls are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2732,7 +2752,8 @@ controls:
           - audit_rules_mac_modification_usr_share
 
     - id: 6.3.3.15
-      title: Ensure successful and unsuccessful attempts to use the chcon command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chcon command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2741,7 +2762,8 @@ controls:
           - audit_rules_execution_chcon
 
     - id: 6.3.3.16
-      title: Ensure successful and unsuccessful attempts to use the setfacl command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the setfacl command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2750,7 +2772,8 @@ controls:
           - audit_rules_execution_setfacl
 
     - id: 6.3.3.17
-      title: Ensure successful and unsuccessful attempts to use the chacl command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chacl command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2759,7 +2782,8 @@ controls:
           - audit_rules_execution_chacl
 
     - id: 6.3.3.18
-      title: Ensure successful and unsuccessful attempts to use the usermod command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the usermod command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation

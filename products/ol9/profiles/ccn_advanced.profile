@@ -2,7 +2,7 @@ documentation_complete: true
 
 metadata: null
 
-reference: https://www.ccn-cert.cni.es/es/guias-de-acceso-publico-ccn-stic/6669-ccn-stic-620-guia-de-aplicaciones-de-perfilado-de-seguridad-para-oracle-linux/file.html
+reference: https://www.ccn-cert.cni.es/es/guias-de-acceso-publico-ccn-stic/6669-ccn-stic-620-guia-de-aplicaciones-de-perfilado-de-seguridad-para-oracle-linux/file.html  # yamllint disable-line rule:line-length
 
 title: 'Centro Criptológico Nacional (CCN) - STIC for Oracle Linux 9 - Advanced'
 

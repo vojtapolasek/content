@@ -5,7 +5,7 @@ title: 'BSI IT-Grundschutz (Basic Protection) Building Block SYS.1.6 and APP.4.4
 
 platform: ocp4
 
-reference: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Grundschutz/International/bsi_it_gs_comp_2022.pdf
+reference: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Grundschutz/International/bsi_it_gs_comp_2022.pdf  # yamllint disable-line rule:line-length
 
 metadata:
     SMEs:
@@ -16,7 +16,8 @@ metadata:
     version: 2022
 
 description: |-
-    This profile defines a baseline that aligns to the BSI (Federal Office for Security Information) IT-Grundschutz
+    This profile defines a baseline that aligns to the BSI (Federal Office for Security
+    Information) IT-Grundschutz
     Basic-Protection.
 
     This baseline implements configuration requirements from the following
@@ -25,8 +26,8 @@ description: |-
     - Building-Block SYS.1.6 Containerisation
     - Building-Block APP.4.4 Kubernetes
 
-filter_rules: '"ocp4-node" not in platform and "ocp4-master-node" not in platform and "ocp4-node-on-sdn"
-    not in platform and "ocp4-node-on-ovn" not in platform'
+filter_rules: '"ocp4-node" not in platform and "ocp4-master-node" not in platform and
+    "ocp4-node-on-sdn" not in platform and "ocp4-node-on-ovn" not in platform'
 
 selections:
     - bsi_app_4_4:all

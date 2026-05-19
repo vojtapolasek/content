@@ -6,7 +6,7 @@ metadata:
         - shaneboulden
         - tjbutt58
 
-reference: https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-linux-workstations-and-servers
+reference: https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-linux-workstations-and-servers  # yamllint disable-line rule:line-length
 
 title: 'Australian Cyber Security Centre (ACSC) Essential Eight'
 

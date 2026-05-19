@@ -12,11 +12,15 @@ description: |-
     serving as the upstream development environment for the Firefox STIG.
 
     As a result of the upstream/downstream relationship between the SCAP Security Guide project
-    and the official DISA FSO STIG baseline, users should expect variance between SSG and DISA FSO content.
-    For official DISA FSO STIG content, refer to https://www.cyber.mil/stigs/downloads/?_dl_facet_stigs=app-security%2Cbrowser-guidance.
+    and the official DISA FSO STIG baseline, users should expect variance between SSG and DISA FSO
+    content.
+    For official DISA FSO STIG content, refer to
+    https://www.cyber.mil/stigs/downloads/?_dl_facet_stigs=app-security%2Cbrowser-guidance.
 
-    While this profile is packaged by Red Hat as part of the SCAP Security Guide package, please note
-    that commercial support of this SCAP content is NOT available. This profile is provided as example
+    While this profile is packaged by Red Hat as part of the SCAP Security Guide package, please
+    note
+    that commercial support of this SCAP content is NOT available. This profile is provided as
+    example
     SCAP content with no endorsement for suitability or production readiness. Support for this
     profile is provided by the upstream SCAP Security Guide community on a best-effort basis. The
     upstream project homepage is https://www.open-scap.org/security-policies/scap-security-guide/.

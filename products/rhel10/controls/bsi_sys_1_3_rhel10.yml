@@ -9,7 +9,7 @@ policy: 'BSI-SYS-1-3-RHEL10'
 title: 'SYS.1.3 Linux Server (RHEL10)'
 id: bsi_sys_1_3_rhel10
 version: '1.0'
-source: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Grundschutz/International/bsi_it_gs_comp_2022.pdf
+source: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Grundschutz/International/bsi_it_gs_comp_2022.pdf  # yamllint disable-line rule:line-length
 
 levels:
     - id: basic
@@ -40,16 +40,22 @@ controls:
           - basic
       description: |-
           (1) Each login name, each user ID (UID) and each group ID (GID) MUST ONLY be used once.
-          (2) Every user MUST be a member of at least one group. (3) Every GID mentioned in the /etc/passwd
-          file MUST be defined in the /etc/group file. (4) Every group SHOULD only contain the users that
-          are absolutely necessary. (5) In networked systems, care MUST also be taken to ensure that user
-          and group names (UIDs and GIDs) are assigned consistently in the system network if there is a
-          possibility that the same UIDs or GIDs could be assigned to different user or group names on
+          (2) Every user MUST be a member of at least one group. (3) Every GID mentioned in the
+          /etc/passwd
+          file MUST be defined in the /etc/group file. (4) Every group SHOULD only contain the
+          users that
+          are absolutely necessary. (5) In networked systems, care MUST also be taken to ensure
+          that user
+          and group names (UIDs and GIDs) are assigned consistently in the system network if there
+          is a
+          possibility that the same UIDs or GIDs could be assigned to different user or group
+          names on
           the systems during cross-system access.
       notes: |-
           Section 2: System accounts do not always have a group
           Section 4 is a manual control
-          Section 5 this cant be checked on a per system base, and therefore is an organizational control
+          Section 5 this cant be checked on a per system base, and therefore is an organizational
+          control
       status: partial
       rules:
       # Section 1
@@ -67,7 +73,8 @@ controls:
       levels:
           - basic
       description: |-
-          (1) Removable media such as USB pen drives or CDs/DVDs MUST NOT be integrated automatically.
+          (1) Removable media such as USB pen drives or CDs/DVDs MUST NOT be integrated
+          automatically.
       notes: |-
           https://access.redhat.com/solutions/18978
       status: automated
@@ -84,8 +91,10 @@ controls:
       levels:
           - basic
       description: |-
-          (1) ASLR and DEP/NX MUST be activated in the kernel and used by applications to make it harder
-          to exploit vulnerabilities in applications. (2) Security functions of the kernel and of the standard
+          (1) ASLR and DEP/NX MUST be activated in the kernel and used by applications to make it
+          harder
+          to exploit vulnerabilities in applications. (2) Security functions of the kernel and of
+          the standard
           libraries (such as heap and stack protection) MUST NOT be disabled.
       notes: |-
           This should be the default on all modern platforms
@@ -102,14 +111,18 @@ controls:
       levels:
           - basic
       description: |-
-          (1) If software to be installed is to be compiled from source code, it MUST ONLY be unpacked,
-          configured, and compiled using an unprivileged user account. (2) The software to be installed
+          (1) If software to be installed is to be compiled from source code, it MUST ONLY be
+          unpacked,
+          configured, and compiled using an unprivileged user account. (2) The software to be
+          installed
           MUST NOT then be installed in the root file system of the server in question in an
           uncontrolled manner.
 
           (3) If the software is compiled from the source text, the selected parameters SHOULD be
-          documented appropriately. (4) Based on this documentation, it SHOULD be possible to compile
-          the software in a transparent and reproducible manner at any time. (5) All further installation
+          documented appropriately. (4) Based on this documentation, it SHOULD be possible to
+          compile
+          the software in a transparent and reproducible manner at any time. (5) All further
+          installation
           steps SHOULD also be documented.
       notes: |-
           This requirement must be implemented organizationally.
@@ -120,12 +133,14 @@ controls:
       levels:
           - standard
       description: |-
-          (1) The corresponding management tools SHOULD be used for managing users and groups. (2) The
+          (1) The corresponding management tools SHOULD be used for managing users and groups. (2)
+          The
           configuration files /etc/passwd, /etc/shadow, /etc/group, and /etc/sudoers SHOULD NOT be
           edited directly.
       notes: |-
           This requirement must be implemented organizationally.
-          We could add auditing rules for these files, which shows edits, but do not prevent the users
+          We could add auditing rules for these files, which shows edits, but do not prevent the
+          users
           in the toolings they use for editing.
       status: partial
       rules:
@@ -150,14 +165,17 @@ controls:
       levels:
           - standard
       description: |-
-          (1) Only Secure Shell (SSH) SHOULD be used to create an encrypted and authenticated interactive
+          (1) Only Secure Shell (SSH) SHOULD be used to create an encrypted and authenticated
+          interactive
           connection between two IT systems. (2) All other protocols whose functions are covered by
-          Secure Shell SHOULD be disabled completely. (3) For authentication, users SHOULD primarily
+          Secure Shell SHOULD be disabled completely. (3) For authentication, users SHOULD
+          primarily
           use certificates instead of passwords.
       notes: |-
           Section 1: this should be the default
           Section 2: this should be the default
-          Section 3: The requirement says PRIMARILY use certificate, not disallow PasswordAuthentication
+          Section 3: The requirement says PRIMARILY use certificate, not disallow
+          PasswordAuthentication
           completely
       status: automated
       rules:
@@ -188,12 +206,16 @@ controls:
       levels:
           - standard
       description: |-
-          (1) Services and applications SHOULD be protected with individual security architecture (e.g.
-          with AppArmor or SELinux). (2) In addition, chroot environments and LXC or Docker containers
-          SHOULD be taken into account here. (3) It SHOULD be ensured that the standard profiles and
+          (1) Services and applications SHOULD be protected with individual security architecture
+          (e.g.
+          with AppArmor or SELinux). (2) In addition, chroot environments and LXC or Docker
+          containers
+          SHOULD be taken into account here. (3) It SHOULD be ensured that the standard profiles
+          and
           rules provided are activated.
       notes: |-
-          Section 2: we could add podman specific tasks, but it would be hard to evaluate if they are
+          Section 2: we could add podman specific tasks, but it would be hard to evaluate if they
+          are
           used properly
       status: partial
       rules:
@@ -244,7 +266,8 @@ controls:
       levels:
           - standard
       description: |-
-          (1) Information output for users regarding the operating system and access to protocol and
+          (1) Information output for users regarding the operating system and access to protocol
+          and
           configuration files SHOULD be limited to the required minimum. (2) Moreover, confidential
           information SHOULD NOT be provided as parameters when commands are issued.
       notes: |-
@@ -425,8 +448,10 @@ controls:
       levels:
           - elevated
       description: |-
-          (1) The use of system calls SHOULD be limited to those absolutely necessary, particularly for
-          exposed services and applications. (2) The standard profiles and/or rules (e.g. of SELinux or
+          (1) The use of system calls SHOULD be limited to those absolutely necessary,
+          particularly for
+          exposed services and applications. (2) The standard profiles and/or rules (e.g. of
+          SELinux or
           AppArmor) SHOULD be checked manually and, if necessary, adapted to an organisation's own
           security policies. (3) If necessary, new rules and profiles SHOULD be drawn up.
       notes: |-
@@ -438,11 +463,14 @@ controls:
       levels:
           - elevated
       description: |-
-          (1) Specially hardened kernels (e.g. grsecurity, PaX) and appropriate protective safeguards such as
+          (1) Specially hardened kernels (e.g. grsecurity, PaX) and appropriate protective
+          safeguards such as
           memory protection or file system protection SHOULD be implemented to prevent
           exploitation of vulnerabilities and propagation in operating systems.
       notes: |-
-          Section 1: Red Hat does not provide specifically hardened kernels. If using them, please be
-          aware of the support policy for 3rd Party software (https://access.redhat.com/third-party-software-support).
+          Section 1: Red Hat does not provide specifically hardened kernels. If using them, please
+          be
+          aware of the support policy for 3rd Party software
+          (https://access.redhat.com/third-party-software-support).
       status: does not meet
       rules: []

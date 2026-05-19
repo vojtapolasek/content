@@ -11,7 +11,8 @@ description: |-
     </ul>
 
 rationale: |-
-    For diagnostic purposes, data must remain behind when the browser is closed. This is required to meet non-repudiation controls.
+    For diagnostic purposes, data must remain behind when the browser is closed. This is required
+    to meet non-repudiation controls.
 severity: medium
 
 references:

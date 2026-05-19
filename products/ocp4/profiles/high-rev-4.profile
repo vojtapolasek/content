@@ -8,7 +8,7 @@ metadata:
         - mrogers950
         - jhrozek
 
-reference: https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/controls?version=5.1&security_baseline=High
+reference: https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/controls?version=5.1&security_baseline=High  # yamllint disable-line rule:line-length
 
 title: 'NIST 800-53 High-Impact Baseline for Red Hat OpenShift - Platform level'
 
@@ -39,8 +39,8 @@ description: |-
     content as minor divergences, such as bugfixes, work through the
     consensus and release processes.
 
-filter_rules: '"ocp4-node" not in platform and "ocp4-master-node" not in platform and "ocp4-node-on-sdn"
-    not in platform and "ocp4-node-on-ovn" not in platform'
+filter_rules: '"ocp4-node" not in platform and "ocp4-master-node" not in platform and
+    "ocp4-node-on-sdn" not in platform and "ocp4-node-on-ovn" not in platform'
 
 # CM-6 CONFIGURATION SETTINGS
 # CM-6(1) CONFIGURATION SETTINGS | AUTOMATED CENTRAL MANAGEMENT / APPLICATION / VERIFICATION

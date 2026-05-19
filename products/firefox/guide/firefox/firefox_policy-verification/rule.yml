@@ -23,7 +23,8 @@ references:
 ocil_clause: 'it is not enabled'
 
 ocil: |-
-    To verify that certificate verification is enabled, type the following into the browser address bar:
+    To verify that certificate verification is enabled, type the following into the browser
+    address bar:
         <pre>about:policies</pre>
     The output should have the following under security.default_personal_cert:
     <pre>Value: "Ask Every Time"</pre>
@@ -34,5 +35,5 @@ template:
     vars:
       name: Configure Default Personal Certificate to Ask Every Time
       policies:
-        - {path: "Preferences security.default_personal_cert", parameter: "Value", value: "Ask Every Time"}
-        - {path: "Preferences security.default_personal_cert", parameter: "Status", value: "locked"}
+        - {path: "Preferences security.default_personal_cert", parameter: "Value", value: "Ask Every Time"}  # yamllint disable-line rule:line-length
+        - {path: "Preferences security.default_personal_cert", parameter: "Status", value: "locked"}  # yamllint disable-line rule:line-length

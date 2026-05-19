@@ -383,8 +383,10 @@ controls:
       rules:
           - ensure_redhat_gpgkey_installed
       notes: >
-        In CIS Benchmark, the requirement is manual, because of GPG keys for 3rd party repositories.
-        But, add the rule ensure_redhat_gpgkey_installed to the profile because the requirement 1.2.1.2
+        In CIS Benchmark, the requirement is manual, because of GPG keys for 3rd party
+        repositories.
+        But, add the rule ensure_redhat_gpgkey_installed to the profile because the requirement
+        1.2.1.2
         adds ensure_gpgcheck_never_disabled which requires GPG key checking. If the Red Hat
         GPG key wouldn't be installed, people won't be able to install any RPM package using dnf.
 
@@ -1730,7 +1732,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          The requirement gives an example of 45 seconds, but is flexible about the values. It is only
+          The requirement gives an example of 45 seconds, but is flexible about the values. It is
+          only
           necessary to ensure there is a timeout configured in alignment to the site policy.
       rules:
           - sshd_set_idle_timeout
@@ -1809,7 +1812,8 @@ controls:
       status: automated
       notes: |-
           The CIS benchmark is not opinionated about which loglevel is selected here. Here, this
-          profile uses VERBOSE by default, as it allows for the capture of login and logout activity
+          profile uses VERBOSE by default, as it allows for the capture of login and logout
+          activity
           as well as key fingerprints.
       rules:
           - sshd_set_loglevel_verbose
@@ -1953,9 +1957,11 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          Members of "wheel" or GID 0 groups are checked by default if the group option is not set for
+          Members of "wheel" or GID 0 groups are checked by default if the group option is not set
+          for
           pam_wheel.so module. The recommendation states the group should be empty to reinforce the
-          use of "sudo" for privileged access. Therefore, members of these groups should be manually
+          use of "sudo" for privileged access. Therefore, members of these groups should be
+          manually
           checked or a different group should be informed.
       rules:
           - var_pam_wheel_group_for_su=cis
@@ -2070,7 +2076,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          The policy also accepts value 0, which means the locked accounts should be manually unlocked
+          The policy also accepts value 0, which means the locked accounts should be manually
+          unlocked
           by an administrator. However, it also mentions that using value 0 can facilitate a DoS
           attack to legitimate users.
       rules:
@@ -2161,7 +2168,8 @@ controls:
       status: automated
       notes: |-
           Although mentioned in the section 5.3.3.3, there is no explicit requirement to configure
-          retry option of pam_pwhistory. If come in the future, the rule accounts_password_pam_retry
+          retry option of pam_pwhistory. If come in the future, the rule
+          accounts_password_pam_retry
           can be used.
       rules:
           - accounts_password_pam_pwhistory_remember_password_auth
@@ -2224,7 +2232,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          Changes in logindefs mentioned in this requirement are more specifically covered by 5.4.1.4
+          Changes in logindefs mentioned in this requirement are more specifically covered by
+          5.4.1.4
       rules:
           - set_password_hashing_algorithm_systemauth
           - set_password_hashing_algorithm_passwordauth
@@ -2314,7 +2323,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          There is assessment but no automated remediation for this rule and this sounds reasonable.
+          There is assessment but no automated remediation for this rule and this sounds
+          reasonable.
       rules:
           - accounts_root_gid_zero
 
@@ -2325,7 +2335,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          There is assessment but no automated remediation for this rule and this sounds reasonable.
+          There is assessment but no automated remediation for this rule and this sounds
+          reasonable.
       rules:
           - groups_no_zero_gid_except_root
 
@@ -2429,7 +2440,8 @@ controls:
           - aide_periodic_checking_systemd_timer
 
     - id: 6.1.3
-      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
+      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+          (Automated)
       levels:
           - l1_server
           - l1_workstation
@@ -2539,7 +2551,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          This requirement is expected to be manual in the policy because there are valid cases where
+          This requirement is expected to be manual in the policy because there are valid cases
+          where
           other solutions are used for logging. rsyslog is the default in RHEL 8 and so far other
           solutions are not expected to be incompatible with rsyslog. If so, for these particular
           cases, this rule should be removed for those systems by a tailored file.
@@ -2786,7 +2799,8 @@ controls:
           - audit_rules_usergroup_modification_pamd
 
     - id: 6.3.3.9
-      title: Ensure discretionary access control permission modification events are collected (Automated)
+      title: Ensure discretionary access control permission modification events are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2850,7 +2864,8 @@ controls:
           - audit_rules_file_deletion_events_unlinkat
 
     - id: 6.3.3.14
-      title: Ensure events that modify the system's Mandatory Access Controls are collected (Automated)
+      title: Ensure events that modify the system's Mandatory Access Controls are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2860,7 +2875,8 @@ controls:
           - audit_rules_mac_modification_usr_share
 
     - id: 6.3.3.15
-      title: Ensure successful and unsuccessful attempts to use the chcon command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chcon command are recorded
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2869,7 +2885,8 @@ controls:
           - audit_rules_execution_chcon
 
     - id: 6.3.3.16
-      title: Ensure successful and unsuccessful attempts to use the setfacl command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the setfacl command are recorded
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2878,7 +2895,8 @@ controls:
           - audit_rules_execution_setfacl
 
     - id: 6.3.3.17
-      title: Ensure successful and unsuccessful attempts to use the chacl command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chacl command are recorded
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2887,7 +2905,8 @@ controls:
           - audit_rules_execution_chacl
 
     - id: 6.6.3.18
-      title: Ensure successful and unsuccessful attempts to use the usermod command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the usermod command are recorded
+          (Automated)
       levels:
           - l2_server
           - l2_workstation

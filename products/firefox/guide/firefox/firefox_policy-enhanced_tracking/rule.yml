@@ -8,7 +8,8 @@ description: |-
     <tt>browser.contentblocking.category</tt> to <tt>strict</tt>.
 
 rationale: |-
-    Tracking generally refers to content, cookies, or scripts that can collect your browsing data across multiple sites.
+    Tracking generally refers to content, cookies, or scripts that can collect your browsing data
+    across multiple sites.
 
 severity: medium
 
@@ -29,5 +30,5 @@ template:
     vars:
         name: Enable enhanced tracking protection
         policies:
-          - {path: "Preferences browser.contentblocking.category", parameter: "Value", value: "strict"}
-          - {path: "Preferences browser.contentblocking.category", parameter: "Status", value: "locked"}
+          - {path: "Preferences browser.contentblocking.category", parameter: "Value", value: "strict"}  # yamllint disable-line rule:line-length
+          - {path: "Preferences browser.contentblocking.category", parameter: "Status", value: "locked"}  # yamllint disable-line rule:line-length

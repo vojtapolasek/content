@@ -8,7 +8,8 @@ description: |-
     the <tt>SearchSuggestEnabled</tt> key under <tt>policies</tt> to <tt>false</tt>.
 
 rationale: |-
-    Search suggestions must be disabled as this could lead to searches being conducted that were never intended to be made.
+    Search suggestions must be disabled as this could lead to searches being conducted that were
+    never intended to be made.
 severity: medium
 
 references:

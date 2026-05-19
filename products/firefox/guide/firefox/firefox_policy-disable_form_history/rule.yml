@@ -8,7 +8,9 @@ description: |-
     the <tt>DisableFormHistory</tt> key under <tt>policies</tt> to <tt>true</tt>.
 
 rationale: |-
-    To protect privacy and sensitive data, Firefox provides the ability to configure the program so that data entered into forms is not saved. This mitigates the risk of a website gleaning private information from prefilled information.
+    To protect privacy and sensitive data, Firefox provides the ability to configure the program
+    so that data entered into forms is not saved. This mitigates the risk of a website gleaning
+    private information from prefilled information.
 severity: medium
 
 references:

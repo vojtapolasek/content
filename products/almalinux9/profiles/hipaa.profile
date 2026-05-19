@@ -18,7 +18,8 @@ description: |-
 
     This profile configures AlmaLinux OS 9 to the HIPAA Security
     Rule identified for securing of electronic protected health information.
-    Use of this profile in no way guarantees or makes claims against legal compliance against the HIPAA Security Rule(s).   
+    Use of this profile in no way guarantees or makes claims against legal compliance against the
+    HIPAA Security Rule(s).
 
 selections:
     - grub2_password

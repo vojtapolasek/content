@@ -87,7 +87,8 @@ controls:
     - id: RHEL-08-010010
       levels:
           - medium
-      title: RHEL 8 vendor packaged system security patches and updates must be installed and up to date.
+      title: RHEL 8 vendor packaged system security patches and updates must be installed and up
+          to date.
       rules:
           - security_patches_up_to_date
       status: automated
@@ -114,8 +115,9 @@ controls:
     - id: RHEL-08-010030
       levels:
           - high
-      title: All RHEL 8 local disk partitions must implement cryptographic mechanisms to prevent unauthorized
-          disclosure or modification of all information that requires at rest protection.
+      title: All RHEL 8 local disk partitions must implement cryptographic mechanisms to prevent
+          unauthorized disclosure or modification of all information that requires at rest
+          protection.
       rules:
           - encrypt_partitions
       status: automated
@@ -123,8 +125,8 @@ controls:
     - id: RHEL-08-010040
       levels:
           - medium
-      title: RHEL 8 must display the Standard Mandatory DOD Notice and Consent Banner before granting
-          local or remote access to the system via a ssh logon.
+      title: RHEL 8 must display the Standard Mandatory DOD Notice and Consent Banner before
+          granting local or remote access to the system via a ssh logon.
       rules:
           - sshd_enable_warning_banner
       status: automated
@@ -132,8 +134,8 @@ controls:
     - id: RHEL-08-010050
       levels:
           - medium
-      title: RHEL 8 must display the Standard Mandatory DoD Notice and Consent Banner before granting
-          local or remote access to the system via a graphical user logon.
+      title: RHEL 8 must display the Standard Mandatory DoD Notice and Consent Banner before
+          granting local or remote access to the system via a graphical user logon.
       rules:
           - dconf_gnome_login_banner_text
       status: automated
@@ -141,8 +143,8 @@ controls:
     - id: RHEL-08-010060
       levels:
           - medium
-      title: RHEL 8 must display the Standard Mandatory DoD Notice and Consent Banner before granting
-          local or remote access to the system via a command line user logon.
+      title: RHEL 8 must display the Standard Mandatory DoD Notice and Consent Banner before
+          granting local or remote access to the system via a command line user logon.
       rules:
           - banner_etc_issue
       status: automated
@@ -158,8 +160,8 @@ controls:
     - id: RHEL-08-010090
       levels:
           - medium
-      title: RHEL 8, for PKI-based authentication, must validate certificates by constructing a certification
-          path (which includes status information) to an accepted trust anchor.
+      title: RHEL 8, for PKI-based authentication, must validate certificates by constructing a
+          certification path (which includes status information) to an accepted trust anchor.
       rules:
           - sssd_has_trust_anchor
       status: automated
@@ -167,8 +169,8 @@ controls:
     - id: RHEL-08-010100
       levels:
           - medium
-      title: RHEL 8, for certificate-based authentication, must enforce authorized access to the corresponding
-          private key.
+      title: RHEL 8, for certificate-based authentication, must enforce authorized access to the
+          corresponding private key.
       rules:
           - ssh_keys_passphrase_protected
       status: automated
@@ -176,8 +178,8 @@ controls:
     - id: RHEL-08-010110
       levels:
           - medium
-      title: RHEL 8 must encrypt all stored passwords with a FIPS 140-2 approved cryptographic hashing
-          algorithm.
+      title: RHEL 8 must encrypt all stored passwords with a FIPS 140-2 approved cryptographic
+          hashing algorithm.
       rules:
           - set_password_hashing_algorithm_logindefs
       status: automated
@@ -185,7 +187,8 @@ controls:
     - id: RHEL-08-010120
       levels:
           - medium
-      title: RHEL 8 must employ FIPS 140-2 approved cryptographic hashing algorithms for all stored passwords.
+      title: RHEL 8 must employ FIPS 140-2 approved cryptographic hashing algorithms for all
+          stored passwords.
       rules:
           - accounts_password_all_shadowed_sha512
       status: automated
@@ -193,8 +196,8 @@ controls:
     - id: RHEL-08-010130
       levels:
           - medium
-      title: The RHEL 8 shadow password suite must be configured to use a sufficient number of hashing
-          rounds.
+      title: The RHEL 8 shadow password suite must be configured to use a sufficient number of
+          hashing rounds.
       rules:
           - set_password_hashing_min_rounds_logindefs
       status: automated
@@ -202,8 +205,8 @@ controls:
     - id: RHEL-08-010140
       levels:
           - high
-      title: RHEL 8 operating systems booted with United Extensible Firmware Interface (UEFI) must require
-          authentication upon booting into single-user mode and maintenance.
+      title: RHEL 8 operating systems booted with United Extensible Firmware Interface (UEFI) must
+          require authentication upon booting into single-user mode and maintenance.
       rules:
           - grub2_uefi_password
       status: automated
@@ -211,8 +214,8 @@ controls:
     - id: RHEL-08-010150
       levels:
           - high
-      title: RHEL 8 operating systems booted with a BIOS must require authentication upon booting into
-          single-user and maintenance modes.
+      title: RHEL 8 operating systems booted with a BIOS must require authentication upon booting
+          into single-user and maintenance modes.
       rules:
           - grub2_password
       status: automated
@@ -228,8 +231,8 @@ controls:
     - id: RHEL-08-010160
       levels:
           - medium
-      title: The RHEL 8 pam_unix.so module must be configured in the password-auth file to use a FIPS
-          140-2 approved cryptographic hashing algorithm for system authentication.
+      title: The RHEL 8 pam_unix.so module must be configured in the password-auth file to use a
+          FIPS 140-2 approved cryptographic hashing algorithm for system authentication.
       rules:
           - set_password_hashing_algorithm_passwordauth
       status: automated
@@ -253,7 +256,8 @@ controls:
     - id: RHEL-08-010170
       levels:
           - medium
-      title: RHEL 8 must use a Linux Security Module configured to enforce limits on system services.
+      title: RHEL 8 must use a Linux Security Module configured to enforce limits on system
+          services.
       rules:
           - selinux_state
       status: automated
@@ -269,8 +273,8 @@ controls:
     - id: RHEL-08-010190
       levels:
           - medium
-      title: A sticky bit must be set on all RHEL 8 public directories to prevent unauthorized and unintended
-          information transferred via shared system resources.
+      title: A sticky bit must be set on all RHEL 8 public directories to prevent unauthorized and
+          unintended information transferred via shared system resources.
       rules:
           - dir_perms_world_writable_sticky_bits
       status: automated
@@ -278,8 +282,8 @@ controls:
     - id: RHEL-08-010200
       levels:
           - medium
-      title: RHEL 8 must be configured so that all network connections associated with SSH traffic terminate
-          after becoming unresponsive.
+      title: RHEL 8 must be configured so that all network connections associated with SSH traffic
+          terminate after becoming unresponsive.
       rules:
           - sshd_set_keepalive
       status: automated
@@ -359,8 +363,8 @@ controls:
     - id: RHEL-08-010290
       levels:
           - medium
-      title: The RHEL 8 SSH server must be configured to use only Message Authentication Codes (MACs)
-          employing FIPS 140-3 validated cryptographic hash algorithms.
+      title: The RHEL 8 SSH server must be configured to use only Message Authentication Codes
+          (MACs) employing FIPS 140-3 validated cryptographic hash algorithms.
       notes: This is implemented by a special STIG subpolicy.
       rules:
           - configure_crypto_policy
@@ -372,8 +376,8 @@ controls:
     - id: RHEL-08-010291
       levels:
           - medium
-      title: The RHEL 8 operating system must implement DOD-approved encryption to protect the confidentiality
-          of SSH server connections.
+      title: The RHEL 8 operating system must implement DOD-approved encryption to protect the
+          confidentiality of SSH server connections.
       notes: This is implemented by a special STIG subpolicy.
       rules:
           - configure_crypto_policy
@@ -441,9 +445,9 @@ controls:
     - id: RHEL-08-010360
       levels:
           - medium
-      title: The RHEL 8 file integrity tool must notify the system administrator when changes to the
-          baseline configuration or anomalies in the operation of any security functions are discovered
-          within an organizationally defined frequency.
+      title: The RHEL 8 file integrity tool must notify the system administrator when changes to
+          the baseline configuration or anomalies in the operation of any security functions are
+          discovered within an organizationally defined frequency.
       rules:
           - aide_scan_notification
       status: automated
@@ -451,10 +455,10 @@ controls:
     - id: RHEL-08-010370
       levels:
           - high
-      title: RHEL 8 must prevent the installation of software, patches, service packs, device drivers,
-          or operating system components from a repository without verification they have been digitally
-          signed using a certificate that is issued by a Certificate Authority (CA) that is recognized
-          and approved by the organization.
+      title: RHEL 8 must prevent the installation of software, patches, service packs, device
+          drivers, or operating system components from a repository without verification they have
+          been digitally signed using a certificate that is issued by a Certificate Authority (CA)
+          that is recognized and approved by the organization.
       rules:
           - enable_gpgcheck_for_all_repositories
       status: automated
@@ -462,10 +466,10 @@ controls:
     - id: RHEL-08-010371
       levels:
           - high
-      title: RHEL 8 must prevent the installation of software, patches, service packs, device drivers,
-          or operating system components of local packages without verification they have been digitally
-          signed using a certificate that is issued by a Certificate Authority (CA) that is recognized
-          and approved by the organization.
+      title: RHEL 8 must prevent the installation of software, patches, service packs, device
+          drivers, or operating system components of local packages without verification they have
+          been digitally signed using a certificate that is issued by a Certificate Authority (CA)
+          that is recognized and approved by the organization.
       rules:
           - ensure_gpgcheck_local_packages
       status: automated
@@ -481,7 +485,8 @@ controls:
     - id: RHEL-08-010373
       levels:
           - medium
-      title: RHEL 8 must enable kernel parameters to enforce discretionary access control on symlinks.
+      title: RHEL 8 must enable kernel parameters to enforce discretionary access control on
+          symlinks.
       rules:
           - sysctl_fs_protected_symlinks
       status: automated
@@ -489,7 +494,8 @@ controls:
     - id: RHEL-08-010374
       levels:
           - medium
-      title: RHEL 8 must enable kernel parameters to enforce discretionary access control on hardlinks.
+      title: RHEL 8 must enable kernel parameters to enforce discretionary access control on
+          hardlinks.
       rules:
           - sysctl_fs_protected_hardlinks
       status: automated
@@ -553,7 +559,8 @@ controls:
     - id: RHEL-08-010420
       levels:
           - medium
-      title: RHEL 8 must implement non-executable data to protect its memory from unauthorized code execution.
+      title: RHEL 8 must implement non-executable data to protect its memory from unauthorized
+          code execution.
       rules:
           - bios_enable_execution_restrictions
       status: automated
@@ -585,8 +592,8 @@ controls:
     - id: RHEL-08-010430
       levels:
           - medium
-      title: RHEL 8 must implement address space layout randomization (ASLR) to protect its memory from
-          unauthorized code execution.
+      title: RHEL 8 must implement address space layout randomization (ASLR) to protect its memory
+          from unauthorized code execution.
       rules:
           - sysctl_kernel_randomize_va_space
       status: automated
@@ -594,8 +601,8 @@ controls:
     - id: RHEL-08-010440
       levels:
           - low
-      title: YUM must remove all software components after updated versions have been installed on RHEL
-          8.
+      title: YUM must remove all software components after updated versions have been installed on
+          RHEL 8.
       rules:
           - clean_components_post_updating
       status: automated
@@ -651,8 +658,8 @@ controls:
     - id: RHEL-08-010500
       levels:
           - medium
-      title: The RHEL 8 SSH daemon must perform strict mode checking of home directory configuration
-          files.
+      title: The RHEL 8 SSH daemon must perform strict mode checking of home directory
+          configuration files.
       rules:
           - sshd_enable_strictmodes
       status: automated
@@ -660,7 +667,8 @@ controls:
     - id: RHEL-08-010520
       levels:
           - medium
-      title: "The RHEL 8 SSH daemon must not allow authentication using known host’s authentication."
+      title: "The RHEL 8 SSH daemon must not allow authentication using known host’s
+          authentication."
       rules:
           - sshd_disable_user_known_hosts
       status: automated
@@ -668,8 +676,8 @@ controls:
     - id: RHEL-08-010521
       levels:
           - medium
-      title: The RHEL 8 SSH daemon must not allow Kerberos authentication, except to fulfill documented
-          and validated mission requirements.
+      title: The RHEL 8 SSH daemon must not allow Kerberos authentication, except to fulfill
+          documented and validated mission requirements.
       rules:
           - sshd_disable_kerb_auth
       status: automated
@@ -725,8 +733,8 @@ controls:
     - id: RHEL-08-010570
       levels:
           - medium
-      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on file
-          systems that contain user home directories.
+      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on
+          file systems that contain user home directories.
       rules:
           - mount_option_home_nosuid
       status: automated
@@ -734,8 +742,8 @@ controls:
     - id: RHEL-08-010571
       levels:
           - medium
-      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on the
-          /boot directory.
+      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on
+          the /boot directory.
       rules:
           - mount_option_boot_nosuid
       status: automated
@@ -751,7 +759,8 @@ controls:
     - id: RHEL-08-010590
       levels:
           - medium
-      title: RHEL 8 must prevent code from being executed on file systems that contain user home directories.
+      title: RHEL 8 must prevent code from being executed on file systems that contain user home
+          directories.
       rules:
           - mount_option_home_noexec
       status: automated
@@ -759,7 +768,8 @@ controls:
     - id: RHEL-08-010600
       levels:
           - medium
-      title: RHEL 8 must prevent special devices on file systems that are used with removable media.
+      title: RHEL 8 must prevent special devices on file systems that are used with removable
+          media.
       rules:
           - mount_option_nodev_removable_partitions
       status: automated
@@ -767,8 +777,8 @@ controls:
     - id: RHEL-08-010610
       levels:
           - medium
-      title: RHEL 8 must prevent code from being executed on file systems that are used with removable
-          media.
+      title: RHEL 8 must prevent code from being executed on file systems that are used with
+          removable media.
       rules:
           - mount_option_noexec_removable_partitions
       status: automated
@@ -776,8 +786,8 @@ controls:
     - id: RHEL-08-010620
       levels:
           - medium
-      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on file
-          systems that are used with removable media.
+      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on
+          file systems that are used with removable media.
       rules:
           - mount_option_nosuid_removable_partitions
       status: automated
@@ -785,8 +795,8 @@ controls:
     - id: RHEL-08-010630
       levels:
           - medium
-      title: RHEL 8 must prevent code from being executed on file systems that are imported via Network
-          File System (NFS).
+      title: RHEL 8 must prevent code from being executed on file systems that are imported via
+          Network File System (NFS).
       rules:
           - mount_option_noexec_remote_filesystems
       status: automated
@@ -794,8 +804,8 @@ controls:
     - id: RHEL-08-010640
       levels:
           - medium
-      title: RHEL 8 must prevent special devices on file systems that are imported via Network File System
-          (NFS).
+      title: RHEL 8 must prevent special devices on file systems that are imported via Network
+          File System (NFS).
       rules:
           - mount_option_nodev_remote_filesystems
       status: automated
@@ -803,8 +813,8 @@ controls:
     - id: RHEL-08-010650
       levels:
           - medium
-      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on file
-          systems that are imported via Network File System (NFS).
+      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on
+          file systems that are imported via Network File System (NFS).
       rules:
           - mount_option_nosuid_remote_filesystems
       status: automated
@@ -860,8 +870,8 @@ controls:
     - id: RHEL-08-010680
       levels:
           - medium
-      title: For RHEL 8 systems using Domain Name Servers (DNS) resolution, at least two name servers
-          must be configured.
+      title: For RHEL 8 systems using Domain Name Servers (DNS) resolution, at least two name
+          servers must be configured.
       rules:
           - network_configure_name_resolution
       status: automated
@@ -869,8 +879,9 @@ controls:
     - id: RHEL-08-010690
       levels:
           - medium
-      title: Executable search paths within the initialization files of all local interactive RHEL 8
-          users must only contain paths that resolve to the system default or the users home directory.
+      title: Executable search paths within the initialization files of all local interactive RHEL
+          8 users must only contain paths that resolve to the system default or the users home
+          directory.
       rules:
           - accounts_user_home_paths_only
       status: automated
@@ -878,8 +889,8 @@ controls:
     - id: RHEL-08-010700
       levels:
           - medium
-      title: All RHEL 8 world-writable directories must be owned by root, sys, bin, or an application
-          user.
+      title: All RHEL 8 world-writable directories must be owned by root, sys, bin, or an
+          application user.
       rules:
           - dir_perms_world_writable_root_owned
       status: automated
@@ -887,8 +898,8 @@ controls:
     - id: RHEL-08-010710
       levels:
           - medium
-      title: All RHEL 8 world-writable directories must be group-owned by root, sys, bin, or an application
-          group.
+      title: All RHEL 8 world-writable directories must be group-owned by root, sys, bin, or an
+          application group.
       rules:
           - dir_perms_world_writable_system_owned_group
       status: automated
@@ -896,8 +907,8 @@ controls:
     - id: RHEL-08-010720
       levels:
           - medium
-      title: All RHEL 8 local interactive users must have a home directory assigned in the /etc/passwd
-          file.
+      title: All RHEL 8 local interactive users must have a home directory assigned in the
+          /etc/passwd file.
       rules:
           - accounts_user_interactive_home_directory_defined
       status: automated
@@ -905,7 +916,8 @@ controls:
     - id: RHEL-08-010730
       levels:
           - medium
-      title: All RHEL 8 local interactive user home directories must have mode 0750 or less permissive.
+      title: All RHEL 8 local interactive user home directories must have mode 0750 or less
+          permissive.
       rules:
           - file_permissions_home_directories
       status: automated
@@ -913,8 +925,8 @@ controls:
     - id: RHEL-08-010740
       levels:
           - medium
-      title: "All RHEL 8 local interactive user home directories must be group-owned by the home directory\
-          \ owner’s primary group."
+      title: "All RHEL 8 local interactive user home directories must be group-owned by the home
+          directory\ \ owner’s primary group."
       rules:
           - file_groupownership_home_directories
       status: automated
@@ -922,8 +934,8 @@ controls:
     - id: RHEL-08-010750
       levels:
           - medium
-      title: All RHEL 8 local interactive user home directories defined in the /etc/passwd file must
-          exist.
+      title: All RHEL 8 local interactive user home directories defined in the /etc/passwd file
+          must exist.
       rules:
           - accounts_user_interactive_home_directory_exists
       status: automated
@@ -931,7 +943,8 @@ controls:
     - id: RHEL-08-010760
       levels:
           - medium
-      title: All RHEL 8 local interactive user accounts must be assigned a home directory upon creation.
+      title: All RHEL 8 local interactive user accounts must be assigned a home directory upon
+          creation.
       rules:
           - accounts_have_homedir_login_defs
       status: automated
@@ -965,8 +978,8 @@ controls:
     - id: RHEL-08-010800
       levels:
           - medium
-      title: A separate RHEL 8 filesystem must be used for user home directories (such as /home or an
-          equivalent).
+      title: A separate RHEL 8 filesystem must be used for user home directories (such as /home or
+          an equivalent).
       rules:
           - partition_for_home
           - accounts_user_interactive_home_directory_on_separate_partition
@@ -975,7 +988,8 @@ controls:
     - id: RHEL-08-010820
       levels:
           - high
-      title: Unattended or automatic logon via the RHEL 8 graphical user interface must not be allowed.
+      title: Unattended or automatic logon via the RHEL 8 graphical user interface must not be
+          allowed.
       rules:
           - gnome_gdm_disable_automatic_login
       status: automated
@@ -991,8 +1005,8 @@ controls:
     - id: RHEL-08-020000
       levels:
           - medium
-      title: RHEL 8 temporary user accounts must be provisioned with an expiration time of 72 hours or
-          less.
+      title: RHEL 8 temporary user accounts must be provisioned with an expiration time of 72
+          hours or less.
       rules:
           - account_temp_expire_date
       status: automated
@@ -1000,14 +1014,16 @@ controls:
     - id: RHEL-08-020010
       levels:
           - medium
-      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts occur.
+      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts
+          occur.
       rules: []
       status: pending
 
     - id: RHEL-08-020011
       levels:
           - medium
-      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts occur.
+      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts
+          occur.
       rules:
           - accounts_passwords_pam_faillock_deny
       status: automated
@@ -1015,8 +1031,8 @@ controls:
     - id: RHEL-08-020012
       levels:
           - medium
-      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts occur during
-          a 15-minute time period.
+      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts
+          occur during a 15-minute time period.
       rules:
           - accounts_passwords_pam_faillock_interval
       status: automated
@@ -1024,8 +1040,8 @@ controls:
     - id: RHEL-08-020013
       levels:
           - medium
-      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts occur during
-          a 15-minute time period.
+      title: RHEL 8 must automatically lock an account when three unsuccessful logon attempts
+          occur during a 15-minute time period.
       rules:
           - accounts_passwords_pam_faillock_interval
       status: automated
@@ -1033,8 +1049,9 @@ controls:
     - id: RHEL-08-020014
       levels:
           - medium
-      title: RHEL 8 must automatically lock an account until the locked account is released by an administrator
-          when three unsuccessful logon attempts occur during a 15-minute time period.
+      title: RHEL 8 must automatically lock an account until the locked account is released by an
+          administrator when three unsuccessful logon attempts occur during a 15-minute time
+          period.
       rules:
           - accounts_passwords_pam_faillock_unlock_time
       status: automated
@@ -1042,8 +1059,9 @@ controls:
     - id: RHEL-08-020015
       levels:
           - medium
-      title: RHEL 8 must automatically lock an account until the locked account is released by an administrator
-          when three unsuccessful logon attempts occur during a 15-minute time period.
+      title: RHEL 8 must automatically lock an account until the locked account is released by an
+          administrator when three unsuccessful logon attempts occur during a 15-minute time
+          period.
       rules:
           - accounts_passwords_pam_faillock_unlock_time
       status: automated
@@ -1067,8 +1085,8 @@ controls:
     - id: RHEL-08-020018
       levels:
           - medium
-      title: RHEL 8 must prevent system messages from being presented when three unsuccessful logon attempts
-          occur.
+      title: RHEL 8 must prevent system messages from being presented when three unsuccessful
+          logon attempts occur.
       rules:
           - accounts_passwords_pam_faillock_silent
       status: automated
@@ -1076,8 +1094,8 @@ controls:
     - id: RHEL-08-020019
       levels:
           - medium
-      title: RHEL 8 must prevent system messages from being presented when three unsuccessful logon attempts
-          occur.
+      title: RHEL 8 must prevent system messages from being presented when three unsuccessful
+          logon attempts occur.
       rules:
           - accounts_passwords_pam_faillock_silent
       status: automated
@@ -1100,18 +1118,18 @@ controls:
     - id: RHEL-08-020022
       levels:
           - medium
-      title: RHEL 8 must include root when automatically locking an account until the locked account
-          is released by an administrator when three unsuccessful logon attempts occur during a 15-minute
-          time period.
+      title: RHEL 8 must include root when automatically locking an account until the locked
+          account is released by an administrator when three unsuccessful logon attempts occur
+          during a 15-minute time period.
       rules: []
       status: pending
 
     - id: RHEL-08-020023
       levels:
           - medium
-      title: RHEL 8 must include root when automatically locking an account until the locked account
-          is released by an administrator when three unsuccessful logon attempts occur during a 15-minute
-          time period.
+      title: RHEL 8 must include root when automatically locking an account until the locked
+          account is released by an administrator when three unsuccessful logon attempts occur
+          during a 15-minute time period.
       rules:
           - accounts_passwords_pam_faillock_deny_root
       status: automated
@@ -1119,8 +1137,8 @@ controls:
     - id: RHEL-08-020024
       levels:
           - low
-      title: RHEL 8 must limit the number of concurrent sessions to ten for all accounts and/or account
-          types.
+      title: RHEL 8 must limit the number of concurrent sessions to ten for all accounts and/or
+          account types.
       rules:
           - accounts_max_concurrent_login_sessions
       status: automated
@@ -1128,8 +1146,8 @@ controls:
     - id: RHEL-08-020030
       levels:
           - medium
-      title: RHEL 8 must enable a user session lock until that user re-establishes access using established
-          identification and authentication procedures for graphical user sessions.
+      title: RHEL 8 must enable a user session lock until that user re-establishes access using
+          established identification and authentication procedures for graphical user sessions.
       rules:
           - dconf_gnome_screensaver_lock_enabled
       status: automated
@@ -1137,8 +1155,8 @@ controls:
     - id: RHEL-08-020050
       levels:
           - medium
-      title: RHEL 8 must be able to initiate directly a session lock for all connection types using smartcard
-          when the smartcard is removed.
+      title: RHEL 8 must be able to initiate directly a session lock for all connection types
+          using smartcard when the smartcard is removed.
       rules:
           - dconf_gnome_lock_screen_on_smartcard_removal
       status: automated
@@ -1154,8 +1172,8 @@ controls:
     - id: RHEL-08-020080
       levels:
           - medium
-      title: RHEL 8 must prevent a user from overriding the session lock-delay setting for the graphical
-          user interface.
+      title: RHEL 8 must prevent a user from overriding the session lock-delay setting for the
+          graphical user interface.
       rules:
           - dconf_gnome_screensaver_user_locks
       status: automated
@@ -1163,7 +1181,8 @@ controls:
     - id: RHEL-08-020090
       levels:
           - medium
-      title: RHEL 8 must map the authenticated identity to the user or group account for PKI-based authentication.
+      title: RHEL 8 must map the authenticated identity to the user or group account for PKI-based
+          authentication.
       rules:
           - sssd_enable_certmap
       status: automated
@@ -1171,7 +1190,8 @@ controls:
     - id: RHEL-08-020100
       levels:
           - medium
-      title: RHEL 8 must ensure the password complexity module is enabled in the password-auth file.
+      title: RHEL 8 must ensure the password complexity module is enabled in the password-auth
+          file.
       rules:
           - accounts_password_pam_pwquality_password_auth
       status: automated
@@ -1179,8 +1199,8 @@ controls:
     - id: RHEL-08-020110
       levels:
           - medium
-      title: RHEL 8 must enforce password complexity by requiring that at least one uppercase character
-          be used.
+      title: RHEL 8 must enforce password complexity by requiring that at least one uppercase
+          character be used.
       rules:
           - accounts_password_pam_ucredit
       status: automated
@@ -1188,8 +1208,8 @@ controls:
     - id: RHEL-08-020120
       levels:
           - medium
-      title: RHEL 8 must enforce password complexity by requiring that at least one lower-case character
-          be used.
+      title: RHEL 8 must enforce password complexity by requiring that at least one lower-case
+          character be used.
       rules:
           - accounts_password_pam_lcredit
       status: automated
@@ -1197,8 +1217,8 @@ controls:
     - id: RHEL-08-020130
       levels:
           - medium
-      title: RHEL 8 must enforce password complexity by requiring that at least one numeric character
-          be used.
+      title: RHEL 8 must enforce password complexity by requiring that at least one numeric
+          character be used.
       rules:
           - accounts_password_pam_dcredit
       status: automated
@@ -1206,8 +1226,8 @@ controls:
     - id: RHEL-08-020140
       levels:
           - medium
-      title: RHEL 8 must require the maximum number of repeating characters of the same character class
-          be limited to four when passwords are changed.
+      title: RHEL 8 must require the maximum number of repeating characters of the same character
+          class be limited to four when passwords are changed.
       rules:
           - accounts_password_pam_maxclassrepeat
       status: automated
@@ -1215,8 +1235,8 @@ controls:
     - id: RHEL-08-020150
       levels:
           - medium
-      title: RHEL 8 must require the maximum number of repeating characters be limited to three when
-          passwords are changed.
+      title: RHEL 8 must require the maximum number of repeating characters be limited to three
+          when passwords are changed.
       rules:
           - accounts_password_pam_maxrepeat
       status: automated
@@ -1224,7 +1244,8 @@ controls:
     - id: RHEL-08-020160
       levels:
           - medium
-      title: RHEL 8 must require the change of at least four character classes when passwords are changed.
+      title: RHEL 8 must require the change of at least four character classes when passwords are
+          changed.
       rules:
           - accounts_password_pam_minclass
       status: automated
@@ -1240,7 +1261,8 @@ controls:
     - id: RHEL-08-020180
       levels:
           - medium
-      title: RHEL 8 passwords must have a 24 hours/1 day minimum password lifetime restriction in /etc/shadow.
+      title: RHEL 8 passwords must have a 24 hours/1 day minimum password lifetime restriction in
+          /etc/shadow.
       rules:
           - accounts_password_set_min_life_existing
       status: automated
@@ -1248,8 +1270,8 @@ controls:
     - id: RHEL-08-020190
       levels:
           - medium
-      title: RHEL 8 passwords for new users or password changes must have a 24 hours/1 day minimum password
-          lifetime restriction in /etc/login.defs.
+      title: RHEL 8 passwords for new users or password changes must have a 24 hours/1 day minimum
+          password lifetime restriction in /etc/login.defs.
       rules:
           - accounts_minimum_age_login_defs
       status: automated
@@ -1257,7 +1279,8 @@ controls:
     - id: RHEL-08-020200
       levels:
           - medium
-      title: RHEL 8 user account passwords must have a 60-day maximum password lifetime restriction.
+      title: RHEL 8 user account passwords must have a 60-day maximum password lifetime
+          restriction.
       rules:
           - accounts_maximum_age_login_defs
       status: automated
@@ -1265,8 +1288,8 @@ controls:
     - id: RHEL-08-020210
       levels:
           - medium
-      title: RHEL 8 user account passwords must be configured so that existing passwords are restricted
-          to a 60-day maximum lifetime.
+      title: RHEL 8 user account passwords must be configured so that existing passwords are
+          restricted to a 60-day maximum lifetime.
       rules:
           - accounts_password_set_max_life_existing
       status: automated
@@ -1298,8 +1321,8 @@ controls:
     - id: RHEL-08-020250
       levels:
           - medium
-      title: RHEL 8 must implement smart card logon for multifactor authentication for access to interactive
-          accounts.
+      title: RHEL 8 must implement smart card logon for multifactor authentication for access to
+          interactive accounts.
       rules:
           - sssd_enable_smartcards
       status: automated
@@ -1307,8 +1330,8 @@ controls:
     - id: RHEL-08-020260
       levels:
           - medium
-      title: RHEL 8 account identifiers (individuals, groups, roles, and devices) must be disabled after
-          35 days of inactivity.
+      title: RHEL 8 account identifiers (individuals, groups, roles, and devices) must be disabled
+          after 35 days of inactivity.
       rules:
           - account_disable_post_pw_expiration
       status: automated
@@ -1348,8 +1371,8 @@ controls:
     - id: RHEL-08-020310
       levels:
           - medium
-      title: RHEL 8 must enforce a delay of at least four seconds between logon prompts following a failed
-          logon attempt.
+      title: RHEL 8 must enforce a delay of at least four seconds between logon prompts following
+          a failed logon attempt.
       rules:
           - accounts_logon_fail_delay
       status: automated
@@ -1373,7 +1396,8 @@ controls:
     - id: RHEL-08-020350
       levels:
           - medium
-      title: RHEL 8 must display the date and time of the last successful account logon upon an SSH logon.
+      title: RHEL 8 must display the date and time of the last successful account logon upon an
+          SSH logon.
       rules:
           - sshd_print_last_log
       status: automated
@@ -1381,8 +1405,8 @@ controls:
     - id: RHEL-08-020351
       levels:
           - medium
-      title: RHEL 8 must define default permissions for all authenticated users in such a way that the
-          user can only read and modify their own files.
+      title: RHEL 8 must define default permissions for all authenticated users in such a way that
+          the user can only read and modify their own files.
       rules:
           - accounts_umask_etc_login_defs
       status: automated
@@ -1408,7 +1432,8 @@ controls:
     - id: RHEL-08-020353
       levels:
           - medium
-      title: RHEL 8 must automatically exit interactive command shell user sessions after 10 minutes of inactivity.
+      title: RHEL 8 must automatically exit interactive command shell user sessions after 10
+          minutes of inactivity.
       rules:
           - accounts_tmout
           - var_accounts_tmout=10_min
@@ -1418,9 +1443,9 @@ controls:
     - id: RHEL-08-030000
       levels:
           - medium
-      title: The RHEL 8 audit system must be configured to audit the execution of privileged functions
-          and prevent all software from executing at higher privilege levels than users executing the
-          software.
+      title: The RHEL 8 audit system must be configured to audit the execution of privileged
+          functions and prevent all software from executing at higher privilege levels than users
+          executing the software.
       rules:
           - audit_rules_suid_privilege_function
       status: automated
@@ -1436,8 +1461,8 @@ controls:
     - id: RHEL-08-030020
       levels:
           - medium
-      title: The RHEL 8 System Administrator (SA) and Information System Security Officer (ISSO) (at
-          a minimum) must be alerted of an audit processing failure event.
+      title: The RHEL 8 System Administrator (SA) and Information System Security Officer (ISSO)
+          (at a minimum) must be alerted of an audit processing failure event.
       rules:
           - auditd_data_retention_action_mail_acct
       status: automated
@@ -1445,8 +1470,8 @@ controls:
     - id: RHEL-08-030030
       levels:
           - medium
-      title: The RHEL 8 Information System Security Officer (ISSO) and System Administrator (SA) (at
-          a minimum) must have mail aliases to be notified of an audit processing failure.
+      title: The RHEL 8 Information System Security Officer (ISSO) and System Administrator (SA)
+          (at a minimum) must have mail aliases to be notified of an audit processing failure.
       rules:
           - package_postfix_installed
           - postfix_client_configure_mail_alias_postmaster
@@ -1455,7 +1480,8 @@ controls:
     - id: RHEL-08-030040
       levels:
           - medium
-      title: The RHEL 8 System must take appropriate action when an audit processing failure occurs.
+      title: The RHEL 8 System must take appropriate action when an audit processing failure
+          occurs.
       rules:
           - auditd_data_disk_error_action
       status: automated
@@ -1463,7 +1489,8 @@ controls:
     - id: RHEL-08-030060
       levels:
           - medium
-      title: The RHEL 8 audit system must take appropriate action when the audit storage volume is full.
+      title: The RHEL 8 audit system must take appropriate action when the audit storage volume is
+          full.
       rules:
           - auditd_data_disk_full_action
       status: automated
@@ -1479,7 +1506,8 @@ controls:
     - id: RHEL-08-030062
       levels:
           - medium
-      title: RHEL 8 must label all off-loaded audit logs before sending them to the central log server.
+      title: RHEL 8 must label all off-loaded audit logs before sending them to the central log
+          server.
       rules:
           - auditd_name_format
           - var_auditd_name_format=stig
@@ -1496,8 +1524,8 @@ controls:
     - id: RHEL-08-030070
       levels:
           - medium
-      title: RHEL 8 audit logs must have a mode of 0600 or less permissive to prevent unauthorized read
-          access.
+      title: RHEL 8 audit logs must have a mode of 0600 or less permissive to prevent unauthorized
+          read access.
       rules:
           - file_permissions_var_log_audit
       status: automated
@@ -1529,7 +1557,8 @@ controls:
     - id: RHEL-08-030110
       levels:
           - medium
-      title: RHEL 8 audit log directory must be group-owned by root to prevent unauthorized read access.
+      title: RHEL 8 audit log directory must be group-owned by root to prevent unauthorized read
+          access.
       rules:
           - directory_group_ownership_var_log_audit
       status: automated
@@ -1537,8 +1566,8 @@ controls:
     - id: RHEL-08-030120
       levels:
           - medium
-      title: RHEL 8 audit log directory must have a mode of 0700 or less permissive to prevent unauthorized
-          read access.
+      title: RHEL 8 audit log directory must have a mode of 0700 or less permissive to prevent
+          unauthorized read access.
       rules:
           - directory_permissions_var_log_audit
       status: automated
@@ -1562,8 +1591,8 @@ controls:
     - id: RHEL-08-030130
       levels:
           - medium
-      title: RHEL 8 must generate audit records for all account creations, modifications, disabling,
-          and termination events that affect /etc/shadow.
+      title: RHEL 8 must generate audit records for all account creations, modifications,
+          disabling, and termination events that affect /etc/shadow.
       rules:
           - audit_rules_usergroup_modification_shadow
       status: automated
@@ -1571,8 +1600,8 @@ controls:
     - id: RHEL-08-030140
       levels:
           - medium
-      title: RHEL 8 must generate audit records for all account creations, modifications, disabling,
-          and termination events that affect /etc/security/opasswd.
+      title: RHEL 8 must generate audit records for all account creations, modifications,
+          disabling, and termination events that affect /etc/security/opasswd.
       rules:
           - audit_rules_usergroup_modification_opasswd
       status: automated
@@ -1580,8 +1609,8 @@ controls:
     - id: RHEL-08-030150
       levels:
           - medium
-      title: RHEL 8 must generate audit records for all account creations, modifications, disabling,
-          and termination events that affect /etc/passwd.
+      title: RHEL 8 must generate audit records for all account creations, modifications,
+          disabling, and termination events that affect /etc/passwd.
       rules:
           - audit_rules_usergroup_modification_passwd
       status: automated
@@ -1589,8 +1618,8 @@ controls:
     - id: RHEL-08-030160
       levels:
           - medium
-      title: RHEL 8 must generate audit records for all account creations, modifications, disabling,
-          and termination events that affect /etc/gshadow.
+      title: RHEL 8 must generate audit records for all account creations, modifications,
+          disabling, and termination events that affect /etc/gshadow.
       rules:
           - audit_rules_usergroup_modification_gshadow
       status: automated
@@ -1598,8 +1627,8 @@ controls:
     - id: RHEL-08-030170
       levels:
           - medium
-      title: RHEL 8 must generate audit records for all account creations, modifications, disabling,
-          and termination events that affect /etc/group.
+      title: RHEL 8 must generate audit records for all account creations, modifications,
+          disabling, and termination events that affect /etc/group.
       rules:
           - audit_rules_usergroup_modification_group
       status: automated
@@ -1607,8 +1636,8 @@ controls:
     - id: RHEL-08-030171
       levels:
           - medium
-      title: RHEL 8 must generate audit records for all account creations, modifications, disabling,
-          and termination events that affect /etc/sudoers.
+      title: RHEL 8 must generate audit records for all account creations, modifications,
+          disabling, and termination events that affect /etc/sudoers.
       rules:
           - audit_rules_sudoers
       status: automated
@@ -1616,8 +1645,8 @@ controls:
     - id: RHEL-08-030172
       levels:
           - medium
-      title: RHEL 8 must generate audit records for all account creations, modifications, disabling,
-          and termination events that affect /etc/sudoers.d/.
+      title: RHEL 8 must generate audit records for all account creations, modifications,
+          disabling, and termination events that affect /etc/sudoers.d/.
       rules:
           - audit_rules_sudoers_d
       status: automated
@@ -1633,7 +1662,8 @@ controls:
     - id: RHEL-08-030190
       levels:
           - medium
-      title: Successful/unsuccessful uses of the su command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the su command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_su
       status: automated
@@ -1641,8 +1671,8 @@ controls:
     - id: RHEL-08-030200
       levels:
           - medium
-      title: The RHEL 8 audit system must be configured to audit any usage of the setxattr, fsetxattr,
-          lsetxattr, removexattr, fremovexattr, and lremovexattr system calls.
+      title: The RHEL 8 audit system must be configured to audit any usage of the setxattr,
+          fsetxattr, lsetxattr, removexattr, fremovexattr, and lremovexattr system calls.
       rules:
           - audit_rules_dac_modification_fremovexattr
           - audit_rules_dac_modification_fsetxattr
@@ -1655,7 +1685,8 @@ controls:
     - id: RHEL-08-030250
       levels:
           - medium
-      title: Successful/unsuccessful uses of the chage command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the chage command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_chage
       status: automated
@@ -1663,7 +1694,8 @@ controls:
     - id: RHEL-08-030260
       levels:
           - medium
-      title: Successful/unsuccessful uses of the chcon command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the chcon command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_execution_chcon
       status: automated
@@ -1679,7 +1711,8 @@ controls:
     - id: RHEL-08-030290
       levels:
           - medium
-      title: Successful/unsuccessful uses of the passwd command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the passwd command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_passwd
       status: automated
@@ -1687,7 +1720,8 @@ controls:
     - id: RHEL-08-030300
       levels:
           - medium
-      title: Successful/unsuccessful uses of the mount command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the mount command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_mount
       status: automated
@@ -1695,7 +1729,8 @@ controls:
     - id: RHEL-08-030301
       levels:
           - medium
-      title: Successful/unsuccessful uses of the umount command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the umount command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_umount
       status: automated
@@ -1703,7 +1738,8 @@ controls:
     - id: RHEL-08-030302
       levels:
           - medium
-      title: Successful/unsuccessful uses of the mount syscall in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the mount syscall in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_media_export
       status: automated
@@ -1711,7 +1747,8 @@ controls:
     - id: RHEL-08-030310
       levels:
           - medium
-      title: Successful/unsuccessful uses of the unix_update in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the unix_update in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_unix_update
       status: automated
@@ -1775,7 +1812,8 @@ controls:
     - id: RHEL-08-030320
       levels:
           - medium
-      title: Successful/unsuccessful uses of the ssh-keysign in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the ssh-keysign in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_ssh_keysign
       status: automated
@@ -1783,7 +1821,8 @@ controls:
     - id: RHEL-08-030330
       levels:
           - medium
-      title: Successful/unsuccessful uses of the setfacl command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the setfacl command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_execution_setfacl
       status: automated
@@ -1791,8 +1830,8 @@ controls:
     - id: RHEL-08-030340
       levels:
           - medium
-      title: Successful/unsuccessful uses of the pam_timestamp_check command in RHEL 8 must generate
-          an audit record.
+      title: Successful/unsuccessful uses of the pam_timestamp_check command in RHEL 8 must
+          generate an audit record.
       rules:
           - audit_rules_privileged_commands_pam_timestamp_check
       status: automated
@@ -1800,7 +1839,8 @@ controls:
     - id: RHEL-08-030350
       levels:
           - medium
-      title: Successful/unsuccessful uses of the newgrp command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the newgrp command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_newgrp
       status: automated
@@ -1808,8 +1848,8 @@ controls:
     - id: RHEL-08-030360
       levels:
           - medium
-      title: Successful/unsuccessful uses of the init_module and finit_module system calls in RHEL 8
-          must generate an audit record.
+      title: Successful/unsuccessful uses of the init_module and finit_module system calls in RHEL
+          8 must generate an audit record.
       rules:
           - audit_rules_kernel_module_loading_finit
           - audit_rules_kernel_module_loading_init
@@ -1818,8 +1858,8 @@ controls:
     - id: RHEL-08-030361
       levels:
           - medium
-      title: Successful/unsuccessful uses of the rename, unlink, rmdir, renameat, and unlinkat system
-          calls in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the rename, unlink, rmdir, renameat, and unlinkat
+          system calls in RHEL 8 must generate an audit record.
       rules:
           - audit_rules_file_deletion_events_rename
           - audit_rules_file_deletion_events_renameat
@@ -1831,7 +1871,8 @@ controls:
     - id: RHEL-08-030370
       levels:
           - medium
-      title: Successful/unsuccessful uses of the gpasswd command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the gpasswd command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_gpasswd
       status: automated
@@ -1839,8 +1880,8 @@ controls:
     - id: RHEL-08-030390
       levels:
           - medium
-      title: Successful/unsuccessful uses of the delete_module command in RHEL 8 must generate an audit
-          record.
+      title: Successful/unsuccessful uses of the delete_module command in RHEL 8 must generate an
+          audit record.
       rules:
           - audit_rules_kernel_module_loading_delete
       status: automated
@@ -1848,7 +1889,8 @@ controls:
     - id: RHEL-08-030400
       levels:
           - medium
-      title: Successful/unsuccessful uses of the crontab command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the crontab command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_crontab
       status: automated
@@ -1856,7 +1898,8 @@ controls:
     - id: RHEL-08-030410
       levels:
           - medium
-      title: Successful/unsuccessful uses of the chsh command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the chsh command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_chsh
       status: automated
@@ -1864,8 +1907,8 @@ controls:
     - id: RHEL-08-030420
       levels:
           - medium
-      title: Successful/unsuccessful uses of the truncate, ftruncate, creat, open, openat, and open_by_handle_at
-          system calls in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the truncate, ftruncate, creat, open, openat, and
+          open_by_handle_at system calls in RHEL 8 must generate an audit record.
       rules:
           - audit_rules_unsuccessful_file_modification_creat
           - audit_rules_unsuccessful_file_modification_ftruncate
@@ -1878,8 +1921,8 @@ controls:
     - id: RHEL-08-030480
       levels:
           - medium
-      title: Successful/unsuccessful uses of the chown, fchown, fchownat, and lchown system calls in
-          RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the chown, fchown, fchownat, and lchown system calls
+          in RHEL 8 must generate an audit record.
       rules:
           - audit_rules_dac_modification_chown
           - audit_rules_dac_modification_fchown
@@ -1890,8 +1933,8 @@ controls:
     - id: RHEL-08-030490
       levels:
           - medium
-      title: Successful/unsuccessful uses of the chmod, fchmod, and fchmodat system calls in RHEL 8 must
-          generate an audit record.
+      title: Successful/unsuccessful uses of the chmod, fchmod, and fchmodat system calls in RHEL
+          8 must generate an audit record.
       rules:
           - audit_rules_dac_modification_chmod
           - audit_rules_dac_modification_fchmod
@@ -1901,7 +1944,8 @@ controls:
     - id: RHEL-08-030550
       levels:
           - medium
-      title: Successful/unsuccessful uses of the sudo command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the sudo command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_sudo
       status: automated
@@ -1909,7 +1953,8 @@ controls:
     - id: RHEL-08-030560
       levels:
           - medium
-      title: Successful/unsuccessful uses of the usermod command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the usermod command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_usermod
       status: automated
@@ -1917,7 +1962,8 @@ controls:
     - id: RHEL-08-030570
       levels:
           - medium
-      title: Successful/unsuccessful uses of the chacl command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the chacl command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_execution_chacl
       status: automated
@@ -1925,7 +1971,8 @@ controls:
     - id: RHEL-08-030580
       levels:
           - medium
-      title: Successful/unsuccessful uses of the kmod command in RHEL 8 must generate an audit record.
+      title: Successful/unsuccessful uses of the kmod command in RHEL 8 must generate an audit
+          record.
       rules:
           - audit_rules_privileged_commands_kmod
       status: automated
@@ -1933,8 +1980,8 @@ controls:
     - id: RHEL-08-030590
       levels:
           - medium
-      title: Successful/unsuccessful modifications to the faillock log file in RHEL 8 must generate an
-          audit record.
+      title: Successful/unsuccessful modifications to the faillock log file in RHEL 8 must
+          generate an audit record.
       rules:
           - audit_rules_login_events_faillock
       status: automated
@@ -1942,8 +1989,8 @@ controls:
     - id: RHEL-08-030600
       levels:
           - medium
-      title: Successful/unsuccessful modifications to the lastlog file in RHEL 8 must generate an audit
-          record.
+      title: Successful/unsuccessful modifications to the lastlog file in RHEL 8 must generate an
+          audit record.
       rules:
           - audit_rules_login_events_lastlog
       status: automated
@@ -1959,8 +2006,8 @@ controls:
     - id: RHEL-08-030602
       levels:
           - low
-      title: RHEL 8 must allocate an audit_backlog_limit of sufficient size to capture processes that
-          start prior to the audit daemon.
+      title: RHEL 8 must allocate an audit_backlog_limit of sufficient size to capture processes
+          that start prior to the audit daemon.
       rules:
           - grub2_audit_backlog_limit_argument
           - var_audit_backlog_limit=8192
@@ -1977,8 +2024,8 @@ controls:
     - id: RHEL-08-030610
       levels:
           - medium
-      title: RHEL 8 must allow only the Information System Security Manager (ISSM) (or individuals or
-          roles appointed by the ISSM) to select which auditable events are to be audited.
+      title: RHEL 8 must allow only the Information System Security Manager (ISSM) (or individuals
+          or roles appointed by the ISSM) to select which auditable events are to be audited.
       rules:
           - file_permissions_etc_audit_auditd
           - file_permissions_etc_audit_rulesd
@@ -2019,7 +2066,8 @@ controls:
     - id: RHEL-08-030655
       levels:
           - medium
-      title: RHEL 8 must audit any script or executable called by cron as root or by any privileged user.
+      title: RHEL 8 must audit any script or executable called by cron as root or by any
+          privileged user.
       rules:
           - audit_rules_etc_cron_d
           - audit_rules_var_spool_cron
@@ -2028,8 +2076,9 @@ controls:
     - id: RHEL-08-030660
       levels:
           - medium
-      title: RHEL 8 must allocate audit record storage capacity to store at least one week of audit records,
-          when audit records are not immediately sent to a central audit record storage facility.
+      title: RHEL 8 must allocate audit record storage capacity to store at least one week of
+          audit records, when audit records are not immediately sent to a central audit record
+          storage facility.
       rules:
           - auditd_audispd_configure_sufficiently_large_partition
       status: automated
@@ -2053,8 +2102,8 @@ controls:
     - id: RHEL-08-030690
       levels:
           - medium
-      title: The RHEL 8 audit records must be off-loaded onto a different system or storage media from
-          the system being audited.
+      title: The RHEL 8 audit records must be off-loaded onto a different system or storage media
+          from the system being audited.
       rules:
           - rsyslog_remote_loghost
       status: automated
@@ -2070,8 +2119,8 @@ controls:
     - id: RHEL-08-030710
       levels:
           - medium
-      title: RHEL 8 must encrypt the transfer of audit records off-loaded onto a different system or
-          media from the system being audited.
+      title: RHEL 8 must encrypt the transfer of audit records off-loaded onto a different system
+          or media from the system being audited.
       rules:
           - rsyslog_encrypt_offload_actionsendstreamdrivermode
           - rsyslog_encrypt_offload_defaultnetstreamdriver
@@ -2088,8 +2137,8 @@ controls:
     - id: RHEL-08-030730
       levels:
           - medium
-      title: RHEL 8 must take action when allocated audit record storage volume reaches 75 percent of
-          the repository maximum audit record storage capacity.
+      title: RHEL 8 must take action when allocated audit record storage volume reaches 75 percent
+          of the repository maximum audit record storage capacity.
       rules:
           - auditd_data_retention_space_left_percentage
       status: automated
@@ -2097,10 +2146,10 @@ controls:
     - id: RHEL-08-030740
       levels:
           - medium
-      title: RHEL 8 must securely compare internal information system clocks at least every 24 hours
-          with a server synchronized to an authoritative time source, such as the United States Naval
-          Observatory (USNO) time servers, or a time server designated for the appropriate DoD network
-          (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).
+      title: RHEL 8 must securely compare internal information system clocks at least every 24
+          hours with a server synchronized to an authoritative time source, such as the United
+          States Naval Observatory (USNO) time servers, or a time server designated for the
+          appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).
       rules:
           - chronyd_or_ntpd_set_maxpoll
           - chronyd_server_directive
@@ -2166,7 +2215,8 @@ controls:
     - id: RHEL-08-040010
       levels:
           - high
-      title: RHEL 8 must not install packages from the Extra Packages for Enterprise Linux (EPEL) repository.
+      title: RHEL 8 must not install packages from the Extra Packages for Enterprise Linux (EPEL)
+          repository.
       rules:
           - ensure_epel_repos_disabled
       status: automated
@@ -2230,9 +2280,9 @@ controls:
     - id: RHEL-08-040030
       levels:
           - medium
-      title: RHEL 8 must be configured to prohibit or restrict the use of functions, ports, protocols,
-          and/or services, as defined in the Ports, Protocols, and Services Management (PPSM) Category
-          Assignments List (CAL) and vulnerability assessments.
+      title: RHEL 8 must be configured to prohibit or restrict the use of functions, ports,
+          protocols, and/or services, as defined in the Ports, Protocols, and Services Management
+          (PPSM) Category Assignments List (CAL) and vulnerability assessments.
       rules:
           - configure_firewalld_ports
       status: automated
@@ -2256,8 +2306,8 @@ controls:
     - id: RHEL-08-040090
       levels:
           - medium
-      title: A RHEL 8 firewall must employ a deny-all, allow-by-exception policy for allowing connections
-          to other systems.
+      title: A RHEL 8 firewall must employ a deny-all, allow-by-exception policy for allowing
+          connections to other systems.
       rules:
           - configured_firewalld_default_deny
           - set_firewalld_default_zone
@@ -2426,8 +2476,9 @@ controls:
     - id: RHEL-08-040150
       levels:
           - medium
-      title: A firewall must be able to protect against or limit the effects of Denial of Service (DoS)
-          attacks by ensuring RHEL 8 can implement rate-limiting measures on impacted network interfaces.
+      title: A firewall must be able to protect against or limit the effects of Denial of Service
+          (DoS) attacks by ensuring RHEL 8 can implement rate-limiting measures on impacted
+          network interfaces.
       rules:
           - firewalld-backend
       status: automated
@@ -2435,9 +2486,9 @@ controls:
     - id: RHEL-08-040160
       levels:
           - medium
-      title: All RHEL 8 networked systems must have and implement SSH to protect the confidentiality
-          and integrity of transmitted and received information, as well as information during preparation
-          for transmission.
+      title: All RHEL 8 networked systems must have and implement SSH to protect the
+          confidentiality and integrity of transmitted and received information, as well as
+          information during preparation for transmission.
       rules:
           - service_sshd_enabled
       status: automated
@@ -2445,7 +2496,8 @@ controls:
     - id: RHEL-08-040161
       levels:
           - medium
-      title: RHEL 8 must force a frequent session key renegotiation for SSH connections to the server.
+      title: RHEL 8 must force a frequent session key renegotiation for SSH connections to the
+          server.
       rules:
           - sshd_rekey_limit
       status: automated
@@ -2461,8 +2513,8 @@ controls:
     - id: RHEL-08-040171
       levels:
           - high
-      title: The x86 Ctrl-Alt-Delete key sequence in RHEL 8 must be disabled if a graphical user interface
-          is installed.
+      title: The x86 Ctrl-Alt-Delete key sequence in RHEL 8 must be disabled if a graphical user
+          interface is installed.
       rules:
           - dconf_gnome_disable_ctrlaltdel_reboot
       status: automated
@@ -2486,8 +2538,8 @@ controls:
     - id: RHEL-08-040190
       levels:
           - high
-      title: The Trivial File Transfer Protocol (TFTP) server package must not be installed if not required
-          for RHEL 8 operational support.
+      title: The Trivial File Transfer Protocol (TFTP) server package must not be installed if not
+          required for RHEL 8 operational support.
       rules:
           - package_tftp-server_removed
       status: automated
@@ -2495,7 +2547,8 @@ controls:
     - id: RHEL-08-040200
       levels:
           - high
-      title: The root account must be the only account having unrestricted access to the RHEL 8 system.
+      title: The root account must be the only account having unrestricted access to the RHEL 8
+          system.
       rules:
           - accounts_no_uid_except_zero
       status: automated
@@ -2503,8 +2556,8 @@ controls:
     - id: RHEL-08-040210
       levels:
           - medium
-      title: RHEL 8 must prevent IPv6 Internet Control Message Protocol (ICMP) redirect messages from
-          being accepted.
+      title: RHEL 8 must prevent IPv6 Internet Control Message Protocol (ICMP) redirect messages
+          from being accepted.
       rules:
           - sysctl_net_ipv6_conf_default_accept_redirects
       status: automated
@@ -2520,8 +2573,8 @@ controls:
     - id: RHEL-08-040230
       levels:
           - medium
-      title: RHEL 8 must not respond to Internet Control Message Protocol (ICMP) echoes sent to a broadcast
-          address.
+      title: RHEL 8 must not respond to Internet Control Message Protocol (ICMP) echoes sent to a
+          broadcast address.
       rules:
           - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
       status: automated
@@ -2569,8 +2622,8 @@ controls:
     - id: RHEL-08-040270
       levels:
           - medium
-      title: RHEL 8 must not allow interfaces to perform Internet Control Message Protocol (ICMP) redirects
-          by default.
+      title: RHEL 8 must not allow interfaces to perform Internet Control Message Protocol (ICMP)
+          redirects by default.
       rules:
           - sysctl_net_ipv4_conf_default_send_redirects
       status: automated
@@ -2642,7 +2695,8 @@ controls:
     - id: RHEL-08-040310
       levels:
           - low
-      title: The RHEL 8 file integrity tool must be configured to verify Access Control Lists (ACLs).
+      title: The RHEL 8 file integrity tool must be configured to verify Access Control Lists
+          (ACLs).
       rules:
           - aide_verify_acls
       status: automated
@@ -2666,8 +2720,8 @@ controls:
     - id: RHEL-08-040340
       levels:
           - medium
-      title: RHEL 8 remote X connections for interactive users must be disabled unless to fulfill documented
-          and validated mission requirements.
+      title: RHEL 8 remote X connections for interactive users must be disabled unless to fulfill
+          documented and validated mission requirements.
       rules:
           - sshd_disable_x11_forwarding
       status: automated
@@ -2683,8 +2737,8 @@ controls:
     - id: RHEL-08-040350
       levels:
           - medium
-      title: If the Trivial File Transfer Protocol (TFTP) server is required, the RHEL 8 TFTP daemon
-          must be configured to operate in secure mode.
+      title: If the Trivial File Transfer Protocol (TFTP) server is required, the RHEL 8 TFTP
+          daemon must be configured to operate in secure mode.
       rules:
           - tftp_uses_secure_mode_systemd
       status: automated
@@ -2692,8 +2746,8 @@ controls:
     - id: RHEL-08-040360
       levels:
           - high
-      title: A File Transfer Protocol (FTP) server package must not be installed unless mission essential
-          on RHEL 8.
+      title: A File Transfer Protocol (FTP) server package must not be installed unless mission
+          essential on RHEL 8.
       rules:
           - package_vsftpd_removed
       status: automated
@@ -2741,7 +2795,8 @@ controls:
     - id: RHEL-08-010383
       levels:
           - medium
-      title: RHEL 8 must use the invoking user's password for privilege escalation when using "sudo".
+      title: RHEL 8 must use the invoking user's password for privilege escalation when using
+          "sudo".
       rules:
           - sudoers_validate_passwd
       status: automated
@@ -2758,8 +2813,8 @@ controls:
     - id: RHEL-08-010049
       levels:
           - medium
-      title: RHEL 8 must display a banner before granting local or remote access to the system via a
-          graphical user logon.
+      title: RHEL 8 must display a banner before granting local or remote access to the system via
+          a graphical user logon.
       rules:
           - dconf_gnome_banner_enabled
       status: automated
@@ -2767,8 +2822,8 @@ controls:
     - id: RHEL-08-010141
       levels:
           - medium
-      title: RHEL 8 operating systems booted with United Extensible Firmware Interface (UEFI) must require
-          a unique superusers name upon booting into single-user mode and maintenance.
+      title: RHEL 8 operating systems booted with United Extensible Firmware Interface (UEFI) must
+          require a unique superusers name upon booting into single-user mode and maintenance.
       rules:
           - grub2_uefi_admin_username
       status: automated
@@ -2776,8 +2831,8 @@ controls:
     - id: RHEL-08-010149
       levels:
           - medium
-      title: RHEL 8 operating systems booted with a BIOS must require  a unique superusers name upon
-          booting into single-user and maintenance modes.
+      title: RHEL 8 operating systems booted with a BIOS must require  a unique superusers name
+          upon booting into single-user and maintenance modes.
       rules:
           - grub2_admin_username
       status: automated
@@ -2793,8 +2848,8 @@ controls:
     - id: RHEL-08-010159
       levels:
           - medium
-      title: The RHEL 8 pam_unix.so module must be configured in the system-auth file to use a FIPS 140-2
-          approved cryptographic hashing algorithm for system authentication.
+      title: The RHEL 8 pam_unix.so module must be configured in the system-auth file to use a
+          FIPS 140-2 approved cryptographic hashing algorithm for system authentication.
       rules:
           - set_password_hashing_algorithm_systemauth
       status: automated
@@ -2802,8 +2857,8 @@ controls:
     - id: RHEL-08-010201
       levels:
           - medium
-      title: RHEL 8 must be configured so that all network connections associated with SSH traffic are
-          terminated after 10 minutes of becoming unresponsive.
+      title: RHEL 8 must be configured so that all network connections associated with SSH traffic
+          are terminated after 10 minutes of becoming unresponsive.
       rules:
           - sshd_set_idle_timeout
       status: automated
@@ -2811,8 +2866,8 @@ controls:
     - id: RHEL-08-010472
       levels:
           - low
-      title: RHEL 8 must have the packages required to use the hardware random number generator entropy
-          gatherer service.
+      title: RHEL 8 must have the packages required to use the hardware random number generator
+          entropy gatherer service.
       rules:
           - package_rng-tools_installed
       status: automated
@@ -2820,8 +2875,8 @@ controls:
     - id: RHEL-08-010522
       levels:
           - medium
-      title: The RHEL 8 SSH daemon must not allow GSSAPI authentication, except to fulfill documented
-          and validated mission requirements.
+      title: The RHEL 8 SSH daemon must not allow GSSAPI authentication, except to fulfill
+          documented and validated mission requirements.
       rules:
           - sshd_disable_gssapi_auth
       status: automated
@@ -2837,8 +2892,8 @@ controls:
     - id: RHEL-08-010572
       levels:
           - medium
-      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on the
-          /boot/efi directory.
+      title: RHEL 8 must prevent files with the setuid and setgid bit set from being executed on
+          the /boot/efi directory.
       rules:
           - mount_option_boot_efi_nosuid
       status: automated
@@ -2846,7 +2901,8 @@ controls:
     - id: RHEL-08-010731
       levels:
           - medium
-      title: All RHEL 8 local interactive user home directory files must have mode 0750 or less permissive.
+      title: All RHEL 8 local interactive user home directory files must have mode 0750 or less
+          permissive.
       rules:
           - accounts_users_home_files_permissions
       status: automated
@@ -2854,8 +2910,9 @@ controls:
     - id: RHEL-08-010741
       levels:
           - medium
-      title: RHEL 8 must be configured so that all files and directories contained in local interactive
-          user home directories are group-owned by a group of which the home directory owner is a member.
+      title: RHEL 8 must be configured so that all files and directories contained in local
+          interactive user home directories are group-owned by a group of which the home directory
+          owner is a member.
       rules:
           - accounts_users_home_files_groupownership
       status: automated
@@ -2863,8 +2920,8 @@ controls:
     - id: RHEL-08-020025
       levels:
           - medium
-      title: RHEL 8 must configure the use of the pam_faillock.so module in the /etc/pam.d/system-auth
-          file.
+      title: RHEL 8 must configure the use of the pam_faillock.so module in the
+          /etc/pam.d/system-auth file.
       rules:
           - account_password_pam_faillock_system_auth
       status: automated
@@ -2872,8 +2929,8 @@ controls:
     - id: RHEL-08-020026
       levels:
           - medium
-      title: RHEL 8 must configure the use of the pam_faillock.so module in the /etc/pam.d/password-auth
-          file.
+      title: RHEL 8 must configure the use of the pam_faillock.so module in the
+          /etc/pam.d/password-auth file.
       rules:
           - account_password_pam_faillock_password_auth
       status: automated
@@ -2881,8 +2938,8 @@ controls:
     - id: RHEL-08-020031
       levels:
           - medium
-      title: RHEL 8 must initiate a session lock for graphical user interfaces when the screensaver is
-          activated.
+      title: RHEL 8 must initiate a session lock for graphical user interfaces when the
+          screensaver is activated.
       rules:
           - dconf_gnome_screensaver_lock_delay
           - var_screensaver_lock_delay=5_seconds
@@ -2899,8 +2956,8 @@ controls:
     - id: RHEL-08-020081
       levels:
           - medium
-      title: RHEL 8 must prevent a user from overriding the session idle-delay setting for the graphical
-          user interface.
+      title: RHEL 8 must prevent a user from overriding the session idle-delay setting for the
+          graphical user interface.
       rules:
           - dconf_gnome_session_idle_user_locks
       status: automated
@@ -2908,8 +2965,8 @@ controls:
     - id: RHEL-08-020082
       levels:
           - medium
-      title: RHEL 8 must prevent a user from overriding the screensaver lock-enabled setting for the
-          graphical user interface.
+      title: RHEL 8 must prevent a user from overriding the screensaver lock-enabled setting for
+          the graphical user interface.
       rules:
           - dconf_gnome_screensaver_lock_locked
       status: automated
@@ -2925,8 +2982,8 @@ controls:
     - id: RHEL-08-030181
       levels:
           - medium
-      title: RHEL 8 audit records must contain information to establish what type of events occurred,
-          the source of events, where events occurred, and the outcome of events.
+      title: RHEL 8 audit records must contain information to establish what type of events
+          occurred, the source of events, where events occurred, and the outcome of events.
       rules:
           - service_auditd_enabled
       status: automated
@@ -2934,8 +2991,9 @@ controls:
     - id: RHEL-08-030731
       levels:
           - medium
-      title: RHEL 8 must notify the System Administrator (SA) and Information System Security Officer
-          (ISSO) (at a minimum) when allocated audit record storage volume 75 percent utilization.
+      title: RHEL 8 must notify the System Administrator (SA) and Information System Security
+          Officer (ISSO) (at a minimum) when allocated audit record storage volume 75 percent
+          utilization.
       rules:
           - auditd_data_retention_space_left_action
       status: automated
@@ -2959,8 +3017,8 @@ controls:
     - id: RHEL-08-040137
       levels:
           - medium
-      title: The RHEL 8 fapolicy module must be configured to employ a deny-all, permit-by-exception
-          policy to allow the execution of authorized software programs.
+      title: The RHEL 8 fapolicy module must be configured to employ a deny-all,
+          permit-by-exception policy to allow the execution of authorized software programs.
       rules:
           - fapolicy_default_deny
       status: automated
@@ -2992,8 +3050,8 @@ controls:
     - id: RHEL-08-040209
       levels:
           - medium
-      title: RHEL 8 must prevent IPv4 Internet Control Message Protocol (ICMP) redirect messages from
-          being accepted.
+      title: RHEL 8 must prevent IPv4 Internet Control Message Protocol (ICMP) redirect messages
+          from being accepted.
       rules:
           - sysctl_net_ipv4_conf_default_accept_redirects
       status: automated
@@ -3033,8 +3091,8 @@ controls:
     - id: RHEL-08-020027
       levels:
           - medium
-      title: RHEL 8 systems, versions 8.2 and above, must configure SELinux context type to allow the
-          use of a non-default faillock tally directory.
+      title: RHEL 8 systems, versions 8.2 and above, must configure SELinux context type to allow
+          the use of a non-default faillock tally directory.
       rules:
           - account_password_selinux_faillock_dir
       status: automated
@@ -3042,8 +3100,8 @@ controls:
     - id: RHEL-08-020028
       levels:
           - medium
-      title: RHEL 8 systems below version 8.2 must configure SELinux context type to allow the use of
-          a non-default faillock tally directory.
+      title: RHEL 8 systems below version 8.2 must configure SELinux context type to allow the use
+          of a non-default faillock tally directory.
       rules:
           - account_password_selinux_faillock_dir
       status: automated
@@ -3059,7 +3117,8 @@ controls:
     - id: RHEL-08-010121
       levels:
           - high
-      title: The RHEL 8 operating system must not have accounts configured with blank or null passwords.
+      title: The RHEL 8 operating system must not have accounts configured with blank or null
+          passwords.
       rules:
           - no_empty_passwords_etc_shadow
       status: automated
@@ -3091,8 +3150,8 @@ controls:
     - id: RHEL-08-010359
       levels:
           - medium
-      title: The RHEL 8 operating system must use a file integrity tool to verify correct operation of
-          all security functions.
+      title: The RHEL 8 operating system must use a file integrity tool to verify correct
+          operation of all security functions.
       rules:
           - aide_build_database
           - package_aide_installed
@@ -3109,8 +3168,8 @@ controls:
     - id: RHEL-08-010385
       levels:
           - medium
-      title: The RHEL 8 operating system must not be configured to bypass password requirements for privilege
-          escalation.
+      title: The RHEL 8 operating system must not be configured to bypass password requirements
+          for privilege escalation.
       rules:
           - disallow_bypass_password_sudo
       status: automated
@@ -3126,8 +3185,8 @@ controls:
     - id: RHEL-08-020104
       levels:
           - medium
-      title: RHEL 8 systems, version 8.4 and above, must ensure the password complexity module is configured
-          for three retries or less.
+      title: RHEL 8 systems, version 8.4 and above, must ensure the password complexity module is
+          configured for three retries or less.
       rules:
           - accounts_password_pam_retry
       status: automated
@@ -3135,7 +3194,8 @@ controls:
     - id: RHEL-08-040321
       levels:
           - medium
-      title: The graphical display manager must not be the default target on RHEL 8 unless approved.
+      title: The graphical display manager must not be the default target on RHEL 8 unless
+          approved.
       rules:
           - xwindows_runlevel_target
       status: automated
@@ -3143,8 +3203,9 @@ controls:
     - id: RHEL-08-040400
       levels:
           - medium
-      title: RHEL 8 must prevent nonprivileged users from executing privileged functions, including disabling,
-          circumventing, or altering implemented security safeguards/countermeasures.
+      title: RHEL 8 must prevent nonprivileged users from executing privileged functions,
+          including disabling, circumventing, or altering implemented security
+          safeguards/countermeasures.
       rules:
           - selinux_user_login_roles
       status: automated
@@ -3160,8 +3221,8 @@ controls:
     - id: RHEL-08-010358
       levels:
           - medium
-      title: RHEL 8 must be configured to allow sending email notifications of unauthorized configuration
-          changes to designated personnel.
+      title: RHEL 8 must be configured to allow sending email notifications of unauthorized
+          configuration changes to designated personnel.
       rules:
           - package_mailx_installed
       status: automated
@@ -3186,7 +3247,9 @@ controls:
     - id: RHEL-08-010296
       levels:
           - medium
-      title: The RHEL 8 SSH client must be configured to use only DOD-approved Message Authentication Codes (MACs) employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH client connections.
+      title: The RHEL 8 SSH client must be configured to use only DOD-approved Message
+          Authentication Codes (MACs) employing FIPS 140-3-validated cryptographic hash algorithms
+          to protect the confidentiality of SSH client connections.
       notes: This is implemented by a special STIG subpolicy.
       rules:
           - configure_crypto_policy
@@ -3198,7 +3261,9 @@ controls:
     - id: RHEL-08-010297
       levels:
           - medium
-      title: The RHEL 8 SSH client must be configured to use only DOD-approved encryption ciphers employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH client connections.
+      title: The RHEL 8 SSH client must be configured to use only DOD-approved encryption ciphers
+          employing FIPS 140-3-validated cryptographic hash algorithms to protect the
+          confidentiality of SSH client connections.
       notes: This is implemented by a special STIG subpolicy.
       rules:
           - configure_crypto_policy

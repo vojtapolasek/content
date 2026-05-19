@@ -13,7 +13,8 @@ reference: https://www.nerc.com/standards/reliability-standards/cip
 
 title: >-
     North American Electric Reliability Corporation (NERC) Critical Infrastructure
-    Protection (CIP) cybersecurity standards profile for the  Red Hat OpenShift Container Platform -
+    Protection (CIP) cybersecurity standards profile for the  Red Hat OpenShift Container Platform
+    -
     Platform level
 
 description: |-

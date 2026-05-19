@@ -8,7 +8,8 @@ description: |-
     authorized for auto-download.
 
 rationale: |-
-    This setting ensures that some file types that may be downloaded or executed without user interaction
+    This setting ensures that some file types that may be downloaded or executed without user
+    interaction
     are not downloaded and/or executed.
 
 severity: medium

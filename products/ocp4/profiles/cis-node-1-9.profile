@@ -24,8 +24,8 @@ description: |-
 
     This profile is applicable to OpenShift versions 4.12 and greater.
 
-filter_rules: '"ocp4-node" in platform or "ocp4-master-node" in platform or "ocp4-node-on-sdn" in platform
-    or "ocp4-node-on-ovn" in platform'
+filter_rules: '"ocp4-node" in platform or "ocp4-master-node" in platform or "ocp4-node-on-sdn" in
+    platform or "ocp4-node-on-ovn" in platform'
 
 selections:
     - cis_ocp_190:all

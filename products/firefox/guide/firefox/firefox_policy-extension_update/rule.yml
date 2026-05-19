@@ -4,11 +4,14 @@ documentation_complete: true
 title: 'Firefox must be configured to not automatically update installed add-ons and plugins.'
 
 description: |-
-    Firefox has a feature to permit installed add-ons and plugins to automatically update. The check may be disabled in an
-    administrative policy by setting the <tt>ExtensionUpdate</tt> key under <tt>policies</tt> to <tt>false</tt>.
+    Firefox has a feature to permit installed add-ons and plugins to automatically update. The
+    check may be disabled in an
+    administrative policy by setting the <tt>ExtensionUpdate</tt> key under <tt>policies</tt> to
+    <tt>false</tt>.
 
 rationale: |-
-    Automatic updates from untrusted sites puts the entire enclave at risk and may override existing security settings.
+    Automatic updates from untrusted sites puts the entire enclave at risk and may override
+    existing security settings.
 severity: medium
 
 references:

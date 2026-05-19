@@ -9,7 +9,8 @@ description: |-
 
 rationale: |-
     The Recommended Extensions program recommends extensions to users as they surf the web.
-    The user must not be encouraged to install extensions from the websites they visit. Allowed extensions are to be centrally managed.
+    The user must not be encouraged to install extensions from the websites they visit. Allowed
+    extensions are to be centrally managed.
 severity: medium
 
 references:

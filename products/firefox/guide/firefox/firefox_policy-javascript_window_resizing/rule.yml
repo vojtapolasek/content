@@ -34,4 +34,4 @@ template:
         name: Disable Javascript window move/resize
         policies:
           - {path: "Preferences dom.disable_window_move_resize", parameter: "Value", value: true}
-          - {path: "Preferences dom.disable_window_move_resize", parameter: "Status", value: "locked"}
+          - {path: "Preferences dom.disable_window_move_resize", parameter: "Status", value: "locked"}  # yamllint disable-line rule:line-length

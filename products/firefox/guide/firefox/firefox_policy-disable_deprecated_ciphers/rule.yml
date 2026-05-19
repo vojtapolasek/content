@@ -9,7 +9,8 @@ description: |-
     in the policies file.
 
 rationale: |-
-    Weak ciphers are encryption/decryption algorithms that use keys of insufficient length. Using an insufficient length for a key increases
+    Weak ciphers are encryption/decryption algorithms that use keys of insufficient length. Using
+    an insufficient length for a key increases
     the probability that the encryption scheme could be broken.
 
 severity: medium

@@ -2,8 +2,8 @@ documentation_complete: true
 
 title: 'Profile for ANSSI DAT-NT28 Average (Intermediate) Level'
 
-description: 'This profile contains items for GNU/Linux installations already protected by multiple higher level security
-    stacks.'
+description: 'This profile contains items for GNU/Linux installations already protected by
+    multiple higher level security stacks.'
 
 extends: anssi_np_nt28_minimal
 

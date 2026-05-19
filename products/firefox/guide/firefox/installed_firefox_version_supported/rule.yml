@@ -7,7 +7,8 @@ description: |-
     If the system is joined to the Red Hat Network, a Red Hat Satellite Server,
     or a yum server, run the following command to install updates:
     <pre>$ sudo yum update</pre>
-    If the system is not configured to use one of these sources, updates (in the form of RPM packages)
+    If the system is not configured to use one of these sources, updates (in the form of RPM
+    packages)
     can be manually downloaded and installed using <tt>rpm</tt>.
 
 rationale: |-

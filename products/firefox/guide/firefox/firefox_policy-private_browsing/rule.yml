@@ -8,7 +8,9 @@ description: |-
     the <tt>DisablePrivateBrowsing</tt> key under <tt>policies</tt> to <tt>true</tt>.
 
 rationale: |-
-    Private browsing allows the user to browse the internet without recording their browsing history/activity. From a forensics perspective, this is unacceptable. Best practice requires that browser history is retained.
+    Private browsing allows the user to browse the internet without recording their browsing
+    history/activity. From a forensics perspective, this is unacceptable. Best practice requires
+    that browser history is retained.
 severity: medium
 
 references:

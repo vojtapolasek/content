@@ -8,7 +8,8 @@ description: |-
     the <tt>DisableForgetButton</tt> key under <tt>policies</tt> to <tt>true</tt>.
 
 rationale: |-
-    There should not be an option for a user to "forget" work they have done. This is required to meet non-repudiation controls.
+    There should not be an option for a user to "forget" work they have done. This is required to
+    meet non-repudiation controls.
 severity: medium
 
 references:

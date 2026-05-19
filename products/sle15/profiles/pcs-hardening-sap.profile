@@ -7,7 +7,8 @@ metadata:
 
 reference:
 
-title: 'Hardening for Public Cloud Image of SUSE Linux Enterprise Server (SLES) for SAP Applications 15'
+title: 'Hardening for Public Cloud Image of SUSE Linux Enterprise Server (SLES) for SAP
+    Applications 15'
 
 description: |-
     This profile contains configuration rules to be used to harden the images
