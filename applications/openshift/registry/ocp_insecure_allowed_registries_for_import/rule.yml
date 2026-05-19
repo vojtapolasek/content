@@ -37,7 +37,8 @@ ocil_clause: 'allowedRegistriesForImport is configured with insecure option for 
 
 ocil: |-
     To check for the configured allowedRegistriesForImport with insecure option use below command:
-    <tt>$ oc get image.config.openshift.io/cluster -ojsonpath='{.spec.allowedRegistriesForImport}'</tt>
+    <tt>$ oc get image.config.openshift.io/cluster
+    -ojsonpath='{.spec.allowedRegistriesForImport}'</tt>
     The output lists the configured allowedRegistriesForImport and the insecure option used.
 
 warnings:

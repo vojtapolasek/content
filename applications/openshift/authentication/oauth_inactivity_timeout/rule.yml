@@ -3,10 +3,10 @@ title: "Configure OAuth server so that tokens expire after a set period of inact
 
 {{% set default_jqfilter = '.spec' %}}
 {{% set default_api_path = '/apis/config.openshift.io/v1/oauths/cluster' %}}
-{{% set hypershift_path = '/apis/hypershift.openshift.io/v1beta1/namespaces/{{.hypershift_namespace_prefix}}/hostedclusters/{{.hypershift_cluster}}' %}}
+{{% set hypershift_path = '/apis/hypershift.openshift.io/v1beta1/namespaces/{{.hypershift_namespace_prefix}}/hostedclusters/{{.hypershift_cluster}}' %}}  # yamllint disable-line rule:line-length
 {{% set hypershift_jqfilter = '.spec.configuration.oauth' %}}
-{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}
-{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}
+{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
+{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
 {{% set dump_path = default_api_path ~ ',' ~ default_jqfilter ~ ',' ~ custom_jqfilter %}}
 
 description: |-
@@ -49,7 +49,7 @@ rationale: |-
     that has been left unattended.
 
 references:
-  nerc-cip: CIP-004-6 R2.2.3,CIP-007-3 R5.1,CIP-007-3 R5.2,CIP-007-3 R5.3.1,CIP-007-3 R5.3.2,CIP-007-3 R5.3.3
+  nerc-cip: CIP-004-6 R2.2.3,CIP-007-3 R5.1,CIP-007-3 R5.2,CIP-007-3 R5.3.1,CIP-007-3 R5.3.2,CIP-007-3 R5.3.3  # yamllint disable-line rule:line-length
   nist: AC-2(5),SC-10
   srg: SRG-APP-000190-CTR-000500
 

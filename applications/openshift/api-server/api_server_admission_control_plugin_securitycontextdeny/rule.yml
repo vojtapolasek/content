@@ -1,14 +1,15 @@
 documentation_complete: true
 
 
-title: 'Ensure that the admission control plugin SecurityContextDeny is set if PodSecurityPolicy is not used'
+title: 'Ensure that the admission control plugin SecurityContextDeny is set if PodSecurityPolicy
+    is not used'
 
 {{% set default_jqfilter = '[.data."config.yaml" | fromjson]' %}}
 {{% set default_api_path = '/api/v1/namespaces/openshift-kube-apiserver/configmaps/config' %}}
-{{% set hypershift_path = '/api/v1/namespaces/{{.hypershift_namespace_prefix}}-{{.hypershift_cluster}}/configmaps/kas-config' %}}
+{{% set hypershift_path = '/api/v1/namespaces/{{.hypershift_namespace_prefix}}-{{.hypershift_cluster}}/configmaps/kas-config' %}}  # yamllint disable-line rule:line-length
 {{% set hypershift_jqfilter = '[.data."config.json" | fromjson]' %}}
-{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}
-{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}
+{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
+{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
 {{% set dump_path = default_api_path ~ ',' ~ default_jqfilter ~ ',' ~ custom_jqfilter %}}
 
 description: |-
@@ -46,7 +47,8 @@ ocil_clause: |-
     '<tt>enable-admission-plugins</tt>does not contain <tt>SecurityContextDeny</tt>'
 
 ocil: |-
-    The SecurityContextDeny plugin should not be enabled in the list of enabled plugins in the apiserver configuration:
+    The SecurityContextDeny plugin should not be enabled in the list of enabled plugins in the
+    apiserver configuration:
     <pre>$ oc -n openshift-kube-apiserver get configmap config -o json | jq -r '.data."config.yaml"' | jq '.apiServerArguments."enable-admission-plugins"' </pre>
 
 warnings:

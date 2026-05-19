@@ -9,8 +9,10 @@ description: |-
   encrypted using an AWS KMS key.
 
 rationale: |-
-  Enabling encryption on EBS storage used as PersistentVolumes help protect any card holder data that might be persisted
-  on those EBS volumes. Only authorized AWS resources will be able, through IAM policies, to use the KMS key to eventually
+  Enabling encryption on EBS storage used as PersistentVolumes help protect any card holder data
+  that might be persisted
+  on those EBS volumes. Only authorized AWS resources will be able, through IAM policies, to use
+  the KMS key to eventually
   read or alter data on those volumes.
 
 
@@ -27,7 +29,7 @@ ocil: |-
     <pre>$ oc get storageclass -o json | jq {{{ jqfilter }}}</pre>
     Make sure that the result is an array of 'true' values.
 
-{{% set jqfilter = '[.items[] | select (.provisioner == "kubernetes.io/aws-ebs" or .provisioner == "ebs.csi.aws.com")] | map(.parameters.encrypted)' %}}
+{{% set jqfilter = '[.items[] | select (.provisioner == "kubernetes.io/aws-ebs" or .provisioner == "ebs.csi.aws.com")] | map(.parameters.encrypted)' %}}  # yamllint disable-line rule:line-length
 
 severity: high
 

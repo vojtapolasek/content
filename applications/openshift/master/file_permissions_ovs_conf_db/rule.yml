@@ -24,7 +24,8 @@ references:
     nist: CM-6,CM-6(1)
     srg: SRG-APP-000516-CTR-001325
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/openvswitch/conf.db", perms="-rw-r-----") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/openvswitch/conf.db",
+    perms="-rw-r-----") }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/etc/openvswitch/conf.db", perms="-rw-r-----") }}}

@@ -21,7 +21,7 @@ severity: medium
 identifiers: {}
 
 
-{{% set jqfilter = '[.items[] | select ( .subjects[]?.name == "default" ) | select(.subjects[].namespace | startswith("kube-") or startswith("openshift-") | not) | .metadata.name ] | unique' %}}
+{{% set jqfilter = '[.items[] | select ( .subjects[]?.name == "default" ) | select(.subjects[].namespace | startswith("kube-") or startswith("openshift-") | not) | .metadata.name ] | unique' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'default service account is given permissions using ClusterRoleBindings'
 

@@ -12,7 +12,9 @@ description: |-
 
   Applying remediations automatically should only be done with careful consideration.
 
-  The Compliance Operator does not automatically resolve dependency issues that can occur between remediations. Users should perform a rescan after remediations are applied to ensure accurate results.
+  The Compliance Operator does not automatically resolve dependency issues that can occur between
+  remediations. Users should perform a rescan after remediations are applied to ensure accurate
+  results.
 
 rationale: |-
   With enabled AutoApplyRemediation compliance failures get automatically corrected.
@@ -23,7 +25,8 @@ ocil: |-
     Run the following command to retrieve the scansettingbindings in the system:
     <pre>oc get scansettings -ojson | jq '.items[].autoApplyRemediations'</pre>
     If a scansetting is defined to set the autoApplyRemediation attribute, the above
-    filter will return at least one 'true'. Run the following jq query to identify the non-compliant scansettings objects:
+    filter will return at least one 'true'. Run the following jq query to identify the
+    non-compliant scansettings objects:
     <pre>oc get scansettings -ojson | jq -r '[.items[] | select(.autoApplyRemediation != "" or .autoApplyRemediation != null) | .metadata.name]'</pre>
 
 severity: medium

@@ -6,7 +6,8 @@ title: 'Verify User Who Owns The OpenShift Admin Kubeconfig File'
 description: '{{{ describe_file_owner(file="/etc/kubernetes/kubeconfig", owner="root") }}}'
 
 rationale: |-
-    The <tt>/etc/kubernetes/kubeconfig</tt> file contains information about the administrative configuration of the
+    The <tt>/etc/kubernetes/kubeconfig</tt> file contains information about the administrative
+    configuration of the
     OpenShift cluster that is configured on the system. Protection of this file is
     critical for OpenShift security.
 

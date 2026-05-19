@@ -14,7 +14,8 @@ description: |-
     spread constraints provide any value.
 
     To exclude other deployments from this rule, you can create a regular expression for deployment
-    names: <tt>var_deployments_without_high_availability</tt>. This will ignore deployments matching
+    names: <tt>var_deployments_without_high_availability</tt>. This will ignore deployments
+    matching
     those names in all namespaces.
 
 rationale: |-
@@ -29,7 +30,7 @@ identifiers:
 
 severity: medium
 
-{{% set jqfilter = '[ .items[] | select(.metadata.name | test("{{.var_deployments_without_high_availability}}"; "") | not) | select (.spec.replicas == 0 or .spec.replicas == 1 | not) | select(.spec.template.spec.affinity.podAntiAffinity == null and .spec.template.spec.topologySpreadConstraints == null) | .metadata.namespace + "/" + .metadata.name ]' %}}
+{{% set jqfilter = '[ .items[] | select(.metadata.name | test("{{.var_deployments_without_high_availability}}"; "") | not) | select (.spec.replicas == 0 or .spec.replicas == 1 | not) | select(.spec.template.spec.affinity.podAntiAffinity == null and .spec.template.spec.topologySpreadConstraints == null) | .metadata.namespace + "/" + .metadata.name ]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'Deployments with neither anti-affinity rules or topology spread constraints exist'
 

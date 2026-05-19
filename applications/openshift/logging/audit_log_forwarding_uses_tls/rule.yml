@@ -8,7 +8,8 @@ description: |-
   using a secure protocol.
   </p>
   <p>
-  The cluster-logging-operator is able to do this with the <pre>ClusterLogForwarders</pre> resource.
+  The cluster-logging-operator is able to do this with the <pre>ClusterLogForwarders</pre>
+  resource.
   The forementioned resource can be configured to logs to different third party systems.
   For more information on this, please reference the official documentation:
   {{{ weblink(link="https://docs.openshift.com/container-platform/latest/observability/logging/logging-6.0/log6x-clf.html") }}}
@@ -33,7 +34,8 @@ ocil_clause: 'Logs are not forwarded outside the cluster using TLS'
 ocil: |-
     Run the following command:
     <pre>{{{ ocil_oc_pipe_jq_filter('clusterlogforwarders', 'try [.items[].spec.outputs[][]|objects|select(.url != null).url] catch []', namespace="openshift-logging") }}}</pre>
-    The output should return a list of URL entries with <pre>https://</pre> or <pre>tls://</pre> transport.
+    The output should return a list of URL entries with <pre>https://</pre> or <pre>tls://</pre>
+    transport.
 
 warnings:
 - general: |-

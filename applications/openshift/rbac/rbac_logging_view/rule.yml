@@ -1,7 +1,8 @@
 documentation_complete: true
 
 
-title: 'Ensure that the ClusterLogging and ClusterLoggingForwarder resources are protected from unauthorized access'
+title: 'Ensure that the ClusterLogging and ClusterLoggingForwarder resources are protected from
+    unauthorized access'
 
 description: |-
     The ClusterLogging and ClusterLoggingForwarder Custom Resources provide 

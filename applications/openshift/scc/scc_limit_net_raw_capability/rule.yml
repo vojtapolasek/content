@@ -29,7 +29,8 @@ ocil_clause: 'NET_RAW use in SCCs needs review'
 ocil: |-
     Inspect each SCC returned from running the following command:
     <pre>$ oc get scc</pre>
-    Review each SCC for those that do not have <tt>NET_RAW</tt> or <tt>ALL</tt> set under <tt>requiredDropCapabilities</tt>.
+    Review each SCC for those that do not have <tt>NET_RAW</tt> or <tt>ALL</tt> set under
+    <tt>requiredDropCapabilities</tt>.
     Next, examine the outputs of the following commands:
     <pre>$ oc describe roles --all-namespaces</pre>
     <pre>$ oc describe clusterroles</pre>

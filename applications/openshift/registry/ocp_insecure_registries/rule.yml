@@ -33,7 +33,8 @@ ocil_clause: 'insecure registry sources is configured for image access'
 
 ocil: |-
     To check for the configured insecure registry sources use below command:
-    <tt>$ oc get image.config.openshift.io/cluster -ojsonpath='{.spec.registrySources.insecureRegistries}'</tt>
+    <tt>$ oc get image.config.openshift.io/cluster
+    -ojsonpath='{.spec.registrySources.insecureRegistries}'</tt>
     The output lists the insecure registry sources configured.
 
 warnings:

@@ -32,11 +32,13 @@ ocil: |-
 
   To create a repository configured for scan on push (AWS CLI)
 
-  <tt>aws ecr create-repository --repository-name <i>$REPO_NAME</i> --image-scanning- configuration scanOnPush=true --region <i>$REGION_CODE</i></tt>
+  <tt>aws ecr create-repository --repository-name <i>$REPO_NAME</i> --image-scanning-
+  configuration scanOnPush=true --region <i>$REGION_CODE</i></tt>
 
   To edit the settings of an existing repository (AWS CLI)
 
-  <tt>aws ecr put-image-scanning-configuration --repository-name <i>$REPO_NAME</i> -- image-scanning-configuration scanOnPush=true --region <i>$REGION_CODE</i></tt>
+  <tt>aws ecr put-image-scanning-configuration --repository-name <i>$REPO_NAME</i> --
+  image-scanning-configuration scanOnPush=true --region <i>$REGION_CODE</i></tt>
 
   Use the following steps to start a manual image scan using the AWS Management Console.
 

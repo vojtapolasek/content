@@ -23,7 +23,8 @@ references:
   nist: CM-6,CM-6(1)
   srg: SRG-APP-000516-CTR-001325
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/kubernetes/static-pod-resources/kube-controller-manager-pod-*/configmaps/controller-manager-kubeconfig/kubeconfig", perms="-rw-------") }}}'
+ocil_clause: '{{{
+    ocil_clause_file_permissions(file="/etc/kubernetes/static-pod-resources/kube-controller-manager-pod-*/configmaps/controller-manager-kubeconfig/kubeconfig", perms="-rw-------") }}}'  # yamllint disable-line rule:line-length
 
 ocil: |-
   {{{ ocil_file_permissions(file="/etc/kubernetes/static-pod-resources/kube-controller-manager-pod-*/configmaps/controller-manager-kubeconfig/kubeconfig", perms="-rw-------") }}}
@@ -39,6 +40,6 @@ warnings:
 template:
   name: file_permissions
   vars:
-    filepath: ^/etc/kubernetes/static-pod-resources/kube-controller-manager-pod-.*/configmaps/controller-manager-kubeconfig/kubeconfig$
+    filepath: ^/etc/kubernetes/static-pod-resources/kube-controller-manager-pod-.*/configmaps/controller-manager-kubeconfig/kubeconfig$  # yamllint disable-line rule:line-length
     filemode: '0600'
     filepath_is_regex: "true"

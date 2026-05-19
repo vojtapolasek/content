@@ -5,10 +5,10 @@ title: 'Configure the Encryption Provider Cipher'
 
 {{% set default_jqfilter = '[.spec.encryption.type]' %}}
 {{% set default_api_path = '/apis/config.openshift.io/v1/apiservers/cluster' %}}
-{{% set hypershift_path = '/apis/hypershift.openshift.io/v1beta1/namespaces/{{.hypershift_namespace_prefix}}/hostedclusters/{{.hypershift_cluster}}' %}}
+{{% set hypershift_path = '/apis/hypershift.openshift.io/v1beta1/namespaces/{{.hypershift_namespace_prefix}}/hostedclusters/{{.hypershift_cluster}}' %}}  # yamllint disable-line rule:line-length
 {{% set hypershift_jqfilter = '[.spec.secretEncryption.type]' %}}
-{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}
-{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}
+{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
+{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
 {{% set dump_path = default_api_path ~ ',' ~ default_jqfilter ~ ',' ~ custom_jqfilter %}}
 
 description: |-
@@ -83,7 +83,8 @@ ocil: |-
     progress. Wait a few minutes and try again.
     To display the encryption configured, run the following command:
     <pre>$ oc get --raw {{{custom_api_path}}} | jq '{{{custom_jqfilter}}}' </pre>
-    If the output does not list <tt>aescbc</tt> or <tt>aesgcm</tt>, the encryption is not configured correctly.
+    If the output does not list <tt>aescbc</tt> or <tt>aesgcm</tt>, the encryption is not
+    configured correctly.
 
 warnings:
 - general: |-

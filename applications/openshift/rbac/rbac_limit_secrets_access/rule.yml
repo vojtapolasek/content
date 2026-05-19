@@ -41,4 +41,5 @@ ocil: |-
     <pre>$ oc get clusterroles -ojson | jq -r '.items[] | {name: .metadata.name, rules: .rules} | select(.rules[]?.resources | try contains(["secrets"])) | .name' | sort | uniq</pre>
     and similarly to filter namespace/role pairs:
     <pre>$ for ns in $(oc get projects -ojsonpath='{.items[*].metadata.name}'); do oc get roles -n$ns -ojson | jq -r '.items[] | {name: .metadata.name, namespace: .metadata.namespace, rules: .rules} | select(.rules[]?.resources | try contains(["secrets"])) | "\(.namespace)/\(.name)"' | sort | uniq; done</pre>
-    note that the two commands above do not show roles and/or clusterroles with wildcard access to any resources.
+    note that the two commands above do not show roles and/or clusterroles with wildcard access to
+    any resources.

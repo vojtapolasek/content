@@ -10,7 +10,8 @@ description: |-
   [1] https://github.com/openshift/machine-config-operator/blob/master/docs/OSUpgrades.md#questions-and-answers
 
 rationale: |-
-  Integrity check prevent a malicious actor from using a unauthorized system image, hence it will ensure the
+  Integrity check prevent a malicious actor from using a unauthorized system image, hence it will
+  ensure the
   image has not been tampered with, or corrupted.
 
 identifiers:

@@ -37,7 +37,8 @@ ocil: |-
     1. Get a list of existing projects(namespaces), exclude default, kube-*, openshift-*
     <pre>$ oc get namespaces -ojson | jq -r '[.items[] | select((.metadata.name | startswith("openshift") | not) and (.metadata.name | startswith("kube-") | not) and .metadata.name != "default" and ({{if ne .var_network_policies_namespaces_exempt_regex "None"}}.metadata.name | test("{{.var_network_policies_namespaces_exempt_regex}}") | not{{else}}true{{end}})) | .metadata.name]'</pre>
 
-    Namespaces matching the variable <tt>ocp4-var-network-policies-namespaces-exempt-regex</tt> regex are excluded from this check.
+    Namespaces matching the variable <tt>ocp4-var-network-policies-namespaces-exempt-regex</tt>
+    regex are excluded from this check.
 
     2. For each of these namespaces, review the network policies:
     <pre>$ oc get networkpolicies -n $namespace -o yaml</pre>

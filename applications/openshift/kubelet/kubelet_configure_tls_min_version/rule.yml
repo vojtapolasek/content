@@ -47,7 +47,8 @@ description: |-
               matchLabels:
                   pools.operator.machineconfiguration.openshift.io/$pool_name: ""
       </pre>
-    In order to configure this rule to check for an alternate TLS version, both var_kubelet_tls_min_version_regex
+    In order to configure this rule to check for an alternate TLS version, both
+    var_kubelet_tls_min_version_regex
     and var_kubelet_tls_min_version should be updated.
     </p>
 

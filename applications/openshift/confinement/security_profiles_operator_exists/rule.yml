@@ -35,7 +35,7 @@ template:
     name: yamlfile_value
     vars:
       ocp_data: 'true'
-      filepath: /apis/operators.coreos.com/v1alpha1/namespaces/openshift-security-profiles/subscriptions/security-profiles-operator
+      filepath: /apis/operators.coreos.com/v1alpha1/namespaces/openshift-security-profiles/subscriptions/security-profiles-operator  # yamllint disable-line rule:line-length
       yamlpath: .status.installedCSV
       values:
       - value: security-profiles-operator\.v.*

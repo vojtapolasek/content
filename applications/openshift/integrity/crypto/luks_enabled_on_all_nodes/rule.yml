@@ -3,7 +3,8 @@ title: Ensure that LUKS is configured on worker nodes
 
 description: |-
   OpenShift has an installation-time flag that can enable LUKS (TPM2 or TANG) full disk encryption
-  at installation. The object <pre>luks</pre> must be present at install time in the <pre>machineconfig</pre> file
+  at installation. The object <pre>luks</pre> must be present at install time in the
+  <pre>machineconfig</pre> file
   prepared with the <pre>install-config.yaml</pre> file.
   
 rationale: |-

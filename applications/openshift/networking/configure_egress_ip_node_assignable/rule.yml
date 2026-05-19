@@ -17,7 +17,8 @@ description: -|
 
 rationale: -|
     By using egress IPs you can provide a consistent IP to external services and configure special
-    firewall rules which precisely select this IP. This allows for more control on external systems.
+    firewall rules which precisely select this IP. This allows for more control on external
+    systems.
     Furthermore you can bind the IPs to specific nodes, which handle all the network connections to
     achieve a better separation of duties between the different nodes.
 
@@ -34,7 +35,7 @@ ocil: |-
     This commands prints the name of each node which is configured to get egress IPs assigned. If
     the output is empty, there are no nodes available.
 
-{{% set old_jqfilter = 'if any(.items[]?; .metadata.labels."k8s.ovn.org/egress-assignable" != null) then true else false end' %}}
+{{% set old_jqfilter = 'if any(.items[]?; .metadata.labels."k8s.ovn.org/egress-assignable" != null) then true else false end' %}}  # yamllint disable-line rule:line-length
 {{% set jqfilter = '[ .items[] | .metadata.labels["k8s.ovn.org/egress-assignable"] != null ]' %}}
 
 

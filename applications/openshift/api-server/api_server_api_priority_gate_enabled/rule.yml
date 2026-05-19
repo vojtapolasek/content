@@ -35,7 +35,8 @@ severity: medium
 
 platform: not ocp4-on-hypershift-hosted and ocp4.6
 
-ocil_clause: '<tt>.apiServerArguments["feature-gates"]</tt> does not include <tt>APIPriorityAndFairness</tt>'
+ocil_clause: '<tt>.apiServerArguments["feature-gates"]</tt> does not include
+    <tt>APIPriorityAndFairness</tt>'
 
 ocil: |-
   To verify that <tt>APIPriorityAndFairness</tt> is enabled, run the following command:

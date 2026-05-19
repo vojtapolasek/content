@@ -51,11 +51,13 @@ references:
     nist: SC-8,SC-8(1)
     srg: SRG-APP-000014-CTR-000040,SRG-APP-000560-CTR-001340
 
-ocil_clause: 'insecure tlsSecurityProfile is configured for accessing external services through an ingress resource'
+ocil_clause: 'insecure tlsSecurityProfile is configured for accessing external services through an
+    ingress resource'
 
 ocil: |-
     To check for the configured tlsSecurityProfile use below command:
-    <tt>$ oc get -n openshift-ingress-operator ingresscontrollers.operator.openshift.io default -o jsonpath='{.spec.tlsSecurityProfile}{"\n"}'</tt>
+    <tt>$ oc get -n openshift-ingress-operator ingresscontrollers.operator.openshift.io default -o
+    jsonpath='{.spec.tlsSecurityProfile}{"\n"}'</tt>
     The output shows the tlsSecurityProfile configured for IngressController, and
     the profile configured should not be old or if custom, the minimum TLS version
     configured should be TLSv1.2 or newer.

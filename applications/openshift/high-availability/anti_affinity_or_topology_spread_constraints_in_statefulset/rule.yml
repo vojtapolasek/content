@@ -13,8 +13,10 @@ description: |-
     of more than one. For statefulsets with one replica, neither anti-affinity rules nor topology
     spread constraints provide any value.
 
-    To exclude other statefulsets from this rule, you can create a regular expression for statefulset
-    names: <tt>var_statefulsets_without_high_availability</tt>. This will ignore statefulsets matching
+    To exclude other statefulsets from this rule, you can create a regular expression for
+    statefulset
+    names: <tt>var_statefulsets_without_high_availability</tt>. This will ignore statefulsets
+    matching
     those names in all namespaces.
 
 rationale: |-
@@ -29,7 +31,7 @@ identifiers:
 
 severity: medium
 
-{{% set jqfilter = '[ .items[] | select(.metadata.name | test("{{.var_statefulsets_without_high_availability}}"; "") | not) | select (.spec.replicas == 0 or .spec.replicas == 1 | not) | select(.spec.template.spec.affinity.podAntiAffinity == null and .spec.template.spec.topologySpreadConstraints == null) | .metadata.namespace + "/" + .metadata.name ]' %}}
+{{% set jqfilter = '[ .items[] | select(.metadata.name | test("{{.var_statefulsets_without_high_availability}}"; "") | not) | select (.spec.replicas == 0 or .spec.replicas == 1 | not) | select(.spec.template.spec.affinity.podAntiAffinity == null and .spec.template.spec.topologySpreadConstraints == null) | .metadata.namespace + "/" + .metadata.name ]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'StatefulSets with neither anti-affinity rules or topology spread constraints exist'
 

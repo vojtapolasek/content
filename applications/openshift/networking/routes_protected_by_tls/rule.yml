@@ -18,7 +18,7 @@ rationale: |-
 identifiers:
   cce@ocp4: CCE-84225-2
 
-{{% set jqfilter = '[.items[] | select(.spec.tls.termination == "edge") | select(.spec.tls.insecureEdgeTerminationPolicy != null) | select(.spec.tls.insecureEdgeTerminationPolicy | test("^(^$|None|Redirect)$"; "") | not) | .metadata.name]' %}}
+{{% set jqfilter = '[.items[] | select(.spec.tls.termination == "edge") | select(.spec.tls.insecureEdgeTerminationPolicy != null) | select(.spec.tls.insecureEdgeTerminationPolicy | test("^(^$|None|Redirect)$"; "") | not) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 references:
   nerc-cip: CIP-003-8 R4,CIP-003-8 R4.2,CIP-003-8 R5,CIP-004-6 R3,CIP-007-3 R5.1,CIP-007-3 R7.1

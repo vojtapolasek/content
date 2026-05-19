@@ -23,9 +23,9 @@ identifiers:
 references:
   pcidss: Req-3.4.1
 
-{{% set azurejqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.osDisk.managedDisk.diskEncryptionSet.id != null) | .metadata.name]' %}}
-{{% set ebsjqfilter = '[.items[] | .spec.template.spec.providerSpec.value.blockDevices[0].ebs.encrypted] | map(. == true)' %}}
-{{% set gcpjqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.disks[0].encryptionKey.kmsKey.name != null) | .metadata.name]' %}}
+{{% set azurejqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.osDisk.managedDisk.diskEncryptionSet.id != null) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
+{{% set ebsjqfilter = '[.items[] | .spec.template.spec.providerSpec.value.blockDevices[0].ebs.encrypted] | map(. == true)' %}}  # yamllint disable-line rule:line-length
+{{% set gcpjqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.disks[0].encryptionKey.kmsKey.name != null) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'FIPS mode is not enabled on worker nodes'
 
@@ -59,8 +59,12 @@ severity: high
 warnings:
 - general: |-
     {{{ openshift_filtered_cluster_setting(
-        {'/apis/machineconfiguration.openshift.io/v1/machineconfigs': '[.items[] | select(.metadata.name | test("^rendered-worker-[0-9a-z]+$|^rendered-master-[0-9a-z]+$"))] | map(.spec.fips == true)'},
-        {'/apis/machineconfiguration.openshift.io/v1/machineconfigs': '[.items[] | select(.metadata.name | test("^rendered-worker-[0-9a-z]+$|^rendered-master-[0-9a-z]+$"))] | map(.spec.config.storage.luks[0].clevis != null)'},
+        {'/apis/machineconfiguration.openshift.io/v1/machineconfigs': '[.items[] |
+        select(.metadata.name | test("^rendered-worker-[0-9a-z]+$|^rendered-master-[0-9a-z]+$"))]
+        | map(.spec.fips == true)'},
+        {'/apis/machineconfiguration.openshift.io/v1/machineconfigs': '[.items[] |
+        select(.metadata.name | test("^rendered-worker-[0-9a-z]+$|^rendered-master-[0-9a-z]+$"))]
+        | map(.spec.config.storage.luks[0].clevis != null)'},
         {'/apis/machine.openshift.io/v1beta1/machinesets?limit=500': ebsjqfilter},
         {'/apis/machine.openshift.io/v1beta1/machinesets?limit=500': azurejqfilter},
         {'/apis/machine.openshift.io/v1beta1/machinesets?limit=500': gcpjqfilter},

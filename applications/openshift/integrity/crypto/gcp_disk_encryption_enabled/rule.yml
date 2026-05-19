@@ -21,7 +21,7 @@ identifiers:
 references:
   pcidss: Req-3.4.1
 
-{{% set jqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.disks[0].encryptionKey.kmsKey.name != null) | .metadata.name]' %}}
+{{% set jqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.disks[0].encryptionKey.kmsKey.name != null) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'Disk encryption is not enabled on the GCP MachineSets'
 

@@ -3,12 +3,12 @@ documentation_complete: true
 
 title: 'Configure the Certificate for the API Server'
 
-{{% set default_jqfilter = '[.data."config.yaml" | fromjson | select(.apiServerArguments["tls-cert-file"]) | .apiServerArguments["tls-cert-file"][] | select(test("{{.var_apiserver_tls_cert}}"))]' %}}
+{{% set default_jqfilter = '[.data."config.yaml" | fromjson | select(.apiServerArguments["tls-cert-file"]) | .apiServerArguments["tls-cert-file"][] | select(test("{{.var_apiserver_tls_cert}}"))]' %}}  # yamllint disable-line rule:line-length
 {{% set default_api_path = '/api/v1/namespaces/openshift-kube-apiserver/configmaps/config' %}}
-{{% set hypershift_path = '/api/v1/namespaces/{{.hypershift_namespace_prefix}}-{{.hypershift_cluster}}/configmaps/kas-config' %}}
-{{% set hypershift_jqfilter = '[.data."config.json" | fromjson | select(.apiServerArguments["tls-cert-file"]) | .apiServerArguments["tls-cert-file"][] | select(test("/etc/kubernetes/certs/server/tls.crt"))]' %}}
-{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}
-{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}
+{{% set hypershift_path = '/api/v1/namespaces/{{.hypershift_namespace_prefix}}-{{.hypershift_cluster}}/configmaps/kas-config' %}}  # yamllint disable-line rule:line-length
+{{% set hypershift_jqfilter = '[.data."config.json" | fromjson | select(.apiServerArguments["tls-cert-file"]) | .apiServerArguments["tls-cert-file"][] | select(test("/etc/kubernetes/certs/server/tls.crt"))]' %}}  # yamllint disable-line rule:line-length
+{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
+{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
 {{% set dump_path = default_api_path ~ ',' ~ default_jqfilter ~ ',' ~ custom_jqfilter %}}
 
 description: |-
@@ -51,7 +51,8 @@ ocil_clause: '<tt>tls-cert-file</tt> is not set as appropriate for <tt>apiServer
 ocil: |-
     Run the following command:
     <pre>$ oc get configmap config -n openshift-kube-apiserver -ojson | jq -r '.data["config.yaml"]' | jq -r '.apiServerArguments."tls-cert-file"'</pre>
-    The output should return <tt>/etc/kubernetes/static-pod-certs/secrets/service-network-serving-certkey/tls.crt</tt>
+    The output should return
+    <tt>/etc/kubernetes/static-pod-certs/secrets/service-network-serving-certkey/tls.crt</tt>
 
 warnings:
 - general: |-

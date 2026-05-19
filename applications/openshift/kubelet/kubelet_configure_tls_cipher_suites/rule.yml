@@ -29,7 +29,8 @@ description: |-
           - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
           - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
     </pre>
-  In order to configure this rule to check for an alternative cipher, both var_kubelet_tls_cipher_suites_regex
+  In order to configure this rule to check for an alternative cipher, both
+  var_kubelet_tls_cipher_suites_regex
   and var_kubelet_tls_cipher_suites have to be set
 rationale: |-
   TLS ciphers have had a number of known vulnerabilities and weaknesses,

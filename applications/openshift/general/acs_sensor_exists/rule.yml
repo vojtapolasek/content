@@ -7,7 +7,8 @@ description: |-
   across Kubernetes clusters, enabling teams to detect vulnerabilities in all images,
   manage compliance, and enforce security policies. By integrating ACS into the Kubernetes
   environment, organizations can automate security checks and configurations, ensuring that every
-  deployed application is scanned and secured according to best practices and organizational policies.
+  deployed application is scanned and secured according to best practices and organizational
+  policies.
 
   Sensor is the service responsible for analyzing and monitoring the cluster. Sensor
   listens to the OpenShift Container Platform or Kubernetes API and Collector events
@@ -19,7 +20,8 @@ description: |-
 
 
 rationale: |-
-  ACS provides a method to continuously monitor and protect the Kubernetes environment against vulnerabilities
+  ACS provides a method to continuously monitor and protect the Kubernetes environment against
+  vulnerabilities
   and misconfigurations. This ensures that the infrastructure and applications are compliant
   with security standards and regulations, reducing the risk of security breaches.
 
@@ -31,7 +33,7 @@ references:
 
 ocil_clause: 'ACS Sensor is not deployed'
 
-{{% set jqfilter = '[ .items[] | select(.metadata.name == "sensor" and .metadata.labels["app.kubernetes.io/name"] == "stackrox") | .status.availableReplicas]' %}}
+{{% set jqfilter = '[ .items[] | select(.metadata.name == "sensor" and .metadata.labels["app.kubernetes.io/name"] == "stackrox") | .status.availableReplicas]' %}}  # yamllint disable-line rule:line-length
 
 ocil: |-
     Run the following command to check if the ACS Sensor is deployed:

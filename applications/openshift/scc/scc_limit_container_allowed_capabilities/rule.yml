@@ -45,7 +45,7 @@ rationale: |-
     the container to run software as added capabilities that are not required
     allow for malicious containers or attackers.
 
-{{% set jqfilter = '[.items[] | select(.metadata.name | test("{{.var_sccs_with_allowed_capabilities_regex}}"; "") | not) | select(.allowedCapabilities != null) | .metadata.name]' %}}
+{{% set jqfilter = '[.items[] | select(.metadata.name | test("{{.var_sccs_with_allowed_capabilities_regex}}"; "") | not) | select(.allowedCapabilities != null) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 severity: medium
 
@@ -79,7 +79,7 @@ template:
     name: yamlfile_value
     vars:
         ocp_data: "true"
-        filepath: "{{{ openshift_filtered_path('/apis/security.openshift.io/v1/securitycontextconstraints', jqfilter) }}}"
+        filepath: "{{{ openshift_filtered_path('/apis/security.openshift.io/v1/securitycontextconstraints', jqfilter) }}}"  # yamllint disable-line rule:line-length
         yamlpath: "[:]"
         check_existence: "none_exist"
         entity_check: "all"

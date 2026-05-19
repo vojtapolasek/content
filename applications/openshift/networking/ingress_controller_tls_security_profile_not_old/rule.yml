@@ -36,11 +36,13 @@ references:
     nist: SC-8,SC-8(1)
     srg: SRG-APP-000014-CTR-000040
 
-ocil_clause: 'insecure tlsSecurityProfile is configured for accessing external services through an ingress resource'
+ocil_clause: 'insecure tlsSecurityProfile is configured for accessing external services through an
+    ingress resource'
 
 ocil: |-
     To check for the configured tlsSecurityProfile use below command:
-    <tt>$ oc get -n openshift-ingress-operator ingresscontrollers.operator.openshift.io default -o jsonpath='{.spec.tlsSecurityProfile.type}{"\n"}'</tt>
+    <tt>$ oc get -n openshift-ingress-operator ingresscontrollers.operator.openshift.io default -o
+    jsonpath='{.spec.tlsSecurityProfile.type}{"\n"}'</tt>
     The output shows the tlsSecurityProfile configured for IngressController, and
     TLS security profile configured should not be "old".
 
@@ -52,7 +54,7 @@ template:
     name: yamlfile_value
     vars: 
         ocp_data: "true"
-        filepath: "/apis/operator.openshift.io/v1/namespaces/openshift-ingress-operator/ingresscontrollers/default"
+        filepath: "/apis/operator.openshift.io/v1/namespaces/openshift-ingress-operator/ingresscontrollers/default"  # yamllint disable-line rule:line-length
         yamlpath: ".spec.tlsSecurityProfile.type"
         check_existence: "any_exist"
         values: 

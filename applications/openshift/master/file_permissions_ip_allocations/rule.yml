@@ -3,7 +3,8 @@ documentation_complete: true
 
 platform: ocp4-node-on-sdn
 
-title: 'Verify Permissions on the OpenShift SDN Container Network Interface Plugin IP Address Allocations'
+title: 'Verify Permissions on the OpenShift SDN Container Network Interface Plugin IP Address
+    Allocations'
 
 description: |-
     {{{ describe_file_permissions(file="/var/lib/cni/networks/openshift-sdn/*", perms="0644") }}}
@@ -24,7 +25,8 @@ references:
     nist: CM-6,CM-6(1)
     srg: SRG-APP-000516-CTR-001325
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/lib/cni/networks/openshift-sdn/*", perms="-rw-r--r--") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/lib/cni/networks/openshift-sdn/*",
+    perms="-rw-r--r--") }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/var/lib/cni/networks/openshift-sdn/*", perms="-rw-r--r--") }}}

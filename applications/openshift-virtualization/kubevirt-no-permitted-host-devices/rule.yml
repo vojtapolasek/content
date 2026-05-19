@@ -28,4 +28,5 @@ ocil_clause: 'permittedHostDevices are configured in kubevirt-hyperconverged'
 ocil: |-
     Run the following command to check the HyperConverged configuration:
     <pre>$ oc get hyperconverged kubevirt-hyperconverged -n openshift-cnv -o jsonpath='{.spec.permittedHostDevices}'</pre>
-    The output should be empty or show empty lists for both <tt>pciHostDevices</tt> and <tt>mediatedDevices</tt>.
+    The output should be empty or show empty lists for both <tt>pciHostDevices</tt> and
+    <tt>mediatedDevices</tt>.

@@ -19,7 +19,7 @@ severity: medium
 identifiers:
   cce@ocp4: CCE-89950-0
 
-{{% set jqfilter = '[.items[] | select(.spec.unsupportedConfigOverrides != null and .spec.unsupportedConfigOverrides != {}) | .metadata.name]' %}}
+{{% set jqfilter = '[.items[] | select(.spec.unsupportedConfigOverrides != null and .spec.unsupportedConfigOverrides != {}) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'Unsupported OpenShift API server configuration overrides are detected'
 
@@ -36,7 +36,7 @@ template:
   name: yamlfile_value
   vars:
     ocp_data: "true"
-    filepath: {{{ openshift_filtered_path('/apis/operator.openshift.io/v1/openshiftapiservers', jqfilter) }}}
+    filepath: {{{ openshift_filtered_path('/apis/operator.openshift.io/v1/openshiftapiservers', jqfilter) }}}  # yamllint disable-line rule:line-length
     yamlpath: "[:]"
     check_existence: "none_exist"
     entity_check: "all"

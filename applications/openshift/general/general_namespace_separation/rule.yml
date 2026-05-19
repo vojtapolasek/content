@@ -21,5 +21,6 @@ ocil_clause: 'Application placement in namespaces needs review'
 ocil: |-
     Run the following command and review the pods and how they are deployed in
     namespaces. <pre>$ oc get pod -o=custom-columns=NAME:.metadata.name,NAMESPACE:.metadata.namespace,APP:.metadata.labels.app\.kubernetes\.io/name --all-namespaces | grep -v "openshift-"</pre>
-    You can use labels or other data as custom field which helps you to identify parts of an application.
+    You can use labels or other data as custom field which helps you to identify parts of an
+    application.
     Ensure that there are only components of one application in each namespace.

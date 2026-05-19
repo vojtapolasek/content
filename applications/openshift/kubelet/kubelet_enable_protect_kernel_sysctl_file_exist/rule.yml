@@ -3,7 +3,8 @@ documentation_complete: true
 
 platform: ocp4-node
 
-title: 'kubelet - Set Up Sysctl to Enable Protect Kernel Defaults - Check sysctl configuration file exist'
+title: 'kubelet - Set Up Sysctl to Enable Protect Kernel Defaults - Check sysctl configuration
+    file exist'
 
 description: |-
   <p>

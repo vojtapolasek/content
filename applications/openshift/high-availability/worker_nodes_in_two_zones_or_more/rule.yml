@@ -12,10 +12,13 @@ rationale: |-
     system resilience and security. By spreading applications across different zones, the system 
     becomes more fault-tolerant, reducing the risk of widespread outages due to failures or 
     attacks in a single zone. 
-    For application workloads nodes, two failure zones are often deemed sufficient due to the nature 
+    For application workloads nodes, two failure zones are often deemed sufficient due to the
+    nature
     of typical applications, which typically don't rely on quorum-based applications like etcd. 
-    Failure zones are marked on nodes using a well-known label called "topology.kubernetes.io/zone". 
-    This label is automatically assigned to each node by cloud providers but might need to be managed
+    Failure zones are marked on nodes using a well-known label called
+    "topology.kubernetes.io/zone".
+    This label is automatically assigned to each node by cloud providers but might need to be
+    managed
     manually in other environments
 
 identifiers:
@@ -31,7 +34,7 @@ ocil: |-
     <pre>$ oc get nodes --selector "node-role.kubernetes.io/worker" -o custom-columns='NAME:.metadata.name,ZONE:.metadata.labels.topology\.kubernetes\.io/zone'</pre>
     Make sure that three distinct zones are listed.
 
-{{% set jqfilter = '.items | map(select(.metadata.labels["node-role.kubernetes.io/worker"] == "") | .metadata.labels["topology.kubernetes.io/zone"]) | unique | length' %}}
+{{% set jqfilter = '.items | map(select(.metadata.labels["node-role.kubernetes.io/worker"] == "") | .metadata.labels["topology.kubernetes.io/zone"]) | unique | length' %}}  # yamllint disable-line rule:line-length
 
 warnings:
 - general: |-

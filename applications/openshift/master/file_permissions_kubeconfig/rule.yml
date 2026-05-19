@@ -8,7 +8,8 @@ description: |-
 
 rationale: |-
     If the <tt>/etc/kubernetes/kubeconfig</tt> file is writable by a group-owner or the
-    world the risk of its compromise is increased. The file contains the administration configuration of the
+    world the risk of its compromise is increased. The file contains the administration
+    configuration of the
     OpenShift cluster that is configured on the system. Protection of this file is
     critical for OpenShift security.
 
@@ -17,7 +18,8 @@ severity: medium
 #identifiers:
 #    cce@ocp4: 80633-1
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/kubernetes/kubeconfig", perms="-rw-------") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/kubernetes/kubeconfig",
+    perms="-rw-------") }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/etc/kubernetes/kubeconfig", perms="-rw-------") }}}

@@ -5,7 +5,8 @@ platform: ocp4-node
 
 title: 'Verify Group Who Owns the Worker Certificate Authority File'
 
-description: '{{{ describe_file_group_owner(file="/etc/kubernetes/kubelet-ca.crt", group="root") }}}'
+description: '{{{ describe_file_group_owner(file="/etc/kubernetes/kubelet-ca.crt", group="root")
+    }}}'
 
 rationale: |-
     The worker certificate authority file contains the certificate authority
@@ -22,7 +23,8 @@ references:
     nist: CM-6,CM-6(1)
     srg: SRG-APP-000516-CTR-001325
 
-ocil_clause: '{{{ ocil_clause_file_group_owner(file="/etc/kubernetes/kubelet-ca.crt", group="root") }}}'
+ocil_clause: '{{{ ocil_clause_file_group_owner(file="/etc/kubernetes/kubelet-ca.crt",
+    group="root") }}}'
 
 ocil: |-
     {{{ ocil_file_group_owner(file="/etc/kubernetes/kubelet-ca.crt", group="root") }}}

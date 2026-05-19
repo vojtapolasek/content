@@ -9,7 +9,8 @@ description: |-
   [1] https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html#nw-route-specific-annotations_route-configuration
   
 rationale: |-
-  The usage of rate limit for Routes provides basic protection against distributed denial-of-service (DDoS) attacks.
+  The usage of rate limit for Routes provides basic protection against distributed
+  denial-of-service (DDoS) attacks.
 
 
 identifiers:
@@ -19,7 +20,7 @@ references:
   nist: SC-5,SC-5(1),SC-5(2)
   srg: SRG-APP-000246-CTR-000605,SRG-APP-000435-CTR-001070
 
-{{% set jqfilter = '[.items[] | select(.metadata.namespace | test("{{.var_routes_excluded_namespaces_regex}}"; "") | not) | select(.metadata.annotations["haproxy.router.openshift.io/rate-limit-connections"] == "true" | not) | .metadata.name]' %}}
+{{% set jqfilter = '[.items[] | select(.metadata.namespace | test("{{.var_routes_excluded_namespaces_regex}}"; "") | not) | select(.metadata.annotations["haproxy.router.openshift.io/rate-limit-connections"] == "true" | not) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'Rate limit is not enabled for all routes outside the excluded namespaces'
 

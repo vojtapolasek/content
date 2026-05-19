@@ -3,12 +3,12 @@ documentation_complete: true
 
 title: 'Ensure Controller insecure port argument is unset'
 
-{{% set default_jqfilter = '[.data."config.yaml" | fromjson | if .extendedArguments["port"]!=null then .extendedArguments["port"]==["0"] else true end]' %}}
-{{% set default_api_path = '/api/v1/namespaces/openshift-kube-controller-manager/configmaps/config' %}}
-{{% set hypershift_path = '/api/v1/namespaces/{{.hypershift_namespace_prefix}}-{{.hypershift_cluster}}/pods?labelSelector=app%3Dkube-controller-manager' %}}
-{{% set hypershift_jqfilter = '[[.items[0].spec.containers[0].args[] | select(. | match("--port=[1-9]*[1-9]+") )] | length | if . == 0 then true else false end]' %}}
-{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}
-{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}
+{{% set default_jqfilter = '[.data."config.yaml" | fromjson | if .extendedArguments["port"]!=null then .extendedArguments["port"]==["0"] else true end]' %}}  # yamllint disable-line rule:line-length
+{{% set default_api_path = '/api/v1/namespaces/openshift-kube-controller-manager/configmaps/config' %}}  # yamllint disable-line rule:line-length
+{{% set hypershift_path = '/api/v1/namespaces/{{.hypershift_namespace_prefix}}-{{.hypershift_cluster}}/pods?labelSelector=app%3Dkube-controller-manager' %}}  # yamllint disable-line rule:line-length
+{{% set hypershift_jqfilter = '[[.items[0].spec.containers[0].args[] | select(. | match("--port=[1-9]*[1-9]+") )] | length | if . == 0 then true else false end]' %}}  # yamllint disable-line rule:line-length
+{{% set custom_api_path = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_path ~ '{{else}}' ~  default_api_path ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
+{{% set custom_jqfilter = '{{if ne .hypershift_cluster "None"}}' ~ hypershift_jqfilter ~ '{{else}}' ~  default_jqfilter ~ '{{end}}' %}}  # yamllint disable-line rule:line-length
 {{% set dump_path = default_api_path ~ ',' ~ default_jqfilter ~ ',' ~ custom_jqfilter %}}
 
 
@@ -51,7 +51,8 @@ ocil: |-
     To verify that <tt>port</tt> is configured correctly,
     run the following command:
     <pre>$ oc get configmaps config -n openshift-kube-controller-manager -ojson | jq '{{{ jqfilter }}}'</pre>
-    Verify that it's true in the console output (the value will be true if the insecure port is bind to loopback address or disabled) .
+    Verify that it's true in the console output (the value will be true if the insecure port is
+    bind to loopback address or disabled) .
 
 references:
     nerc-cip: CIP-003-8 R4.2,CIP-003-8 R6,CIP-004-6 R3,CIP-007-3 R5.1,CIP-007-3 R6.1

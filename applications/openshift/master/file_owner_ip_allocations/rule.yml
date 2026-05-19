@@ -3,9 +3,11 @@ documentation_complete: true
 
 platform: ocp4-node-on-sdn
 
-title: 'Verify User Who Owns The OpenShift SDN Container Network Interface Plugin IP Address Allocations'
+title: 'Verify User Who Owns The OpenShift SDN Container Network Interface Plugin IP Address
+    Allocations'
 
-description: '{{{ describe_file_owner(file="/var/lib/cni/networks/openshift-sdn/.*", owner="root") }}}'
+description: '{{{ describe_file_owner(file="/var/lib/cni/networks/openshift-sdn/.*", owner="root")
+    }}}'
 
 rationale: |-
     CNI (Container Network Interface) files consist of a specification and libraries for
@@ -23,7 +25,8 @@ references:
     nist: CM-6,CM-6(1)
     srg: SRG-APP-000516-CTR-001325
 
-ocil_clause: '{{{ ocil_clause_file_owner(file="/var/lib/cni/networks/openshift-sdn/.*", owner="root") }}}'
+ocil_clause: '{{{ ocil_clause_file_owner(file="/var/lib/cni/networks/openshift-sdn/.*",
+    owner="root") }}}'
 
 ocil: |-
     {{{ ocil_file_owner(file="/var/lib/cni/networks/openshift-sdn/.*", owner="root") }}}

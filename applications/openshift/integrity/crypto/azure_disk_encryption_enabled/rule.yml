@@ -23,7 +23,7 @@ references:
 
 ocil_clause: 'Disk encryption is not enabled on the Azure MachineSets'
 
-{{% set jqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.osDisk.managedDisk.diskEncryptionSet.id != null) | .metadata.name]' %}}
+{{% set jqfilter = '[.items[] | select(.spec.template.spec.providerSpec.value.osDisk.managedDisk.diskEncryptionSet.id != null) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 ocil: |-
     Run the following command to retrieve if the Azure disk encryption is enabled:

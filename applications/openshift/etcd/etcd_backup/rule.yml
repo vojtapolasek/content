@@ -4,7 +4,11 @@ title: Configure Recurring Backups For etcd
 
 description: |-
     <p>
-    Back up your clusters etcd data regularly and store in a secure location ideally outside the OpenShift Container Platform environment. Do not take an etcd backup before the first certificate rotation completes, which occurs 24 hours after installation, otherwise the backup will contain expired certificates. It is also recommended to take etcd backups during non-peak usage hours because the etcd snapshot has a high I/O cost.
+    Back up your clusters etcd data regularly and store in a secure location ideally outside the
+    OpenShift Container Platform environment. Do not take an etcd backup before the first
+    certificate rotation completes, which occurs 24 hours after installation, otherwise the backup
+    will contain expired certificates. It is also recommended to take etcd backups during non-peak
+    usage hours because the etcd snapshot has a high I/O cost.
     </p>
     <p>
     For more information, follow
@@ -13,7 +17,8 @@ description: |-
     </p>
 
 rationale: |-
-    While etcd automatically recovers from temporary failures, issues may arise if an etcd cluster loses more than (N-1)/2 or when an update goes wrong.
+    While etcd automatically recovers from temporary failures, issues may arise if an etcd cluster
+    loses more than (N-1)/2 or when an update goes wrong.
     Recurring backups of etcd enable you to recover from a disastrous fail.
 
 identifiers:

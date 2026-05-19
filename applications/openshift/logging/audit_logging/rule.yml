@@ -30,16 +30,19 @@ ocil_clause: 'audit logging is enable'
 ocil: |-
   Perform the following to determine if CloudTrail is enabled for all regions:
   Via the Management Console
-  1. Sign in to the AWS Management Console and open the EKS console at https://console.aws.amazon.com/eks
+  1. Sign in to the AWS Management Console and open the EKS console at
+  https://console.aws.amazon.com/eks
   2. Click on Cluster Name of the cluster you are auditing
   3. Click Logging
   4. Ensure all 5 choices are set to Enabled
   Via CLI
-  <tt>aws --region "<i>${REGION_CODE}</i>" eks describe-cluster --name "<i>${CLUSTER_NAME}</i>"  --query 'cluster.logging.clusterLogging[?enabled==true].types'</tt>
+  <tt>aws --region "<i>${REGION_CODE}</i>" eks describe-cluster --name "<i>${CLUSTER_NAME}</i>"
+  --query 'cluster.logging.clusterLogging[?enabled==true].types'</tt>
 
   Perform the following to determine if CloudTrail is enabled for all regions:
   Via The Management Console
-  1. Sign in to the AWS Management Console and open the EKS console at https://console.aws.amazon.com/eks
+  1. Sign in to the AWS Management Console and open the EKS console at
+  https://console.aws.amazon.com/eks
   2. Click on Cluster Name of the cluster you are auditing
   3. Click Logging
   4. Select Manage Logging from the button on the right hand side

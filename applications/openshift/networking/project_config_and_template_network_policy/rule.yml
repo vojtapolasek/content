@@ -38,7 +38,8 @@ rationale: |-
 
 severity: medium
 
-ocil_clause: 'The project template does not include NetworkPolicies and/or the project configuration does not reference a project request template'
+ocil_clause: 'The project template does not include NetworkPolicies and/or the project
+    configuration does not reference a project request template'
 
 {{% set api_path = '/apis/template.openshift.io/v1/namespaces/openshift-config/templates' %}}
 {{% set jqfilter = '[.items[] | any(.objects[]?; .kind == "NetworkPolicy") ]' %}}

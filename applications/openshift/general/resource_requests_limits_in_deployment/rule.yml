@@ -8,7 +8,8 @@ description: |-
   However, any application images must pay attention to the specific resources required to
   ensure they are available.
 
-  If the node where a Pod is running has enough of a resource available, it's possible (and allowed)
+  If the node where a Pod is running has enough of a resource available, it's possible (and
+  allowed)
   for a container to use more resource than its request for that resource specifies.
   However, a container is not allowed to use more than its resource limit.
 
@@ -26,12 +27,13 @@ identifiers: {}
 references:
   nist: SC-6
 
-{{% set jqfilter = '[ .items[] | select(.metadata.namespace | startswith("kube-") or startswith("openshift-") | not) | select(.metadata.namespace != "rhacs-operator" and ({{if ne .var_deployment_limit_namespaces_exempt_regex "None"}}.metadata.namespace | test("{{.var_deployment_limit_namespaces_exempt_regex}}") | not{{else}}true{{end}})) | select( .spec.template.spec.containers[].resources.requests.cpu == null  or  .spec.template.spec.containers[].resources.requests.memory == null or .spec.template.spec.containers[].resources.limits.cpu == null  or  .spec.template.spec.containers[].resources.limits.memory == null )  | .metadata.name ]' %}}
+{{% set jqfilter = '[ .items[] | select(.metadata.namespace | startswith("kube-") or startswith("openshift-") | not) | select(.metadata.namespace != "rhacs-operator" and ({{if ne .var_deployment_limit_namespaces_exempt_regex "None"}}.metadata.namespace | test("{{.var_deployment_limit_namespaces_exempt_regex}}") | not{{else}}true{{end}})) | select( .spec.template.spec.containers[].resources.requests.cpu == null  or  .spec.template.spec.containers[].resources.requests.memory == null or .spec.template.spec.containers[].resources.limits.cpu == null  or  .spec.template.spec.containers[].resources.limits.memory == null )  | .metadata.name ]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'Resource requests and limits is not set'
 
 ocil: |-
-    Run the following command to retrieve a list of deployments that does not have resource requests and limits:
+    Run the following command to retrieve a list of deployments that does not have resource
+    requests and limits:
     <pre>$  oc get deployment.apps  --all-namespaces -o json  | jq '{{{ jqfilter }}}'</pre>
     Make sure that there is output nothing in the result.
 

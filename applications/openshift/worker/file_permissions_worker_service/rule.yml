@@ -11,7 +11,8 @@ description: |-
 rationale: |-
     If the <tt>/etc/systemd/system/kubelet.service</tt>
     file is writable by a group-owner or the
-    world the risk of its compromise is increased. The file contains the service configuration of the
+    world the risk of its compromise is increased. The file contains the service configuration of
+    the
     OpenShift node service that is configured on the system. Protection of this file is
     critical for OpenShift security.
 

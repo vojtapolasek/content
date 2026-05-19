@@ -3,8 +3,8 @@ documentation_complete: true
 
 title: 'Configure A Unique CA Certificate for etcd'
 
-{{% set etcd_ca_pre_417_path = '/host/etc/kubernetes/static-pod-resources/etcd-certs/configmaps/etcd-serving-ca/ca-bundle.crt' %}}
-{{% set etcd_ca_post_417_path = '/host/etc/kubernetes/static-pod-resources/etcd-certs/configmaps/etcd-all-bundles/server-ca-bundle.crt' %}}
+{{% set etcd_ca_pre_417_path = '/host/etc/kubernetes/static-pod-resources/etcd-certs/configmaps/etcd-serving-ca/ca-bundle.crt' %}}  # yamllint disable-line rule:line-length
+{{% set etcd_ca_post_417_path = '/host/etc/kubernetes/static-pod-resources/etcd-certs/configmaps/etcd-all-bundles/server-ca-bundle.crt' %}}  # yamllint disable-line rule:line-length
 
 description: |-
   A unique CA certificate should be created for <tt>etcd</tt>.  OpenShift by

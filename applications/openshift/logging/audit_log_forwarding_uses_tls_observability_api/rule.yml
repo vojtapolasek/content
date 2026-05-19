@@ -8,7 +8,8 @@ description: |-
   using a secure protocol.
   </p>
   <p>
-  The cluster-logging-operator is able to do this with the <pre>ClusterLogForwarders</pre> resource.
+  The cluster-logging-operator is able to do this with the <pre>ClusterLogForwarders</pre>
+  resource.
   The forementioned resource can be configured to log to different third party systems.
   For more information on this, please reference the official documentation:
   {{{ weblink(link="https://docs.openshift.com/container-platform/latest/observability/logging/logging-6.0/log6x-clf.html") }}}
@@ -33,7 +34,8 @@ ocil_clause: 'Logs are not forwarded outside the cluster using TLS'
 ocil: |-
     Run the following command:
     <pre>{{{ ocil_oc_pipe_jq_filter('clusterlogforwarders', 'try [.items[].spec.outputs[][]|objects|.url] catch []', namespace="openshift-logging") }}}</pre>
-    The output should return a list of URL entries with <pre>https://</pre> or <pre>tls://</pre> transport.
+    The output should return a list of URL entries with <pre>https://</pre> or <pre>tls://</pre>
+    transport.
 
 warnings:
 - general: |-
@@ -50,7 +52,7 @@ template:
     # The log forwarder outputs consist of an object and two strings (name and type).
     # The url is part of the object and its name will vary depending on its type.
     # By using the objects filter we ensure we are getting the object to query for its url.
-    filepath: "{{{ openshift_filtered_path('/apis/observability.openshift.io/v1/namespaces/openshift-logging/clusterlogforwarders', 'try [.items[].spec.outputs[][]|objects|select(.url != null).url] catch []') }}}"
+    filepath: "{{{ openshift_filtered_path('/apis/observability.openshift.io/v1/namespaces/openshift-logging/clusterlogforwarders', 'try [.items[].spec.outputs[][]|objects|select(.url != null).url] catch []') }}}"  # yamllint disable-line rule:line-length
     yamlpath: "[:]"
     entity_check: "all"
     values:

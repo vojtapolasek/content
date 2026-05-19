@@ -54,7 +54,8 @@ ocil_clause: 'insecure tlsSecurityProfile is configured for accessing external s
 
 ocil: |-
     To check for the configured tlsSecurityProfile use below command:
-    <tt>$ oc get apiservers.config.openshift.io cluster -o jsonpath='{.spec.tlsSecurityProfile}{"\n"}'</tt>
+    <tt>$ oc get apiservers.config.openshift.io cluster -o
+    jsonpath='{.spec.tlsSecurityProfile}{"\n"}'</tt>
     The output shows the tlsSecurityProfile configured for API Server, and
     the profile configured should not be old or if custom the minimum TLS
     version configured should be TLSv1.2 or newer.

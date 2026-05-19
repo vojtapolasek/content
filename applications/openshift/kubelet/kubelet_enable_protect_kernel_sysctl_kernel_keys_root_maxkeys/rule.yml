@@ -3,7 +3,8 @@ documentation_complete: true
 
 platform: ocp4-node
 
-title: 'kubelet - Set Up Sysctl to Enable Protect Kernel Defaults - Check Parameter kernel.keys.root_maxkeys'
+title: 'kubelet - Set Up Sysctl to Enable Protect Kernel Defaults - Check Parameter
+    kernel.keys.root_maxkeys'
 
 {{% set kernel_root_maxbytes_val = 25000000 %}}
 {{% set kernel_root_maxkeys_val = 1000000 %}}

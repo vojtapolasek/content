@@ -48,19 +48,20 @@ references:
 
 {{% set resourcequotas_api_path = '/api/v1/resourcequotas' %}}
 {{% set namespaces_api_path = '/api/v1/namespaces' %}}
-{{% set resourcequotas_for_non_ctlplane_namespaces_filter = '[.items[] | select((.metadata.namespace | startswith("openshift") | not) and (.metadata.namespace | startswith("kube-") | not) and .metadata.namespace != "default" and .metadata.namespace != "rhacs-operator" and ({{if ne .var_resource_requests_quota_per_project_exempt_regex "None"}}.metadata.namespace | test("{{.var_resource_requests_quota_per_project_exempt_regex}}") | not{{else}}true{{end}})) | .metadata.namespace] | unique' %}}
-{{% set non_ctlplane_namespaces_filter = '[.items[] | select((.metadata.name | startswith("openshift") | not) and (.metadata.name | startswith("kube-") | not) and .metadata.name != "default" and .metadata.name != "rhacs-operator" and ({{if ne .var_resource_requests_quota_per_project_exempt_regex "None"}}.metadata.name | test("{{.var_resource_requests_quota_per_project_exempt_regex}}") | not{{else}}true{{end}}))]' %}}
+{{% set resourcequotas_for_non_ctlplane_namespaces_filter = '[.items[] | select((.metadata.namespace | startswith("openshift") | not) and (.metadata.namespace | startswith("kube-") | not) and .metadata.namespace != "default" and .metadata.namespace != "rhacs-operator" and ({{if ne .var_resource_requests_quota_per_project_exempt_regex "None"}}.metadata.namespace | test("{{.var_resource_requests_quota_per_project_exempt_regex}}") | not{{else}}true{{end}})) | .metadata.namespace] | unique' %}}  # yamllint disable-line rule:line-length
+{{% set non_ctlplane_namespaces_filter = '[.items[] | select((.metadata.name | startswith("openshift") | not) and (.metadata.name | startswith("kube-") | not) and .metadata.name != "default" and .metadata.name != "rhacs-operator" and ({{if ne .var_resource_requests_quota_per_project_exempt_regex "None"}}.metadata.name | test("{{.var_resource_requests_quota_per_project_exempt_regex}}") | not{{else}}true{{end}}))]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'Resource requests and limits is not set per project'
 
 # same as above except filters the names only. Used in OCIL only, not in the 'warnings attribute'
-{{% set non_ctlplane_namespaces_filter_names = '[.items[] | select((.metadata.name | startswith("openshift") | not) and (.metadata.name | startswith("kube-") | not) and .metadata.name != "default" and .metadata.name != "rhacs-operator" and ({{if ne .var_resource_requests_quota_per_project_exempt_regex "None"}}.metadata.name | test("{{.var_resource_requests_quota_per_project_exempt_regex}}") | not{{else}}true{{end}})) | .metadata.name]' %}}
+{{% set non_ctlplane_namespaces_filter_names = '[.items[] | select((.metadata.name | startswith("openshift") | not) and (.metadata.name | startswith("kube-") | not) and .metadata.name != "default" and .metadata.name != "rhacs-operator" and ({{if ne .var_resource_requests_quota_per_project_exempt_regex "None"}}.metadata.name | test("{{.var_resource_requests_quota_per_project_exempt_regex}}") | not{{else}}true{{end}})) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 ocil: |-
     Verify that the every non-control plane namespace has an appropriate ResourceQuota.
 
     To get all the non-control plane namespaces, you can do the
-    following command <tt>{{{ ocil_oc_pipe_jq_filter('namespaces', non_ctlplane_namespaces_filter_names) }}}</tt>
+    following command
+    <tt>{{{ ocil_oc_pipe_jq_filter('namespaces', non_ctlplane_namespaces_filter_names) }}}</tt>
 
     To get all the non-control plane namespaces with a ResourceQuota, you can do the
     following command <tt>{{{ ocil_oc_pipe_jq_filter('resourcequota', resourcequotas_for_non_ctlplane_namespaces_filter, all_namespaces=true) }}}</tt>

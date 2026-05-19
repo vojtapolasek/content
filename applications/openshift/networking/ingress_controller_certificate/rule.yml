@@ -27,9 +27,12 @@ references:
 ocil_clause: 'Ingress Operator default certificate needs to be replaced'
 
 ocil: |-
-  Verify that the ingresscontroller.operator/default resource contains the name of a certificate secret:
-    <tt>oc get ingresscontroller.operator/default -n openshift-ingress-operator -ojsonpath='{ .spec."defaultCertificate"."name" }'</tt>
-  The result should be the name of a valid secret. If none, the default Ingress certificate is in use.
+  Verify that the ingresscontroller.operator/default resource contains the name of a certificate
+  secret:
+    <tt>oc get ingresscontroller.operator/default -n openshift-ingress-operator -ojsonpath='{
+    .spec."defaultCertificate"."name" }'</tt>
+  The result should be the name of a valid secret. If none, the default Ingress certificate is in
+  use.
 
 warnings:
 - general: |-
@@ -39,7 +42,7 @@ template:
   name: yamlfile_value
   vars:
     ocp_data: "true"
-    filepath: /apis/operator.openshift.io/v1/namespaces/openshift-ingress-operator/ingresscontrollers/default
+    filepath: /apis/operator.openshift.io/v1/namespaces/openshift-ingress-operator/ingresscontrollers/default  # yamllint disable-line rule:line-length
     yamlpath: ".spec.defaultCertificate.name"
     check_existence_yamlpath: ".metadata.name"
     values:

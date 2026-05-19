@@ -24,7 +24,8 @@ references:
     nist: CM-6,CM-6(1)
     srg: SRG-APP-000516-CTR-001325
 
-ocil_clause: '{{{ ocil_clause_file_owner(file="/run/openvswitch/ovsdb-server.pid", owner="openvswitch") }}}'
+ocil_clause: '{{{ ocil_clause_file_owner(file="/run/openvswitch/ovsdb-server.pid",
+    owner="openvswitch") }}}'
 
 ocil: |-
     {{{ ocil_file_owner(file="/run/openvswitch/ovsdb-server.pid", owner="openvswitch") }}}

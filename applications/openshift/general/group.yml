@@ -3,4 +3,5 @@ documentation_complete: true
 
 title: 'Kubernetes - General Security Practices'
 
-description: 'Contains evaluations for general security practices for operating a Kubernetes environment.'
+description: 'Contains evaluations for general security practices for operating a Kubernetes
+    environment.'

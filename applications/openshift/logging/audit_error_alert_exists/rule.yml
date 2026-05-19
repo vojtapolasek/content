@@ -36,7 +36,10 @@ description: |-
             tampering with the audit logs.
           description: An API Server had an error writing to an audit log.
         expr: |
-          sum by (apiserver,instance)(rate(apiserver_audit_error_total{apiserver=~".+-apiserver"}[5m])) / sum by (apiserver,instance) (rate(apiserver_audit_event_total{apiserver=~".+-apiserver"}[5m])) > 0
+          sum by
+          (apiserver,instance)(rate(apiserver_audit_error_total{apiserver=~".+-apiserver"}[5m])) /
+          sum by (apiserver,instance)
+          (rate(apiserver_audit_event_total{apiserver=~".+-apiserver"}[5m])) > 0
         for: 1m
         labels:
           severity: warning
@@ -56,7 +59,7 @@ rationale: |-
   to assess a situation and do appropriate root cause analysis in such incidents.
 
 references:
-  nerc-cip: CIP-003-8 R5.1.1,CIP-003-8 R5.3,CIP-004-6 R2.3,CIP-007-3 R5.1,CIP-007-3 R5.1.1,CIP-007-3 R5.1.2
+  nerc-cip: CIP-003-8 R5.1.1,CIP-003-8 R5.3,CIP-004-6 R2.3,CIP-007-3 R5.1,CIP-007-3 R5.1.1,CIP-007-3 R5.1.2  # yamllint disable-line rule:line-length
   nist: AU-5
   srg: SRG-APP-000109-CTR-000215
 
@@ -70,7 +73,8 @@ ocil_clause: 'Audit log errors do not generate an alert'
 ocil: |-
     Run the following command:
     <pre>{{{ ocil_oc_pipe_jq_filter('prometheusrules', '[.items[].spec.groups[].rules[].expr]', all_namespaces=True) }}} | grep apiserver_audit</pre>
-    Make sure that there's a prometheus rule that verifies the <pre>apiserver_audit_error_total</pre> and 
+    Make sure that there's a prometheus rule that verifies the
+    <pre>apiserver_audit_error_total</pre> and
     <pre>apiserver_audit_event_total</pre> metrics and will alert based on an error threshold.
 
 warnings:
@@ -83,7 +87,7 @@ template:
   name: yamlfile_value
   vars:
     ocp_data: "true"
-    filepath: "{{{ openshift_filtered_path('/apis/monitoring.coreos.com/v1/prometheusrules', '[.items[].spec.groups[].rules[].expr]') }}}"
+    filepath: "{{{ openshift_filtered_path('/apis/monitoring.coreos.com/v1/prometheusrules', '[.items[].spec.groups[].rules[].expr]') }}}"  # yamllint disable-line rule:line-length
     yamlpath: "[:]"
     entity_check: "all"
     values:

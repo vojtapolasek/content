@@ -8,7 +8,8 @@ description: |-
 ocil: |-
     Network bandwidth is limited at the pod level and can be determined separately according
     to incoming and outgoing network bandwidth.
-    For more information about limiting network bandwidth on the pod level please refer to the Red Hat documentation:
+    For more information about limiting network bandwidth on the pod level please refer to the Red
+    Hat documentation:
     {{{ weblink(link="https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-configuring.html#nodes-pods-configuring-bandwidth_nodes-pods-configuring") }}}
 
     Out of the documetation use the example for the network bandwidth configuration of a pod: 

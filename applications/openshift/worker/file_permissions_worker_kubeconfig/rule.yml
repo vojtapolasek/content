@@ -18,7 +18,8 @@ description: |-
 
 rationale: |-
     If the worker kubeconfig file is writable by a group-owner or the
-    world the risk of its compromise is increased. The file contains the administration configuration of the
+    world the risk of its compromise is increased. The file contains the administration
+    configuration of the
     OpenShift cluster that is configured on the system. Protection of this file is
     critical for OpenShift security.
 

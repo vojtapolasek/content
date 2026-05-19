@@ -19,7 +19,8 @@ description: |-
     <tt>/etc/audit/audit.rules</tt> file.
 
 rationale: |-
-    Attempts to read the logs should be recorded, suspicious access to audit log files could be an indicator of malicious activity on a system.
+    Attempts to read the logs should be recorded, suspicious access to audit log files could be an
+    indicator of malicious activity on a system.
     Auditing these events could serve as evidence of potential system compromise.'
 
 references:

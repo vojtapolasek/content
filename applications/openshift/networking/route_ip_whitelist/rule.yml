@@ -18,7 +18,7 @@ identifiers:
 references:
   nist: SC-7(5)
 
-{{% set jqfilter = '[.items[] | select(.metadata.namespace | startswith("kube-") or startswith("openshift-") | not) | select(.metadata.annotations["haproxy.router.openshift.io/ip_whitelist"] | not) | .metadata.name]' %}}
+{{% set jqfilter = '[.items[] | select(.metadata.namespace | startswith("kube-") or startswith("openshift-") | not) | select(.metadata.annotations["haproxy.router.openshift.io/ip_whitelist"] | not) | .metadata.name]' %}}  # yamllint disable-line rule:line-length
 
 ocil_clause: 'IP whitelist is not enabled for all routes outside the openshift namespaces'
 

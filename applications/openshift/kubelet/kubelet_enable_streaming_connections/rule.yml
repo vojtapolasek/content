@@ -19,7 +19,8 @@ description: |-
             matchLabels:
                 pools.operator.machineconfiguration.openshift.io/$pool_name: ""
         kubeletConfig:
-            streamingConnectionIdleTimeout: {{{ xccdf_value("var_streaming_connection_timeouts") }}}
+            streamingConnectionIdleTimeout:
+            {{{ xccdf_value("var_streaming_connection_timeouts") }}}
     </pre>
 
 rationale: |-

@@ -4,12 +4,21 @@ title: |-
 description: |-
   Do not bind the scheduler service to non-loopback insecure addresses.
 rationale: |-
-  The Scheduler API service which runs on port 10251/TCP by default is used for health and metrics information and is available without authentication or encryption. As such it should only be bound to a localhost interface, to minimize the cluster's attack surface
+  The Scheduler API service which runs on port 10251/TCP by default is used for health and metrics
+  information and is available without authentication or encryption. As such it should only be
+  bound to a localhost interface, to minimize the cluster's attack surface
 severity: medium
 ocil: |-
-  In OpenShift 4, The Kubernetes Scheduler operator manages and updates the Kubernetes Scheduler deployed on top of OpenShift. By default, the operator exposes metrics via metrics service. The metrics are collected from the Kubernetes Scheduler operator. Profiling data is sent to `healthzPort`, the port of the localhost `healthz` endpoint. Changing this value may disrupt components that monitor the kubelet health. The default `healthz` `port` value is `10251`, and the `healthz` `bindAddress` is `127.0.0.1`
+  In OpenShift 4, The Kubernetes Scheduler operator manages and updates the Kubernetes Scheduler
+  deployed on top of OpenShift. By default, the operator exposes metrics via metrics service. The
+  metrics are collected from the Kubernetes Scheduler operator. Profiling data is sent to
+  `healthzPort`, the port of the localhost `healthz` endpoint. Changing this value may disrupt
+  components that monitor the kubelet health. The default `healthz` `port` value is `10251`, and
+  the `healthz` `bindAddress` is `127.0.0.1`
 
-  To ensure the collected data is not exploited, profiling endpoints are secured via RBAC (see cluster-debugger role). By default, the profiling endpoints are accessible only by users bound to `cluster-admin` or `cluster-debugger` role. Profiling can not be disabled.
+  To ensure the collected data is not exploited, profiling endpoints are secured via RBAC (see
+  cluster-debugger role). By default, the profiling endpoints are accessible only by users bound
+  to `cluster-admin` or `cluster-debugger` role. Profiling can not be disabled.
 
   The bind-address argument is not used. Both authentication and authorization are in place.
 
@@ -22,7 +31,8 @@ ocil: |-
   Verify the `bind-address` and `port` arguments are not used:
 
   ```
-  oc -n openshift-kube-scheduler get cm kube-scheduler-pod -o json | jq -r '.data."pod.yaml"' | jq '.spec.containers[]|select(.name=="kube-scheduler")|.args'
+  oc -n openshift-kube-scheduler get cm kube-scheduler-pod -o json | jq -r '.data."pod.yaml"' | jq
+  '.spec.containers[]|select(.name=="kube-scheduler")|.args'
   ```
 
   Verify the metrics endpoint is protected by RBAC.
@@ -32,7 +42,8 @@ ocil: |-
   ```
   oc project openshift-kube-scheduler
   export POD=$(oc get pods -l app=openshift-kube-scheduler -o jsonpath='{.items[0].metadata.name}')
-  export POD_IP=$(oc get pods -l app=openshift-kube-scheduler -o jsonpath='{.items[0].status.podIP}')
+  export POD_IP=$(oc get pods -l app=openshift-kube-scheduler -o
+  jsonpath='{.items[0].status.podIP}')
   export PORT=$(oc get pod $POD -o jsonpath='{.spec.containers[0].livenessProbe.httpGet.port}')
   ```
 
@@ -66,7 +77,8 @@ ocil: |-
   oc rsh $POD curl https://$POD_IP:$PORT/metrics -H "Authorization: Bearer $CLUSTER_ADMIN_TOKEN" -k
   ```
 
-  Verify metrics output is returned. Unset environment variables used in the test and delete the test service account:
+  Verify metrics output is returned. Unset environment variables used in the test and delete the
+  test service account:
 
   ```
   unset CLUSTER_ADMIN_TOKEN POD PORT SA_TOKEN POD_IP

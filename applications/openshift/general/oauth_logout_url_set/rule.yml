@@ -34,7 +34,8 @@ ocil_clause: 'logout URL is not set'
 ocil: |-
   Verify that the logout redirect setting in web console configuration
   is set:
-  <code>oc get console.config.openshift.io cluster -o jsonpath='{.spec.authentication.logoutRedirect}{"\n"}'</code>
+  <code>oc get console.config.openshift.io cluster -o
+  jsonpath='{.spec.authentication.logoutRedirect}{"\n"}'</code>
   Make sure that the command returns the expected logout URL.
 
 warnings:
