@@ -4,13 +4,15 @@ documentation_complete: true
 title: 'Make the kernel text and rodata read-only'
 
 description: |-
-    When set, kernel text and rodata memory will be made read-only, and non-text memory will be made non-executable.
+    When set, kernel text and rodata memory will be made read-only, and non-text memory will be
+    made non-executable.
     This configuration is available from kernel 4.11.
 
     {{{ describe_kernel_build_config("CONFIG_STRICT_KERNEL_RWX", "y") | indent(4) }}}
 
 rationale: |-
-    This provides protection against certain security exploits (e.g. executing the heap or modifying text)
+    This provides protection against certain security exploits (e.g. executing the heap or
+    modifying text)
 
 warnings:
     {{{ warning_kernel_build_config() | indent(4) }}}

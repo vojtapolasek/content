@@ -23,9 +23,11 @@ description: |-
     and continuous monitoring tests in place.
 
 rationale: |-
-    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption
+    to
     protect data. The operating system must implement cryptographic modules adhering to the higher
-    standards approved by the federal government since this provides assurance they have been tested
+    standards approved by the federal government since this provides assurance they have been
+    tested
     and validated.
 
 severity: high
@@ -38,13 +40,14 @@ identifiers:
 references:
     nerc-cip: CIP-003-8 R4.2,CIP-007-3 R5.1
     nist: SC-12(2),SC-12(3),IA-7,SC-13,CM-6(a),SC-12
-    srg: SRG-OS-000033-GPOS-00014,SRG-OS-000125-GPOS-00065,SRG-OS-000250-GPOS-00093,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174,SRG-OS-000396-GPOS-00176,SRG-OS-000423-GPOS-00187,SRG-OS-000478-GPOS-00223
+    srg: SRG-OS-000033-GPOS-00014,SRG-OS-000125-GPOS-00065,SRG-OS-000250-GPOS-00093,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174,SRG-OS-000396-GPOS-00176,SRG-OS-000423-GPOS-00187,SRG-OS-000478-GPOS-00223  # yamllint disable-line rule:line-length
     stigid@ol8: OL08-00-010020
 
 ocil_clause: 'crypto.fips_enabled is not 1'
 
 ocil: |-
-    To verify that kernel parameter 'crypto.fips_enabled' is set properly, run the following command:
+    To verify that kernel parameter 'crypto.fips_enabled' is set properly, run the following
+    command:
     <pre>sysctl crypto.fips_enabled</pre>
     The output should contain the following:
     <pre>crypto.fips_enabled = 1</pre>
@@ -60,7 +63,8 @@ warnings:
         Management Reform Act of 1996, Public Law 104-106. This standard shall be used in designing
         and implementing cryptographic modules that Federal departments and agencies operate or are
         operated for them under contract.
-        See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
+        See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
         To meet this, the system has to have cryptographic software provided by a vendor that has
         undergone this certification. This means providing documentation, test results, design
         information, and independent third party review by an accredited lab. While open source

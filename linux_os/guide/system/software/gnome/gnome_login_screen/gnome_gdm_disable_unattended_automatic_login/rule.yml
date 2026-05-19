@@ -5,7 +5,8 @@ title: 'Disable GDM Unattended or Automatic Login'
 
 description: |-
     The GNOME Display Manager (GDM) can allow users to automatically login without
-    user interaction or credentials or unattended login. User should always be required to authenticate themselves
+    user interaction or credentials or unattended login. User should always be required to
+    authenticate themselves
     to the system that they are authorized to use. To disable user ability to automatically
     login to the system, set the <tt>DISPLAYMANAGER_AUTOLOGIN=""</tt>
     or <tt>DISPLAYMANAGER_PASSWORD_LESS_LOGIN="no"</tt> in the

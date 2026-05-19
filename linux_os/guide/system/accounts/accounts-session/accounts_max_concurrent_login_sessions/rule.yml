@@ -55,7 +55,8 @@ ocil: |-
     accounts and/or account types with the following command:
     <pre>$ grep -r -s maxlogins /etc/security/limits.conf /etc/security/limits.d/*.conf</pre>
     <pre>/etc/security/limits.conf:* hard maxlogins 10</pre>
-    This can be set as a global domain (with the * wildcard) but may be set differently for multiple domains.
+    This can be set as a global domain (with the * wildcard) but may be set differently for
+    multiple domains.
 
 fixtext: |-
     Configure {{{ full_name }}} to limit the number of concurrent sessions to
@@ -65,6 +66,7 @@ fixtext: |-
     ".conf" file defined in /etc/security/limits.d/ :
     <pre>* hard maxlogins 10</pre>
 
-srg_requirement: '{{{ full_name }}} must limit the number of concurrent sessions to ten for all accounts and/or account types.'
+srg_requirement: '{{{ full_name }}} must limit the number of concurrent sessions to ten for all
+    accounts and/or account types.'
 
 platform: package[pam] and system_with_kernel

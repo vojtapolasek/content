@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'zero-init everything passed by reference'
 
 description: |-
-    Zero-initialize any stack variables that may be passed by reference and had not already been explicitly initialized.
+    Zero-initialize any stack variables that may be passed by reference and had not already been
+    explicitly initialized.
     This configuration is available from kernel 4.14, but may be available if backported
     by distros.
 

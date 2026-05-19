@@ -16,7 +16,8 @@ description: |-
 rationale: |-
     The Linux kernel offers an option which signifies if the kernel should trust
     data provided by CPU hardware random number generator. Hardware random
-    number generators can provide random data very quickly and are used to generate random cryptographic keys. They can
+    number generators can provide random data very quickly and are used to generate random
+    cryptographic keys. They can
     be useful during boot time when other means of getting random data can be
     slow because there is not yet enough entropy in the system.
 

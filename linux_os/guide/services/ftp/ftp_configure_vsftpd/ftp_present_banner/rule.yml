@@ -12,7 +12,8 @@ description: |-
     by default. Add or correct the following configuration options:
     <pre>banner_file=/etc/issue</pre>
 
-rationale: 'This setting will cause the system greeting banner to be used for FTP connections as well.'
+rationale: 'This setting will cause the system greeting banner to be used for FTP connections as
+    well.'
 
 severity: medium
 
@@ -34,7 +35,8 @@ ocil: |-
     <pre>grep "banner_file" /etc/vsftpd/vsftpd.conf</pre>
     {{% endif %}}
 
-    The output should show the value of <tt>banner_file</tt> is set to <tt>/etc/issue</tt>, an example of which is shown below:
+    The output should show the value of <tt>banner_file</tt> is set to <tt>/etc/issue</tt>, an
+    example of which is shown below:
     {{% if product in ["sle12", "sle15"] %}}
     <pre>$ sudo grep "banner_file" /etc/vsftpd.conf
     {{% else %}}

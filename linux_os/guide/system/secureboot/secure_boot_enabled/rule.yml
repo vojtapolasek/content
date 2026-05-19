@@ -7,7 +7,9 @@ description: |-
 
 rationale: |-
    By ensuring the integrity of the boot process, Secure Boot protects against rootkits,
-   bootkits, and other low-level malware that could compromise the system before traditional defenses activate. This helps maintain both the confidentiality and integrity of the system, ensuring that sensitive data remains protected and only trusted code is executed.
+   bootkits, and other low-level malware that could compromise the system before traditional
+   defenses activate. This helps maintain both the confidentiality and integrity of the system,
+   ensuring that sensitive data remains protected and only trusted code is executed.
 
 severity: medium
 

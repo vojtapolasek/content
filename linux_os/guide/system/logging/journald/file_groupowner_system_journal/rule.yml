@@ -23,7 +23,8 @@ rationale: |-
     information (PII) and operational information must not be revealed through error
     messages to unauthorized personnel or their designated representatives.
     {{%- else %}}
-    RHCOS must protect system journal file from any type of unauthorized access by setting file group ownership.
+    RHCOS must protect system journal file from any type of unauthorized access by setting file
+    group ownership.
 
     {{%- endif %}}
 
@@ -46,7 +47,8 @@ fixtext: |
 references:
     srg: SRG-APP-000118-CTR-000240
 
-ocil_clause: '{{{ ocil_clause_file_group_owner(file="/var/log/journal/.*/system.journal", group="systemd-journal") }}}'
+ocil_clause: '{{{ ocil_clause_file_group_owner(file="/var/log/journal/.*/system.journal",
+    group="systemd-journal") }}}'
 
 ocil: |-
     {{{ ocil_file_group_owner(file="/var/log/journal/.*/system.journal", group="systemd-journal") }}}

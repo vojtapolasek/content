@@ -5,7 +5,8 @@ title: 'Configure audispd''s Plugin network_failure_action On Network Failure'
 
 description: |-
     Configure the action the operating system takes if there is an error sending
-    audit records to a remote system. Edit the file <tt>{{{ audisp_conf_path }}}/audisp-remote.conf</tt>.
+    audit records to a remote system. Edit the file
+    <tt>{{{ audisp_conf_path }}}/audisp-remote.conf</tt>.
     Add or modify the following line, substituting <i>ACTION</i> appropriately:
     <pre>network_failure_action = <i>ACTION</i></pre>
     Set this value to <tt>single</tt> to cause the system to switch to single user
@@ -13,7 +14,8 @@ description: |-
     <tt>halt</tt>. For certain systems, the need for availability
     outweighs the need to log all actions, and a different setting should be
     determined.
-    This profile configures the <i>action</i> to be <tt>{{{ xccdf_value("var_audispd_network_failure_action") }}}</tt>.
+    This profile configures the <i>action</i> to be
+    <tt>{{{ xccdf_value("var_audispd_network_failure_action") }}}</tt>.
 
 rationale: |-
     Taking appropriate action when there is an error sending audit records to a
@@ -46,7 +48,8 @@ ocil: |-
     <pre>network_failure_action = {{{ xccdf_value("var_audispd_network_failure_action") }}}</pre>
 
 fixtext: |-
-    Configure {{{ full_name }}} to take an appropriate action when there is an error sending audit records to a remote system.
+    Configure {{{ full_name }}} to take an appropriate action when there is an error sending audit
+    records to a remote system.
 
     Add or edit the following line in "{{{ audisp_conf_path }}}/audisp-remote.conf":
 

@@ -18,7 +18,8 @@ rationale: |-
 
 severity: medium
 
-ocil_clause: '<tt>glibc</tt> is missing or installed at a version lower than {{{ minimum_version }}}'
+ocil_clause: '<tt>glibc</tt> is missing or installed at a version lower than {{{ minimum_version
+    }}}'
 
 {{{ ocil_package_installed_how_to_check(package="glibc") }}}
 

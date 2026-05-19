@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: Configure Auto Configuration on All IPv6 Interfaces By Default
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.autoconf", value="0") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.autoconf", value="0")
+    }}}'
 
 rationale: An illicit router advertisement message could result in a man-in-the-middle attack.
 

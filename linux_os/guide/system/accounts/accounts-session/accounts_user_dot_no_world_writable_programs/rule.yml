@@ -38,14 +38,17 @@ references:
 ocil_clause: 'any local initialization files are found to reference world-writable files'
 
 ocil: |-
-    Verify that local initialization files do not execute world-writable programs with the following command:
+    Verify that local initialization files do not execute world-writable programs with the
+    following command:
 
-    Note: The example will be for a system that is configured to create user home directories in the "/home" directory.
+    Note: The example will be for a system that is configured to create user home directories in
+    the "/home" directory.
 
     <pre>$ sudo find /home -perm -002 -type f -name ".[^.]*" -exec ls -ld {} \;</pre>
 
 fixtext: |-
-    Set the mode on files being executed by the local initialization files with the following command:
+    Set the mode on files being executed by the local initialization files with the following
+    command:
 
     $ sudo chmod 0755 &lt;file&gt;
 

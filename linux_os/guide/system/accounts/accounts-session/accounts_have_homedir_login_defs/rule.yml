@@ -6,7 +6,8 @@ title: 'Ensure Home Directories are Created for New Users'
 description: |-
     All local interactive user accounts, upon creation, should be assigned a home directory.
     <br /><br />
-    Configure the operating system to assign home directories to all new local interactive users by setting the <tt>CREATE_HOME</tt>
+    Configure the operating system to assign home directories to all new local interactive users
+    by setting the <tt>CREATE_HOME</tt>
     parameter in <tt>{{{ login_defs_path }}}</tt> to <tt>yes</tt> as follows:
     <br /><br />
     <pre>CREATE_HOME yes</pre>
@@ -33,7 +34,8 @@ references:
     stigid@sle12: SLES-12-010720
     stigid@sle15: SLES-15-020110
 
-ocil_clause: 'the value for "CREATE_HOME" parameter is not set to "yes", the line is missing, or the line is commented out'
+ocil_clause: 'the value for "CREATE_HOME" parameter is not set to "yes", the line is missing, or
+    the line is commented out'
 
 ocil: |-
     Verify all local interactive users on {{{ full_name }}} are assigned a home
@@ -42,10 +44,12 @@ ocil: |-
     <pre>CREATE_HOME yes</pre>
 
 fixtext: |-
-    Configure {{{ full_name }}} to assign home directories to all new local interactive users by setting the "CREATE_HOME" parameter in "{{{ login_defs_path }}}" to "yes" as follows.
+    Configure {{{ full_name }}} to assign home directories to all new local interactive users by
+    setting the "CREATE_HOME" parameter in "{{{ login_defs_path }}}" to "yes" as follows.
 
     CREATE_HOME yes
 
-srg_requirement: "All {{{ full_name }}} local interactive user accounts must be assigned a home directory upon creation."
+srg_requirement: "All {{{ full_name }}} local interactive user accounts must be assigned a home
+    directory upon creation."
 
 platform: package[shadow-utils] and system_with_kernel

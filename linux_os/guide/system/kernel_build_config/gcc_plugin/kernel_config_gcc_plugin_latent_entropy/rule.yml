@@ -5,7 +5,8 @@ title: 'Generate some entropy during boot and runtime'
 
 description: |-
     Instrument some kernel code to extract some entropy from both original and artificially created
-    program state. This will help especially embedded systems where there is little 'natural' source
+    program state. This will help especially embedded systems where there is little 'natural'
+    source
     of entropy normally.
 
     This configuration is available from kernel 4.9, but may be available if backported
@@ -22,7 +23,8 @@ warnings:
     - general: |-
         Note that entropy extracted this way is not cryptographically secure!
     - performance: |-
-        There is a performance cost during the boot process (about 0.5%) and fork and irq processing.
+        There is a performance cost during the boot process (about 0.5%) and fork and irq
+        processing.
 
 severity: medium
 

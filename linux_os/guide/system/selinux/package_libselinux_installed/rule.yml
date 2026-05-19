@@ -10,7 +10,8 @@ rationale: |-
     Security-enhanced Linux is a feature of the Linux kernel and a number of utilities
     with enhanced security functionality designed to add mandatory access controls to Linux.
 
-    The <tt>libselinux</tt> package contains the core library of the Security-enhanced Linux system.
+    The <tt>libselinux</tt> package contains the core library of the Security-enhanced Linux
+    system.
 
 severity: high
 

@@ -41,7 +41,8 @@ warnings:
     - general: |-
         Automatic remediation of this control is not available.
 
-ocil_clause: 'root CA file is not a DoD-issued certificate with a valid date and installed in the /etc/sssd/pki/sssd_auth_ca_db.pem location'
+ocil_clause: 'root CA file is not a DoD-issued certificate with a valid date and installed in the
+    /etc/sssd/pki/sssd_auth_ca_db.pem location'
 
 ocil: |-
   Verify {{{ full_name }}} for PKI-based authentication has valid certificates by constructing a
@@ -66,11 +67,14 @@ ocil: |-
 
 fixtext: |-
   Configure {{{ full_name }}}, for PKI-based authentication, to validate certificates by
-  constructing a certification path (which includes status information) to an accepted trust anchor.
+  constructing a certification path (which includes status information) to an accepted trust
+  anchor.
 
   Obtain a valid copy of the DoD root CA file from the PKI CA certificate bundle at cyber.mil and
   copy into the following file:
 
   /etc/sssd/pki/sssd_auth_ca_db.pem
 
-srg_requirement: '{{{ full_name }}}, for PKI-based authentication, must validate certificates by constructing a certification path (which includes status information) to an accepted trust anchor.'
+srg_requirement: '{{{ full_name }}}, for PKI-based authentication, must validate certificates by
+    constructing a certification path (which includes status information) to an accepted trust
+    anchor.'

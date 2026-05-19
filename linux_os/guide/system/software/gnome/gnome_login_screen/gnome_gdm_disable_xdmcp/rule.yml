@@ -12,7 +12,8 @@ title: 'Disable XDMCP in GDM'
 
 description: |-
     XDMCP is an unencrypted protocol, and therefore, presents a security risk.
-    To disable XDMCP support in Gnome, set <code>Enable</code> to <code>false</code> under the <code>[xdmcp]</code> configuration section in <code>{{{ gdm_conf_path }}}</code>. For example:
+    To disable XDMCP support in Gnome, set <code>Enable</code> to <code>false</code> under the
+    <code>[xdmcp]</code> configuration section in <code>{{{ gdm_conf_path }}}</code>. For example:
     <pre>
     [xdmcp]
     Enable=false
@@ -33,10 +34,12 @@ identifiers:
     cce@rhel10: CCE-87752-2
     cce@sle15: CCE-92563-6
 
-ocil_clause: 'the Enable is not set to false or is missing in the xdmcp section of the {{{ gdm_conf_path }}} gdm configuration file'
+ocil_clause: 'the Enable is not set to false or is missing in the xdmcp section of the {{{
+    gdm_conf_path }}} gdm configuration file'
 
 ocil: |-
-    To ensure that XDMCP is disabled in <code>{{{ gdm_conf_path }}}</code>, run the following command:
+    To ensure that XDMCP is disabled in <code>{{{ gdm_conf_path }}}</code>, run the following
+    command:
     <pre>grep -Pzo "\[xdmcp\]\nEnable=false" {{{ gdm_conf_path }}}</pre>
     The output should return the following:
     <pre>

@@ -5,7 +5,8 @@ title: 'Set Password Minimum Length'
 
 description: |-
     The pam_cracklib module's <tt>minlen</tt> parameter controls requirements for
-    minimum characters required in a password. Add <tt>minlen={{{ xccdf_value("var_password_pam_minlen") }}}</tt>
+    minimum characters required in a password. Add
+    <tt>minlen={{{ xccdf_value("var_password_pam_minlen") }}}</tt>
      to set minimum password length requirements.
 
 rationale: |-

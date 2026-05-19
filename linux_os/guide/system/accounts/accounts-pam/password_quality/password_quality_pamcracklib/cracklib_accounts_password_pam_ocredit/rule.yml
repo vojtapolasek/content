@@ -10,7 +10,8 @@ description: |-
     characters. When set to a positive number, pam_cracklib will grant +1
     additional length credit for each special character.
     Make sure the <tt>ocredit</tt> parameter for the pam_cracklib module is
-    set to less than or equal to <tt>{{{ xccdf_value("var_password_pam_ocredit") }}}</tt>. For example, <tt>ocredit={{{ xccdf_value("var_password_pam_ocredit") }}}</tt>.
+    set to less than or equal to <tt>{{{ xccdf_value("var_password_pam_ocredit") }}}</tt>. For
+    example, <tt>ocredit={{{ xccdf_value("var_password_pam_ocredit") }}}</tt>.
 
 rationale: |-
     Requiring a minimum number of special characters makes password guessing
@@ -40,10 +41,12 @@ ocil: |-
     To check how many special characters are required in a password, run the
     following command:
     <pre># grep pam_cracklib.so /etc/pam.d/common-password
-    password requisite pam_cracklib.so ocredit={{{ xccdf_value("var_password_pam_ocredit") }}}</pre>
+    password requisite pam_cracklib.so
+    ocredit={{{ xccdf_value("var_password_pam_ocredit") }}}</pre>
     The <tt>ocredit</tt> parameter (as a negative number) will indicate how
     many special characters are required.
-    The profile requires at least {{{ xccdf_value("var_password_pam_ocredit") }}} special character in a password.
+    The profile requires at least {{{ xccdf_value("var_password_pam_ocredit") }}} special
+    character in a password.
     This would appear as <tt>ocredit=-{{{ xccdf_value("var_password_pam_ocredit") }}}</tt>.
 
 template:

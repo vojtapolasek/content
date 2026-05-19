@@ -40,7 +40,8 @@ srg_requirement: '{{{ srg_requirement_service_disabled("rngd") }}}'
 platform: os_linux[rhel]<=8.3 or (os_linux[rhel]>=8.4 and not runtime_kernel_fips_enabled)
 warnings:
   - general: |-
-      For RHEL versions 8.4 and above running with kernel FIPS mode enabled this rule is not applicable.
+      For RHEL versions 8.4 and above running with kernel FIPS mode enabled this rule is not
+      applicable.
       The in-kernel deterministic random bit generator (DRBG) is used in FIPS mode instead.
       Consequently, the rngd service can't be started in FIPS mode.
 {{% endif %}}

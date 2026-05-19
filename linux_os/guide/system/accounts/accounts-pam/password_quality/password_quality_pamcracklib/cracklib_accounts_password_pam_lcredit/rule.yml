@@ -43,13 +43,15 @@ ocil: |-
     command:
 
     <pre># grep pam_cracklib.so /etc/pam.d/common-password
-    password requisite pam_cracklib.so lcredit={{{ xccdf_value("var_password_pam_lcredit") }}}</pre>
+    password requisite pam_cracklib.so
+    lcredit={{{ xccdf_value("var_password_pam_lcredit") }}}</pre>
 
     If the command does not return anything, the returned line is commented
     out, or has a second column value different from "requisite", or does not
     contain <tt>lcredit={{{ xccdf_value("var_password_pam_lcredit") }}}</tt>, this is a finding.
 
-    The profile requires at least {{{ xccdf_value("var_password_pam_lcredit") }}} lowercase character in a password.
+    The profile requires at least {{{ xccdf_value("var_password_pam_lcredit") }}} lowercase
+    character in a password.
     This would appear as <tt>lcredit=-{{{ xccdf_value("var_password_pam_lcredit") }}}</tt>.
 
 template:

@@ -7,7 +7,8 @@ description: |-
     The audit system should collect access events to read audit log directory.
     The following audit rule will assure that access to audit log directory are
     collected.
-    Set ARCH to either b32 for 32-bit system, or have two lines for both b32 and b64 in case your system is 64-bit.
+    Set ARCH to either b32 for 32-bit system, or have two lines for both b32 and b64 in case your
+    system is 64-bit.
     <pre>-a always,exit -F arch=ARCH -F dir=/var/log/audit/ -F perm=r -F auid>={{{ auid }}} -F auid!=unset -F key=access-audit-trail</pre>
     If the <tt>auditd</tt> daemon is configured to use the <tt>augenrules</tt>
     program to read audit rules during daemon startup (the default), add the
@@ -18,7 +19,8 @@ description: |-
     <tt>/etc/audit/audit.rules</tt> file.
 
 rationale: |-
-    Attempts to read the logs should be recorded, suspicious access to audit log files could be an indicator of malicious activity on a system.
+    Attempts to read the logs should be recorded, suspicious access to audit log files could be an
+    indicator of malicious activity on a system.
     Auditing these events could serve as evidence of potential system compromise.'
 
 severity: medium

@@ -7,7 +7,8 @@ description: |-
 
 rationale: |-
   Use of a 64-bit operating system offers a few advantages, like a larger address space range for
-  Address Space Layout Randomization (ASLR) and systematic presence of No eXecute and Execute Disable (NX/XD) protection bits.
+  Address Space Layout Randomization (ASLR) and systematic presence of No eXecute and Execute
+  Disable (NX/XD) protection bits.
 
 warnings:
     - general: |-
@@ -28,7 +29,8 @@ ocil_clause: the installed operating system is 32-bit but the CPU supports opera
 ocil: |-
   To check if the installed Operating System is 64-bit, run the following command:
   <pre>$ uname -m</pre>
-  The output should be one of the following: <tt>x86_64</tt>, <tt>aarch64</tt>, <tt>ppc64le</tt> or <tt>s390x</tt>.
+  The output should be one of the following: <tt>x86_64</tt>, <tt>aarch64</tt>, <tt>ppc64le</tt>
+  or <tt>s390x</tt>.
   If the output is <tt>i686</tt> or <tt>i386</tt> the operating system is 32-bit.
   Check if the installed CPU supports 64-bit operating systems by running the following command:
   <pre>$ lscpu | grep "CPU op-mode"</pre>

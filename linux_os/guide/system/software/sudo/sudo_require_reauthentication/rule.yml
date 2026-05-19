@@ -11,7 +11,8 @@ description: |-
     <tt>/etc/sudoers</tt> configuration file or any sudo configuration snippets
     in <tt>/etc/sudoers.d/</tt>.
     If the value is set to an integer less than 0, the user's time stamp will not expire
-    and the user will not have to re-authenticate for privileged actions until the user's session is terminated.
+    and the user will not have to re-authenticate for privileged actions until the user's session
+    is terminated.
 
 rationale: |-
     Without re-authentication, users may access resources or perform tasks for which they
@@ -47,7 +48,8 @@ ocil: |-
     when using the "sudo" command to elevate privileges, run the following command:
     <pre>sudo grep -ri '^Defaults.*timestamp_timeout' /etc/sudoers /etc/sudoers.d</pre>
     The output should be:
-    <pre>/etc/sudoers:Defaults timestamp_timeout=0</pre> or "timestamp_timeout" is set to a positive number.
+    <pre>/etc/sudoers:Defaults timestamp_timeout=0</pre> or "timestamp_timeout" is set to a
+    positive number.
     If conflicting results are returned, this is a finding.
 
 fixtext: |-

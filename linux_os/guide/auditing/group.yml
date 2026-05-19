@@ -39,7 +39,8 @@ description: |-
     utility to read audit rules, use the following setting:
     <br /> <pre>{{{ audit_loading_systemd_directive ~ audit_loading_systemd_directive_suffix }}}/sbin/auditctl -R /etc/audit/audit.rules</pre>
     in the <tt>/usr/lib/systemd/system/{{{ audit_loading_service_file }}}</tt> configuration file.
-    Refer to <tt>[Service]</tt> section of the <tt>/usr/lib/systemd/system/{{{ audit_loading_service_file }}}</tt>
+    Refer to <tt>[Service]</tt> section of the
+    <tt>/usr/lib/systemd/system/{{{ audit_loading_service_file }}}</tt>
     configuration file for further details.
     <br /><br />
     Government networks often have substantial auditing

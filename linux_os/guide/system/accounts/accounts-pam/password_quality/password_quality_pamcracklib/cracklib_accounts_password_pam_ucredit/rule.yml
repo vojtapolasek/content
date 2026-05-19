@@ -41,10 +41,12 @@ ocil: |-
     To check how many uppercase characters are required in a password, run the
     following command:
     <pre>grep pam_cracklib.so /etc/pam.d/common-password
-    password requisite pam_cracklib.so ucredit={{{ xccdf_value("var_password_pam_ucredit") }}}</pre>
+    password requisite pam_cracklib.so
+    ucredit={{{ xccdf_value("var_password_pam_ucredit") }}}</pre>
     The <tt>ucredit</tt> parameter (as a negative number) will indicate how
     many uppercase characters are required.
-    The profile require at least {{{ xccdf_value("var_password_pam_ucredit") }}} uppercase character in a password.
+    The profile require at least {{{ xccdf_value("var_password_pam_ucredit") }}} uppercase
+    character in a password.
     This would appear as <tt>ucredit=-{{{ xccdf_value("var_password_pam_ucredit") }}}</tt>.
 
 template:

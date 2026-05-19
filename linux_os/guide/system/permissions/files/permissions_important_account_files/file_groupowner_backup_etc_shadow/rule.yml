@@ -39,7 +39,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_file_group_owner(file="/etc/shadow-", group=target_group) }}}'
 
-srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/shadow-", group=target_group) }}}'
+srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/shadow-", group=target_group)
+    }}}'
 
 template:
     name: file_groupowner

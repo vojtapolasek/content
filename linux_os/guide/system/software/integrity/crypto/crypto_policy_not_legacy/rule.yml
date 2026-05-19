@@ -21,8 +21,10 @@ description: >-
     policy modules, in which case it is delimited from the base policy using a colon.
 
 rationale: >-
-    Centralized cryptographic policies simplify applying secure ciphers across an operating system and
-    the applications that run on that operating system. Use of weak or untested encryption algorithms
+    Centralized cryptographic policies simplify applying secure ciphers across an operating system
+    and
+    the applications that run on that operating system. Use of weak or untested encryption
+    algorithms
     undermines the purposes of utilizing encryption to protect data.
     The <tt>LEGACY</tt> system-wide crypto policy includes support for outdated and weakened
     algorithms to ensure maximum compatibility with Red Hat Enterprise Linux 6 and
@@ -44,7 +46,8 @@ ocil: |-
     List all libraries for which it holds that their crypto policies do not have
     symbolic link in <pre>/etc/crypto-policies/back-ends</pre>.
     <pre>$ ls -l /etc/crypto-policies/back-ends/ | grep '^[^l]' | tail -n +2 | awk -F' ' '{print $NF}' | awk -F'.' '{print $1}' | sort</pre>
-    Subsequently, check if matching libraries have drop in files in the <pre>/etc/crypto-policies/local.d</pre> directory.
+    Subsequently, check if matching libraries have drop in files in the
+    <pre>/etc/crypto-policies/local.d</pre> directory.
     <pre>$ ls /etc/crypto-policies/local.d/ | awk -F'-' '{print $1}' | uniq | sort</pre>
     Outputs of two previous commands should match.
 
@@ -59,7 +62,8 @@ warnings:
         Act of 1996, Public Law 104-106. This standard shall be used in
         designing and implementing cryptographic modules that Federal
         departments and agencies operate or are operated for them under
-        contract. See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
+        contract. See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
         To meet this, the system has to have cryptographic software provided by
         a vendor that has undergone this certification. This means providing
         documentation, test results, design information, and independent third

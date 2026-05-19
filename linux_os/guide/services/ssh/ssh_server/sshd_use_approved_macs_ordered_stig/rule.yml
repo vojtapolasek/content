@@ -1,5 +1,5 @@
 {{%- if product == 'ubuntu2204' %}}
-{{%- set sshd_approved_macs = "hmac-sha2-512,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha2-256-etm@openssh.com" %}}
+{{%- set sshd_approved_macs = "hmac-sha2-512,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha2-256-etm@openssh.com" %}}  # yamllint disable-line rule:line-length
 {{%- else %}}
 {{%- set sshd_approved_macs = "hmac-sha2-512,hmac-sha2-256" %}}
 {{%- endif %}}
@@ -59,7 +59,8 @@ warnings:
         Act of 1996, Public Law 104-106. This standard shall be used in
         designing and implementing cryptographic modules that Federal
         departments and agencies operate or are operated for them under
-        contract. See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
+        contract. See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
         To meet this, the system has to have cryptographic software provided by
         a vendor that has undergone this certification. This means providing
         documentation, test results, design information, and independent third

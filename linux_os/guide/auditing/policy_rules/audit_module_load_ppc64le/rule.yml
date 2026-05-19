@@ -19,7 +19,9 @@ description: |-
     <pre>augenrules --load</pre>
 
 rationale: |-
-    Loading of a malicious kernel module introduces a risk to the system, as the module has access to sensitive data and perform actions at the operating system kernel level. Having such events audited helps in monitoring and investigating of malicious activities.
+    Loading of a malicious kernel module introduces a risk to the system, as the module has access
+    to sensitive data and perform actions at the operating system kernel level. Having such events
+    audited helps in monitoring and investigating of malicious activities.
 
 severity: medium
 
@@ -38,7 +40,8 @@ references:
 ocil_clause: 'the file does not exist or the content differs'
 
 ocil: |-
-    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules, check the content of the file with the following command:
+    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules,
+    check the content of the file with the following command:
     <pre>cat /etc/audit/rules.d/43-module-load.rules</pre>
     The output has to be exactly as follows:
     <pre>{{{ file_contents_audit_module_load|indent }}}    </pre>

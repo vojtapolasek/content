@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Configure AIDE To Notify Personnel if Baseline Configurations Are Altered'
 
 description: |-
-    The operating system file integrity tool must be configured to notify designated personnel of any changes to configurations.
+    The operating system file integrity tool must be configured to notify designated personnel of
+    any changes to configurations.
 
 rationale: |-
     Detecting changes in the system can help avoid unintended, and negative consequences
@@ -19,7 +20,8 @@ ocil_clause: 'silentreports is enabled in aide default configuration, or is miss
 
 ocil: |-
     Verify that Advanced Intrusion Detection Environment (AIDE) notifies the System Administrator
-    when anomalies in the operation of any security functions are discovered with the following command:
+    when anomalies in the operation of any security functions are discovered with the following
+    command:
     <pre># grep SILENTREPORTS {{{ aide_default_path }}} </pre>
 
     SILENTREPORTS=no
@@ -31,9 +33,11 @@ ocil: |-
     If SILENTREPORTS is not set to "no", this is a finding.
 
 fixtext: |-
-    Configure the {{{ full_name }}} operating system to notify designated personnel if baseline configurations are changed in an unauthorized manner.
+    Configure the {{{ full_name }}} operating system to notify designated personnel if baseline
+    configurations are changed in an unauthorized manner.
 
-    Modify the "SILENTREPORTS" parameter in the "{{{ aide_default_path }}}" file with a value of "no" if it does not already exist.
+    Modify the "SILENTREPORTS" parameter in the "{{{ aide_default_path }}}" file with a value of
+    "no" if it does not already exist.
 
 srg_requirement:
     {{{ full_name }}} must notify designated personnel if baseline configurations are changed in an unauthorized manner.

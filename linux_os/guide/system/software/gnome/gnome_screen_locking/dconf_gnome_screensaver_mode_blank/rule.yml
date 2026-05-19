@@ -34,7 +34,8 @@ description: |-
     picture-uri=string ''
     </pre>
     Once the settings have been added, add a lock to
-    <tt>/etc/dconf/db/{{{ dconf_gdm_dir }}}/locks/00-security-settings-lock</tt> to prevent user modification.
+    <tt>/etc/dconf/db/{{{ dconf_gdm_dir }}}/locks/00-security-settings-lock</tt> to prevent user
+    modification.
     For example:
     <pre>/org/gnome/desktop/screensaver/picture-uri</pre>
     After the settings have been set, run <tt>dconf update</tt>.
@@ -58,7 +59,7 @@ references:
     cjis: 5.5.5
     cobit5: DSS05.04,DSS05.10,DSS06.10
     cui: 3.1.10
-    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9
+    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9  # yamllint disable-line rule:line-length
     isa-62443-2013: 'SR 1.1,SR 1.10,SR 1.2,SR 1.5,SR 1.7,SR 1.8,SR 1.9'
     iso27001-2013: A.18.1.4,A.9.2.1,A.9.2.4,A.9.3.1,A.9.4.2,A.9.4.3
     nist: AC-11(1),CM-6(a),AC-11(1).1
@@ -77,7 +78,8 @@ ocil: |-
 
     To ensure that users cannot set the screensaver background, run the following:
     <pre>$ grep picture-uri /etc/dconf/db/{{{ dconf_gdm_dir }}}/locks/*</pre>
-    If properly configured, the output should be <tt>/org/gnome/desktop/screensaver/picture-uri</tt>
+    If properly configured, the output should be
+    <tt>/org/gnome/desktop/screensaver/picture-uri</tt>
 
 fixtext: |-
     {{{ fixtext_dconf_ini_file("org/gnome/desktop/screensaver", "picture-uri", "string ''") }}}

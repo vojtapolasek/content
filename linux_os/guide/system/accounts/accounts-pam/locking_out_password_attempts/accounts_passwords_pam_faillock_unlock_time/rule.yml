@@ -9,14 +9,17 @@ description: |-
 
     Ensure that the file <tt>/etc/security/faillock.conf</tt> contains the following entry:
     <tt>unlock_time=&lt;interval-in-seconds&gt;</tt> where
-    <tt>interval-in-seconds</tt> is <tt>{{{xccdf_value("var_accounts_passwords_pam_faillock_unlock_time") }}}</tt> or greater.
+    <tt>interval-in-seconds</tt> is
+    <tt>{{{xccdf_value("var_accounts_passwords_pam_faillock_unlock_time") }}}</tt> or greater.
 
     pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
     defined to work as expected. In order to avoid any errors when manually editing these files,
-    it is recommended to use the appropriate tools, such as <tt>authselect</tt> or <tt>authconfig</tt>,
+    it is recommended to use the appropriate tools, such as <tt>authselect</tt> or
+    <tt>authconfig</tt>,
     depending on the OS version.
 
-    If <tt>unlock_time</tt> is set to <tt>0</tt>, manual intervention by an administrator is required
+    If <tt>unlock_time</tt> is set to <tt>0</tt>, manual intervention by an administrator is
+    required
     to unlock a user. This should be done using the <tt>faillock</tt> tool.
 
 rationale: |-
@@ -38,7 +41,7 @@ references:
     cjis: 5.5.3
     cobit5: DSS05.04,DSS05.10,DSS06.10
     cui: 3.1.8
-    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9
+    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9  # yamllint disable-line rule:line-length
     isa-62443-2013: 'SR 1.1,SR 1.10,SR 1.2,SR 1.5,SR 1.7,SR 1.8,SR 1.9'
     iso27001-2013: A.18.1.4,A.9.2.1,A.9.2.4,A.9.3.1,A.9.4.2,A.9.4.3
     nist: CM-6(a),AC-7(b)
@@ -56,7 +59,8 @@ platform: package[pam]
 {{% endif %}}
 
 ocil_clause: |-
-    the "unlock_time" option is not set to "{{{ xccdf_value("var_accounts_passwords_pam_faillock_unlock_time") }}}",
+    the "unlock_time" option is not set to
+    "{{{ xccdf_value("var_accounts_passwords_pam_faillock_unlock_time") }}}",
     the line is missing, or commented out
 
 ocil: |-
@@ -70,7 +74,8 @@ ocil: |-
 
 fixtext: |-
     Configure {{{ full_name }}} to lock an account until released by an administrator after
-    {{{ xccdf_value("var_accounts_passwords_pam_faillock_deny") }}} unsuccessful logon attempts with the command:
+    {{{ xccdf_value("var_accounts_passwords_pam_faillock_deny") }}} unsuccessful logon attempts
+    with the command:
 
     $ sudo authselect enable-feature with-faillock
 
@@ -79,14 +84,17 @@ fixtext: |-
 
 
 srg_requirement: |-
-    {{{ full_name }}} must maintain an account lock until the locked account is released by an administrator.
+    {{{ full_name }}} must maintain an account lock until the locked account is released by an
+    administrator.
 
 warnings:
     - general: |-
        If the system supports the new <tt>/etc/security/faillock.conf</tt> file but the
        pam_faillock.so parameters are defined directly in <tt>/etc/pam.d/system-auth</tt> and
-       <tt>/etc/pam.d/password-auth</tt>, the remediation will migrate the <tt>unlock_time</tt> parameter
-       to <tt>/etc/security/faillock.conf</tt> to ensure compatibility with <tt>authselect</tt> tool.
+       <tt>/etc/pam.d/password-auth</tt>, the remediation will migrate the <tt>unlock_time</tt>
+       parameter
+       to <tt>/etc/security/faillock.conf</tt> to ensure compatibility with <tt>authselect</tt>
+       tool.
        The parameters <tt>deny</tt> and <tt>fail_interval</tt>, if used, also have to be migrated
        by their respective remediation.
 

@@ -15,9 +15,11 @@ description: |-
     recommended to use the appropriate tools, such as <tt>authselect</tt> or <tt>authconfig</tt>,
     depending on the OS version.
 
-    The chosen profile expects the directory to be <tt>{{{ xccdf_value("var_accounts_passwords_pam_faillock_dir") }}}</tt>.
+    The chosen profile expects the directory to be
+    <tt>{{{ xccdf_value("var_accounts_passwords_pam_faillock_dir") }}}</tt>.
 
-    To configure the tally directory, add the following line to <tt>/etc/security/faillock.conf</tt>:
+    To configure the tally directory, add the following line to
+    <tt>/etc/security/faillock.conf</tt>:
     <pre>dir = {{{ xccdf_value("var_accounts_passwords_pam_faillock_dir") }}}</pre>
 
 rationale: |-
@@ -37,7 +39,8 @@ references:
     srg: SRG-OS-000021-GPOS-00005,SRG-OS-000329-GPOS-00128
     stigid@ol8: OL08-00-020017
 
-ocil_clause: 'the "dir" option is not set to a non-default documented tally log directory, is missing or commented out'
+ocil_clause: 'the "dir" option is not set to a non-default documented tally log directory, is
+    missing or commented out'
 
 ocil: |-
     To ensure the tally directory is configured correctly, run the following command:

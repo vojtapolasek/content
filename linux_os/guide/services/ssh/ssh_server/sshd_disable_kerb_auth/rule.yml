@@ -17,7 +17,9 @@ rationale: |-
     Kerberos authentication for SSH is often implemented using GSSAPI. If Kerberos
     is enabled through SSH, the SSH daemon provides a means of access to the
     system's Kerberos implementation.
-    Configuring these settings for the SSH daemon provides additional assurance that remote logon via SSH will not use unused methods of authentication, even in the event of misconfiguration elsewhere.
+    Configuring these settings for the SSH daemon provides additional assurance that remote logon
+    via SSH will not use unused methods of authentication, even in the event of misconfiguration
+    elsewhere.
 
 severity: medium
 
@@ -48,7 +50,8 @@ references:
 fixtext: |-
     {{{ fixtext_sshd_lineinfile("KerberosAuthentication", "no") }}}
 
-srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow Kerberos authentication, except to fulfill documented and validated mission requirements.'
+srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow Kerberos authentication, except
+    to fulfill documented and validated mission requirements.'
 
 template:
     name: sshd_lineinfile

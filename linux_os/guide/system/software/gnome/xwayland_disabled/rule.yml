@@ -15,7 +15,8 @@ description: |-
 
 rationale: |-
   XWayland is a compatibility layer for running X11 applications on Wayland.
-  It is not secure and should be disabled. Wayland's security benefits from not relying on X11's network listener. Without X11,
+  It is not secure and should be disabled. Wayland's security benefits from not relying on X11's
+  network listener. Without X11,
   there's no network listener, making it harder for malicious actors to exploit vulnerabilities
   in X11. However, enabling Xwayland (running X11 applications on Wayland) introduces
   X11's security concerns.
@@ -31,7 +32,8 @@ identifiers:
   cce@rhel10: CCE-87228-3
 
 ocil_clause: |-
-  The WaylandEnable parameter is not set to false in the [daemon] section of the /etc/gdm/custom.conf file.
+  The WaylandEnable parameter is not set to false in the [daemon] section of the
+  /etc/gdm/custom.conf file.
 
 ocil: |-
   To verify that XWayland is disabled, run the following command:

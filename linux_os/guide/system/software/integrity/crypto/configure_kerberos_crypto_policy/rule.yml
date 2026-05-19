@@ -7,7 +7,8 @@ description: |-
     Crypto Policies provide a centralized control over crypto algorithms usage of many packages.
     Kerberos is supported by crypto policy, but it's configuration may be
     set up to ignore it.
-    To check that Crypto Policies settings for Kerberos are configured correctly, examine that there is a symlink at
+    To check that Crypto Policies settings for Kerberos are configured correctly, examine that
+    there is a symlink at
     /etc/krb5.conf.d/crypto-policies targeting /etc/cypto-policies/back-ends/krb5.config.
     If the symlink exists, Kerberos is configured to use the system-wide crypto policy settings.
 
@@ -32,16 +33,22 @@ references:
 ocil_clause: 'the symlink does not exist or points to a different target'
 
 ocil: |-
-    Check that the symlink exists and target the correct Kerberos crypto policy, with the following command:
+    Check that the symlink exists and target the correct Kerberos crypto policy, with the
+    following command:
     <pre>file /etc/krb5.conf.d/crypto-policies</pre>
-    If command output shows the following line, Kerberos is configured to use the system-wide crypto policy.
+    If command output shows the following line, Kerberos is configured to use the system-wide
+    crypto policy.
     <pre>/etc/krb5.conf.d/crypto-policies: symbolic link to /etc/crypto-policies/back-ends/krb5.config</pre>
 
 fixtext: |-
     Configure Kerberos to use system crypto policy.
-    Create a symlink pointing to system crypto policy in the Kerberos configuration using the following command:
+    Create a symlink pointing to system crypto policy in the Kerberos configuration using the
+    following command:
     $ sudo ln -s /etc/crypto-policies/back-ends/krb5.config /etc/krb5.conf.d/crypto-policies
 
-srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the following: to provision digital signatures, to generate cryptographic hashes, and to protect data requiring data-at-rest protections in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards.'
+srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the
+    following: to provision digital signatures, to generate cryptographic hashes, and to protect
+    data requiring data-at-rest protections in accordance with applicable federal laws, Executive
+    Orders, directives, policies, regulations, and standards.'
 
 platform: package[krb5-libs]

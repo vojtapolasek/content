@@ -9,7 +9,8 @@ description: |-
     package metadata stored in the RPM database. Although an attacker
     could corrupt the RPM database (analogous to attacking the AIDE
     database as described above), this check can still reveal
-    modification of important files. To list which files on the system differ from what is expected by the RPM database:
+    modification of important files. To list which files on the system differ from what is
+    expected by the RPM database:
     <pre>$ rpm -qVa</pre>
     See the man page for <tt>rpm</tt> to see a complete explanation of each column.
 

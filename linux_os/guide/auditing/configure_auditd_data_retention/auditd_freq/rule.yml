@@ -4,11 +4,13 @@ title: 'Set number of records to cause an explicit flush to audit logs'
 
 description: |-
     To configure Audit daemon to issue an explicit flush to disk command
-    after writing {{{ xccdf_value("var_auditd_freq") }}} records, set <tt>freq</tt> to <tt>{{{ xccdf_value("var_auditd_freq") }}}</tt>
+    after writing {{{ xccdf_value("var_auditd_freq") }}} records, set <tt>freq</tt> to
+    <tt>{{{ xccdf_value("var_auditd_freq") }}}</tt>
     in <tt>/etc/audit/auditd.conf</tt>.
 
 rationale: |-
-    If option <tt>freq</tt> isn't set to <tt>{{{ xccdf_value("var_auditd_freq") }}}</tt>, the flush to disk
+    If option <tt>freq</tt> isn't set to <tt>{{{ xccdf_value("var_auditd_freq") }}}</tt>, the
+    flush to disk
     may happen after higher number of records, increasing the danger
     of audit loss.
 
@@ -38,7 +40,8 @@ fixtext: |-
     {{{ fixtext_audit_configuration(param="freq", value=xccdf_value("var_auditd_freq")) | indent(4) }}}
 
 srg_requirement: |-
-    {{{ full_name }}} must periodically flush audit records to disk to ensure that audit records are not lost.
+    {{{ full_name }}} must periodically flush audit records to disk to ensure that audit records
+    are not lost.
 
 template:
     name: auditd_lineinfile

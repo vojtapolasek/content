@@ -7,8 +7,10 @@ description: |-
     {{{ describe_package_install(package="crypto-policies") }}}
 
 rationale: |-
-    Centralized cryptographic policies simplify applying secure ciphers across an operating system and
-    the applications that run on that operating system. Use of weak or untested encryption algorithms
+    Centralized cryptographic policies simplify applying secure ciphers across an operating system
+    and
+    the applications that run on that operating system. Use of weak or untested encryption
+    algorithms
     undermines the purposes of utilizing encryption to protect data.
 
 severity: medium

@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: 'Limit CPU consumption of the Perf system'
 
-description: '{{{ describe_sysctl_option_value(sysctl="kernel.perf_cpu_time_max_percent", value="1") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="kernel.perf_cpu_time_max_percent",
+    value="1") }}}'
 
 rationale: |-
     The <tt>kernel.perf_cpu_time_max_percent</tt> configures a threshold of

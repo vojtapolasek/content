@@ -22,7 +22,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_file_group_owner(file="/etc/security/opasswd", group="root") }}}'
 
-srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/security/opasswd", group="root") }}}'
+srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/security/opasswd", group="root")
+    }}}'
 
 template:
     name: file_groupowner

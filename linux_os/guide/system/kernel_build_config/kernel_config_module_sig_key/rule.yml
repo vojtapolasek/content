@@ -8,7 +8,8 @@ description: |-
     of your choosing.
 
     The string provided should identify a file containing both a private key and
-    its corresponding X.509 certificate in PEM form, or — on systems where the OpenSSL ENGINE_pkcs11
+    its corresponding X.509 certificate in PEM form, or — on systems where the OpenSSL
+    ENGINE_pkcs11
     is functional — a PKCS#11 URI as defined by RFC7512. In the latter case, the PKCS#11 URI should
     reference both a certificate and a private key.
 

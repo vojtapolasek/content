@@ -67,7 +67,9 @@ ocil: |-
     <pre>$ sudo find -L <i>DIR</i> -perm /022 -type d</pre>
 
 fixtext: |-
-    Configure the {{{ full_name }}} library directories to be protected from unauthorized access. Run the following command, replacing "[DIRECTORY]" with any library directory with a mode more permissive than 755.
+    Configure the {{{ full_name }}} library directories to be protected from unauthorized access.
+    Run the following command, replacing "[DIRECTORY]" with any library directory with a mode more
+    permissive than 755.
 
     $ sudo chmod 755 [DIRECTORY]
 

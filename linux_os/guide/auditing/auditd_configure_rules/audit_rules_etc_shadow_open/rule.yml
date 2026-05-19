@@ -18,7 +18,8 @@ description: |-
     <pre>-a always,exit -F arch=b64 -S open -F a1&amp;03 -F path=/etc/shadow -F auid>={{{ auid }}} -F auid!=unset -F key=user-modify</pre>
 
 rationale: |-
-    Creation of users through direct edition of /etc/shadow could be an indicator of malicious activity on a system.
+    Creation of users through direct edition of /etc/shadow could be an indicator of malicious
+    activity on a system.
     Auditing these events could serve as evidence of potential system compromise.
 
 severity: medium
@@ -32,7 +33,7 @@ identifiers:
     cce@rhel10: CCE-90338-5
 
 references:
-    nerc-cip: CIP-004-6 R2.2.2,CIP-004-6 R2.2.3,CIP-007-3 R.1.3,CIP-007-3 R5,CIP-007-3 R5.1.1,CIP-007-3 R5.1.3,CIP-007-3 R5.2.1,CIP-007-3 R5.2.3
+    nerc-cip: CIP-004-6 R2.2.2,CIP-004-6 R2.2.3,CIP-007-3 R.1.3,CIP-007-3 R5,CIP-007-3 R5.1.1,CIP-007-3 R5.1.3,CIP-007-3 R5.2.1,CIP-007-3 R5.2.3  # yamllint disable-line rule:line-length
     nist: AC-2(4),AU-2(d),AU-12(c),AC-6(9),CM-6(a)
 
 {{{ complete_ocil_entry_audit_syscall(syscall="open") }}}

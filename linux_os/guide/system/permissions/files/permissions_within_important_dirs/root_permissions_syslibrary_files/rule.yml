@@ -70,7 +70,8 @@ template:
         gid_or_name: '0'
 
 fixtext: |-
-    Configure the system-wide shared library files (/lib, /lib64, /usr/lib and /usr/lib64) to be protected from unauthorized access.
+    Configure the system-wide shared library files (/lib, /lib64, /usr/lib and /usr/lib64) to be
+    protected from unauthorized access.
 
 {{%- if 'ubuntu' in product %}}
     Run the following command:

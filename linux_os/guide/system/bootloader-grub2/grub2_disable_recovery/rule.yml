@@ -27,7 +27,8 @@ references:
 ocil_clause: 'GRUB_DISABLE_RECOVERY is not set to true or is missing'
 
 ocil: |-
-    Verify that <tt>GRUB_DISABLE_RECOVERY</tt> is set to </tt>true</tt> in <tt>/etc/default/grub</tt> to disable recovery boot.
+    Verify that <tt>GRUB_DISABLE_RECOVERY</tt> is set to </tt>true</tt> in
+    <tt>/etc/default/grub</tt> to disable recovery boot.
     Run the following command:
 
     $ sudo grep GRUB_DISABLE_RECOVERY /etc/default/grub

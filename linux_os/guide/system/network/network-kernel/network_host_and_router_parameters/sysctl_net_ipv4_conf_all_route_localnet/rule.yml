@@ -2,12 +2,14 @@ documentation_complete: true
 
 title: 'Prevent Routing External Traffic to Local Loopback on All IPv4 Interfaces'
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.route_localnet", value="0")}}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.route_localnet",
+    value="0")}}}'
 
 rationale: |-
     Refuse the routing of packets whose source or destination address is the local loopback.
     This prohibits the use of network 127/8 for local routing purposes.
-    Enabling <tt>route_localnet</tt> can expose applications listening on localhost to external traffic.
+    Enabling <tt>route_localnet</tt> can expose applications listening on localhost to external
+    traffic.
 
 severity: medium
 

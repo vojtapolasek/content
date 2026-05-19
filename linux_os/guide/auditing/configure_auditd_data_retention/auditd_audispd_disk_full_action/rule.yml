@@ -5,7 +5,8 @@ title: 'Configure audispd''s Plugin disk_full_action When Disk Is Full'
 
 description: |-
     Configure the action the operating system takes if the disk the audit records
-    are written to becomes full. Edit the file <tt>{{{ audisp_conf_path }}}/audisp-remote.conf</tt>.
+    are written to becomes full. Edit the file
+    <tt>{{{ audisp_conf_path }}}/audisp-remote.conf</tt>.
     Add or modify the following line, substituting <i>ACTION</i> appropriately:
     <pre>disk_full_action = <i>ACTION</i></pre>
     Set this value to <tt>single</tt> to cause the system to switch to single user

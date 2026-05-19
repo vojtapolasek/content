@@ -15,7 +15,8 @@ rationale: |-
 
 severity: medium
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/audit/audit.rules", perms="-rw-r-----") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/audit/audit.rules", perms="-rw-r-----")
+    }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/etc/audit/audit.rules", perms="-rw-r-----") }}}
@@ -23,7 +24,8 @@ ocil: |-
 fixtext: |-
     {{{ describe_file_permissions(file="/etc/audit/audit.rules", perms="0640") }}}
 
-srg_requirement: '{{{ srg_requirement_file_permission(file="/etc/audit/audit.rules", mode="0640")  }}}'
+srg_requirement: '{{{ srg_requirement_file_permission(file="/etc/audit/audit.rules", mode="0640")
+    }}}'
 
 template:
     name: file_permissions

@@ -48,7 +48,8 @@ fixtext: |-
 
     If necessary, create a "wheel" group and add administrative users to the group.
 
-srg_requirement: '{{{ full_name }}} Must Require Users To Re-Authenticate For Privilege Escalation.'
+srg_requirement: '{{{ full_name }}} Must Require Users To Re-Authenticate For Privilege
+    Escalation.'
 
 warnings:
     - general: |-
@@ -57,8 +58,10 @@ warnings:
         a different group should be informed according to the site policy.
 
 vuldiscussion: |-
-    Without re-authentication, users may access resources or perform tasks for which they do not have authorization.
-    When operating systems provide the capability to escalate a functional capability, it is critical the user re-authenticate.
+    Without re-authentication, users may access resources or perform tasks for which they do not
+    have authorization.
+    When operating systems provide the capability to escalate a functional capability, it is
+    critical the user re-authenticate.
 
 platform: package[pam]
 

@@ -33,19 +33,21 @@ identifiers:
 
 references:
     nist@sle12: AU-3,AU-3.1,AU-12.1(ii),AU-12(a),AU-12.1(iv),AU-12(c),MA-4(1)(a)
-    srg: SRG-OS-000037-GPOS-00015,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-APP-000495-CTR-001235
+    srg: SRG-OS-000037-GPOS-00015,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-APP-000495-CTR-001235  # yamllint disable-line rule:line-length
     stigid@sle12: SLES-12-020300
     stigid@sle15: SLES-15-030360
 
 ocil_clause: '{{{ ocil_clause_audit() }}}'
 
 ocil: |-
-    Verify that {{{ full_name }}} generates an audit record for all uses of the "umount" and system call.
+    Verify that {{{ full_name }}} generates an audit record for all uses of the "umount" and
+    system call.
     To determine if the system is configured to audit calls to the
     "umount" system call, run the following command:
     <pre space="preserve">$ sudo grep "umount" /etc/audit/audit.*</pre>
     If the system is configured to audit this activity, it will return a line like the following.
-    -a always,exit -F arch=b32 -S umount -F auid>={{{ uid_min }}} -F auid!=unset -k privileged-umount
+    -a always,exit -F arch=b32 -S umount -F auid>={{{ uid_min }}} -F auid!=unset -k
+    privileged-umount
 
 warnings:
     - general: |-

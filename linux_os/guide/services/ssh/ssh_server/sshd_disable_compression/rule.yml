@@ -54,9 +54,11 @@ platform: os_linux[ol]<7.4
 platform: package[openssh]<7.4
 {{% endif %}}
 
-fixtext: '{{{ fixtext_sshd_lineinfile("Compression", xccdf_value("var_sshd_disable_compression"), no) }}}'
+fixtext: '{{{ fixtext_sshd_lineinfile("Compression", xccdf_value("var_sshd_disable_compression"),
+    no) }}}'
 
-srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow compression or must only allow compression after successful authentication.'
+srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow compression or must only allow
+    compression after successful authentication.'
 
 template:
     name: sshd_lineinfile

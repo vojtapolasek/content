@@ -33,7 +33,8 @@ references:
     srg: SRG-OS-000380-GPOS-00165
     stigid@sle12: SLES-12-010660
 
-ocil_clause: 'any temporary or emergency accounts have no expiration date set or do not expire within a documented time frame'
+ocil_clause: 'any temporary or emergency accounts have no expiration date set or do not expire
+    within a documented time frame'
 
 ocil: |-
     Verify that a policy exists that ensures when a user is created, it is

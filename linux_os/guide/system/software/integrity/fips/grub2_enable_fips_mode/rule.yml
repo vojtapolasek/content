@@ -5,7 +5,8 @@ title: 'Enable FIPS Mode in GRUB2'
 
 description: |-
     {{% if 'rhel' not in product %}}
-    To ensure FIPS mode is enabled, install package <tt>dracut-fips</tt>, and rebuild <tt>initramfs</tt> by running the following commands:
+    To ensure FIPS mode is enabled, install package <tt>dracut-fips</tt>, and rebuild
+    <tt>initramfs</tt> by running the following commands:
     <pre>{{{ package_install("dracut-fips") }}}
     dracut -f</pre>
     After the <tt>dracut</tt> command has been run, add the argument <tt>fips=1</tt> to the default
@@ -36,9 +37,11 @@ description: |-
     </pre>
 
 rationale: |-
-    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption
+    to
     protect data. The operating system must implement cryptographic modules adhering to the higher
-    standards approved by the federal government since this provides assurance they have been tested
+    standards approved by the federal government since this provides assurance they have been
+    tested
     and validated.
 
 severity: high
@@ -54,12 +57,12 @@ references:
     cobit5: APO13.01,DSS01.04,DSS05.02,DSS05.03
     cui: 3.13.8,3.13.11
     isa-62443-2009: 4.3.3.6.6
-    isa-62443-2013: 'SR 1.13,SR 2.6,SR 3.1,SR 3.5,SR 3.8,SR 4.1,SR 4.3,SR 5.1,SR 5.2,SR 5.3,SR 7.1,SR 7.6'
+    isa-62443-2013: 'SR 1.13,SR 2.6,SR 3.1,SR 3.5,SR 3.8,SR 4.1,SR 4.3,SR 5.1,SR 5.2,SR 5.3,SR 7.1,SR 7.6'  # yamllint disable-line rule:line-length
     iso27001-2013: A.11.2.6,A.13.1.1,A.13.2.1,A.14.1.3,A.6.2.1,A.6.2.2
     nerc-cip: CIP-003-8 R4.2,CIP-007-3 R5.1
     nist: SC-12(2),SC-12(3),IA-7,SC-13,CM-6(a),SC-12
     nist-csf: PR.AC-3,PR.PT-4
-    srg: SRG-OS-000033-GPOS-00014,SRG-OS-000185-GPOS-00079,SRG-OS-000396-GPOS-00176,SRG-OS-000405-GPOS-00184,SRG-OS-000478-GPOS-00223
+    srg: SRG-OS-000033-GPOS-00014,SRG-OS-000185-GPOS-00079,SRG-OS-000396-GPOS-00176,SRG-OS-000405-GPOS-00184,SRG-OS-000478-GPOS-00223  # yamllint disable-line rule:line-length
     stigid@ol7: OL07-00-021350
 
 ocil_clause: 'FIPS is not configured or enabled in grub'
@@ -76,9 +79,13 @@ warnings:
         {{% if 'rhel' not in product %}}
         The system needs to be rebooted for these changes to take effect.
         {{% else %}}
-        To configure {{{ full_name }}} to run in FIPS 140 mode, the kernel parameter "fips=1" needs to be added during its installation.
-        Only enabling FIPS 140 mode during the {{{ full_name }}} installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
-        Enabling FIPS mode on a preexisting system involves a number of modifications to it and therefore is not supported.
+        To configure {{{ full_name }}} to run in FIPS 140 mode, the kernel parameter "fips=1"
+        needs to be added during its installation.
+        Only enabling FIPS 140 mode during the {{{ full_name }}} installation ensures that the
+        system generates all keys with FIPS-approved algorithms and continuous monitoring tests in
+        place.
+        Enabling FIPS mode on a preexisting system involves a number of modifications to it and
+        therefore is not supported.
         {{% endif %}}
     - regulatory: |-
         System Crypto Modules must be provided by a vendor that undergoes
@@ -90,7 +97,8 @@ warnings:
         Act of 1996, Public Law 104-106. This standard shall be used in
         designing and implementing cryptographic modules that Federal
         departments and agencies operate or are operated for them under
-        contract. See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
+        contract. See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
         To meet this, the system has to have cryptographic software provided by
         a vendor that has undergone this certification. This means providing
         documentation, test results, design information, and independent third

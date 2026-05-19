@@ -8,7 +8,8 @@ description: |-
     Libreswan is supported by system crypto policy, but the Libreswan configuration may be
     set up to ignore it.
 
-    To check that Crypto Policies settings are configured correctly, ensure that the <tt>/etc/ipsec.conf</tt>
+    To check that Crypto Policies settings are configured correctly, ensure that the
+    <tt>/etc/ipsec.conf</tt>
     includes the appropriate configuration file.
     In <tt>/etc/ipsec.conf</tt>, make sure that the following line
     is not commented out or superseded by later includes:
@@ -37,7 +38,8 @@ references:
     stigid@ol8: OL08-00-010020
 
 ocil_clause: |-
-    the "IPsec" service is active and the ipsec configuration file does not contain does not contain <tt>include /etc/crypto-policies/back-ends/libreswan.config</tt>
+    the "IPsec" service is active and the ipsec configuration file does not contain does not
+    contain <tt>include /etc/crypto-policies/back-ends/libreswan.config</tt>
 
 ocil: |-
     Verify that the IPsec service uses the system crypto policy.
@@ -52,7 +54,8 @@ ocil: |-
     Loaded: loaded (/usr/lib/systemd/system/ipsec.service; disabled)
     Active: inactive (dead)
 
-    If the "IPsec" service is active, check to see if it is using the system crypto policy with the following command:
+    If the "IPsec" service is active, check to see if it is using the system crypto policy with
+    the following command:
 
     $ sudo grep include /etc/ipsec.conf /etc/ipsec.d/*.conf
 
@@ -65,6 +68,9 @@ fixtext: |-
     Add the following line to "/etc/ipsec.conf":
     include /etc/crypto-policies/back-ends/libreswan.config
 
-srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the following: to provision digital signatures, to generate cryptographic hashes, and to protect data requiring data-at-rest protections in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards.'
+srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the
+    following: to provision digital signatures, to generate cryptographic hashes, and to protect
+    data requiring data-at-rest protections in accordance with applicable federal laws, Executive
+    Orders, directives, policies, regulations, and standards.'
 
 platform: system_with_kernel and package[libreswan]

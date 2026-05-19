@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: Configure Accepting Prefix Information in Router Advertisements on All IPv6 Interfaces
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.all.accept_ra_pinfo", value="0") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.all.accept_ra_pinfo",
+    value="0") }}}'
 
 rationale: An illicit router advertisement message could result in a man-in-the-middle attack.
 

@@ -6,7 +6,8 @@ title: 'Ensure PAM Enforces Password Requirements - Enforce for Local Accounts O
 description: |-
     The pam_pwquality module's <tt>local_users_only</tt> parameter controls requirements for
     enforcing password complexity by pam_pwquality only for local user accounts and ignoring
-    centralized user account management password complexity configurations. Enable the <tt>local_users_only</tt>
+    centralized user account management password complexity configurations. Enable the
+    <tt>local_users_only</tt>
     setting in <tt>{{{ pwquality_path }}}</tt> to require password complexity enforcement
     for only local user accounts.
 

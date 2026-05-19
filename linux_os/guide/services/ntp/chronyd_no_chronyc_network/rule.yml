@@ -30,12 +30,14 @@ references:
 ocil_clause: 'the "cmdport" option is not set to "0", is commented out, or is missing'
 
 ocil: |-
-    Verify {{{ full_name }}} disables network management of the chrony daemon with the following command:
+    Verify {{{ full_name }}} disables network management of the chrony daemon with the following
+    command:
     <pre>$ grep -w cmdport {{{ chrony_conf_path }}}</pre>
     <pre>cmdport 0</pre>
 
 fixtext: |-
-    Configure {{{ full_name }}} to disable network management of the chrony daemon by adding/modifying the following line in the {{{ chrony_conf_path }}} file:
+    Configure {{{ full_name }}} to disable network management of the chrony daemon by
+    adding/modifying the following line in the {{{ chrony_conf_path }}} file:
 
     cmdport 0
 

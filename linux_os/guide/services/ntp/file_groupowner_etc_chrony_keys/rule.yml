@@ -24,7 +24,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_file_group_owner(file="/etc/chrony.keys", group="chrony") }}}'
 
-srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/chrony.keys", group="chrony") }}}'
+srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/chrony.keys", group="chrony")
+    }}}'
 
 template:
     name: file_groupowner

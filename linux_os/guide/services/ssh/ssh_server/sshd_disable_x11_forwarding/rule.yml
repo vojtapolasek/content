@@ -48,7 +48,8 @@ references:
 
 fixtext: '{{{ fixtext_sshd_lineinfile("X11Forwarding", "no", "no") }}}'
 
-srg_requirement: '{{{ full_name }}} remote X connections for interactive users must be disabled unless to fulfill documented and validated mission requirements.'
+srg_requirement: '{{{ full_name }}} remote X connections for interactive users must be disabled
+    unless to fulfill documented and validated mission requirements.'
 
 template:
     name: sshd_lineinfile

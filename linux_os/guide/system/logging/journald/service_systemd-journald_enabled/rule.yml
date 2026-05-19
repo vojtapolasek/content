@@ -8,7 +8,9 @@ description: |-
     {{{ describe_service_enable(service="systemd-journald") }}}
 
 rationale: |-
-    In the event of a system failure, {{{ full_name }}} must preserve any information necessary to determine cause of failure and any information necessary to return to operations with least disruption to system processes.
+    In the event of a system failure, {{{ full_name }}} must preserve any information necessary to
+    determine cause of failure and any information necessary to return to operations with least
+    disruption to system processes.
 
 severity: medium
 

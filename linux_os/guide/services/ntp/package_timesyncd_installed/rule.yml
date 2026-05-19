@@ -5,7 +5,9 @@ title: 'Install the systemd_timesyncd Service'
 
 description: 'The systemd_timesyncd service should be installed.'
 
-rationale: 'Time synchronization (using NTP) is required by almost all network and administrative tasks (syslog, cryptographic based services (authentication, etc.), etc.). systemd_timesyncd is a part of the systemd suite and acts as a NTP client.'
+rationale: 'Time synchronization (using NTP) is required by almost all network and administrative
+    tasks (syslog, cryptographic based services (authentication, etc.), etc.). systemd_timesyncd
+    is a part of the systemd suite and acts as a NTP client.'
 
 severity: high
 

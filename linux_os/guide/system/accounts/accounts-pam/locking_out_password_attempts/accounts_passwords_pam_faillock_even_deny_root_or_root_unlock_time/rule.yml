@@ -28,7 +28,8 @@ identifiers:
 
 platform: package[pam]
 
-ocil_clause: 'neither "even_deny_root" is set nor "root_unlock_time" is set to {{{ xccdf_value("var_accounts_passwords_pam_faillock_root_unlock_time") }}} or greater'
+ocil_clause: 'neither "even_deny_root" is set nor "root_unlock_time" is set to {{{
+    xccdf_value("var_accounts_passwords_pam_faillock_root_unlock_time") }}} or greater'
 
 ocil: >-
     Verify {{{ full_name }}} is configured to include the root account in the account lockout
@@ -40,7 +41,9 @@ ocil: >-
     <pre>even_deny_root</pre>
     or:
     <pre>root_unlock_time = &lt;value&gt;</pre>
-    where <tt>&lt;value&gt;</tt> is <tt>{{{ xccdf_value("var_accounts_passwords_pam_faillock_root_unlock_time") }}}</tt> or greater.
+    where <tt>&lt;value&gt;</tt> is
+    <tt>{{{ xccdf_value("var_accounts_passwords_pam_faillock_root_unlock_time") }}}</tt> or
+    greater.
 
 warnings:
     - general: >-

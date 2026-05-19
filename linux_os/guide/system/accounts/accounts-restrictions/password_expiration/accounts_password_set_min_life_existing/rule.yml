@@ -40,7 +40,8 @@ references:
 ocil_clause: 'any results are returned that are not associated with a system account'
 
 ocil: |-
-    Verify that {{{ full_name }}} has configured the minimum time period between password changes for each user account is one day or greater with the following command:
+    Verify that {{{ full_name }}} has configured the minimum time period between password changes
+    for each user account is one day or greater with the following command:
 
     $ sudo awk -F: '$4 &lt; 1 {print $1 " " $4}' /etc/shadow
 
@@ -49,7 +50,8 @@ fixtext: |-
     {{% if product not in ["sle12", "sle15", "slmicro6"] %}}
     $ sudo chage -m {{{ xccdf_value("var_accounts_minimum_age_login_defs") }}} [user]
     {{% else %}}
-    usrs_min_pass_age=( "$(awk -F: '$4 < $var_accounts_minimum_age_login_defs || $4 == "" {print $1}' /etc/shadow)" )
+    usrs_min_pass_age=( "$(awk -F: '$4
+    < $var_accounts_minimum_age_login_defs || $4 == "" {print $1}' /etc/shadow)" )
     for i in "${usrs_min_pass_age[@]}"
     do
       passwd -q -n $((var_accounts_minimum_age_login_defs)) $i
@@ -57,4 +59,5 @@ fixtext: |-
     {{% endif %}}
 
 srg_requirement: |-
-    {{{ full_name }}} passwords must have a 24 hours/1 day minimum password lifetime restriction in /etc/shadow.
+    {{{ full_name }}} passwords must have a 24 hours/1 day minimum password lifetime restriction
+    in /etc/shadow.

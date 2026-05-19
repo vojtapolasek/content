@@ -27,7 +27,7 @@ identifiers:
 
 references:
     cis-csc: 1,14,15,16,3,5,6
-    cobit5: APO10.01,APO10.03,APO10.04,APO10.05,APO11.04,BAI03.05,DSS05.04,DSS05.07,MEA01.01,MEA01.02,MEA01.03,MEA01.04,MEA01.05,MEA02.01
+    cobit5: APO10.01,APO10.03,APO10.04,APO10.05,APO11.04,BAI03.05,DSS05.04,DSS05.07,MEA01.01,MEA01.02,MEA01.03,MEA01.04,MEA01.05,MEA02.01  # yamllint disable-line rule:line-length
     isa-62443-2009: 4.3.2.6.7,4.3.3.3.9,4.3.3.5.8,4.3.4.4.7,4.4.2.1,4.4.2.2,4.4.2.4
     isa-62443-2013: 'SR 2.10,SR 2.11,SR 2.12,SR 2.8,SR 2.9,SR 6.1'
     iso27001-2013: A.12.4.1,A.12.4.2,A.12.4.3,A.12.4.4,A.12.7.1,A.15.2.1,A.15.2.2
@@ -48,7 +48,8 @@ ocil: |-
     <pre>cron.* action(type="omfile" file="/var/log/cron")</pre>
 
 fixtext: |-
-    Configure "rsyslog" to log all cron messages by adding or updating the following line to "/etc/rsyslog.conf" or a configuration file in the /etc/rsyslog.d/ directory:
+    Configure "rsyslog" to log all cron messages by adding or updating the following line to
+    "/etc/rsyslog.conf" or a configuration file in the /etc/rsyslog.d/ directory:
 
     cron.* /var/log/cron
 

@@ -7,7 +7,8 @@ description: |-
     ssh-agent(1), TCP and StreamLocal. This option overrides all other forwarding-related
     options and may simplify restricted configurations.
     <br/>
-    To explicitly disable SSHD forwarding, add or correct the following line in {{{ sshd_config_file() }}}
+    To explicitly disable SSHD forwarding, add or correct the following line in
+    {{{ sshd_config_file() }}}
     <pre>DisableForwarding yes</pre>
 
 rationale: |-

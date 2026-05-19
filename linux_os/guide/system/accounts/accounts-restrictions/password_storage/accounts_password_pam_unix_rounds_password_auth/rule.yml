@@ -3,7 +3,7 @@ documentation_complete: true
 
 title: 'Set number of Password Hashing Rounds - password-auth'
 
-{{% if product in ["debian12", "debian13", "sle12", "sle15", "sle16", "ubuntu2204", "ubuntu2404"] %}}
+{{% if product in ["debian12", "debian13", "sle12", "sle15", "sle16", "ubuntu2204", "ubuntu2404"] %}}  # yamllint disable-line rule:line-length
 {{% set pam_passwd_file_path = "/etc/pam.d/common-password" %}}
 {{% else %}}
 {{% set pam_passwd_file_path = "/etc/pam.d/password-auth" %}}
@@ -13,7 +13,8 @@ description: |-
     Configure the number or rounds for the password hashing algorithm. This can be
     accomplished by using the <tt>rounds</tt> option for the <tt>pam_unix</tt> PAM module.
     <br /><br />
-    In file <tt>{{{ pam_passwd_file_path }}}</tt> append <tt>rounds={{{ xccdf_value("var_password_pam_unix_rounds") }}}</tt>
+    In file <tt>{{{ pam_passwd_file_path }}}</tt> append
+    <tt>rounds={{{ xccdf_value("var_password_pam_unix_rounds") }}}</tt>
     to the <tt>pam_unix.so</tt> entry, as shown below:
     {{% if product in ["debian12", "debian13", 'ubuntu2204', 'ubuntu2404'] %}}
     <pre>password [success=1 default=ignore] pam_unix.so <i>...existing_options...</i> rounds={{{ xccdf_value("var_password_pam_unix_rounds") }}}</pre>
@@ -28,7 +29,8 @@ rationale: |-
 
 warnings:
     - performance: |-
-        Setting a high number of hashing rounds makes it more difficult to brute force the password,
+        Setting a high number of hashing rounds makes it more difficult to brute force the
+        password,
         but requires more CPU resources to authenticate users.
 
 severity: medium
@@ -43,10 +45,12 @@ identifiers:
 references:
     srg: SRG-OS-000073-GPOS-00041
 
-ocil_clause: 'rounds is not set to {{{ xccdf_value("var_password_pam_unix_rounds") }}} or is commented out'
+ocil_clause: 'rounds is not set to {{{ xccdf_value("var_password_pam_unix_rounds") }}} or is
+    commented out'
 
 ocil: |-
-    To verify the number of rounds for the password hashing algorithm is configured, run the following command:
+    To verify the number of rounds for the password hashing algorithm is configured, run the
+    following command:
     <pre>$ sudo grep rounds {{{ pam_passwd_file_path }}}</pre>
     The output should show the following match:
     {{% if product in ["debian12", "debian13", 'ubuntu2204', 'ubuntu2404'] %}}
@@ -58,9 +62,11 @@ ocil: |-
 platform: package[pam] and system_with_kernel
 
 fixtext: |-
-    Configure {{{ full_name }}} to use {{{ xccdf_value("var_password_pam_unix_rounds") }}} hashing rounds for hashing passwords.
+    Configure {{{ full_name }}} to use {{{ xccdf_value("var_password_pam_unix_rounds") }}} hashing
+    rounds for hashing passwords.
 
-    Add or modify the following line in "{{{ pam_passwd_file_path }}}" and set "rounds" to {{{ xccdf_value("var_password_pam_unix_rounds") }}}.
+    Add or modify the following line in "{{{ pam_passwd_file_path }}}" and set "rounds" to
+    {{{ xccdf_value("var_password_pam_unix_rounds") }}}.
     For example:
     {{% if product in ["debian12", "debian13", 'ubuntu2204', 'ubuntu2404'] %}}
     password [success=1 default=ignore] pam_unix.so sha512 rounds=5000
@@ -68,4 +74,5 @@ fixtext: |-
     password sufficient pam_unix.so sha512 rounds=5000
     {{% endif %}}
 
-srg_requirement: '{{{ full_name }}} shadow password suite must be configured to use a sufficient number of hashing rounds in {{{ pam_passwd_file_path }}}.'
+srg_requirement: '{{{ full_name }}} shadow password suite must be configured to use a sufficient
+    number of hashing rounds in {{{ pam_passwd_file_path }}}.'

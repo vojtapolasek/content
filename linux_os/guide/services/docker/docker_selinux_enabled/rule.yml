@@ -20,6 +20,6 @@ rationale: |-
 
 severity: high
 
-platform: machine  # The check uses service_... extended definition, which doesn't support offline mode
+platform: machine  # The check uses service_... extended definition, which doesn't support offline mode  # yamllint disable-line rule:line-length
 
 platform: machine

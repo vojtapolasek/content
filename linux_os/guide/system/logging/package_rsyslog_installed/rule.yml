@@ -35,7 +35,8 @@ references:
 {{{ complete_ocil_entry_package_installed("rsyslog") }}}
 
 fixtext: |-
-    Configure {{{ full_name }}} to offload audit logs by installing the required packages with the following command:
+    Configure {{{ full_name }}} to offload audit logs by installing the required packages with the
+    following command:
 
     {{{ describe_package_install(package="rsyslog") }}}
 

@@ -21,7 +21,8 @@ description: |-
 
 rationale: |-
     In vulnerable processors, the speculatively forwarded store can be used in a cache side channel
-    attack. An example of this is reading memory to which the attacker does not directly have access,
+    attack. An example of this is reading memory to which the attacker does not directly have
+    access,
     for example inside the sandboxed code.
 
 warnings:

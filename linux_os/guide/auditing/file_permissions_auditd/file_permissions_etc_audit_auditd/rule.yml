@@ -27,7 +27,8 @@ references:
     srg: SRG-OS-000063-GPOS-00032
     stigid@ol8: OL08-00-030610
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/audit/auditd.conf", perms="-rw-r-----") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/etc/audit/auditd.conf", perms="-rw-r-----")
+    }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/etc/audit/auditd.conf", perms="-rw-r-----") }}}
@@ -35,7 +36,8 @@ ocil: |-
 fixtext: |-
     {{{ describe_file_permissions(file="/etc/audit/auditd.conf", perms="0640") }}}
 
-srg_requirement: '{{{ srg_requirement_file_permission(file="/etc/audit/auditd.conf", mode="0640")}}}'
+srg_requirement: '{{{ srg_requirement_file_permission(file="/etc/audit/auditd.conf",
+    mode="0640")}}}'
 
 template:
     name: file_permissions

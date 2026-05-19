@@ -17,6 +17,7 @@ description: |-
     Red Hat Graphical environment.
     {{% endif %}}
     <br /><br />
-    For more information on GNOME and the GNOME Project, see <b>{{{ weblink(link="https://www.gnome.org") }}}</b>.
+    For more information on GNOME and the GNOME Project, see
+    <b>{{{ weblink(link="https://www.gnome.org") }}}</b>.
 
 platform: package[gdm]

@@ -19,13 +19,16 @@ description: |-
     Crypto Policies provide a centralized control over crypto algorithms usage of many packages.
     OpenSSL is supported by crypto policy, but the OpenSSL configuration may be
     set up to ignore it.
-    To check that Crypto Policies settings are configured correctly, you have to examine the OpenSSL config file
+    To check that Crypto Policies settings are configured correctly, you have to examine the
+    OpenSSL config file
     available under <tt>{{{ openssl_cnf_path }}}</tt>.
     This file has the <tt>ini</tt> format, and it enables crypto policy support
-    if there is a <tt>[ crypto_policy ]</tt> section that contains the <tt>{{{ include_directive }}}</tt> directive.
+    if there is a <tt>[ crypto_policy ]</tt> section that contains the
+    <tt>{{{ include_directive }}}</tt> directive.
 
 rationale: |-
-    Overriding the system crypto policy makes the behavior of the Java runtime violates expectations,
+    Overriding the system crypto policy makes the behavior of the Java runtime violates
+    expectations,
     and makes system configuration more fragmented.
 
 severity: medium
@@ -41,7 +44,7 @@ identifiers:
 references:
     nerc-cip: CIP-003-8 R4.2,CIP-007-3 R5.1,CIP-007-3 R7.1
     nist: AC-17(a),AC-17(2),CM-6(a),MA-4(6),SC-13,SC-12(2),SC-12(3)
-    ospp: FCS_CKM.1,FCS_CKM.1.1,FCS_CKM.2,FCS_COP.1/ENCRYPT,FCS_COP.1/HASH,FCS_COP.1/SIGN,FCS_COP.1/KEYHMAC,FCS_TLSC_EXT.1,FCS_TLSC_EXT.1.1
+    ospp: FCS_CKM.1,FCS_CKM.1.1,FCS_CKM.2,FCS_COP.1/ENCRYPT,FCS_COP.1/HASH,FCS_COP.1/SIGN,FCS_COP.1/KEYHMAC,FCS_TLSC_EXT.1,FCS_TLSC_EXT.1.1  # yamllint disable-line rule:line-length
     pcidss: Req-2.2
     srg: SRG-OS-000250-GPOS-00093
 
@@ -59,7 +62,8 @@ ocil: |-
 fixtext: |-
     Configure OpenSSL to use the system cryptography policy.
 
-    Add or edit the "[ crypto_policy ]" section in "{{{ openssl_cnf_path }}}" to contain the following line:
+    Add or edit the "[ crypto_policy ]" section in "{{{ openssl_cnf_path }}}" to contain the
+    following line:
 
     {{{ include_directive }}}
 

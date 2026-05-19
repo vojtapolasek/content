@@ -47,7 +47,8 @@ references:
 
 fixtext: '{{{ fixtext_sshd_lineinfile("IgnoreUserKnownHosts", "yes", "no") }}}'
 
-srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow authentication using known host’s authentication.'
+srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow authentication using known
+    host’s authentication.'
 
 template:
     name: sshd_lineinfile

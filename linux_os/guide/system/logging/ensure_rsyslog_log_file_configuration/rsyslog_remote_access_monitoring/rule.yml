@@ -62,7 +62,8 @@ fixtext: |-
     auth.*;authpriv.*;daemon.* /var/log/secure
 {{% endif %}}
 
-    The "rsyslog" service must be restarted for the changes to take effect. To restart the "rsyslog" service, run the following command:
+    The "rsyslog" service must be restarted for the changes to take effect. To restart the
+    "rsyslog" service, run the following command:
 
     $ sudo systemctl restart rsyslog.service
 

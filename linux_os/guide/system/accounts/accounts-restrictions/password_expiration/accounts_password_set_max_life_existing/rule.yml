@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Set Existing Passwords Maximum Age'
 
 description: |-
-    Configure non-compliant accounts to enforce a {{{ xccdf_value("var_accounts_maximum_age_login_defs") }}}-day maximum password lifetime
+    Configure non-compliant accounts to enforce a
+    {{{ xccdf_value("var_accounts_maximum_age_login_defs") }}}-day maximum password lifetime
     restriction by running the following command:
     {{% if 'sle' in product or 'slmicro' in product %}}
     <pre>$ sudo passwd -x {{{ xccdf_value("var_accounts_maximum_age_login_defs") }}} <i>USER</i></pre>
@@ -44,7 +45,8 @@ references:
 ocil_clause: 'any results are returned that are not associated with a system account'
 
 ocil: |-
-    Check whether the maximum time period for existing passwords is restricted to {{{ xccdf_value("var_accounts_maximum_age_login_defs") }}} days with the following commands:
+    Check whether the maximum time period for existing passwords is restricted to
+    {{{ xccdf_value("var_accounts_maximum_age_login_defs") }}} days with the following commands:
 
     $ sudo awk -F: '$5 &gt; 60 {print $1 " " $5}' /etc/shadow
 
@@ -59,4 +61,5 @@ fixtext: |-
     {{% endif %}}
 
 srg_requirement: |-
-    {{{ full_name }}} user account passwords must have a 60-day maximum password lifetime restriction.
+    {{{ full_name }}} user account passwords must have a 60-day maximum password lifetime
+    restriction.

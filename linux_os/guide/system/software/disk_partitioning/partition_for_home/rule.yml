@@ -47,7 +47,8 @@ references:
 fixtext: |-
     Migrate the "/home" directory onto a separate file system.
 
-srg_requirement: 'A separate {{{ full_name }}} filesystem must be used for user home directories (such as /home or an equivalent).'
+srg_requirement: 'A separate {{{ full_name }}} filesystem must be used for user home directories
+    (such as /home or an equivalent).'
 
 
 template:
@@ -57,7 +58,8 @@ template:
         min_size: 1073741824
 
 checktext: |-
-    Verify that a separate file system/partition has been created for "/home" with the following command:
+    Verify that a separate file system/partition has been created for "/home" with the following
+    command:
 
     $ mount | grep /home
 

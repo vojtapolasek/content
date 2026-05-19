@@ -3,7 +3,8 @@ documentation_complete: true
 title: 'nftables'
 
 description: |-
-    <tt>If firewalld or iptables are being used in your environment, please follow the guidance in their
+    <tt>If firewalld or iptables are being used in your environment, please follow the guidance in
+    their
     respective section and pass-over the guidance in this section.</tt>
     <br /><br />
     nftables is a subsystem of the Linux kernel providing filtering and classification of network

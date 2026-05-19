@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Disable MIME Magic'
 
 description: |-
-    The <tt>mime_magic</tt> module provides a second layer of MIME support that in most configurations
+    The <tt>mime_magic</tt> module provides a second layer of MIME support that in most
+    configurations
     is likely extraneous. If its functionality is unnecessary, comment out the related module:
     <pre>#LoadModule mime_magic_module modules/mod_mime_magic.so</pre>
 

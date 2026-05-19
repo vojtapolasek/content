@@ -13,10 +13,12 @@ description: |-
 
     pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
     defined to work as expected. In order to avoid any errors when manually editing these files,
-    it is recommended to use the appropriate tools, such as <tt>authselect</tt> or <tt>authconfig</tt>,
+    it is recommended to use the appropriate tools, such as <tt>authselect</tt> or
+    <tt>authconfig</tt>,
     depending on the OS version.
 
-    If <tt>unlock_time</tt> is set to <tt>0</tt>, manual intervention by an administrator is required
+    If <tt>unlock_time</tt> is set to <tt>0</tt>, manual intervention by an administrator is
+    required
     to unlock a user. This should be done using the <tt>faillock</tt> tool.
 
 rationale: |-
@@ -33,7 +35,8 @@ identifiers:
 platform: package[pam]
 
 ocil_clause: |-
-    the "unlock_time" option is not set to "0" or is not set to "{{{ xccdf_value("var_accounts_passwords_pam_faillock_unlock_time") }}}",
+    the "unlock_time" option is not set to "0" or is not set to
+    "{{{ xccdf_value("var_accounts_passwords_pam_faillock_unlock_time") }}}",
     the line is missing, or commented out
 
 ocil: |-
@@ -46,7 +49,8 @@ ocil: |-
 
 fixtext: |-
     Configure {{{ full_name }}} to lock an account until released by an administrator after
-    {{{ xccdf_value("var_accounts_passwords_pam_faillock_deny") }}} unsuccessful logon attempts with the command:
+    {{{ xccdf_value("var_accounts_passwords_pam_faillock_deny") }}} unsuccessful logon attempts
+    with the command:
 
     $ sudo authselect enable-feature with-faillock
 
@@ -57,8 +61,10 @@ warnings:
     - general: |-
        If the system supports the new <tt>/etc/security/faillock.conf</tt> file but the
        pam_faillock.so parameters are defined directly in <tt>/etc/pam.d/system-auth</tt> and
-       <tt>/etc/pam.d/password-auth</tt>, the remediation will migrate the <tt>unlock_time</tt> parameter
-       to <tt>/etc/security/faillock.conf</tt> to ensure compatibility with <tt>authselect</tt> tool.
+       <tt>/etc/pam.d/password-auth</tt>, the remediation will migrate the <tt>unlock_time</tt>
+       parameter
+       to <tt>/etc/security/faillock.conf</tt> to ensure compatibility with <tt>authselect</tt>
+       tool.
        The parameters <tt>deny</tt> and <tt>fail_interval</tt>, if used, also have to be migrated
        by their respective remediation.
 

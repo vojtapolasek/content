@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Restrict Root Directory'
 
 description: |-
-    The <tt>httpd</tt> root directory should always have the most restrictive configuration enabled.
+    The <tt>httpd</tt> root directory should always have the most restrictive configuration
+    enabled.
     <pre>&lt;Directory / &gt;
        Options None
        AllowOverride None

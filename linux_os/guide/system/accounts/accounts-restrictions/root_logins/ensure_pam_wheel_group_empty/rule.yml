@@ -44,7 +44,8 @@ fixtext: |-
     Run the following command to ensure the {{{ var_pam_wheel_group_for_su }}} group exists:
     <pre>groupadd {{{ var_pam_wheel_group_for_su }}}</pre>
 
-    Run the following command to ensure the {{{ var_pam_wheel_group_for_su }}} group has no members:
+    Run the following command to ensure the {{{ var_pam_wheel_group_for_su }}} group has no
+    members:
     <pre>groupmems -g {{{ var_pam_wheel_group_for_su }}} -p</pre>
 
 warnings:

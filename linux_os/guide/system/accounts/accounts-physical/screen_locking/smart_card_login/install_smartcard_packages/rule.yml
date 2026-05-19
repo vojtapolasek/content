@@ -1,7 +1,7 @@
 {{% if product in ["sle12", "slmicro5", "slmicro6"] %}}
-{{% set smartcard_packages = ['pam_pkcs11', 'mozilla-nss', 'mozilla-nss-tools', 'pcsc-ccid', 'pcsc-lite', 'pcsc-tools', 'opensc', 'coolkey'] %}}
+{{% set smartcard_packages = ['pam_pkcs11', 'mozilla-nss', 'mozilla-nss-tools', 'pcsc-ccid', 'pcsc-lite', 'pcsc-tools', 'opensc', 'coolkey'] %}}  # yamllint disable-line rule:line-length
 {{% elif product in ["sle15"] %}}
-{{% set smartcard_packages = ['pam_pkcs11', 'mozilla-nss', 'mozilla-nss-tools', 'pcsc-ccid', 'pcsc-lite', 'pcsc-tools', 'opensc'] %}}
+{{% set smartcard_packages = ['pam_pkcs11', 'mozilla-nss', 'mozilla-nss-tools', 'pcsc-ccid', 'pcsc-lite', 'pcsc-tools', 'opensc'] %}}  # yamllint disable-line rule:line-length
 {{% elif product in ["ol7"] %}}
 {{% set smartcard_packages = ['pam_pkcs11'] %}}
 {{% elif 'ubuntu' in product %}}
@@ -51,7 +51,7 @@ identifiers:
 references:
     nist: CM-6(a)
     pcidss: Req-8.3
-    srg: SRG-OS-000105-GPOS-00052,SRG-OS-000375-GPOS-00160,SRG-OS-000375-GPOS-00161,SRG-OS-000377-GPOS-00162
+    srg: SRG-OS-000105-GPOS-00052,SRG-OS-000375-GPOS-00160,SRG-OS-000375-GPOS-00161,SRG-OS-000377-GPOS-00162  # yamllint disable-line rule:line-length
     stigid@ol7: OL07-00-041001
     stigid@ol8: OL08-00-010390
     stigid@sle12: SLES-12-030500
@@ -62,7 +62,8 @@ ocil_clause: 'smartcard software is not installed'
 ocil: |-
     Check that {{{ full_name }}} has the packages for smart card support installed.
     {{% if pkg_system is undefined or pkg_system not in ["rpm", "dpkg"] %}}
-    JINJA MACRO ERROR - Unknown package system '{{{ pkg_system | default("undefined") }}}'. Has to be either 'rpm' or 'dpkg'.
+    JINJA MACRO ERROR - Unknown package system '{{{ pkg_system | default("undefined") }}}'. Has to
+    be either 'rpm' or 'dpkg'.
     {{% else %}}
     {{% for pkg in smartcard_packages %}}
     Run the following command to determine if the <code>{{{ pkg }}}</code> package is installed: <pre>$ {{% if pkg_system == "rpm" %}}rpm -q {{% elif pkg_system == "dpkg" %}}dpkg -l {{% endif %}}{{{ pkg }}}</pre>
@@ -85,4 +86,5 @@ template:
 fixtext: |-
     {{{ describe_package_install(package=smartcard_packages | join) }}}
 
-srg_requirement: '{{{ full_name }}} must have the packages required for multifactor authentication installed.'
+srg_requirement: '{{{ full_name }}} must have the packages required for multifactor authentication
+    installed.'

@@ -19,7 +19,9 @@ title: 'Configure basic parameters of Audit system'
 
 description: |-
     Perform basic configuration of Audit system.
-    Make sure that any previously defined rules are cleared, the auditing system is configured to handle sudden bursts of events, and in cases of failure, messages are configured to be directed to system log.
+    Make sure that any previously defined rules are cleared, the auditing system is configured to
+    handle sudden bursts of events, and in cases of failure, messages are configured to be
+    directed to system log.
 
     The following rules configure audit as described above:
     <pre>{{{ file_contents_audit_base_config|indent }}}    </pre>
@@ -28,7 +30,8 @@ description: |-
     <pre>augenrules --load</pre>
 
 rationale: |-
-    Without basic configurations, audit may not perform as expected. It may not be able to correctly handle events under stressful conditions, or log events in case of failure.
+    Without basic configurations, audit may not perform as expected. It may not be able to
+    correctly handle events under stressful conditions, or log events in case of failure.
 
 severity: medium
 
@@ -45,7 +48,8 @@ references:
 ocil_clause: 'the file does not exist or the content differs'
 
 ocil: |-
-    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules, check the content of the file with the following command:
+    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules,
+    check the content of the file with the following command:
     <pre>cat /etc/audit/rules.d/10-base-config.rules</pre>
     The output has to be exactly as follows:
     <pre>{{{ file_contents_audit_base_config|indent }}}    </pre>

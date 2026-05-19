@@ -6,7 +6,8 @@ title: 'Harden common str/mem functions against buffer overflows'
 description: |-
     Detect overflows of buffers in common string and memory functions where the compiler can
     determine and validate the buffer sizes.
-    This configuration is available from kernel 4.13, but may be available if backported by distros.
+    This configuration is available from kernel 4.13, but may be available if backported by
+    distros.
 
     {{{ describe_kernel_build_config("CONFIG_FORTIFY_SOURCE", "y") | indent(4) }}}
 

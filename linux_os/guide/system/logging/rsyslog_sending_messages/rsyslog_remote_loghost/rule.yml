@@ -10,7 +10,8 @@ description: |-
     Along with these other directives, the system can be configured
     to forward its logs to a particular log server by
     adding or correcting one of the following lines,
-    substituting <tt><i>{{{ xccdf_value("rsyslog_remote_loghost_address") }}}</i></tt> appropriately.
+    substituting <tt><i>{{{ xccdf_value("rsyslog_remote_loghost_address") }}}</i></tt>
+    appropriately.
     The choice of protocol depends on the environment of the system;
     although TCP and RELP provide more reliable message delivery,
     they may not be supported in all environments.
@@ -33,7 +34,9 @@ description: |-
     Or in RainerScript:
     <pre>*.* action(type="omfwd" ... target="<i>{{{ xccdf_value("rsyslog_remote_loghost_address") }}}</i>" protocol="relp")</pre>
     <br />
-    There must be a resolvable DNS CNAME or Alias record set to "{{{ xccdf_value("rsyslog_remote_loghost_address") }}}" for logs to be sent correctly to the centralized logging utility.
+    There must be a resolvable DNS CNAME or Alias record set to
+    "{{{ xccdf_value("rsyslog_remote_loghost_address") }}}" for logs to be sent correctly to the
+    centralized logging utility.
 
 rationale: |-
     A log server (loghost) receives syslog messages from one or more
@@ -57,7 +60,7 @@ references:
     cis@sle12: 4.2.1.5
     cis@sle15: 4.2.1.5
     cobit5: APO11.04,APO13.01,BAI03.05,BAI04.04,DSS05.04,DSS05.07,MEA02.01
-    hipaa: 164.308(a)(1)(ii)(D),164.308(a)(5)(ii)(B),164.308(a)(5)(ii)(C),164.308(a)(6)(ii),164.308(a)(8),164.310(d)(2)(iii),164.312(b),164.314(a)(2)(i)(C),164.314(a)(2)(iii)
+    hipaa: 164.308(a)(1)(ii)(D),164.308(a)(5)(ii)(B),164.308(a)(5)(ii)(C),164.308(a)(6)(ii),164.308(a)(8),164.310(d)(2)(iii),164.312(b),164.314(a)(2)(i)(C),164.314(a)(2)(iii)  # yamllint disable-line rule:line-length
     isa-62443-2009: 4.3.3.3.9,4.3.3.5.8,4.3.4.4.7,4.4.2.1,4.4.2.2,4.4.2.4
     isa-62443-2013: 'SR 2.10,SR 2.11,SR 2.12,SR 2.8,SR 2.9,SR 7.1,SR 7.2'
     iso27001-2013: A.12.1.3,A.12.4.1,A.12.4.2,A.12.4.3,A.12.4.4,A.12.7.1,A.17.2.1
@@ -89,13 +92,16 @@ ocil: |-
     <pre>*.* action(type="omfwd" ... target="<i>{{{ xccdf_value("rsyslog_remote_loghost_address") }}}</i>" protocol="relp")</pre>
 
 fixtext: |-
-    Configure {{{ full_name }}} to off-load audit records onto a different system or media from the system being audited by specifying the remote logging server in "/etc/rsyslog.conf" or "/etc/rsyslog.d/[customfile].conf" with the name or IP address of the log aggregation server.
+    Configure {{{ full_name }}} to off-load audit records onto a different system or media from
+    the system being audited by specifying the remote logging server in "/etc/rsyslog.conf" or
+    "/etc/rsyslog.d/[customfile].conf" with the name or IP address of the log aggregation server.
 
     *.* @@[remoteloggingserver]:[port]"
     or
     <pre>*.* action(type="omfwd" ... target="<i>{{{ xccdf_value("rsyslog_remote_loghost_address") }}}</i>" protocol="relp")</pre>
 
-srg_requirement: 'The {{{ full_name }}} audit records must be off-loaded onto a different system or storage media from the system being audited.'
+srg_requirement: 'The {{{ full_name }}} audit records must be off-loaded onto a different system
+    or storage media from the system being audited.'
 
 warnings:
     - functionality: |-

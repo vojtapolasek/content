@@ -10,7 +10,8 @@ description: |-
     {{{ describe_kernel_build_config("CONFIG_DEBUG_WX", "y") | indent(4) }}}
 
 rationale: |-
-    This is useful for discovering cases where the kernel is leaving W+X mappings after applying NX,
+    This is useful for discovering cases where the kernel is leaving W+X mappings after applying
+    NX,
     as such mappings are a security risk.
     Note that even if the check fails, your kernel is possibly still fine, as W+X mappings are not
     a security hole in themselves, what they do is that they make the exploitation of other unfixed

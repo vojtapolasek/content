@@ -55,7 +55,9 @@ ocil: |-
     available for logon and are not evaluated.
 
 fixtext: |-
-    Lock all interactive user accounts not using SHA-512 hashing until the passwords can be regenerated with SHA-512.
+    Lock all interactive user accounts not using SHA-512 hashing until the passwords can be
+    regenerated with SHA-512.
 
 srg_requirement: |-
-    {{{ full_name }}} must employ FIPS 140-3 approved cryptographic hashing algorithms for all stored passwords.
+    {{{ full_name }}} must employ FIPS 140-3 approved cryptographic hashing algorithms for all
+    stored passwords.

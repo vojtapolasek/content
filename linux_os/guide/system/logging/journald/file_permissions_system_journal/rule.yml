@@ -21,7 +21,8 @@ rationale: |-
     compromising the data and security of the structure, and content of error messages
     needs to be carefully considered by the organization.
     {{%- else %}}
-    RHCOS must protect system  journal file from any type of unauthorized access by setting file permissions.
+    RHCOS must protect system  journal file from any type of unauthorized access by setting file
+    permissions.
     {{%- endif %}}
 
 identifiers:
@@ -43,7 +44,8 @@ fixtext: |
 references:
     srg: SRG-APP-000118-CTR-000240
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/log/journal/.*/system.journal", perms="-rw-r-----") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/log/journal/.*/system.journal",
+    perms="-rw-r-----") }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/var/log/journal/.*/system.journal", perms="-rw-r-----") }}}

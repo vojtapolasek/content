@@ -60,6 +60,8 @@ ocil: |-
 fixtext: |-
     Configure the file integrity tool to check file and directory extended attributes.
 
-    If AIDE is installed, ensure the "xattrs" rule is present on all uncommented file and directory selection lists.
+    If AIDE is installed, ensure the "xattrs" rule is present on all uncommented file and
+    directory selection lists.
 
-srg_requirement: 'The {{{ full_name }}} file integrity tool must be configured to verify extended attributes.'
+srg_requirement: 'The {{{ full_name }}} file integrity tool must be configured to verify extended
+    attributes.'

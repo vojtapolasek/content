@@ -2,7 +2,8 @@ documentation_complete: true
 
 title: 'Disable Accepting Packets Routed Between Local Interfaces'
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.accept_local", value="0") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.accept_local", value="0")
+    }}}'
 
 rationale: |-
     Configure <tt>net.ipv4.conf.all.accept_local=0</tt> to consider as invalid the packets

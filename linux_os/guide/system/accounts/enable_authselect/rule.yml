@@ -5,7 +5,8 @@ title: 'Enable authselect'
 
 description: |-
     Configure user authentication setup to use the <tt>authselect</tt> tool.
-    If authselect profile is selected, the rule will enable the {{{ xccdf_value("var_authselect_profile") }}} profile.
+    If authselect profile is selected, the rule will enable the
+    {{{ xccdf_value("var_authselect_profile") }}} profile.
 
 rationale: |-
     Authselect is a successor to authconfig.
@@ -23,7 +24,7 @@ identifiers:
     cce@rhel10: CCE-87407-3
 
 references:
-    hipaa: 164.308(a)(1)(ii)(B),164.308(a)(7)(i),164.308(a)(7)(ii)(A),164.310(a)(1),164.310(a)(2)(i),164.310(a)(2)(ii),164.310(a)(2)(iii),164.310(b),164.310(c),164.310(d)(1),164.310(d)(2)(iii)  # taken from require_singleuser_auth
+    hipaa: 164.308(a)(1)(ii)(B),164.308(a)(7)(i),164.308(a)(7)(ii)(A),164.310(a)(1),164.310(a)(2)(i),164.310(a)(2)(ii),164.310(a)(2)(iii),164.310(b),164.310(c),164.310(d)(1),164.310(d)(2)(iii)  # taken from require_singleuser_auth  # yamllint disable-line rule:line-length
     nist: AC-3
     ospp: FIA_UAU.1,FIA_AFL.1
     srg: SRG-OS-000480-GPOS-00227
@@ -33,7 +34,8 @@ ocil_clause: 'authselect is not used to manage user authentication setup on the 
 ocil: |-
     Verify that <tt>authselect</tt> is enabled by running
     <pre>authselect current</pre>
-    If authselect is enabled on the system, the output should show the ID of the profile which is currently in use.
+    If authselect is enabled on the system, the output should show the ID of the profile which is
+    currently in use.
 
 platform: system_with_kernel
 

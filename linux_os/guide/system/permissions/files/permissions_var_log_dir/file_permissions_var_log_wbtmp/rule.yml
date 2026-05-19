@@ -6,14 +6,16 @@ description: |-
     {{{ describe_file_permissions(file="/var/log/(b|w)tmp(.*|-*)", perms="0664") }}}
 
 rationale: |-
-    The <tt>/var/log/(b|w)tmp(.*|-*)</tt> files contains logs of reports the most recent login of all users
+    The <tt>/var/log/(b|w)tmp(.*|-*)</tt> files contains logs of reports the most recent login of
+    all users
     and should only be accessed by authorized personnel.
 
 severity: medium
 
 
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/log/(b|w)tmp(.*|-*)", perms="-rw-rw-r--") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/log/(b|w)tmp(.*|-*)",
+    perms="-rw-rw-r--") }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/var/log/(b|w)tmp(.*|-*)", perms="-rw-rw-r--") }}}

@@ -29,7 +29,9 @@ description: |-
     for guidance which NTP daemon to choose depending on the environment used.
 
 rationale: |-
-    Enabling some of {{% if "debian" in product %}}<tt>chrony</tt>{{% else %}}<tt>chronyd</tt>{{% endif %}} or <tt>ntpd</tt> services ensures
+    Enabling some of
+    {{% if "debian" in product %}}<tt>chrony</tt>{{% else %}}<tt>chronyd</tt>{{% endif %}} or
+    <tt>ntpd</tt> services ensures
     that the NTP daemon will be running and that the system will synchronize its
     time to any servers specified. This is important whether the system is
     configured to be a client (and synchronize only its own clock) or it is also

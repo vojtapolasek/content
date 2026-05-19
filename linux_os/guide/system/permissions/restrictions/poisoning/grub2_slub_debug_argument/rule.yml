@@ -5,7 +5,8 @@ title: 'Enable SLUB/SLAB allocator poisoning'
 
 description: |-
     To enable poisoning of SLUB/SLAB objects,
-    add the argument <tt>slub_debug={{{ xccdf_value("var_slub_debug_options") }}}</tt> to the default
+    add the argument <tt>slub_debug={{{ xccdf_value("var_slub_debug_options") }}}</tt> to the
+    default
     GRUB 2 command line for the Linux operating system.
     {{{ describe_grub2_argument("slub_debug=" ~ xccdf_value("var_slub_debug_options") ) | indent(4) }}}
 

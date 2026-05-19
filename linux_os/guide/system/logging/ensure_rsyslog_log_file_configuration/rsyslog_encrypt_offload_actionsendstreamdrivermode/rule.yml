@@ -11,7 +11,8 @@ description: |-
 
   When using <tt>rsyslogd</tt> to off-load logs off a encryption system must be used.
 
-  Set the following configuration option in /etc/rsyslog.conf or in a file in /etc/rsyslog.d (using legacy syntax):
+  Set the following configuration option in /etc/rsyslog.conf or in a file in /etc/rsyslog.d
+  (using legacy syntax):
   <pre>$ActionSendStreamDriverMode 1</pre>
 
   Alternatively, use the RainerScript syntax:
@@ -47,8 +48,10 @@ ocil: |-
     <pre>/etc/rsyslog.conf:$ActionSendStreamDriverMode 1</pre>
 
 fixtext: |-
-    Configure the operating system to encrypt off-loaded audit records by setting the following options in "/etc/rsyslog.conf" or "/etc/rsyslog.d/[customfile].conf":
+    Configure the operating system to encrypt off-loaded audit records by setting the following
+    options in "/etc/rsyslog.conf" or "/etc/rsyslog.d/[customfile].conf":
 
     $ActionSendStreamDriverMode 1
 
-srg_requirement: '{{{ full_name }}}  must encrypt the transfer of audit records off-loaded onto a different system or media from the system being audited.'
+srg_requirement: '{{{ full_name }}}  must encrypt the transfer of audit records off-loaded onto a
+    different system or media from the system being audited.'

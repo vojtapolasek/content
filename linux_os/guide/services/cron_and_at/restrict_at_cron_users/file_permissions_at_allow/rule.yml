@@ -12,7 +12,8 @@ description: |-
     {{{ describe_file_permissions(file="/etc/at.allow", perms=target_perms_octal) }}}
 
 rationale: |-
-    If the permissions of the at.allow file are not set to {{{ target_perms_octal }}} or more restrictive,
+    If the permissions of the at.allow file are not set to {{{ target_perms_octal }}} or more
+    restrictive,
     the possibility exists for an unauthorized user to view or edit sensitive information.
 
 severity: medium

@@ -59,9 +59,11 @@ ocil: |-
     <pre>$ sudo userdel <i>unauthorized_user</i></pre>
 
 fixtext: |-
-    Configure the system so all accounts on the system are assigned to an active system, application, or user account.
+    Configure the system so all accounts on the system are assigned to an active system,
+    application, or user account.
 
-    Remove accounts that do not support approved system activities or that allow for a normal user to perform administrative-level actions.
+    Remove accounts that do not support approved system activities or that allow for a normal user
+    to perform administrative-level actions.
 
     Document all authorized accounts on the system.
 

@@ -7,8 +7,10 @@ documentation_complete: true
 title: 'SSH server uses strong entropy to seed'
 
 description: |-
-    To set up SSH server to use entropy from a high-quality source, edit the <tt>{{{ sshd_sysconfig }}}</tt> file.
-    The <tt>SSH_USE_STRONG_RNG</tt> configuration value determines how many bytes of entropy to use, so
+    To set up SSH server to use entropy from a high-quality source, edit the
+    <tt>{{{ sshd_sysconfig }}}</tt> file.
+    The <tt>SSH_USE_STRONG_RNG</tt> configuration value determines how many bytes of entropy to
+    use, so
     make sure that the file contains line
     <pre>SSH_USE_STRONG_RNG=32</pre>
 
@@ -51,7 +53,7 @@ fixtext: |-
 srg_requirement: 'The {{{ full_name }}} must ensure the SSH server uses strong entropy.'
 
 warnings:
-    - general: "This setting can cause problems on computers without the hardware random generator, because insufficient entropy causes the connection to be blocked until enough entropy is available."
+    - general: "This setting can cause problems on computers without the hardware random generator, because insufficient entropy causes the connection to be blocked until enough entropy is available."  # yamllint disable-line rule:line-length
 
 template:
     name: shell_lineinfile

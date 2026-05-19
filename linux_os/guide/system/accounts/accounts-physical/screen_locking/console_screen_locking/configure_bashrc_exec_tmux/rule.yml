@@ -33,7 +33,8 @@ platform: package[tmux]
 ocil_clause: 'the command does not produce output'
 
 ocil: |-
-    Verify {{{ full_name }}} shell initialization file is configured to start each shell with the tmux terminal multiplexer.
+    Verify {{{ full_name }}} shell initialization file is configured to start each shell with the
+    tmux terminal multiplexer.
 
     Determine the location of the tmux script with the following command:
 
@@ -51,14 +52,16 @@ ocil: |-
     case "$name" in (sshd|login) exec tmux ;; esac
     fi</pre>
 
-    If the shell file is not configured as the example above, is commented out, or is missing, this is a finding.
+    If the shell file is not configured as the example above, is commented out, or is missing,
+    this is a finding.
 
     Determine if tmux is currently running with the following command:
 
     <pre>$ sudo ps all | grep tmux | grep -v grep</pre>
 
 fixtext: |-
-    Configure {{{ full_name }}} to initialize the tmux terminal multiplexer as each shell is called by adding the following to file "/etc/profile.d/tmux.sh":
+    Configure {{{ full_name }}} to initialize the tmux terminal multiplexer as each shell is
+    called by adding the following to file "/etc/profile.d/tmux.sh":
 
     if [ "$PS1" ]; then
         parent=$(ps -o ppid= -p $$)
@@ -70,4 +73,5 @@ fixtext: |-
 
     $ sudo chmod 0644 /etc/profile.d/tmux.sh
 
-srg_requirement: '{{{ full_name }}} must ensure session control is automatically started at shell initialization.'
+srg_requirement: '{{{ full_name }}} must ensure session control is automatically started at shell
+    initialization.'

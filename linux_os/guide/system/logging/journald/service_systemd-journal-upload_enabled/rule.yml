@@ -3,14 +3,16 @@ documentation_complete: true
 title: 'Enable systemd-journal-upload Service'
 
 description: |-
-    The <tt>systemd-journal-upload</tt> service is part of the <tt>systemd-journal-remote</tt> package
+    The <tt>systemd-journal-upload</tt> service is part of the <tt>systemd-journal-remote</tt>
+    package
     and enables centralized logging by uploading local systemd journal entries to a remote log
     server via HTTPS. This service acts as a client that pushes journal data to a remote host
     running the <tt>systemd-journal-remote</tt> receiver service.
     {{{ describe_service_enable(service="systemd-journal-upload") }}}
 
 rationale: |-
-    Centralized logging through <tt>systemd-journal-upload</tt> is essential for security monitoring,
+    Centralized logging through <tt>systemd-journal-upload</tt> is essential for security
+    monitoring,
     incident response, and compliance requirements. Storing log data on a remote host protects log
     integrity from local attacks. If an attacker gains root access on the local system, they could
     tamper with or remove log data stored locally to hide their activities. Remote logging ensures
@@ -50,5 +52,6 @@ template:
 
 warnings:
     - general: |-
-        The <tt>systemd-journal-upload</tt> service will fail to start if the remote server URL is not configured.
+        The <tt>systemd-journal-upload</tt> service will fail to start if the remote server URL is
+        not configured.
         Edit <tt>/etc/systemd/journal-upload.conf</tt> to configure the remote server URL.

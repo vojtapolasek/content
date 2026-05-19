@@ -6,7 +6,8 @@ description: |-
    {{{ describe_package_remove(package="prelink") }}}
 
 rationale: |-
-    The use of the <tt>prelink</tt> package can interfere with the operation of AIDE since it binaries.
+    The use of the <tt>prelink</tt> package can interfere with the operation of AIDE since it
+    binaries.
     Prelinking can also increase damage caused by vulnerability in a common library like libc.
 
 severity: medium

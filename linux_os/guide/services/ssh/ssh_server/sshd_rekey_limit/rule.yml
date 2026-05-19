@@ -49,4 +49,5 @@ fixtext: |-
         value=xccdf_value("var_rekey_limit_size") ~ " " ~ xccdf_value("var_rekey_limit_time"),
         config_is_distributed=(sshd_distributed_config == "true")) }}}
 
-srg_requirement: '{{{ full_name }}} must force a frequent session key renegotiation for SSH connections to the server.'
+srg_requirement: '{{{ full_name }}} must force a frequent session key renegotiation for SSH
+    connections to the server.'

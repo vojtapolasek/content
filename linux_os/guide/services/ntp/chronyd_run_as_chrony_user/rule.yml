@@ -30,7 +30,8 @@ description: |-
     This recommendation only applies if chrony is in use on the system.
 
 rationale: |-
-    If chrony is in use on the system proper configuration is vital to ensuring time synchronization
+    If chrony is in use on the system proper configuration is vital to ensuring time
+    synchronization
     is working properly.
 
 severity: medium
@@ -54,7 +55,8 @@ ocil_clause: 'chronyd is not running under chrony user account'
 
 ocil: |-
     {{% if 'ubuntu' in product %}}
-    Run the following command and verify that <tt>user</tt> is set to <tt>_chrony</tt> in <tt>{{{ chrony_conf_path }}}</tt>
+    Run the following command and verify that <tt>user</tt> is set to <tt>_chrony</tt> in
+    <tt>{{{ chrony_conf_path }}}</tt>
     or the <tt>user</tt> parameter is absent:
     <pre># grep "^user" {{{ chrony_conf_path }}}
     user _chrony</pre>

@@ -3,7 +3,8 @@ documentation_complete: true
 title: Ensure journald ForwardToSyslog is disabled
 
 description: |-
-    Data from journald should be kept in the confines of the service and not forwarded to other services.
+    Data from journald should be kept in the confines of the service and not forwarded to other
+    services.
 
 rationale:
     If journald is the method for capturing logs, all logs of the system should be

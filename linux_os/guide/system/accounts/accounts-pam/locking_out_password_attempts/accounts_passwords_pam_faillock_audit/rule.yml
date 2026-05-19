@@ -31,18 +31,21 @@ platform: package[pam]
 ocil_clause: 'the "audit" option is not set, is missing or commented out'
 
 ocil: |-
-    Verify the "/etc/security/faillock.conf" file is configured to log user name information when unsuccessful logon attempts occur:
+    Verify the "/etc/security/faillock.conf" file is configured to log user name information when
+    unsuccessful logon attempts occur:
 
     $ sudo grep audit /etc/security/faillock.conf
 
     audit
 
 fixtext: |-
-    Configure {{{ full_name }}} to log user name information when unsuccessful logon attempts occur.
+    Configure {{{ full_name }}} to log user name information when unsuccessful logon attempts
+    occur.
 
     Add/Modify the "/etc/security/faillock.conf" file to match the following line:
 
     audit
 
-srg_requirement: '{{{ full_name }}} must log user name information when unsuccessful logon attempts occur.'
+srg_requirement: '{{{ full_name }}} must log user name information when unsuccessful logon
+    attempts occur.'
 

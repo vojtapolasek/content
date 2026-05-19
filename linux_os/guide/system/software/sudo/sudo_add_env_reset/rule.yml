@@ -14,7 +14,8 @@ description: |-
     in <tt>/etc/sudoers.d/</tt>.
 
 rationale: |-
-    Forcing sudo to reset the environment ensures that environment variables are not passed on to the
+    Forcing sudo to reset the environment ensures that environment variables are not passed on to
+    the
     command accidentally, preventing leak of potentially sensitive information.
 
 severity: medium

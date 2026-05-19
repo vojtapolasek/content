@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: 'Drop Gratuitous ARP frames on All IPv4 Interfaces'
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.drop_gratuitous_arp", value="1") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.drop_gratuitous_arp",
+    value="1") }}}'
 
 rationale: |-
     Drop Gratuitous ARP frames to prevent ARP poisoning.

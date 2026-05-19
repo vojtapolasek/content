@@ -9,9 +9,11 @@ description: |-
     {{{ describe_package_install(package="dracut-fips") }}}
 
 rationale: |-
-    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption
+    to
     protect data. The operating system must implement cryptographic modules adhering to the higher
-    standards approved by the federal government since this provides assurance they have been tested
+    standards approved by the federal government since this provides assurance they have been
+    tested
     and validated.
 
 severity: medium
@@ -22,7 +24,7 @@ references:
     cobit5: APO13.01,DSS01.04,DSS05.02,DSS05.03
     cui: 3.13.11,3.13.8
     isa-62443-2009: 4.3.3.6.6
-    isa-62443-2013: 'SR 1.13,SR 2.6,SR 3.1,SR 3.5,SR 3.8,SR 4.1,SR 4.3,SR 5.1,SR 5.2,SR 5.3,SR 7.1,SR 7.6'
+    isa-62443-2013: 'SR 1.13,SR 2.6,SR 3.1,SR 3.5,SR 3.8,SR 4.1,SR 4.3,SR 5.1,SR 5.2,SR 5.3,SR 7.1,SR 7.6'  # yamllint disable-line rule:line-length
     iso27001-2013: A.11.2.6,A.13.1.1,A.13.2.1,A.14.1.3,A.6.2.1,A.6.2.2
     nerc-cip: CIP-003-8 R4.2,CIP-007-3 R5.1
     nist: SC-12(2),SC-12(3),IA-7,SC-13,CM-6(a),SC-12
@@ -42,7 +44,8 @@ warnings:
         Act of 1996, Public Law 104-106. This standard shall be used in
         designing and implementing cryptographic modules that Federal
         departments and agencies operate or are operated for them under
-        contract. See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
+        contract. See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
         To meet this, the system has to have cryptographic software provided by
         a vendor that has undergone this certification. This means providing
         documentation, test results, design information, and independent third

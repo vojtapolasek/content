@@ -8,14 +8,16 @@ description: |-
     BIND is supported by crypto policy, but the BIND configuration may be
     set up to ignore it.
 
-    To check that Crypto Policies settings are configured correctly, ensure that the <tt>/etc/named.conf</tt>
+    To check that Crypto Policies settings are configured correctly, ensure that the
+    <tt>/etc/named.conf</tt>
     includes the appropriate configuration:
     In the <tt>options</tt> section of <tt>/etc/named.conf</tt>, make sure that the following line
     is not commented out or superseded by later includes:
     <tt>include "/etc/crypto-policies/back-ends/bind.config";</tt>
 
 rationale: |-
-    Overriding the system crypto policy makes the behavior of the BIND service violate expectations,
+    Overriding the system crypto policy makes the behavior of the BIND service violate
+    expectations,
     and makes system configuration more fragmented.
 
 severity: high
@@ -38,10 +40,12 @@ ocil_clause: |-
 
 ocil: |-
     To verify that BIND uses the system crypto policy, check out that the BIND config file
-    <pre>/etc/named.conf</pre> contains the <pre>include "/etc/crypto-policies/back-ends/bind.config";</pre>
+    <pre>/etc/named.conf</pre> contains the
+    <pre>include "/etc/crypto-policies/back-ends/bind.config";</pre>
     directive:
     <pre>$ sudo grep 'include "/etc/crypto-policies/back-ends/bind.config";' /etc/named.conf</pre>
-    Verify that the directive is at the bottom of the <pre>options</pre> section of the config file.
+    Verify that the directive is at the bottom of the <pre>options</pre> section of the config
+    file.
 
 fixtext: |-
     Configure BIND to use the system crypto policy.

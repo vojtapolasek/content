@@ -15,7 +15,11 @@ rationale: |-
 
 warnings:
     - general: |-
-        This rule should be understood primarily as a convenience administration feature. This rule ensures that if the USBGuard default rules.conf file is present, it will alter it so that USB hub devices are allowed. However, if the rules.conf file is altered by system administrator, the rule does not check if USB hub devices are allowed. This assumes that an administrator modified the file with some purpose in mind.
+        This rule should be understood primarily as a convenience administration feature. This
+        rule ensures that if the USBGuard default rules.conf file is present, it will alter it so
+        that USB hub devices are allowed. However, if the rules.conf file is altered by system
+        administrator, the rule does not check if USB hub devices are allowed. This assumes that
+        an administrator modified the file with some purpose in mind.
 
 severity: medium
 

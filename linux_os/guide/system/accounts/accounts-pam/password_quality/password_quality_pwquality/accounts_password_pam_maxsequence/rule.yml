@@ -8,7 +8,8 @@ description: |-
     character sequences in a new password. Such sequences can be, e.g., 123 or abc. If the value is 
     set to 0, this check will be turned off.
     <br /><br />
-    Note: Passwords that consist mainly of such sequences are unlikely to meet the simplicity criteria 
+    Note: Passwords that consist mainly of such sequences are unlikely to meet the simplicity
+    criteria
     unless the sequence constitutes only a small portion of the overall password.
 
 rationale: |-

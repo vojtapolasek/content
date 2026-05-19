@@ -26,7 +26,8 @@ references:
 
 platform: package[tmux]
 
-ocil_clause: '"lock-after-time" is not set to "900" or less in the global tmux configuration file to enforce session lock after inactivity'
+ocil_clause: '"lock-after-time" is not set to "900" or less in the global tmux configuration file
+    to enforce session lock after inactivity'
 
 ocil: |-
     Verify {{{ full_name }}} initiates a session lock after 15 minutes of inactivity.
@@ -51,4 +52,5 @@ fixtext: |-
 
     $ sudo chmod 0644 /etc/tmux.conf
 
-srg_requirement: '{{{ full_name }}} must automatically lock command line user sessions after 15 minutes of inactivity.'
+srg_requirement: '{{{ full_name }}} must automatically lock command line user sessions after 15
+    minutes of inactivity.'

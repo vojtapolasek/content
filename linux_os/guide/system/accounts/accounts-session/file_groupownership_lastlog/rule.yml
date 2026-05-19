@@ -24,7 +24,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_directory_group_owner(file="/var/log/lastlog", group="root") }}}'
 
-srg_requirement: '{{{ srg_requirement_directory_group_owner(file="/var/log/lastlog", group="root") }}}'
+srg_requirement: '{{{ srg_requirement_directory_group_owner(file="/var/log/lastlog", group="root")
+    }}}'
 
 template:
     name: file_groupowner

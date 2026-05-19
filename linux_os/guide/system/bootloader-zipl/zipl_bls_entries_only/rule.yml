@@ -26,7 +26,8 @@ ocil_clause: 'a non BLS boot entry is configured'
 ocil: |-
   Check that no boot image file is specified in <tt>/etc/zipl.conf</tt>:
   <pre>grep -R "^image\s*=" /etc/zipl.conf</pre>
-  No line should be returned, if a line is returned non BLS compliant boot entries are configured for zIPL.
+  No line should be returned, if a line is returned non BLS compliant boot entries are configured
+  for zIPL.
 
 platform: machine
 

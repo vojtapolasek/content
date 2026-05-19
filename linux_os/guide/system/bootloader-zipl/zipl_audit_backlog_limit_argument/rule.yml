@@ -4,8 +4,10 @@ documentation_complete: true
 title: 'Extend Audit Backlog Limit for the Audit Daemon in zIPL'
 
 description: |-
-    To improve the kernel capacity to queue all log events, even those which start prior to the audit daemon,
-    check that all boot entries in <tt>/boot/loader/entries/*.conf</tt> have <tt>audit_backlog_limit=8192</tt>
+    To improve the kernel capacity to queue all log events, even those which start prior to the
+    audit daemon,
+    check that all boot entries in <tt>/boot/loader/entries/*.conf</tt> have
+    <tt>audit_backlog_limit=8192</tt>
     included in its options.<br />
     To ensure that new kernels and boot entries continue to extend the audit log events queue,
     add <tt>audit_backlog_limit=8192</tt> to <tt>/etc/kernel/cmdline</tt>.
@@ -32,7 +34,8 @@ ocil: |-
   To check that all boot entries extend the backlog limit;
   Check that all boot entries extend the log events queue:
   <pre>sudo grep -L "^options\s+.*\baudit_backlog_limit=8192\b" /boot/loader/entries/*.conf</pre>
-  No line should be returned, each line returned is a boot entry that does not extend the log events queue.
+  No line should be returned, each line returned is a boot entry that does not extend the log
+  events queue.
 
 platform: machine
 

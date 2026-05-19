@@ -7,7 +7,8 @@ description: |-
     against libc5). But this compatibility comes at the cost of not being able to randomize
     the heap placement (ASLR).
 
-    Unless legacy binaries need to run on the system, set <tt>CONFIG_COMPAT_BRK</tt> to <tt>"n"</tt>.
+    Unless legacy binaries need to run on the system, set <tt>CONFIG_COMPAT_BRK</tt> to
+    <tt>"n"</tt>.
 
     {{{ describe_kernel_build_config("CONFIG_COMPAT_BRK", "n") | indent(4) }}}
 

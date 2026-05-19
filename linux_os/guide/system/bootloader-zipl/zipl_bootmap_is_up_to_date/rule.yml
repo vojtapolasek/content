@@ -29,6 +29,7 @@ ocil: |-
   Make sure that <tt>/boot/bootmap</tt> is newer than <tt>/boot/loader/entries/*.conf</tt>
   and <tt>/etc/zipl.conf</tt>:
   <pre>find /boot/loader/entries/*.conf /etc/zipl.conf -newer /boot/bootmap</pre>
-  No line should be returned, if a line is returned <tt>/boot/bootmap</tt> is outdated and needs to be regenerated.
+  No line should be returned, if a line is returned <tt>/boot/bootmap</tt> is outdated and needs
+  to be regenerated.
 
 platform: machine

@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Disable vsyscall mapping'
 
 description: |-
-    This config disables the vsyscall mapping at all. Attempts to use the vsyscalls will be reported to
+    This config disables the vsyscall mapping at all. Attempts to use the vsyscalls will be
+    reported to
     dmesg, so that either old or malicious userspace programs can be identified.
     This configuration is available from kernel 4.4.
 

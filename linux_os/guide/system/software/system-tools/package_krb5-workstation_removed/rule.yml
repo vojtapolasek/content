@@ -9,7 +9,8 @@ description: |-
     {{{ describe_package_remove(package="krb5-workstation") }}}
 
 rationale: |-
-    Kerberos is a network authentication system. The <tt>krb5-workstation</tt> package contains the basic
+    Kerberos is a network authentication system. The <tt>krb5-workstation</tt> package contains
+    the basic
     Kerberos programs (<tt>kinit</tt>, <tt>klist</tt>, <tt>kdestroy</tt>, <tt>kpasswd</tt>).
 
 severity: medium

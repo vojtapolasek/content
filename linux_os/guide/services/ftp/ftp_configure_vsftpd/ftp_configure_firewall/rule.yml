@@ -7,7 +7,8 @@ description: |-
     blocks access to the ports used by the web server.
 
     {{{ describe_iptables_allow(proto="tcp", port=21) }}}
-    Edit the file <tt>/etc/sysconfig/iptables-config</tt>. Ensure that the space-separated list of modules contains
+    Edit the file <tt>/etc/sysconfig/iptables-config</tt>. Ensure that the space-separated list of
+    modules contains
     the FTP connection tracking module:
     <pre>IPTABLES_MODULES="ip_conntrack_ftp"</pre>
 

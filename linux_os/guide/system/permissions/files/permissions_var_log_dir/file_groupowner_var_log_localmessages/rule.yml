@@ -10,7 +10,8 @@ rationale: |-
 
 severity: medium
 
-ocil_clause: '{{{ ocil_clause_file_group_owner(file="/var/log/localmessages*", group="adm|root") }}}'
+ocil_clause: '{{{ ocil_clause_file_group_owner(file="/var/log/localmessages*", group="adm|root")
+    }}}'
 
 ocil: |-
     {{{ ocil_file_group_owner(file="/var/log/localmessages*", group="adm|root") }}}

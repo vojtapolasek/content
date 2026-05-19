@@ -11,7 +11,8 @@ documentation_complete: true
 title: 'Set Deny For Failed Password Attempts'
 
 description: |-
-    The {{{ full_name }}} operating system must lock an account after - at most - {{{ xccdf_value("var_password_pam_tally2") }}}
+    The {{{ full_name }}} operating system must lock an account after - at most -
+    {{{ xccdf_value("var_password_pam_tally2") }}}
     consecutive invalid access attempts.
 
 rationale: |-
@@ -52,15 +53,18 @@ references:
 ocil_clause: 'the account option is missing or commented out'
 
 ocil: |-
-    Check that the systems locks a user account after - at most - <tt>{{{ xccdf_value("var_password_pam_tally2") }}}</tt>
+    Check that the systems locks a user account after - at most -
+    <tt>{{{ xccdf_value("var_password_pam_tally2") }}}</tt>
     consecutive failed login attempts with the following command:
 
     <pre># {{{ audit_cmd }}}
-    auth required pam_tally2.so onerr=fail deny={{{ xccdf_value("var_password_pam_tally2") }}}</pre>
+    auth required pam_tally2.so onerr=fail
+    deny={{{ xccdf_value("var_password_pam_tally2") }}}</pre>
 
     If no line is returned, the line is commented out, or the line is missing
     "onerr=fail", this is a finding.
-    If the line has "deny" set to a value outside of the range <pre>1-{{{ xccdf_value("var_password_pam_tally2") }}}</pre>,
+    If the line has "deny" set to a value outside of the range
+    <pre>1-{{{ xccdf_value("var_password_pam_tally2") }}}</pre>,
     this is a finding.
 
     Check that the system resets the failed login attempts counter after a

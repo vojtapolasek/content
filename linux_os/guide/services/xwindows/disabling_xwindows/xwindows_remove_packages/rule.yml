@@ -9,13 +9,16 @@ description: |-
     {{%- endfor %}}
 
     If X Windows is not installed then the system cannot boot into graphical user mode.
-    This prevents the system from being accidentally or maliciously booted into a <tt>graphical.target</tt>
+    This prevents the system from being accidentally or maliciously booted into a
+    <tt>graphical.target</tt>
     mode. To do so, run the following command:
     <pre>sudo {{{ pkg_manager }}} remove {{{ xwindows_packages | join(' ') }}}</pre>
 
 rationale: |-
-    Unnecessary service packages must not be installed to decrease the attack surface of the system.
-    X windows has a long history of security vulnerabilities and should not be installed unless approved and documented.
+    Unnecessary service packages must not be installed to decrease the attack surface of the
+    system.
+    X windows has a long history of security vulnerabilities and should not be installed unless
+    approved and documented.
 
 severity: medium
 
@@ -50,18 +53,25 @@ fixtext: |-
     {{{ package_remove(xwindows_package) }}}
     {{%- endfor %}}
 
-srg_requirement: '{{{ full_name }}} Must Be Configured In Accordance With The Security Configuration Settings Based On Dod Security Configuration Or Implementation Guidance, Including Stigs, Nsa Configuration Guides, Ctos, And Dtms.'
+srg_requirement: '{{{ full_name }}} Must Be Configured In Accordance With The Security
+    Configuration Settings Based On Dod Security Configuration Or Implementation Guidance,
+    Including Stigs, Nsa Configuration Guides, Ctos, And Dtms.'
 
 platforms:
 {{{ rule_notapplicable_when_ovirt_installed() | indent(4)}}}
 
 warnings:
     - functionality: |-
-        The installation and use of a Graphical User Interface (GUI) increases your attack vector and decreases your
-        overall security posture. Removing the package xorg-x11-server-common package will remove the graphical target
-        which might bring your system to an inconsistent state requiring additional configuration to access the system
+        The installation and use of a Graphical User Interface (GUI) increases your attack vector
+        and decreases your
+        overall security posture. Removing the package xorg-x11-server-common package will remove
+        the graphical target
+        which might bring your system to an inconsistent state requiring additional configuration
+        to access the system
         again.
-        The rule <tt>xwindows_runlevel_target</tt> can be used to configure the system to boot into the multi-user.target.
-        If a GUI is an operational requirement, a tailored profile that removes this rule should be used before
+        The rule <tt>xwindows_runlevel_target</tt> can be used to configure the system to boot
+        into the multi-user.target.
+        If a GUI is an operational requirement, a tailored profile that removes this rule should
+        be used before
         continuing installation.
 {{{ warning_ovirt_rule_notapplicable("X11 graphic libraries are dependency of OpenStack Cinderlib storage provider") | indent(4) }}}

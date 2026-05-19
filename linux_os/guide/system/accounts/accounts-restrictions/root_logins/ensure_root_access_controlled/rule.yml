@@ -30,7 +30,7 @@ ocil: |-
     - L - Password is locked
 
 warnings:
-  - general: This rule doesn't come with a remediation, as the exact requirement allows root to either have a password or be locked.
+  - general: This rule doesn't come with a remediation, as the exact requirement allows root to either have a password or be locked.  # yamllint disable-line rule:line-length
 {{%- else %}}
 ocil_clause: 'root password is not set'
 
@@ -42,7 +42,7 @@ ocil: |-
     - P - Password is set
 
 warnings:
-  - general: This rule doesn't come with a remediation, as the exact requirement allows root to have a password.
+  - general: This rule doesn't come with a remediation, as the exact requirement allows root to have a password.  # yamllint disable-line rule:line-length
 {{% endif %}}
 
 

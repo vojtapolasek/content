@@ -17,7 +17,8 @@ rationale: |-
 severity: medium
 
 
-ocil_clause: 'either of these exist and they configure csh, or any other shell as a viewer for documents'
+ocil_clause: 'either of these exist and they configure csh, or any other shell as a viewer for
+    documents'
 
 ocil: |-
     Enter the following commands:

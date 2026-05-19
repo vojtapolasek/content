@@ -43,6 +43,7 @@ fixtext: |-
     Migrate interactive user home directories that reside on the root
     file system to a separate partition.
 
-srg_requirement: 'All {{{ full_name }}} interactive user home directories must reside on a file system separate from the root partition.'
+srg_requirement: 'All {{{ full_name }}} interactive user home directories must reside on a file
+    system separate from the root partition.'
 
 platform: machine

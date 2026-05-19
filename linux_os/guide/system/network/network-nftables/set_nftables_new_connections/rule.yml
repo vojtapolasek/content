@@ -19,10 +19,12 @@ identifiers:
 references:
     cis@sle15: 3.5.2.7
 
-ocil_clause: 'All nftables rules for established incoming, and for new and outbound connections do not match site policy'
+ocil_clause: 'All nftables rules for established incoming, and for new and outbound connections do
+    not match site policy'
 
 ocil: |-
-    To verify that all nftables rules on your system for established incoming connections match site policy,
+    To verify that all nftables rules on your system for established incoming connections match
+    site policy,
     run the following command:
     <pre>$ sudo  nft list ruleset | awk '/hook input/,/}/' | grep -E 'ip protocol (tcp|udp|icmp) ct state'</pre>
     Output should be similar to:
@@ -31,7 +33,8 @@ ocil: |-
       ip protocol udp ct state established accept
       ip protocol icmp ct state established accept
     </tt>
-    To verify that all nftables rules for new and established outbound connections match site policy,
+    To verify that all nftables rules for new and established outbound connections match site
+    policy,
     run:
     <pre>$ sudo nft list ruleset | awk '/hook output/,/}/' | grep -E 'ip protocol (tcp|udp|icmp) ct state'</pre>
     and output should be similar to:

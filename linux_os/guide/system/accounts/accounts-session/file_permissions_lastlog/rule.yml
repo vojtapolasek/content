@@ -24,7 +24,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_directory_permissions(file="/usr/bin/lastlog/", mode="0750") }}}'
 
-srg_requirement: '{{{ srg_requirement_directory_permission(file="/usr/bin/lastlog", mode="0750") }}}'
+srg_requirement: '{{{ srg_requirement_directory_permission(file="/usr/bin/lastlog", mode="0750")
+    }}}'
 
 template:
     name: file_permissions

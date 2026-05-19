@@ -2,7 +2,8 @@ documentation_complete: true
 
 title: 'Ensure logrotate is Installed'
 
-description: 'logrotate is installed by default. {{{ describe_package_install(package="logrotate") }}}'
+description: 'logrotate is installed by default. {{{ describe_package_install(package="logrotate")
+    }}}'
 
 rationale: |-
     The logrotate package provides the logrotate services.

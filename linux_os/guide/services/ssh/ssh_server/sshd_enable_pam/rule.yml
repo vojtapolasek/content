@@ -46,4 +46,5 @@ template:
 fixtext: |-
     {{{ fixtext_sshd_lineinfile('UsePAM', 'yes') }}}
 
-srg_requirement: '{{{ full_name }}} must use strong authenticators in establishing nonlocal maintenance and diagnostic sessions.'
+srg_requirement: '{{{ full_name }}} must use strong authenticators in establishing nonlocal
+    maintenance and diagnostic sessions.'

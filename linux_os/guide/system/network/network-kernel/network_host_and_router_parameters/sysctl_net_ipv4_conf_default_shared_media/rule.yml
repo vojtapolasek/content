@@ -2,11 +2,14 @@ documentation_complete: true
 
 title: 'Configure Sending and Accepting Shared Media Redirects by Default'
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.default.shared_media", value=xccdf_value("sysctl_net_ipv4_conf_default_shared_media_value")) }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.default.shared_media",
+    value=xccdf_value("sysctl_net_ipv4_conf_default_shared_media_value")) }}}'
 
 rationale: |-
-    This setting should be aligned with <tt>net.ipv4.conf.default.secure_redirects</tt> because it overrides it.
-    If <tt>shared_media</tt> is enabled for an interface <tt>secure_redirects</tt> will be enabled too.
+    This setting should be aligned with <tt>net.ipv4.conf.default.secure_redirects</tt> because it
+    overrides it.
+    If <tt>shared_media</tt> is enabled for an interface <tt>secure_redirects</tt> will be enabled
+    too.
 
 severity: medium
 

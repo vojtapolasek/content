@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: 'Disable Kernel Parameter for IPv6 Forwarding by default'
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.forwarding", value="0") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.forwarding",
+    value="0") }}}'
 
 rationale: |-
     IP forwarding permits the kernel to forward packets from one network

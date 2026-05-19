@@ -8,7 +8,8 @@ description: |-
     using correct path for the <tt>DefaultNetstreamDriverCAFile</tt>
     global option in <tt>/etc/rsyslog.conf</tt>, for example with the following command:
     <pre>echo 'global(DefaultNetstreamDriverCAFile="{{{ rsyslog_cafile }}}")' >> /etc/rsyslog.conf</pre>
-    Replace the <tt>{{{ rsyslog_cafile }}}</tt> in the above command with the path to the file with CA certificate generated for the purpose of remote logging.
+    Replace the <tt>{{{ rsyslog_cafile }}}</tt> in the above command with the path to the file
+    with CA certificate generated for the purpose of remote logging.
 
 rationale: |-
     The CA certificate needs to be set or <tt>rsyslog.service</tt>
@@ -36,7 +37,8 @@ ocil: |-
     <pre>$ grep DefaultNetstreamDriverCAFile /etc/rsyslog.conf /etc/rsyslog.d/*.conf</pre>
     The output should include record similar to
     <pre>global(DefaultNetstreamDriverCAFile="{{{ rsyslog_cafile }}}")</pre>
-    where the path to the CA file (<tt>{{{ rsyslog_cafile }}}</tt> in case above) must point to the correct CA certificate.
+    where the path to the CA file (<tt>{{{ rsyslog_cafile }}}</tt> in case above) must point to
+    the correct CA certificate.
 
 warnings:
     - general: |-

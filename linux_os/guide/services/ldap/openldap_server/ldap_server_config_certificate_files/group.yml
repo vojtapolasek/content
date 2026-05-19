@@ -11,7 +11,8 @@ description: |-
     onto the LDAP server:
     <ul>
     <li><tt>/etc/pki/tls/ldap/serverkey.pem</tt>: the private key <tt>ldapserverkey.pem</tt></li>
-    <li><tt>/etc/pki/tls/ldap/servercert.pem</tt>: the certificate file <tt>ldapservercert.pem</tt></li>
+    <li><tt>/etc/pki/tls/ldap/servercert.pem</tt>: the certificate file
+    <tt>ldapservercert.pem</tt></li>
     </ul>
     Verify the ownership and permissions of these files:
     <pre>$ sudo chown root:ldap /etc/pki/tls/ldap/serverkey.pem

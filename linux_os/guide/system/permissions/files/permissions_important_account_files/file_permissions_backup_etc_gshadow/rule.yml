@@ -40,7 +40,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_file_permissions(file="/etc/gshadow-", mode=target_perms_octal) }}}'
 
-srg_requirement: '{{{ srg_requirement_file_permission(file="/etc/gshadow-", mode=target_perms_octal) }}}'
+srg_requirement: '{{{ srg_requirement_file_permission(file="/etc/gshadow-",
+    mode=target_perms_octal) }}}'
 
 
 template:

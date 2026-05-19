@@ -5,7 +5,8 @@ title: 'Record Events When Executables Are Run As Another User'
 
 description: |-
     Verify the system generates an audit record when actions are run as another user.
-    sudo provides users with temporary elevated privileges to perform operations, either as the superuser or another user.
+    sudo provides users with temporary elevated privileges to perform operations, either as the
+    superuser or another user.
 
     If audit is using the "auditctl" tool to load the rules, run the following command:
 
@@ -50,7 +51,8 @@ ocil_clause: 'the command does not return all lines, or the lines are commented 
 ocil: |-
     Verify {{{ full_name }}} audits execution as another user.
 
-    Check if {{{ full_name }}} is configured to audit the execution of the "execve" system call using the following command:
+    Check if {{{ full_name }}} is configured to audit the execution of the "execve" system call
+    using the following command:
 
     <pre>$ sudo grep execve /etc/audit/audit.rules</pre>
 

@@ -10,8 +10,10 @@ description: |-
 rationale: |-
     Access to <tt>crontab</tt> should be restricted.
     It is easier to manage an allow list than a deny list.
-    Therefore, <tt>/etc/cron.allow</tt> needs to be created and used instead of <tt>/etc/cron.deny</tt>.
-    Regardless of the existence of any of these files, the root administrative user is always allowed to setup a crontab.
+    Therefore, <tt>/etc/cron.allow</tt> needs to be created and used instead of
+    <tt>/etc/cron.deny</tt>.
+    Regardless of the existence of any of these files, the root administrative user is always
+    allowed to setup a crontab.
 
 severity: medium
 

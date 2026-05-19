@@ -47,7 +47,8 @@ references:
 fixtext: |-
     {{{ fixtext_sshd_lineinfile("GSSAPIAuthentication", "no") }}}
 
-srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow GSSAPI authentication, except to fulfill documented and validated mission requirements.'
+srg_requirement: 'The {{{ full_name }}} SSH daemon must not allow GSSAPI authentication, except to
+    fulfill documented and validated mission requirements.'
 
 template:
     name: sshd_lineinfile

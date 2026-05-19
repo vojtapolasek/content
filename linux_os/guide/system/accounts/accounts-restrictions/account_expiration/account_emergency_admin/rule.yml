@@ -11,13 +11,15 @@ description: |-
     system maintenance during emergencies may not be possible, thus adversely
     affecting system availability.
 
-    Check to see if an emergency administrator account password or account expires with the following command:
+    Check to see if an emergency administrator account password or account expires with the
+    following command:
 
     <pre># sudo chage -l [Emergency_Administrator]
 
     Password expires:never</pre>
 
-    If <tt>Password expires</tt> or <tt>Account expires</tt> is set to anything other than <tt>never</tt>, this is a finding.
+    If <tt>Password expires</tt> or <tt>Account expires</tt> is set to anything other than
+    <tt>never</tt>, this is a finding.
 
 
 rationale: |-
@@ -52,10 +54,12 @@ references:
 ocil_clause: 'any emergency administrator account or account password has an expiration date set'
 
 ocil: |-
-    Check to see if an emergency administrator account password or account expires with the following command:
+    Check to see if an emergency administrator account password or account expires with the
+    following command:
 
     <pre># sudo chage -l [Emergency_Administrator]
 
     Password expires:never</pre>
 
-    If <tt>Password expires</tt> or <tt>Account expires</tt> is set to anything other than <tt>never</tt>, this is a finding.
+    If <tt>Password expires</tt> or <tt>Account expires</tt> is set to anything other than
+    <tt>never</tt>, this is a finding.

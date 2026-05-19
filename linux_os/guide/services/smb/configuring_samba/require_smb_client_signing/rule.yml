@@ -22,7 +22,8 @@ severity: unknown
 ocil_clause: 'it is not'
 
 ocil: |-
-    To verify that Samba clients running smbclient must use packet signing, run the following command:
+    To verify that Samba clients running smbclient must use packet signing, run the following
+    command:
     <pre>$ grep signing /etc/samba/smb.conf</pre>
     The output should show:
     <pre>client signing = mandatory</pre>

@@ -61,13 +61,19 @@ ocil: |-
 fixtext: |-
     Configure {{{ full_name }}} to use two or more name servers for DNS resolution.
 
-    By default, "NetworkManager" on {{{ full_name }}} dynamically updates the /etc/resolv.conf file with the DNS settings from active "NetworkManager" connection profiles. However, this feature can be disabled to allow manual configurations.
+    By default, "NetworkManager" on {{{ full_name }}} dynamically updates the /etc/resolv.conf
+    file with the DNS settings from active "NetworkManager" connection profiles. However, this
+    feature can be disabled to allow manual configurations.
 
-    If manually configuring DNS, edit the "/etc/resolv.conf" file to uncomment or add the two or more "nameserver" option lines with the IP address of local authoritative name servers. If local host resolution is being performed, the "/etc/resolv.conf" file must be empty. An empty "/etc/resolv.conf" file can be created as follows:
+    If manually configuring DNS, edit the "/etc/resolv.conf" file to uncomment or add the two or
+    more "nameserver" option lines with the IP address of local authoritative name servers. If
+    local host resolution is being performed, the "/etc/resolv.conf" file must be empty. An empty
+    "/etc/resolv.conf" file can be created as follows:
 
     $ sudo echo -n > /etc/resolv.conf
 
-srg_requirement: 'For {{{ full_name }}} systems using Domain Name Servers (DNS) resolution, at least two name servers must be configured.'
+srg_requirement: 'For {{{ full_name }}} systems using Domain Name Servers (DNS) resolution, at
+    least two name servers must be configured.'
 
 warnings:
-  - general: This rule doesn't come with a remediation, the IP addresses of local authoritative name servers need to be added by the administrator.
+  - general: This rule doesn't come with a remediation, the IP addresses of local authoritative name servers need to be added by the administrator.  # yamllint disable-line rule:line-length

@@ -8,7 +8,8 @@ description: |-
     permissions. Most of the time, there is no need that these files need to be
     read by any non-root user.
 
-    Check that "permissions.local" file contains the correct permissions rules with the following command:
+    Check that "permissions.local" file contains the correct permissions rules with the following
+    command:
 
     <pre># grep -i audit /etc/permissions.local
 
@@ -18,7 +19,8 @@ description: |-
     /etc/audit/rules.d/audit.rules root:root 640</pre>
 
     {{% if product in slmicro %}}
-    Check that all of the audit information files and folders have the correct permissions with the following command:
+    Check that all of the audit information files and folders have the correct permissions with
+    the following command:
     <pre>$ sudo chkstat /etc/permissions.local</pre>
 
     If the command returns any output, this is a finding.
@@ -50,7 +52,8 @@ references:
 ocil: |-
     {{% if product in slmicro %}}
 
-    Check that "permissions.local" file contains the correct permissions rules with the following command:
+    Check that "permissions.local" file contains the correct permissions rules with the following
+    command:
 
     <pre># grep -i audit /etc/permissions.local
 
@@ -59,7 +62,8 @@ ocil: |-
     /etc/audit/audit.rules root:root 640
     /etc/audit/rules.d/audit.rules root:root 640</pre>
 
-    Check that all of the audit information files and folders have the correct permissions with the following command:
+    Check that all of the audit information files and folders have the correct permissions with
+    the following command:
     <pre>$ sudo chkstat /etc/permissions.local</pre>
 
     If the command returns any output, this is a finding.

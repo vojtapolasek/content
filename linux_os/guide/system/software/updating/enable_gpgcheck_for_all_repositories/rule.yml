@@ -36,14 +36,18 @@ ocil: |-
     A value of <tt>0</tt> indicates that <tt>gpgcheck</tt> has been disabled for that repo.
 
 fixtext: |-
-    Configure {{{ full_name }}} to verify the signature of packages from a repository prior to install by setting the following option in the "/etc/yum.repos.d/[your_repo_name].repo" file:
+    Configure {{{ full_name }}} to verify the signature of packages from a repository prior to
+    install by setting the following option in the "/etc/yum.repos.d/[your_repo_name].repo" file:
 
     gpgcheck=1
 
 checktext: |-
-    Verify {{{ full_name }}} prevents the installation of patches, service packs, device drivers, or operating system components from a repository without verification that they have been digitally signed using a certificate that is recognized and approved by the organization.
+    Verify {{{ full_name }}} prevents the installation of patches, service packs, device drivers,
+    or operating system components from a repository without verification that they have been
+    digitally signed using a certificate that is recognized and approved by the organization.
 
-    Check that {{{ pkg_manager }}} verifies the signature of packages from a repository prior to install with the following command:
+    Check that {{{ pkg_manager }}} verifies the signature of packages from a repository prior to
+    install with the following command:
 
     $ sudo grep -E '^\[.*\]|gpgcheck' /etc/yum.repos.d/*.repo
 
@@ -52,6 +56,9 @@ checktext: |-
     /etc/yum.repos.d/baseos.repo:[baseos]
     /etc/yum.repos.d/baseos.repo:gpgcheck=1
 
-    If "gpgcheck" is not set to "1", or if options are missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
+    If "gpgcheck" is not set to "1", or if options are missing or commented out, ask the System
+    Administrator how the certificates for patches and other operating system components are
+    verified.
 
-    If there is no process to validate certificates that is approved by the organization, this is a finding.
+    If there is no process to validate certificates that is approved by the organization, this is
+    a finding.

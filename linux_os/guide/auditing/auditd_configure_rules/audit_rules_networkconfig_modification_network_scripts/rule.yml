@@ -1,6 +1,7 @@
 documentation_complete: true
 
-title: 'Record Events that Modify the System''s Network Environment - /etc/sysconfig/network-scripts'
+title: 'Record Events that Modify the System''s Network Environment -
+    /etc/sysconfig/network-scripts'
 
 description: |-
     {{{ describe_audit_rules_watch("/etc/sysconfig/network-scripts", "system-locale") }}}

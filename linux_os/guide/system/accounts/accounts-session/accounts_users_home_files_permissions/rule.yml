@@ -1,7 +1,8 @@
 documentation_complete: true
 
 
-title: 'All User Files and Directories In The Home Directory Must Have Mode 0750 Or Less Permissive'
+title: 'All User Files and Directories In The Home Directory Must Have Mode 0750 Or Less
+    Permissive'
 
 description: |-
     Set the mode on files and directories in the local interactive user home

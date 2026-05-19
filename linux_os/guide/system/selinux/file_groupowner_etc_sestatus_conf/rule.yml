@@ -25,7 +25,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_file_group_owner(file="/etc/sestatus.conf", group="root") }}}'
 
-srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/sestatus.conf", group="root") }}}'
+srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/sestatus.conf", group="root")
+    }}}'
 
 template:
     name: file_groupowner

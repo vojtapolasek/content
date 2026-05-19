@@ -14,7 +14,8 @@ description: |-
     in <tt>/etc/sudoers.d/</tt>.
 
 rationale: |-
-    Ignoring the commands in the user's current directory prevents an attacker from executing commands
+    Ignoring the commands in the user's current directory prevents an attacker from executing
+    commands
     downloaded locally.
 
 severity: medium

@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Configure AIDE to Verify the Audit Tools'
 
 description: |-
-    The operating system file integrity tool must be configured to protect the integrity of the audit tools.
+    The operating system file integrity tool must be configured to protect the integrity of the
+    audit tools.
 
 rationale: |-
     Protecting the integrity of the tools used for auditing purposes is a
@@ -61,7 +62,8 @@ ocil: |-
     If one or more lines are missing, this is a finding.
 
 fixtext: |-
-    Add or update the following lines to {{{ aide_conf_path }}}, to protect the integrity of the audit tools.
+    Add or update the following lines to {{{ aide_conf_path }}}, to protect the integrity of the
+    audit tools.
 
     <pre>
     {{{ aide_files() }}}

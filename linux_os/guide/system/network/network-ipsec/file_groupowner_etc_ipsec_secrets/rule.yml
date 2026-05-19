@@ -28,7 +28,8 @@ platform: package[libreswan]
 
 fixtext: '{{{ fixtext_file_group_owner(file="/etc/ipsec.secrets", group="root") }}}'
 
-srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/ipsec.secrets", group="root") }}}'
+srg_requirement: '{{{ srg_requirement_file_group_owner(file="/etc/ipsec.secrets", group="root")
+    }}}'
 
 template:
     name: file_groupowner

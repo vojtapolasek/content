@@ -31,7 +31,8 @@ ocil_clause: 'SELinux is disabled'
 ocil: |-
     Ensure that {{{ full_name }}} does not disable SELinux.
 
-    Check if "SELinux" is active and in "enforcing" or "permissive" mode with the following command:
+    Check if "SELinux" is active and in "enforcing" or "permissive" mode with the following
+    command:
 
     $ sudo getenforce
     Enforcing

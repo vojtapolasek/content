@@ -6,7 +6,8 @@ title: 'Ensure gpgcheck Enabled for Local Packages'
 description: |-
     <tt>{{{ pkg_manager }}}</tt> should be configured to verify the signature(s) of local packages
     prior to installation. To configure <tt>{{{ pkg_manager }}}</tt> to verify signatures of local
-    packages, set the <tt>localpkg_gpgcheck</tt> to <tt>1</tt> in <tt>{{{ pkg_manager_config_file }}}</tt>.
+    packages, set the <tt>localpkg_gpgcheck</tt> to <tt>1</tt> in
+    <tt>{{{ pkg_manager_config_file }}}</tt>.
 
 rationale: |-
     Changes to any software components can have significant effects to the overall security
@@ -41,21 +42,26 @@ references:
     stigid@ol7: OL07-00-020060
     stigid@ol8: OL08-00-010371
 
-ocil_clause: 'there is no process to validate certificates for local packages that is approved by the organization'
+ocil_clause: 'there is no process to validate certificates for local packages that is approved by
+    the organization'
 
 ocil: |-
-    Verify that {{{ pkg_manager }}} verifies the signature of local packages prior to install with the following command:
+    Verify that {{{ pkg_manager }}} verifies the signature of local packages prior to install with
+    the following command:
 
     <pre>$ grep localpkg_gpgcheck {{{ pkg_manager_config_file }}}</pre>
 
     <pre>localpkg_gpgcheck=1</pre>
 
-    If "localpkg_gpgcheck" is not set to "1", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
+    If "localpkg_gpgcheck" is not set to "1", or if the option is missing or commented out, ask
+    the System Administrator how the certificates for patches and other operating system
+    components are verified.
 
 platform: package[{{{ pkg_manager }}}]
 
 fixtext: |-
-    Configure {{{ full_name }}} to always check package signatures before installation of local packages.
+    Configure {{{ full_name }}} to always check package signatures before installation of local
+    packages.
 
     Add or update the following line in [main] section of the {{{ pkg_manager_config_file }}} file:
 

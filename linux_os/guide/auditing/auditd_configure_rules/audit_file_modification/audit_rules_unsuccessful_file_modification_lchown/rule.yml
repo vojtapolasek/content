@@ -16,16 +16,21 @@ description: |-
     utility to read audit rules during daemon startup, add the following lines to
     <tt>/etc/audit/audit.rules</tt> file.
 
-    <pre>-a always,exit -F arch=b32 -S lchown -F exit=-EACCES -F auid>={{{ auid }}} -F auid!=unset -F key=unsuccesful-perm-change
-    -a always,exit -F arch=b32 -S lchown -F exit=-EPERM -F auid>={{{ auid }}} -F auid!=unset -F key=unsuccesful-perm-change</pre>
+    <pre>-a always,exit -F arch=b32 -S lchown -F exit=-EACCES -F auid>={{{ auid }}} -F auid!=unset
+    -F key=unsuccesful-perm-change
+    -a always,exit -F arch=b32 -S lchown -F exit=-EPERM -F auid>={{{ auid }}} -F auid!=unset -F
+    key=unsuccesful-perm-change</pre>
 
     If the system is 64 bit then also add the following lines:
-    <pre>-a always,exit -F arch=b64 -S lchown -F exit=-EACCES -F auid>={{{ auid }}} -F auid!=unset -F key=unsuccesful-perm-change
-    -a always,exit -F arch=b64 -S lchown -F exit=-EPERM -F auid>={{{ auid }}} -F auid!=unset -F key=unsuccesful-perm-change</pre>
+    <pre>-a always,exit -F arch=b64 -S lchown -F exit=-EACCES -F auid>={{{ auid }}} -F auid!=unset
+    -F key=unsuccesful-perm-change
+    -a always,exit -F arch=b64 -S lchown -F exit=-EPERM -F auid>={{{ auid }}} -F auid!=unset -F
+    key=unsuccesful-perm-change</pre>
 
 
 rationale: |-
-    Unsuccessful attempts to change ownership of files could be an indicator of malicious activity on a system. Auditing
+    Unsuccessful attempts to change ownership of files could be an indicator of malicious activity
+    on a system. Auditing
     these events could serve as evidence of potential system compromise.
 
 severity: medium

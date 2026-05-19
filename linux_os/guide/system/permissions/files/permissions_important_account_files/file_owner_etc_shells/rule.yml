@@ -30,7 +30,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_file_owner(file="/etc/shells", owner="root") }}}'
 
-srg_requirement: 'The {{{ full_name }}} /etc/shells file must have an owner of root to prevent unauthorized access.'
+srg_requirement: 'The {{{ full_name }}} /etc/shells file must have an owner of root to prevent
+    unauthorized access.'
 
 template:
     name: file_owner

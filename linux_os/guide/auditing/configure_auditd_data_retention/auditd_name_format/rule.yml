@@ -42,11 +42,13 @@ ocil: |-
 
 warnings:
     - general: |-
-        Whenever the variable <pre>var_auditd_name_format</pre> uses a multiple value option, for example
+        Whenever the variable <pre>var_auditd_name_format</pre> uses a multiple value option, for
+        example
         <pre>A|B|C</pre>, the first value will be used when remediating this rule.
 
 fixtext: |-
     {{{ fixtext_audit_configuration(param="name_format", value=xccdf_value("var_auditd_name_format")) | indent(4) }}}
 
 srg_requirement: |-
-    {{{ full_name }}} must label all off-loaded audit logs before sending them to the central log server.
+    {{{ full_name }}} must label all off-loaded audit logs before sending them to the central log
+    server.

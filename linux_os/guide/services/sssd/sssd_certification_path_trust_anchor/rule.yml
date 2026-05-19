@@ -24,8 +24,10 @@ ocil: |-
     </pre>
 
 fixtext: |-
-    Configure SSSD for PKI-based authentication. To validate certificates by constructing a certification path
-    to an accepted trust anchor by checking the following configuration of the <pre>/etc/sssd/sssd.conf</pre> file.
+    Configure SSSD for PKI-based authentication. To validate certificates by constructing a
+    certification path
+    to an accepted trust anchor by checking the following configuration of the
+    <pre>/etc/sssd/sssd.conf</pre> file.
     <pre>
         [domain/example.com]
         ldap_user_certificate = usercertificate;binary

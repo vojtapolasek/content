@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: 'Ensure that official distribution repositories are used'
 
-description: 'Check that official Debian repositories, including security repository, are configured in apt.'
+description: 'Check that official Debian repositories, including security repository, are
+    configured in apt.'
 
 rationale: |-
     The Debian distribution deliver DSA (Debian Security Announce), through the official

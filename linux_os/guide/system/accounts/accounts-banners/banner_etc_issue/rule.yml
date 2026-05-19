@@ -109,7 +109,7 @@ references:
     cis@sle15: 1.8.1.2
     cobit5: DSS05.04,DSS05.10,DSS06.10
     cui: 3.1.9
-    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9
+    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9  # yamllint disable-line rule:line-length
     isa-62443-2013: 'SR 1.1,SR 1.10,SR 1.2,SR 1.5,SR 1.7,SR 1.8,SR 1.9'
     iso27001-2013: A.18.1.4,A.9.2.1,A.9.2.4,A.9.3.1,A.9.4.2,A.9.4.3
     nist: AC-8(a),AC-8(c)
@@ -135,23 +135,36 @@ ocil: |-
     {{% endif %}}
 
 fixtext: |-
-  Configure {{{ full_name }}} to display the Standard Mandatory DoD Notice and Consent Banner before granting access to the system via command line logon.
+  Configure {{{ full_name }}} to display the Standard Mandatory DoD Notice and Consent Banner
+  before granting access to the system via command line logon.
 
-  Edit the "/etc/issue" file to replace the default text with the Standard Mandatory DoD Notice and Consent Banner. The DoD-required text is:
+  Edit the "/etc/issue" file to replace the default text with the Standard Mandatory DoD Notice
+  and Consent Banner. The DoD-required text is:
 
-  "You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+  "You are accessing a U.S. Government (USG) Information System (IS) that is provided for
+  USG-authorized use only.
 
-  By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+  By using this IS (which includes any device attached to this IS), you consent to the following
+  conditions:
 
-  -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+  -The USG routinely intercepts and monitors communications on this IS for purposes including, but
+  not limited to, penetration testing, COMSEC monitoring, network operations and defense,
+  personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
 
   -At any time, the USG may inspect and seize data stored on this IS.
 
-  -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+  -Communications using, or data stored on, this IS are not private, are subject to routine
+  monitoring, interception, and search, and may be disclosed or used for any USG-authorized
+  purpose.
 
-  -This IS includes security measures (e.g., authentication and access controls) to protect USG interests -- not for your personal benefit or privacy.
+  -This IS includes security measures (e.g., authentication and access controls) to protect USG
+  interests -- not for your personal benefit or privacy.
 
-  -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details."
+  -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI
+  investigative searching or monitoring of the content of privileged communications, or work
+  product, related to personal representation or services by attorneys, psychotherapists, or
+  clergy, and their assistants. Such communications and work product are private and confidential.
+  See User Agreement for details."
 
 checktext: |-
     Verify {{{ full_name }}} displays the Standard Mandatory DoD Notice and Consent Banner before
@@ -163,20 +176,33 @@ checktext: |-
 
     If the banner is set correctly it will return the following text:
 
-     "You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+     "You are accessing a U.S. Government (USG) Information System (IS) that is provided for
+     USG-authorized use only.
 
-    By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+    By using this IS (which includes any device attached to this IS), you consent to the following
+    conditions:
 
-    -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+    -The USG routinely intercepts and monitors communications on this IS for purposes including,
+    but not limited to, penetration testing, COMSEC monitoring, network operations and defense,
+    personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
 
     -At any time, the USG may inspect and seize data stored on this IS.
 
-    -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+    -Communications using, or data stored on, this IS are not private, are subject to routine
+    monitoring, interception, and search, and may be disclosed or used for any USG-authorized
+    purpose.
 
-    -This IS includes security measures (e.g., authentication and access controls) to protect USG interests -- not for your personal benefit or privacy.
+    -This IS includes security measures (e.g., authentication and access controls) to protect USG
+    interests -- not for your personal benefit or privacy.
 
-    -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details."
+    -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI
+    investigative searching or monitoring of the content of privileged communications, or work
+    product, related to personal representation or services by attorneys, psychotherapists, or
+    clergy, and their assistants. Such communications and work product are private and
+    confidential. See User Agreement for details."
 
-    If the banner text does not match the Standard Mandatory DoD Notice and Consent Banner exactly, or the line is commented out, this is a finding.
+    If the banner text does not match the Standard Mandatory DoD Notice and Consent Banner
+    exactly, or the line is commented out, this is a finding.
 
-srg_requirement: '{{{ full_name }}} must display the Standard Mandatory DoD Notice and Consent Banner before granting local or remote access to the system via a command line user logon.'
+srg_requirement: '{{{ full_name }}} must display the Standard Mandatory DoD Notice and Consent
+    Banner before granting local or remote access to the system via a command line user logon.'

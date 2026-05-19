@@ -19,7 +19,8 @@ rationale: |-
 
 severity: medium
 
-ocil_clause: 'the system is not using a centralized authentication mechanism, or it is not automated'
+ocil_clause: 'the system is not using a centralized authentication mechanism, or it is not
+    automated'
 
 ocil: |-
     Verify that the system is integrated with a centralized authentication mechanism

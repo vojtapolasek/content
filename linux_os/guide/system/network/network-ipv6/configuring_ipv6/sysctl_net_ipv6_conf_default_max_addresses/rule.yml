@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: Configure Maximum Number of Autoconfigured Addresses on All IPv6 Interfaces By Default
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.max_addresses", value="1") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.max_addresses",
+    value="1") }}}'
 
 rationale: >-
     The number of global unicast IPv6 addresses for each interface should be

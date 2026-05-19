@@ -1,13 +1,15 @@
 documentation_complete: true
 
 
-title: 'Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session in {{{ pwquality_path }}}'
+title: 'Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted
+    Per-Session in {{{ pwquality_path }}}'
 
 description: |-
     To configure the number of retry prompts that are permitted per-session:
     Edit the <tt>{{{ pwquality_path }}}</tt> to include
     <tt>retry={{{xccdf_value("var_password_pam_retry") }}}</tt>, or a lower value if site
-    policy is more restrictive. The profile requirement is a maximum of <tt>retry={{{xccdf_value("var_password_pam_retry") }}}</tt> prompts
+    policy is more restrictive. The profile requirement is a maximum of
+    <tt>retry={{{xccdf_value("var_password_pam_retry") }}}</tt> prompts
     per session.
 
 rationale: |-
@@ -29,12 +31,15 @@ references:
 platform: os_linux[ol]>8.3
 {{% endif %}}
 
-ocil_clause: 'the value of "retry" is set to "0" or greater than "{{{ xccdf_value("var_password_pam_retry") }}}", or is missing'
+ocil_clause: 'the value of "retry" is set to "0" or greater than "{{{
+    xccdf_value("var_password_pam_retry") }}}", or is missing'
 
 ocil: |-
-    Verify {{{ full_name }}} is configured to limit the "pwquality" retry option to {{{ xccdf_value("var_password_pam_retry") }}}.
+    Verify {{{ full_name }}} is configured to limit the "pwquality" retry option to
+    {{{ xccdf_value("var_password_pam_retry") }}}.
 
-    Check for the use of the "pwquality" retry option in the pwquality.conf file with the following command:
+    Check for the use of the "pwquality" retry option in the pwquality.conf file with the
+    following command:
     <pre>$ grep retry {{{ pwquality_path }}}</pre>
 
 template:

@@ -13,7 +13,8 @@ severity: medium
 
 
 
-ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/log/localmessages", perms="-rw-r--r--") }}}'
+ocil_clause: '{{{ ocil_clause_file_permissions(file="/var/log/localmessages", perms="-rw-r--r--")
+    }}}'
 
 ocil: |-
     {{{ ocil_file_permissions(file="/var/log/localmessages", perms="-rw-r--r--") }}}

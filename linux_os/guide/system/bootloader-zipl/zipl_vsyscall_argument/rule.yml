@@ -27,9 +27,11 @@ references:
 ocil_clause: 'vsyscalls are enabled'
 
 ocil: |-
-  To check that virtual syscalls are disabled at boot time, check all boot entries with following command:
+  To check that virtual syscalls are disabled at boot time, check all boot entries with following
+  command:
   <pre>sudo grep -L "^options\s+.*\bvsyscall=none\b" /boot/loader/entries/*.conf</pre>
-  No line should be returned, each line returned is a boot entry that doesn't disable virtual syscalls.
+  No line should be returned, each line returned is a boot entry that doesn't disable virtual
+  syscalls.
 
 platform: machine
 

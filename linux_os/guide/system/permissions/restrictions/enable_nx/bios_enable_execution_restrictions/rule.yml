@@ -5,12 +5,15 @@ title: 'Enable NX or XD Support in the BIOS'
 
 description: |-
     Reboot the system and enter the BIOS or Setup configuration menu.
-    Navigate the BIOS configuration menu and make sure that the option is enabled. The setting may be located
-    under a Security section. Look for Execute Disable (XD) on Intel-based systems and No Execute (NX)
+    Navigate the BIOS configuration menu and make sure that the option is enabled. The setting may
+    be located
+    under a Security section. Look for Execute Disable (XD) on Intel-based systems and No Execute
+    (NX)
     on AMD-based systems.
 
 rationale: |-
-    Computers with the ability to prevent this type of code execution frequently put an option in the BIOS that will
+    Computers with the ability to prevent this type of code execution frequently put an option in
+    the BIOS that will
     allow users to turn the feature on or off at will.
 
 severity: medium
@@ -52,7 +55,8 @@ ocil: |-
 
     [ 0.000000] NX (Execute Disable) protection: active
 
-    If "dmesg" does not show "NX (Execute Disable) protection" active, check the cpuinfo settings with the following command:
+    If "dmesg" does not show "NX (Execute Disable) protection" active, check the cpuinfo settings
+    with the following command:
 
     $ sudo grep flags /proc/cpuinfo
     flags : fpu vme de pse tsc ms nx rdtscp lm constant_ts
@@ -65,6 +69,7 @@ ocil_clause: NX is disabled
 fixtext: |-
     The NX bit execute protection must be enabled in the system BIOS.
 
-srg_requirement: '{{{ full_name }}} must implement non-executable data to protect its memory from unauthorized code execution.'
+srg_requirement: '{{{ full_name }}} must implement non-executable data to protect its memory from
+    unauthorized code execution.'
 
 platform: machine

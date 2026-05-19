@@ -23,7 +23,7 @@ identifiers:
     cce@sle16: CCE-95728-2
 
 references:
-    hipaa: 164.308(a)(1)(ii)(D),164.308(a)(3),164.308(a)(4),164.310(b),164.310(c),164.312(a),164.312(e)
+    hipaa: 164.308(a)(1)(ii)(D),164.308(a)(3),164.308(a)(4),164.310(b),164.310(c),164.312(a),164.312(e)  # yamllint disable-line rule:line-length
 
 {{{ complete_ocil_entry_sebool_disabled(sebool="selinuxuser_execheap") }}}
 

@@ -26,7 +26,8 @@ identifiers:
 ocil_clause: 'passwd_timeout is not set with the appropriate value for sudo'
 
 ocil: |-
-    To determine if <tt>passwd_timeout</tt> has been configured for sudo, run the following command:
+    To determine if <tt>passwd_timeout</tt> has been configured for sudo, run the following
+    command:
     <pre>$ sudo grep -ri '^Defaults.*passwd_timeout={{{ xccdf_value("var_sudo_passwd_timeout") }}}' /etc/sudoers /etc/sudoers.d/</pre>
     The command should return a matching output.
 

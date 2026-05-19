@@ -30,14 +30,17 @@ references:
 ocil_clause: 'chrony-wait.service uses network addresses'
 
 ocil: |-
-    Verify {{{ full_name }}} configures chrony-wait.service to use Unix socket with the following command:
+    Verify {{{ full_name }}} configures chrony-wait.service to use Unix socket with the following
+    command:
     <pre>$ systemctl cat chrony-wait.service | grep ExecStart</pre>
     <pre>ExecStart=/usr/bin/chronyc waitsync 0 0.1 0.0 1</pre>
 
-    The ExecStart line should not contain <tt>-h 127.0.0.1,::1</tt> or similar network address specifications.
+    The ExecStart line should not contain <tt>-h 127.0.0.1,::1</tt> or similar network address
+    specifications.
 
 fixtext: |-
-    Configure {{{ full_name }}} chrony-wait.service to use Unix socket by creating /etc/systemd/system/chrony-wait.service
+    Configure {{{ full_name }}} chrony-wait.service to use Unix socket by creating
+    /etc/systemd/system/chrony-wait.service
     without network address specifications in the ExecStart command.
 
 srg_requirement:

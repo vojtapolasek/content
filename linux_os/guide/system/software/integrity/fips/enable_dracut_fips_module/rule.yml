@@ -14,13 +14,16 @@ description: |-
     this rule fails on an installed system, then this is a permanent
     finding and cannot be fixed.
     {{% endif %}}
-    To enable FIPS, the system requires that the <tt>fips</tt> module is added in <tt>dracut</tt> configuration.
+    To enable FIPS, the system requires that the <tt>fips</tt> module is added in <tt>dracut</tt>
+    configuration.
     Check if <tt>/etc/dracut.conf.d/40-fips.conf</tt> contain <tt>add_dracutmodules+=" fips "</tt>
 
 rationale: |-
-    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption
+    to
     protect data. The operating system must implement cryptographic modules adhering to the higher
-    standards approved by the federal government since this provides assurance they have been tested
+    standards approved by the federal government since this provides assurance they have been
+    tested
     and validated.
 
 severity: high
@@ -53,8 +56,10 @@ warnings:
         {{% if 'rhel' not in product %}}
         The system needs to be rebooted for these changes to take effect.
         {{% else %}}
-        To configure the operating system to run in FIPS 140 mode, the kernel parameter "fips=1" needs to be added during its installation.
-        Enabling FIPS mode on a preexisting system involves a number of modifications to it and therefore is not supported.
+        To configure the operating system to run in FIPS 140 mode, the kernel parameter "fips=1"
+        needs to be added during its installation.
+        Enabling FIPS mode on a preexisting system involves a number of modifications to it and
+        therefore is not supported.
         {{% endif %}}
     - regulatory: |-
         System Crypto Modules must be provided by a vendor that undergoes FIPS-140 certifications.
@@ -64,7 +69,8 @@ warnings:
         Management Reform Act of 1996, Public Law 104-106. This standard shall be used in designing
         and implementing cryptographic modules that Federal departments and agencies operate or are
         operated for them under contract.
-        See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
+        See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
         To meet this, the system has to have cryptographic software provided by a vendor that has
         undergone this certification. This means providing documentation, test results, design
         information, and independent third party review by an accredited lab. While open source
@@ -82,4 +88,7 @@ fixtext: |-
 
     The system needs to be rebooted for these changes to take effect.
 
-srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the following: to provision digital signatures, to generate cryptographic hashes, and to protect data requiring data-at-rest protections in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards'
+srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the
+    following: to provision digital signatures, to generate cryptographic hashes, and to protect
+    data requiring data-at-rest protections in accordance with applicable federal laws, Executive
+    Orders, directives, policies, regulations, and standards'

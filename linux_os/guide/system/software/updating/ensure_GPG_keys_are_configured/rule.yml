@@ -29,9 +29,11 @@ description: |-
     6. Get more details about the key, via the command:<br />
     <tt>$ sudo rpm -qa gpg-pubkey-dd79b481-62fe7502</tt><br />
     7. Check the GPG key, for example the command:<br />
-    <tt>$ sudo rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --&gt; %{summary}\n'</tt><br />
+    <tt>$ sudo rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --&gt;
+    %{summary}\n'</tt><br />
     will provide:<br />
-    <tt>gpg-pubkey-dd79b481-62fe7502 --&gt; gpg(Zoom Video Communications, Inc. &lt;CryptoOpsCodeSignProd@zoom.us&gt;)</tt><br />
+    <tt>gpg-pubkey-dd79b481-62fe7502 --&gt; gpg(Zoom Video Communications, Inc.
+    &lt;CryptoOpsCodeSignProd@zoom.us&gt;)</tt><br />
     <br /><br />
 
 rationale: |-
@@ -71,7 +73,9 @@ ocil: |-
     6. Get more details about the key, via the command:<br />
     <tt>$ sudo rpm -qa gpg-pubkey-dd79b481-62fe7502</tt><br />
     7. Check the GPG key, for example the command:<br />
-    <tt>$ sudo rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --&gt; %{summary}\n'</tt><br />
+    <tt>$ sudo rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --&gt;
+    %{summary}\n'</tt><br />
     will provide:<br />
-    <tt>gpg-pubkey-dd79b481-62fe7502 --&gt; gpg(Zoom Video Communications, Inc. &lt;CryptoOpsCodeSignProd@zoom.us&gt;)</tt><br />
+    <tt>gpg-pubkey-dd79b481-62fe7502 --&gt; gpg(Zoom Video Communications, Inc.
+    &lt;CryptoOpsCodeSignProd@zoom.us&gt;)</tt><br />
     <br /><br />

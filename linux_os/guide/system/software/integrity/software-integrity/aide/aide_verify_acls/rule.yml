@@ -60,6 +60,8 @@ ocil: |-
 fixtext: |-
     Configure the file integrity tool to check file and directory ACLs.
 
-    If AIDE is installed, ensure the "acl" rule is present on all file and directory selection lists.
+    If AIDE is installed, ensure the "acl" rule is present on all file and directory selection
+    lists.
 
-srg_requirement: 'The {{{ full_name }}} file integrity tool must be configured to verify Access Control Lists (ACLs).'
+srg_requirement: 'The {{{ full_name }}} file integrity tool must be configured to verify Access
+    Control Lists (ACLs).'

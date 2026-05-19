@@ -6,7 +6,8 @@ title: 'Install GNOME Software'
 description: |-
     {{{ describe_package_install(package="gnome-software") }}}
 
-rationale: 'The GNOME software package must be installed so that it can be used for software and firmware updates.'
+rationale: 'The GNOME software package must be installed so that it can be used for software and
+    firmware updates.'
 
 severity: medium
 

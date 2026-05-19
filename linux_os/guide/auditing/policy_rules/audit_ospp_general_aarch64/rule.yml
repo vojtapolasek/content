@@ -128,8 +128,11 @@ title: 'Perform general configuration of Audit for OSPP (AArch64)'
 
 description: |-
     Configure some basic <tt>Audit</tt> parameters specific for OSPP profile.
-    In particular, configure <tt>Audit</tt> to watch for direct modification of files storing system user and group information, and usage of applications with special rights which can change system configuration.
-    Further audited events include access to audit log it self, attempts to Alter Process and Session Initiation Information, and attempts to modify MAC controls.
+    In particular, configure <tt>Audit</tt> to watch for direct modification of files storing
+    system user and group information, and usage of applications with special rights which can
+    change system configuration.
+    Further audited events include access to audit log it self, attempts to Alter Process and
+    Session Initiation Information, and attempts to modify MAC controls.
 
     The following rules configure audit as described above:
     <pre>{{{ file_contents_audit_ospp_general|indent }}}    </pre>
@@ -137,10 +140,14 @@ description: |-
     Load new Audit rules into kernel by running:
     <pre>augenrules --load</pre>
 
-    Note: This rule uses a special set of Audit rules to comply with OSPP 4.2.1. You may reuse this rule in different profiles. If you decide to do so, it is recommended that you inspect contents of the file closely and make sure that they are aligned with your needs.
+    Note: This rule uses a special set of Audit rules to comply with OSPP 4.2.1. You may reuse
+    this rule in different profiles. If you decide to do so, it is recommended that you inspect
+    contents of the file closely and make sure that they are aligned with your needs.
 
 rationale: |-
-    Auditing of events listed in the description provides data for monitoring and investigation of potentially malicious events e.g. tampering with <tt>Audit</tt> logs, malicious access to files storing information about system users and groups etc.
+    Auditing of events listed in the description provides data for monitoring and investigation of
+    potentially malicious events e.g. tampering with <tt>Audit</tt> logs, malicious access to
+    files storing information about system users and groups etc.
 
 severity: medium
 
@@ -154,12 +161,13 @@ identifiers:
 references:
     nist: AU-2(a)
     ospp: FAU_GEN.1.1.c
-    srg: SRG-OS-000004-GPOS-00004,SRG-OS-000241-GPOS-00091,SRG-OS-000476-GPOS-00221,SRG-OS-000327-GPOS-00127,SRG-OS-000475-GPOS-00220,SRG-OS-000239-GPOS-00089,SRG-OS-000274-GPOS-00104,SRG-OS-000275-GPOS-00105,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121
+    srg: SRG-OS-000004-GPOS-00004,SRG-OS-000241-GPOS-00091,SRG-OS-000476-GPOS-00221,SRG-OS-000327-GPOS-00127,SRG-OS-000475-GPOS-00220,SRG-OS-000239-GPOS-00089,SRG-OS-000274-GPOS-00104,SRG-OS-000275-GPOS-00105,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121  # yamllint disable-line rule:line-length
 
 ocil_clause: 'the file does not exist or the content differs'
 
 ocil: |-
-    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules, check the content of the file with the following command:
+    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules,
+    check the content of the file with the following command:
     <pre>cat /etc/audit/rules.d/30-ospp-v42.rules</pre>
     The output has to be exactly as follows:
     <pre>{{{ file_contents_audit_ospp_general|indent }}}    </pre>

@@ -3,7 +3,8 @@ documentation_complete: true
 
 title: 'Ensure real-time clock is set to UTC'
 
-description: 'Ensure that the system real-time clock (RTC) is set to Coordinated Universal Time (UTC).'
+description: 'Ensure that the system real-time clock (RTC) is set to Coordinated Universal Time
+    (UTC).'
 
 rationale: |-
     If time stamps are not consistently applied and there is no common
@@ -39,5 +40,6 @@ ocil: |-
     {{% endif %}}
     If "Timezone" is not set to UTC, this is a finding.
     Fix Text: Configure the SUSE operating system is configured to use UTC.
-    To configure the system time zone to use UTC or GMT, run the following command, replacing [ZONE] with "UTC" or "GMT".
+    To configure the system time zone to use UTC or GMT, run the following command, replacing
+    [ZONE] with "UTC" or "GMT".
     <pre># sudo timedatectl set-timezone [ZONE]</pre>

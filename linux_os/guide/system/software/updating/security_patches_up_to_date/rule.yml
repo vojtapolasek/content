@@ -8,13 +8,15 @@ description: |-
     If the system is joined to the Red Hat Network, a Red Hat Satellite Server,
     or a yum server, run the following command to install updates:
     <pre>$ sudo yum update</pre>
-    If the system is not configured to use one of these sources, updates (in the form of RPM packages)
+    If the system is not configured to use one of these sources, updates (in the form of RPM
+    packages)
     can be manually downloaded from the Red Hat Network and installed using <tt>rpm</tt>.
 {{% elif product in ["ol7", "ol8", "ol9"] %}}
     If the system is joined to the ULN
     or a yum server, run the following command to install updates:
     <pre>$ sudo yum update</pre>
-    If the system is not configured to use one of these sources, updates (in the form of RPM packages)
+    If the system is not configured to use one of these sources, updates (in the form of RPM
+    packages)
     can be manually downloaded from the ULN and installed using <tt>rpm</tt>.
 {{% elif 'almalinux' in product %}}
     Run the following command to install updates:
@@ -22,7 +24,8 @@ description: |-
     If the system is not configured to use repos, updates (in the form of RPM packages)
     can be manually downloaded from the repos and installed using <tt>rpm</tt>.
 {{% elif 'sle' in product or 'slmicro' in product %}}
-    If the system is configured for online updates, invoking the following command will list available
+    If the system is configured for online updates, invoking the following command will list
+    available
     security updates:
     <pre>$ sudo zypper refresh &amp;&amp; sudo zypper list-patches -g security</pre>
 {{% elif 'ubuntu' in product or 'debian' in product %}}
@@ -74,12 +77,14 @@ references:
 oval_external_content: {{{ oval_feed_url }}}
   {{% if not oval_feed_url.endswith(".xml") %}}
 warnings:
-    - general: "The OVAL feed of {{{ full_name }}} is not a XML file, which may not be understood by all scanners."
+    - general: "The OVAL feed of {{{ full_name }}} is not a XML file, which may not be understood
+    by all scanners."
   {{% endif %}}
 {{% else %}}
 {{# The rule will be "notchecked" #}}
 warnings:
-    - general: '{{{ full_name }}} does not have a corresponding OVAL CVE Feed. Therefore, this will result in a "not checked" result during a scan.'
+    - general: '{{{ full_name }}} does not have a corresponding OVAL CVE Feed. Therefore, this
+    will result in a "not checked" result during a scan.'
 {{% endif %}}
 
 ocil_clause: '{{{ full_name }}} is in non-compliance with the organizational patching policy'
@@ -89,11 +94,14 @@ ocil: |-
     Updates are required to be applied with a frequency determined by organizational policy.
 
     {{% if 'rhel' in product %}}
-    Obtain the list of available package security updates from Red Hat. The URL for updates is https://access.redhat.com/errata-search/.
-    It is important to note that updates provided by Red Hat may not be present on the system if the underlying packages are not installed.
+    Obtain the list of available package security updates from Red Hat. The URL for updates is
+    https://access.redhat.com/errata-search/.
+    It is important to note that updates provided by Red Hat may not be present on the system if
+    the underlying packages are not installed.
 
 
-    Check that the available package security updates have been installed on the system with the following command:
+    Check that the available package security updates have been installed on the system with the
+    following command:
 
     $ sudo yum history list | more
 
@@ -106,9 +114,12 @@ ocil: |-
     67 | update -y | 2020-02-21 17:04 | Update | 7 EE
     {{% endif %}}
 
-    Typical update frequency may be overridden by Information Assurance Vulnerability Alert (IAVA) notifications from CYBERCOM.
+    Typical update frequency may be overridden by Information Assurance Vulnerability Alert (IAVA)
+    notifications from CYBERCOM.
 
 fixtext: |-
-    Install {{{ full_name }}} patches or updated packages available from Red Hat within 30 days or sooner as local policy dictates.
+    Install {{{ full_name }}} patches or updated packages available from Red Hat within 30 days or
+    sooner as local policy dictates.
 
-srg_requirement: '{{{ full_name }}} vendor packaged system security patches and updates must be installed and up to date.'
+srg_requirement: '{{{ full_name }}} vendor packaged system security patches and updates must be
+installed and up to date.'

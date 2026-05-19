@@ -50,7 +50,8 @@ references:
     stigid@sle12: SLES-12-030270
     stigid@sle15: SLES-15-040450
 
-ocil_clause: 'KexAlgorithms option is commented out, contains non-approved algorithms, or the FIPS-approved algorithms are not in the exact order'
+ocil_clause: 'KexAlgorithms option is commented out, contains non-approved algorithms, or the
+    FIPS-approved algorithms are not in the exact order'
 
 ocil: |-
     Only FIPS-approved key exchange algorithms must be used. To verify that only FIPS-approved
@@ -64,7 +65,8 @@ warnings:
         The system needs to be rebooted for these changes to take effect.
     {{% if product in ['ol8', 'rhel8']  %}}
     - general: |-
-        This rule doesn't come with a remediation, automatically changing the crypto-policies may be too disruptive.
+        This rule doesn't come with a remediation, automatically changing the crypto-policies may
+        be too disruptive.
     {{% endif %}}
     - regulatory: |-
         System crypto modules must be provided by a vendor that undergoes
@@ -76,7 +78,8 @@ warnings:
         Act of 1996, Public Law 104-106. This standard shall be used in
         designing and implementing cryptographic modules that Federal
         departments and agencies operate or are operated for them under
-        contract. See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
+        contract. See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf") }}}</b>
         To meet this requirements, the system has to have cryptographic software
         provided by a vendor that has undergone this certification. This means
         providing documentation, test results, design information, and independent

@@ -34,7 +34,8 @@ platform: package[tmux]
 ocil_clause: 'the "lock-command" is not set in the global settings to call "vlock"'
 
 ocil: |-
-    Verify {{{ full_name }}} enables the user to initiate a session lock with the following command:
+    Verify {{{ full_name }}} enables the user to initiate a session lock with the following
+    command:
 
     <pre>$ grep lock-command /etc/tmux.conf</pre>
 
@@ -45,7 +46,8 @@ ocil: |-
     <pre>$ sudo ls -al /etc/tmux.conf</pre>
 
 fixtext: |-
-    Configure {{{ full_name }}} to allow a user to initiate a sessions lock by adding the following line to the file "/etc/tmux.conf":
+    Configure {{{ full_name }}} to allow a user to initiate a sessions lock by adding the
+    following line to the file "/etc/tmux.conf":
 
     <pre>set -g lock-command vlock</pre>
 
@@ -53,4 +55,6 @@ fixtext: |-
 
     $ sudo chmod 0644 /etc/tmux.conf
 
-srg_requirement: '{{{ full_name }}} must enable a user session lock until that user re-establishes access using established identification and authentication procedures for command line sessions.'
+srg_requirement: '{{{ full_name }}} must enable a user session lock until that user re-establishes
+    access using established identification and authentication procedures for command line
+    sessions.'

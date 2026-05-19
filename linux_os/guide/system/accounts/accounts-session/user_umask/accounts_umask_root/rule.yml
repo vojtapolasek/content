@@ -10,7 +10,8 @@ description: |-
 
 rationale: |-
     The umask value influences the permissions assigned to files when they are created.
-    A misconfigured umask value could result in files with excessive permissions that can be read or
+    A misconfigured umask value could result in files with excessive permissions that can be read
+    or
     written to by unauthorized users.
 
 severity: medium

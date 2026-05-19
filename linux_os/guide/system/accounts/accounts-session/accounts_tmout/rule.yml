@@ -27,7 +27,8 @@ description: |-
     <pre>typeset -xr TMOUT={{{ xccdf_value("var_accounts_tmout") }}}</pre>
     or
     <pre>declare -xr TMOUT={{{ xccdf_value("var_accounts_tmout") }}}</pre>
-    Using the <code>typeset</code> keyword is preferred for wider compatibility with ksh and other shells.
+    Using the <code>typeset</code> keyword is preferred for wider compatibility with ksh and other
+    shells.
     {{% endif %}}
 
 rationale: |-
@@ -54,10 +55,10 @@ references:
     cis@sle15: 5.4.4
     cobit5: DSS05.04,DSS05.10,DSS06.10
     cui: 3.1.11
-    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9
+    isa-62443-2009: 4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9  # yamllint disable-line rule:line-length
     isa-62443-2013: 'SR 1.1,SR 1.10,SR 1.2,SR 1.5,SR 1.7,SR 1.8,SR 1.9'
     iso27001-2013: A.18.1.4,A.9.2.1,A.9.2.4,A.9.3.1,A.9.4.2,A.9.4.3
-    nerc-cip: CIP-004-6 R2.2.3,CIP-007-3 R5.1,CIP-007-3 R5.2,CIP-007-3 R5.3.1,CIP-007-3 R5.3.2,CIP-007-3 R5.3.3
+    nerc-cip: CIP-004-6 R2.2.3,CIP-007-3 R5.1,CIP-007-3 R5.2,CIP-007-3 R5.3.1,CIP-007-3 R5.3.2,CIP-007-3 R5.3.3  # yamllint disable-line rule:line-length
     nist: AC-12,SC-10,AC-2(5),CM-6(a)
     nist-csf: PR.AC-7
     nist@sle12: AC-11(a)
@@ -66,7 +67,8 @@ references:
     stigid@sle12: SLES-12-010090
     stigid@sle15: SLES-15-010130
 
-ocil_clause: 'the TMOUT value is not configured, is set to 0, or is not less than or equal to the expected setting'
+ocil_clause: 'the TMOUT value is not configured, is set to 0, or is not less than or equal to the
+    expected setting'
 
 ocil: |-
     Run the following command to ensure the <tt>TMOUT</tt> value is configured for all users
@@ -88,7 +90,8 @@ ocil: |-
 platform: system_with_kernel
 
 fixtext: |-
-    Configure {{{ full_name }}} to terminate user sessions after {{{ xccdf_value("var_accounts_tmout") }}} seconds of inactivity.
+    Configure {{{ full_name }}} to terminate user sessions after
+    {{{ xccdf_value("var_accounts_tmout") }}} seconds of inactivity.
 
     Add or edit the following line in "/etc/profile.d/tmout.sh":
     TMOUT={{{ xccdf_value("var_accounts_tmout") }}}

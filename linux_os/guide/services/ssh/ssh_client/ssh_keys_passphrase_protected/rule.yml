@@ -8,7 +8,8 @@ description: |-
     <br />
     You can create such keys with the following command:
     <pre>$ sudo ssh-keygen -n [passphrase]</pre>
-    {{{ full_name }}}, for certificate-based authentication, must enforce authorized access to the corresponding private key.
+    {{{ full_name }}}, for certificate-based authentication, must enforce authorized access to the
+    corresponding private key.
 
 rationale: |-
     If an unauthorized user obtains access to a private key without a passcode,

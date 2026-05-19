@@ -13,9 +13,11 @@ description: |-
     </pre>
 
 rationale: |-
-    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption
+    to
     protect data. The operating system must implement cryptographic modules adhering to the higher
-    standards approved by the federal government since this provides assurance they have been tested
+    standards approved by the federal government since this provides assurance they have been
+    tested
     and validated.
 
 severity: high
@@ -37,9 +39,13 @@ ocil: |-
 
 warnings:
     - general: |-
-        To configure {{{ full_name }}} to run in FIPS 140 mode, the kernel parameter "fips=1" needs to be added during its installation.
-        Only enabling FIPS 140 mode during the {{{ full_name }}} installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
-        Enabling FIPS mode on a preexisting system involves a number of modifications to it and therefore is not supported.
+        To configure {{{ full_name }}} to run in FIPS 140 mode, the kernel parameter "fips=1"
+        needs to be added during its installation.
+        Only enabling FIPS 140 mode during the {{{ full_name }}} installation ensures that the
+        system generates all keys with FIPS-approved algorithms and continuous monitoring tests in
+        place.
+        Enabling FIPS mode on a preexisting system involves a number of modifications to it and
+        therefore is not supported.
     - regulatory: |-
         System Crypto Modules must be provided by a vendor that undergoes
         FIPS-140 certifications.
@@ -50,7 +56,8 @@ warnings:
         Act of 1996, Public Law 104-106. This standard shall be used in
         designing and implementing cryptographic modules that Federal
         departments and agencies operate or are operated for them under
-        contract. See <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-3.pdf") }}}</b>
+        contract. See
+        <b>{{{ weblink(link="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-3.pdf") }}}</b>
         To meet this, the system has to have cryptographic software provided by
         a vendor that has undergone this certification. This means providing
         documentation, test results, design information, and independent third

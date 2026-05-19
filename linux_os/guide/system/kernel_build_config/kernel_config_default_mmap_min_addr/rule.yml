@@ -8,14 +8,16 @@ description: |-
     by distros.
 
     The configuration that was used to build kernel is available at <tt>/boot/config-*</tt>.
-    To check the configuration value for <tt>CONFIG_DEFAULT_MMAP_MIN_ADDR</tt>, run the following command:
+    To check the configuration value for <tt>CONFIG_DEFAULT_MMAP_MIN_ADDR</tt>, run the following
+    command:
     <tt>grep CONFIG_DEFAULT_MMAP_MIN_ADDR /boot/config-*</tt>
     For each kernel installed, a line with value should be returned.
     If the system architecture is x86_64, the value should be 65536.
     If the system architecture is aarch64, the value should be 32768.
 
 rationale: |-
-    Keeping a user from writing to low pages can help reduce the impact of kernel NULL pointer bugs.
+    Keeping a user from writing to low pages can help reduce the impact of kernel NULL pointer
+    bugs.
 
 warnings:
     {{{ warning_kernel_build_config() | indent(4) }}}

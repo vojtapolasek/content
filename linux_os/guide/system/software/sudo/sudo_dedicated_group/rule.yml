@@ -8,7 +8,8 @@ description: |-
     Ensure the group owner of /usr/bin/sudo is {{{ xccdf_value("var_sudo_dedicated_group") }}}.
 
 rationale: |-
-    Restricting the set of users able to execute commands as privileged user reduces the attack surface.
+    Restricting the set of users able to execute commands as privileged user reduces the attack
+    surface.
 
 warnings:
     - functionality: |-
@@ -28,7 +29,8 @@ identifiers:
     cce@sle15: CCE-91191-7
     cce@sle16: CCE-96236-5
 
-ocil_clause: '{{{ ocil_clause_file_group_owner(file="/usr/bin/sudo", group=xccdf_value("var_sudo_dedicated_group")) }}}'
+ocil_clause: '{{{ ocil_clause_file_group_owner(file="/usr/bin/sudo",
+    group=xccdf_value("var_sudo_dedicated_group")) }}}'
 
 ocil: |-
     {{{ ocil_file_group_owner(file="/usr/bin/sudo", group=xccdf_value("var_sudo_dedicated_group")) }}}

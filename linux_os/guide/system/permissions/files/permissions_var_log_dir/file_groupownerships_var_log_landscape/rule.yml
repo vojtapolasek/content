@@ -2,7 +2,8 @@ documentation_complete: true
 
 title: 'Verify Groupownership of Files in /var/log/landscape'
 
-description: '{{{ describe_file_group_owner(file="/var/log/landscape/*", group="root|landscape") }}}'
+description: '{{{ describe_file_group_owner(file="/var/log/landscape/*", group="root|landscape")
+    }}}'
 
 rationale: |-
     The <tt>/var/log/landscape</tt> directory contains information about
@@ -10,7 +11,8 @@ rationale: |-
 
 severity: medium
 
-ocil_clause: '{{{ ocil_clause_file_group_owner(file="/var/log/landscape/*", group="root|landscape") }}}'
+ocil_clause: '{{{ ocil_clause_file_group_owner(file="/var/log/landscape/*",
+    group="root|landscape") }}}'
 
 ocil: |-
     {{{ ocil_file_group_owner(file="/var/log/landscape/*", group="root|landscape") }}}

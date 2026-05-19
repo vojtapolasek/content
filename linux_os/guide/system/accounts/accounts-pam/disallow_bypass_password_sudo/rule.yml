@@ -47,6 +47,7 @@ fixtext: |-
 
     Remove any occurrences of " pam_succeed_if " in the file.
 
-srg_requirement: '{{{ full_name }}} must not be configured to bypass password requirements for privilege escalation.'
+srg_requirement: '{{{ full_name }}} must not be configured to bypass password requirements for
+    privilege escalation.'
 
 platform: package[pam] and system_with_kernel

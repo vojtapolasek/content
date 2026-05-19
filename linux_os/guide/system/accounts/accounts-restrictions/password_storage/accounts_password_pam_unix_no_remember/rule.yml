@@ -3,15 +3,21 @@ documentation_complete: true
 title: 'Avoid using remember in pam_unix module'
 
 description: |-
-    The <tt>remember</tt> option stores the last n passwords for each user in <tt>/etc/security/opasswd</tt>,
-    enforcing password history and preventing users from reusing the same passwords. However, this feature
-    relies on the MD5 password hash algorithm, which is less secure. Instead, the <tt>pam_pwhistory</tt>
-    module should be used. This module also stores the last n passwords in <tt>/etc/security/opasswd</tt>
-    and it uses the password hash algorithm configured in the pam_unix module, such as yescrypt or SHA512,
+    The <tt>remember</tt> option stores the last n passwords for each user in
+    <tt>/etc/security/opasswd</tt>,
+    enforcing password history and preventing users from reusing the same passwords. However, this
+    feature
+    relies on the MD5 password hash algorithm, which is less secure. Instead, the
+    <tt>pam_pwhistory</tt>
+    module should be used. This module also stores the last n passwords in
+    <tt>/etc/security/opasswd</tt>
+    and it uses the password hash algorithm configured in the pam_unix module, such as yescrypt or
+    SHA512,
     offering enhanced security.
     {{% if 'ubuntu' in product or 'debian' in product %}}
     <br/><br/>
-    On Debian-based systems, the <tt>remember</tt> option should be removed from the PAM configuration
+    On Debian-based systems, the <tt>remember</tt> option should be removed from the PAM
+    configuration
     in <tt>/etc/pam.d/common-*</tt> files.
     {{% else %}}
     <br/><br/>
@@ -20,7 +26,8 @@ description: |-
     {{% endif %}}
 
 rationale: |-
-    Removing the <tt>remember</tt> argument ensures the use of a stronger password hashing algorithm.
+    Removing the <tt>remember</tt> argument ensures the use of a stronger password hashing
+    algorithm.
     A more robust hash algorithm increases the difficulty for attackers to crack stored
     passwords in <tt>/etc/security/opasswd</tt>, thereby improving system security and
     protecting user credentials.
@@ -45,12 +52,14 @@ warnings:
 ocil_clause: 'the remember option is found in pam_unix.so configuration'
 
 ocil: |-
-    To verify that the <tt>remember</tt> option is not present in <tt>pam_unix.so</tt> configuration,
+    To verify that the <tt>remember</tt> option is not present in <tt>pam_unix.so</tt>
+    configuration,
     run the following command:
     {{% if 'ubuntu' in product or 'debian' in product %}}
     <pre>$ grep -rE "^\s*password\s+.*pam_unix\.so.*\bremember=" /etc/pam.d/common-*</pre>
     {{% else %}}
     <pre>$ grep -E "^\s*password\s+.*pam_unix\.so.*\bremember=" /etc/pam.d/system-auth /etc/pam.d/password-auth</pre>
     {{% endif %}}
-    The command should not return any output. If any lines are returned, it means the <tt>remember</tt>
+    The command should not return any output. If any lines are returned, it means the
+    <tt>remember</tt>
     option is configured in <tt>pam_unix.so</tt>, which is not compliant with this requirement.

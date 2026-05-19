@@ -11,7 +11,8 @@ description: |-
 
     When using <tt>rsyslogd</tt> to off-load logs the remote system must be authenticated.
 
-    Set the following configuration option in /etc/rsyslog.conf or in a file in /etc/rsyslog.d (using legacy syntax):
+    Set the following configuration option in /etc/rsyslog.conf or in a file in /etc/rsyslog.d
+    (using legacy syntax):
     <pre>$ActionSendStreamDriverAuthMode x509/name</pre>
     Alternatively, use the RainerScript syntax:
     <pre>action(type="omfwd" Target="some.example.com" StreamDriverAuthMode="x509/name")</pre>
@@ -36,15 +37,19 @@ references:
 ocil_clause: '$ActionSendStreamDriverAuthMode in /etc/rsyslog.conf is not set to x509/name'
 
 ocil: |-
-    Verify the operating system authenticates the remote logging server for off-loading audit logs with the following command:
+    Verify the operating system authenticates the remote logging server for off-loading audit logs
+    with the following command:
 
     <pre>$ sudo grep -i '$ActionSendStreamDriverAuthMode' /etc/rsyslog.conf /etc/rsyslog.d/*.conf</pre>
     The output should be
     <pre>$/etc/rsyslog.conf:$ActionSendStreamDriverAuthMode x509/name</pre>
 
 fixtext: |-
-    Configure {{{ full_name }}} to authenticate the remote logging server for off-loading audit logs by setting the following option in "/etc/rsyslog.conf" or "/etc/rsyslog.d/[customfile].conf":
+    Configure {{{ full_name }}} to authenticate the remote logging server for off-loading audit
+    logs by setting the following option in "/etc/rsyslog.conf" or
+    "/etc/rsyslog.d/[customfile].conf":
 
     $ActionSendStreamDriverAuthMode x509/name
 
-srg_requirement: '{{{ full_name }}} must authenticate the remote logging server for off-loading audit logs.'
+srg_requirement: '{{{ full_name }}} must authenticate the remote logging server for off-loading
+    audit logs.'

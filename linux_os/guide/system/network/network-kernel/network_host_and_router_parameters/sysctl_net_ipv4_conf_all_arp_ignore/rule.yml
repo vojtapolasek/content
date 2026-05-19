@@ -2,7 +2,8 @@ documentation_complete: true
 
 title: 'Configure Response Mode of ARP Requests for All IPv4 Interfaces'
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.arp_ignore", value=xccdf_value("sysctl_net_ipv4_conf_all_arp_ignore_value")) }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv4.conf.all.arp_ignore",
+    value=xccdf_value("sysctl_net_ipv4_conf_all_arp_ignore_value")) }}}'
 
 rationale: |-
     Avoids ARP Flux on system that have more than one interface on the same subnet.

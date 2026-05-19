@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Uninstall setroubleshoot-plugins Package'
 
 description: |-
-    The SETroubleshoot plugins are used to analyze SELinux AVC data. The service provides information around configuration errors,
+    The SETroubleshoot plugins are used to analyze SELinux AVC data. The service provides
+    information around configuration errors,
     unauthorized intrusions, and other potential errors.
     {{{ describe_package_remove(package="setroubleshoot-plugins") }}}
 

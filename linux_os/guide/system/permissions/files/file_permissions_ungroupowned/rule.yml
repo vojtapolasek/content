@@ -40,10 +40,10 @@ references:
     cis-csc: 1,11,12,13,14,15,16,18,3,5
     cis@sle12: 6.1.10
     cis@sle15: 6.1.10
-    cobit5: APO01.06,DSS05.02,DSS05.04,DSS05.05,DSS05.07,DSS05.10,DSS06.02,DSS06.03,DSS06.06,DSS06.10
-    isa-62443-2009: 4.3.3.2.2,4.3.3.5.1,4.3.3.5.2,4.3.3.5.3,4.3.3.5.4,4.3.3.5.5,4.3.3.5.6,4.3.3.5.7,4.3.3.5.8,4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9,4.3.3.7.1,4.3.3.7.2,4.3.3.7.3,4.3.3.7.4
-    isa-62443-2013: 'SR 1.1,SR 1.10,SR 1.11,SR 1.12,SR 1.13,SR 1.2,SR 1.3,SR 1.4,SR 1.5,SR 1.6,SR 1.7,SR 1.8,SR 1.9,SR 2.1,SR 2.2,SR 2.3,SR 2.4,SR 2.5,SR 2.6,SR 2.7,SR 5.2'
-    iso27001-2013: A.10.1.1,A.11.1.4,A.11.1.5,A.11.2.1,A.13.1.1,A.13.1.3,A.13.2.1,A.13.2.3,A.13.2.4,A.14.1.2,A.14.1.3,A.18.1.4,A.6.1.2,A.7.1.1,A.7.1.2,A.7.3.1,A.8.2.2,A.8.2.3,A.9.1.1,A.9.1.2,A.9.2.1,A.9.2.2,A.9.2.3,A.9.2.4,A.9.2.6,A.9.3.1,A.9.4.1,A.9.4.2,A.9.4.3,A.9.4.4,A.9.4.5
+    cobit5: APO01.06,DSS05.02,DSS05.04,DSS05.05,DSS05.07,DSS05.10,DSS06.02,DSS06.03,DSS06.06,DSS06.10  # yamllint disable-line rule:line-length
+    isa-62443-2009: 4.3.3.2.2,4.3.3.5.1,4.3.3.5.2,4.3.3.5.3,4.3.3.5.4,4.3.3.5.5,4.3.3.5.6,4.3.3.5.7,4.3.3.5.8,4.3.3.6.1,4.3.3.6.2,4.3.3.6.3,4.3.3.6.4,4.3.3.6.5,4.3.3.6.6,4.3.3.6.7,4.3.3.6.8,4.3.3.6.9,4.3.3.7.1,4.3.3.7.2,4.3.3.7.3,4.3.3.7.4  # yamllint disable-line rule:line-length
+    isa-62443-2013: 'SR 1.1,SR 1.10,SR 1.11,SR 1.12,SR 1.13,SR 1.2,SR 1.3,SR 1.4,SR 1.5,SR 1.6,SR 1.7,SR 1.8,SR 1.9,SR 2.1,SR 2.2,SR 2.3,SR 2.4,SR 2.5,SR 2.6,SR 2.7,SR 5.2'  # yamllint disable-line rule:line-length
+    iso27001-2013: A.10.1.1,A.11.1.4,A.11.1.5,A.11.2.1,A.13.1.1,A.13.1.3,A.13.2.1,A.13.2.3,A.13.2.4,A.14.1.2,A.14.1.3,A.18.1.4,A.6.1.2,A.7.1.1,A.7.1.2,A.7.3.1,A.8.2.2,A.8.2.3,A.9.1.1,A.9.1.2,A.9.2.1,A.9.2.2,A.9.2.3,A.9.2.4,A.9.2.6,A.9.3.1,A.9.4.1,A.9.4.2,A.9.4.3,A.9.4.4,A.9.4.5  # yamllint disable-line rule:line-length
     nist: CM-6(a),AC-6(1)
     nist-csf: PR.AC-1,PR.AC-4,PR.AC-6,PR.AC-7,PR.DS-5,PR.PT-3
     srg: SRG-OS-000480-GPOS-00227
@@ -66,7 +66,8 @@ ocil: |-
     No files without a valid group should be located.
 
 fixtext: |-
-    Either remove all files and directories from {{{ full_name }}} that do not have a valid group, or assign a valid group to all files and directories on the system with the "chgrp" command:
+    Either remove all files and directories from {{{ full_name }}} that do not have a valid group,
+    or assign a valid group to all files and directories on the system with the "chgrp" command:
 
     $ sudo chgrp
 
@@ -75,7 +76,8 @@ srg_requirement: 'All {{{ full_name }}} local files and directories must have a 
 warnings:
     - general: |-
         This rule only considers local groups as valid groups.
-        If you have your groups defined outside <code>/etc/group</code> or <code>/usr/lib/group</code>, the rule won't consider those.
+        If you have your groups defined outside <code>/etc/group</code> or
+        <code>/usr/lib/group</code>, the rule won't consider those.
     - general: |-
         This rule can take a long time to perform the check and might consume a considerable
         amount of resources depending on the number of files present on the system. It is not a

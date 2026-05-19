@@ -8,7 +8,8 @@ description: |-
     {{{ xccdf_value("var_postfix_root_mail_alias") }}} is a valid email address
     reachable from the system in question. Use the following command to
     configure the alias:
-    <pre>$ sudo echo "root: {{{ xccdf_value("var_postfix_root_mail_alias") }}}" &gt;&gt; /etc/aliases
+    <pre>$ sudo echo "root: {{{ xccdf_value("var_postfix_root_mail_alias") }}}" &gt;&gt;
+    /etc/aliases
     $ sudo newaliases</pre>
 
 rationale: |-
@@ -56,4 +57,6 @@ fixtext: |-
 
     $ sudo newaliases
 
-srg_requirement: 'The {{{ full_name }}} Information System Security Officer (ISSO) and System Administrator (SA) (at a minimum) must have mail aliases to be notified of an audit processing failure.'
+srg_requirement: 'The {{{ full_name }}} Information System Security Officer (ISSO) and System
+    Administrator (SA) (at a minimum) must have mail aliases to be notified of an audit processing
+    failure.'

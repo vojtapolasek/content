@@ -1,9 +1,11 @@
 documentation_complete: true
 
 
-title: Configure Accepting Default Router in Router Advertisements on All IPv6 Interfaces By Default
+title: Configure Accepting Default Router in Router Advertisements on All IPv6 Interfaces By
+    Default
 
-description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.accept_ra_defrtr", value="0") }}}'
+description: '{{{ describe_sysctl_option_value(sysctl="net.ipv6.conf.default.accept_ra_defrtr",
+    value="0") }}}'
 
 rationale: An illicit router advertisement message could result in a man-in-the-middle attack.
 

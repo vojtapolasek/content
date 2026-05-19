@@ -24,10 +24,12 @@ rationale: |-
 
 warnings:
     - functionality: |-
-        Hiding the <tt>pid</tt> of processes may lead to problems with <tt>PolicyKit</tt> and <tt>D-Bus</tt>,
+        Hiding the <tt>pid</tt> of processes may lead to problems with <tt>PolicyKit</tt> and
+        <tt>D-Bus</tt>,
         it may also convey a false sense of security.
         {{% if 'rhel' in product %}}
-        Proceed to {{{ weblink(link="https://access.redhat.com/solutions/6704531") }}} for more details.
+        Proceed to {{{ weblink(link="https://access.redhat.com/solutions/6704531") }}} for more
+        details.
         {{% endif %}}
 
 {{{ complete_ocil_entry_mount_option("/proc", "hidepid=value") }}}

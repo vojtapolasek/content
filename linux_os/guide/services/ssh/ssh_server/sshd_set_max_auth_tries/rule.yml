@@ -4,7 +4,8 @@ title: 'Set SSH authentication attempt limit'
 
 description: |-
     The <tt>MaxAuthTries</tt> parameter specifies the maximum number of authentication attempts
-    permitted per connection. Once the number of failures reaches half this value, additional failures are logged.
+    permitted per connection. Once the number of failures reaches half this value, additional
+    failures are logged.
     to set MaxAUthTries edit <tt>/etc/ssh/sshd_config</tt> as follows:
     <pre>MaxAuthTries {{{ xccdf_value("sshd_max_auth_tries_value") }}}</pre>
 

@@ -45,7 +45,8 @@ ocil: |-
 
 fixtext: '{{{ fixtext_sshd_lineinfile("X11UseLocalhost", "yes", "no") }}}'
 
-srg_requirement: 'The {{{ full_name }}} SSH daemon must prevent remote hosts from connecting to the proxy display.'
+srg_requirement: 'The {{{ full_name }}} SSH daemon must prevent remote hosts from connecting to
+    the proxy display.'
 
 template:
     name: sshd_lineinfile

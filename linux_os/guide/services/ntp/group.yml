@@ -76,8 +76,10 @@ description: |-
     and <tt>ntpd</tt> daemon features respectively, and for further guidance how to
     choose between the two NTP daemons.
     <br /><br />
-    The upstream manual pages at {{{ weblink(link="https://chrony-project.org/documentation.html") }}} for
-    <tt>chronyd</tt> and {{{ weblink(link="http://www.ntp.org") }}} for <tt>ntpd</tt> provide additional
+    The upstream manual pages at
+    {{{ weblink(link="https://chrony-project.org/documentation.html") }}} for
+    <tt>chronyd</tt> and {{{ weblink(link="http://www.ntp.org") }}} for <tt>ntpd</tt> provide
+    additional
     information on the capabilities and configuration of each of the NTP daemons.
 
 platform: system_with_kernel

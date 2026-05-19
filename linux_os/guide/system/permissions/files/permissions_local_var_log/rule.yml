@@ -56,8 +56,8 @@ template:
         excluded_files@sle15: ['*[bw]tmp', '*lastlog']
         excluded_files@slmicro5: ['*[bw]tmp', '*lastlog']
         excluded_files@slmicro6: ['*[bw]tmp', '*lastlog']
-        excluded_files@ubuntu2204: ['history.log*', 'eipp.log.xz*', '[bw]tmp', '[bw]tmp.*', '[bw]tmp-*', 'lastlog', 'lastlog.*']
-        excluded_files@ubuntu2404: ['history.log*', 'eipp.log.xz*', '[bw]tmp', '[bw]tmp.*', '[bw]tmp-*', 'lastlog', 'lastlog.*', 'cloud-init.log*', 'localmessages*', 'waagent.log*']
+        excluded_files@ubuntu2204: ['history.log*', 'eipp.log.xz*', '[bw]tmp', '[bw]tmp.*', '[bw]tmp-*', 'lastlog', 'lastlog.*']  # yamllint disable-line rule:line-length
+        excluded_files@ubuntu2404: ['history.log*', 'eipp.log.xz*', '[bw]tmp', '[bw]tmp.*', '[bw]tmp-*', 'lastlog', 'lastlog.*', 'cloud-init.log*', 'localmessages*', 'waagent.log*']  # yamllint disable-line rule:line-length
         file_regex: '.*'
         filemode: '0640'
         filepath: /var/log/

@@ -5,7 +5,8 @@ title: 'Verify User Who Owns /var/log/(b|w)tmp(.*|-*) File'
 description: '{{{ describe_file_owner(file="/var/log/(b|w)tmp(.*|-*)", owner="root") }}}'
 
 rationale: |-
-    The <tt>/var/log/(b|w)tmp(.*|-*)</tt> file contains logs of reports the most recent login of all users
+    The <tt>/var/log/(b|w)tmp(.*|-*)</tt> file contains logs of reports the most recent login of
+    all users
     and should only be accessed by authorized personnel.
 
 severity: medium

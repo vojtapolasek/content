@@ -33,7 +33,8 @@ rationale: |-
 warnings:
     - performance: |-
         Enabling MDS mitigations will impact performance of the system, mainly by workloads with
-        high rates of user-kernel-user space transitions. For example, system calls, NMIs and interrupts.
+        high rates of user-kernel-user space transitions. For example, system calls, NMIs and
+        interrupts.
 
 severity: medium
 

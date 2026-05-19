@@ -7,7 +7,8 @@ description: |-
     <tt>{{{ pkg_manager }}}</tt> should be configured to remove previous software components after
     new versions have been installed. To configure <tt>{{{ pkg_manager }}}</tt> to remove the
     {{% if 'sle' in product or 'slmicro' in product %}}
-    previous software components after updating, set the <tt>solver.upgradeRemoveDroppedPackages</tt>
+    previous software components after updating, set the
+    <tt>solver.upgradeRemoveDroppedPackages</tt>
     {{% elif 'ubuntu' in product %}}
     previous software components after updating, set the <tt>::Remove-Unused-Dependencies</tt> and
     <tt>::Remove-Unused-Kernel-Packages</tt>
@@ -60,7 +61,8 @@ ocil_clause: |-
     {{% endif %}}
 
 ocil: |-
-    Verify {{{ full_name }}} removes all software components after updated versions have been installed.
+    Verify {{{ full_name }}} removes all software components after updated versions have been
+    installed.
 
     {{% if 'sle' in product or 'slmicro' in product %}}
     To verify that <tt>solver.upgradeRemoveDroppedPackages</tt> is configured properly, run the
@@ -80,7 +82,8 @@ ocil: |-
 
 {{% if product in ['fedora'] or 'rhel' in product or 'ol' in families %}}
 fixtext: |-
-    Configure {{{ full_name }}} to remove all software components after updated versions have been installed.
+    Configure {{{ full_name }}} to remove all software components after updated versions have been
+    installed.
 
     Edit the file {{{ pkg_manager_config_file }}} by adding or editing the following line:
 
@@ -88,7 +91,8 @@ fixtext: |-
 {{% endif %}}
 
 srg_requirement: |-
-    {{{ full_name }}} must remove all software components after updated versions have been installed.
+    {{{ full_name }}} must remove all software components after updated versions have been
+    installed.
 
 {{% if 'ubuntu' not in product %}}
 platform: package[{{{ pkg_manager }}}] and not bootc

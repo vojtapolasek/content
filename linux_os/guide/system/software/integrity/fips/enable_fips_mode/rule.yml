@@ -22,9 +22,11 @@ description: |-
     The <tt>fips-mode-setup</tt> command will configure the system in
     FIPS mode by automatically configuring the following:
     <ul>
-    <li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to <tt>1</tt></li>
+    <li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to
+    <tt>1</tt></li>
     <li>Creating <tt>/etc/system-fips</tt></li>
-    <li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to <tt>{{{ xccdf_value("var_system_crypto_policy") }}}</tt></li>
+    <li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to
+    <tt>{{{ xccdf_value("var_system_crypto_policy") }}}</tt></li>
     <li>Loading the Dracut <tt>fips</tt> module</li>
     </ul>
 {{% endif %}}
@@ -38,9 +40,11 @@ description: |-
 {{% endif %}}
 
 rationale: |-
-    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+    Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption
+    to
     protect data. The operating system must implement cryptographic modules adhering to the higher
-    standards approved by the federal government since this provides assurance they have been tested
+    standards approved by the federal government since this provides assurance they have been
+    tested
     and validated.
 
 severity: high
@@ -68,9 +72,13 @@ ocil: |-
 
 warnings:
     - general: |-
-        To configure {{{ full_name }}} to run in FIPS 140 mode, the kernel parameter "fips=1" needs to be added during its installation.
-        Only enabling FIPS 140 mode during the {{{ full_name }}} installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
-        Enabling FIPS mode on a preexisting system involves a number of modifications to it and therefore is not supported.
+        To configure {{{ full_name }}} to run in FIPS 140 mode, the kernel parameter "fips=1"
+        needs to be added during its installation.
+        Only enabling FIPS 140 mode during the {{{ full_name }}} installation ensures that the
+        system generates all keys with FIPS-approved algorithms and continuous monitoring tests in
+        place.
+        Enabling FIPS mode on a preexisting system involves a number of modifications to it and
+        therefore is not supported.
     - regulatory: |-
         This rule DOES NOT CHECK if the components of the operating system are FIPS certified.
         You can find the list of FIPS certified modules at {{{ weblink(link="https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search") }}}.
@@ -81,6 +89,9 @@ fixtext: |-
 
     The installer for the system must be booted with kernel parameter <tt>fips=1</tt>.
 
-srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the following: to provision digital signatures, to generate cryptographic hashes, and to protect data requiring data-at-rest protections in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards.'
+srg_requirement: '{{{ full_name }}} must implement NIST FIPS-validated cryptography for the
+following: to provision digital signatures, to generate cryptographic hashes, and to protect data
+requiring data-at-rest protections in accordance with applicable federal laws, Executive Orders,
+directives, policies, regulations, and standards.'
 
 platform: system_with_kernel and not osbuild

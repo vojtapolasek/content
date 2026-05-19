@@ -3,13 +3,15 @@ documentation_complete: true
 title: 'Ensure SSH LoginGraceTime is configured'
 
 description: |-
-    The <tt>LoginGraceTime</tt> parameter to the SSH server specifies the time allowed for successful authentication to
+    The <tt>LoginGraceTime</tt> parameter to the SSH server specifies the time allowed for
+    successful authentication to
     the SSH server. The longer the Grace period is the more open unauthenticated connections
     can exist. Like other session controls in this session the Grace Period should be limited to
     appropriate limits to ensure the service is available for needed access.
 
 rationale: |-
-    Setting the <tt>LoginGraceTime</tt> parameter to a low number will minimize the risk of successful
+    Setting the <tt>LoginGraceTime</tt> parameter to a low number will minimize the risk of
+    successful
     brute force attacks to the SSH server. It will also limit the number of concurrent
     unauthenticated connections.
 
@@ -35,7 +37,8 @@ ocil: |-
     <pre>$ sudo grep LoginGraceTime /etc/ssh/sshd_config</pre>
     If properly configured, the output should be:
     <pre>LoginGraceTime {{{ xccdf_value("var_sshd_set_login_grace_time") }}}</pre>
-    If the option is set to a number greater than <tt>0</tt>, then the unauthenticated session will be disconnected
+    If the option is set to a number greater than <tt>0</tt>, then the unauthenticated session
+    will be disconnected
     after the configured number seconds.
 
 template:

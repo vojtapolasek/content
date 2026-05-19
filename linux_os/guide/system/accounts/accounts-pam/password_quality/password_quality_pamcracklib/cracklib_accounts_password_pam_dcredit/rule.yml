@@ -39,10 +39,12 @@ ocil: |-
     To check how many digits are required in a password, run the following
     command:
     <pre># grep pam_cracklib /etc/pam.d/common-password
-    password requisite pam_cracklib.so dcredit={{{ xccdf_value("var_password_pam_dcredit") }}}</pre>
+    password requisite pam_cracklib.so
+    dcredit={{{ xccdf_value("var_password_pam_dcredit") }}}</pre>
     The <tt>dcredit</tt> parameter (as a negative number) will indicate how
     many digits are required.
-    The profile requires at least {{{ xccdf_value("var_password_pam_dcredit") }}} digit in a password.
+    The profile requires at least {{{ xccdf_value("var_password_pam_dcredit") }}} digit in a
+    password.
     This would appear as <tt>dcredit=-{{{ xccdf_value("var_password_pam_dcredit") }}}</tt>.
 
 template:

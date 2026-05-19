@@ -17,10 +17,13 @@ description: |-
     Load new Audit rules into kernel by running:
     <pre>augenrules --load</pre>
 
-    Note: This rule uses a special set of Audit rules to comply with OSPP 4.2.1. You may reuse this rule in different profiles. If you decide to do so, it is recommended that you inspect contents of the file closely and make sure that they are aligned with your needs.
+    Note: This rule uses a special set of Audit rules to comply with OSPP 4.2.1. You may reuse
+    this rule in different profiles. If you decide to do so, it is recommended that you inspect
+    contents of the file closely and make sure that they are aligned with your needs.
 
 rationale: |-
-    Unsuccessful attempts to delete a file might be signs of malicious activities. Auditing of such events help in monitoring and investigating of such activities.
+    Unsuccessful attempts to delete a file might be signs of malicious activities. Auditing of
+    such events help in monitoring and investigating of such activities.
 
 severity: medium
 
@@ -34,12 +37,13 @@ identifiers:
 references:
     nist: AU-2(a)
     ospp: FAU_GEN.1.1.c
-    srg: SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212
+    srg: SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212  # yamllint disable-line rule:line-length
 
 ocil_clause: 'the file does not exist or the content differs'
 
 ocil: |-
-    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules, check the content of the file with the following command:
+    To verify that the <tt>Audit</tt> is correctly configured according to recommended rules,
+    check the content of the file with the following command:
     <pre>cat /etc/audit/rules.d/30-ospp-v42-4-delete-failed.rules</pre>
     The output has to be exactly as follows:
     <pre>{{{ file_contents_audit_delete_failed|indent }}}    </pre>
@@ -54,7 +58,8 @@ template:
 fixtext: |-
     Configure {{{ full_name }}} to audit all unsuccessful attempts to delete a file.
 
-    Create file "/etc/audit/rules.d/30-ospp-v42-4-delete-failed.rules" with the exactly following content:
+    Create file "/etc/audit/rules.d/30-ospp-v42-4-delete-failed.rules" with the exactly following
+    content:
 
     {{{ file_contents_audit_delete_failed|indent(4) }}}
 

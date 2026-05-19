@@ -1,7 +1,8 @@
 documentation_complete: true
 
 
-title: 'OS commands and libraries must have the proper permissions to protect from unauthorized access'
+title: 'OS commands and libraries must have the proper permissions to protect from unauthorized
+    access'
 
 description: |-
     Verify that the SUSE operating system prevents unauthorized users from

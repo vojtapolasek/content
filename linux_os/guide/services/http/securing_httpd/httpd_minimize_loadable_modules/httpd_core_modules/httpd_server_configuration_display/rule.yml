@@ -4,7 +4,8 @@ documentation_complete: true
 title: 'Disable Web Server Configuration Display'
 
 description: |-
-    The <tt>info</tt> module creates a web page illustrating the configuration of the web server. This
+    The <tt>info</tt> module creates a web page illustrating the configuration of the web server.
+    This
     can create an unnecessary security leak and should be disabled.
     If its functionality is unnecessary, comment out the module:
     <pre>#LoadModule info_module modules/mod_info.so</pre>

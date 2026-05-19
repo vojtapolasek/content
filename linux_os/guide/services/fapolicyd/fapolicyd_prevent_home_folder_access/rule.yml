@@ -7,8 +7,10 @@ description:
 
 rationale: |-
     Users' home directories/folders may contain information of a sensitive nature.
-    Non-privileged users should coordinate any sharing of information with a System Administrator (SA) through shared resources.
-    fapolicyd can confine users to their home directory, not allowing them to make any changes outside of their own home directories.
+    Non-privileged users should coordinate any sharing of information with a System Administrator
+    (SA) through shared resources.
+    fapolicyd can confine users to their home directory, not allowing them to make any changes
+    outside of their own home directories.
     Confining users to their home directory will minimize the risk of sharing information.
 
 severity: medium

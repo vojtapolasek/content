@@ -12,7 +12,8 @@ rationale: |-
 
 severity: medium
 
-ocil_clause: 'the system is not configured to audit attempts to change files within the /etc/apparmor.d directory'
+ocil_clause: 'the system is not configured to audit attempts to change files within the
+    /etc/apparmor.d directory'
 
 ocil: |-
     {{{ ocil_audit_rules_watch("/etc/apparmor.d", "MAC-policy") }}}

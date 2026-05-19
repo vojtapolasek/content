@@ -10,9 +10,11 @@ description: |-
     and also on a per-account basis, such as for accounts that are known to be temporary.
     To configure automatic expiration of an account following
     the expiration of its password (that is, after the password has expired and not been changed),
-    run the following command, substituting <tt><i>NUM_DAYS</i></tt> and <tt><i>USER</i></tt> appropriately:
+    run the following command, substituting <tt><i>NUM_DAYS</i></tt> and <tt><i>USER</i></tt>
+    appropriately:
     <pre>$ sudo chage -I <i>NUM_DAYS USER</i></pre>
-    Accounts, such as temporary accounts, can also be configured to expire on an explicitly-set date with the
+    Accounts, such as temporary accounts, can also be configured to expire on an explicitly-set
+    date with the
     <tt>-E</tt> option.
     The file <tt>/etc/default/useradd</tt> controls
     default settings for all newly-created accounts created with the system's

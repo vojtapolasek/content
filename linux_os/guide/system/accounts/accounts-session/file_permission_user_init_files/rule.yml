@@ -41,10 +41,12 @@ ocil: |-
     There should be no output.
 
 fixtext: |-
-    Set the mode of the local initialization files to "0740" or less permissive with the following command:
+    Set the mode of the local initialization files to "0740" or less permissive with the following
+    command:
 
     Note: The example will be for the smithj user, who has a home directory of "/home/smithj".
 
     $ sudo chmod u-s,g-wxs,o= /home/smithj/.<i>INIT_FILE</i>
 
-srg_requirement: 'All {{{ full_name }}} local initialization files must have mode 0740 or less permissive.'
+srg_requirement: 'All {{{ full_name }}} local initialization files must have mode 0740 or less
+    permissive.'

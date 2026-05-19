@@ -20,7 +20,8 @@ references:
 ocil_clause: 'the STIG subpolicy does not exist'
 
 ocil: |-
-    Verify that <tt>/etc/crypto-policies/policies/modules/STIG.pmod</tt> exists and has the following content:
+    Verify that <tt>/etc/crypto-policies/policies/modules/STIG.pmod</tt> exists and has the
+    following content:
     <pre>
     cipher@SSH=AES-256-GCM AES-256-CTR AES-128-GCM AES-128-CTR
     mac@SSH=HMAC-SHA2-512 HMAC-SHA2-256

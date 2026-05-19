@@ -8,7 +8,8 @@ description: |-
     code from a future indirect branch chosen by the attacker, even if the privilege
     level is different.
 
-    Since Linux Kernel 4.15 you can check the Spectre V2 mitigation state with the following command:
+    Since Linux Kernel 4.15 you can check the Spectre V2 mitigation state with the following
+    command:
     <tt>cat /sys/devices/system/cpu/vulnerabilities/spectre_v2</tt>
 
     Enforce the Spectre V2 mitigation by adding the argument

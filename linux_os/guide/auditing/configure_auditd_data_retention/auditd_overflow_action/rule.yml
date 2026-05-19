@@ -9,8 +9,10 @@ documentation_complete: true
 title: Appropriate Action Must be Setup When the Internal Audit Event Queue is Full
 
 description: |-
-    The audit system should have an action setup in the event the internal event queue becomes full.
-    To setup an overflow action edit <tt>{{{ auditd_conf_path }}}</tt>. Set <tt>overflow_action</tt>
+    The audit system should have an action setup in the event the internal event queue becomes
+    full.
+    To setup an overflow action edit <tt>{{{ auditd_conf_path }}}</tt>. Set
+    <tt>overflow_action</tt>
     to one of the following values: <tt>syslog</tt>, <tt>single</tt>, <tt>halt</tt>.
 
 
@@ -34,7 +36,8 @@ references:
 ocil_clause: 'auditd overflow action is not set correctly'
 
 ocil: |-
-    Verify the audit system is configured to take an appropriate action when the internal event queue is full:
+    Verify the audit system is configured to take an appropriate action when the internal event
+    queue is full:
     <pre>$ sudo grep -i overflow_action {{{ auditd_conf_path }}}</pre>
 
     The output should contain <tt>overflow_action = syslog</tt>
@@ -44,7 +47,8 @@ ocil: |-
     to indicate how the audit logs are off-loaded to a different system or media.
 
 fixtext: |-
-    Configure {{{ full_name }}} to take an appropriate action when the internal audit event queue is full.
+    Configure {{{ full_name }}} to take an appropriate action when the internal audit event queue
+    is full.
 
     Add or edit the following line in "{{{ auditd_conf_path }}}":
 
