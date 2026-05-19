@@ -50,7 +50,8 @@ controls:
     - id: 164.308(a)(1)(ii)(D)
       title: 'Information system activity review'
       description: |-
-          Implement procedures to regularly review records of information system activity, such as audit logs, access
+          Implement procedures to regularly review records of information system activity, such as
+          audit logs, access
           reports, and security incident tracking reports.
       levels:
           - required
@@ -181,10 +182,11 @@ controls:
 
     - id: 164.308(a)(3)
       title: 'Workforce security'
-      description: Implement policies and procedures to ensure that all members of its workforce have
-          appropriate access to electronic protected health information, as provided under paragraph
-          (a)(4) of this section, and to prevent those workforce members who do not have access under
-          paragraph (a)(4) of this section from obtaining access to electronic protected health information.
+      description: Implement policies and procedures to ensure that all members of its workforce
+          have appropriate access to electronic protected health information, as provided under
+          paragraph (a)(4) of this section, and to prevent those workforce members who do not have
+          access under paragraph (a)(4) of this section from obtaining access to electronic
+          protected health information.
       levels:
           - base
       rules:
@@ -206,7 +208,11 @@ controls:
     - id: 164.308(a)(3)(i)
       title: 'Standard: Workforce security'
       description: |-
-          Implement policies and procedures to ensure that all members of its workforce have appropriate access to electronic protected health information, as provided under paragraph (a)(4) of this section, and to prevent those workforce members who do not have access under paragraph (a)(4) of this section from obtaining access to electronic protected health information.
+          Implement policies and procedures to ensure that all members of its workforce have
+          appropriate access to electronic protected health information, as provided under
+          paragraph (a)(4) of this section, and to prevent those workforce members who do not have
+          access under paragraph (a)(4) of this section from obtaining access to electronic
+          protected health information.
       levels:
           - addressable
       rules:
@@ -217,8 +223,9 @@ controls:
 
     - id: 164.308(a)(3)(ii)(A)
       title: 'Authorization and/or supervision (Addressable)'
-      description: 'Implement procedures for the authorization and/or supervision of workforce members
-          who work with electronic protected health information or in locations where it might be accessed.'
+      description: 'Implement procedures for the authorization and/or supervision of workforce
+          members who work with electronic protected health information or in locations where it
+          might be accessed.'
       levels:
           - required
       rules:
@@ -516,8 +523,10 @@ controls:
     - id: 164.308(a)(6)(ii)
       title: 'Response and reporting'
       description: |-
-          Identify and respond to suspected or known security incidents; mitigate, to the extent practicable,
-          harmful effects of security incidents that are known to the covered entity or business associate; and
+          Identify and respond to suspected or known security incidents; mitigate, to the extent
+          practicable,
+          harmful effects of security incidents that are known to the covered entity or business
+          associate; and
           document security incidents and their outcomes.
       levels:
           - required
@@ -529,8 +538,10 @@ controls:
     - id: 164.308(a)(7)(i)
       title: 'Contingency plan'
       description: |-
-          Establish (and implement as needed) policies and procedures for responding to an emergency or other
-          occurrence (for example, fire, vandalism, system failure, and natural disaster) that damages systems that
+          Establish (and implement as needed) policies and procedures for responding to an
+          emergency or other
+          occurrence (for example, fire, vandalism, system failure, and natural disaster) that
+          damages systems that
           contain electronic protected health information.
       levels:
           - base
@@ -563,7 +574,8 @@ controls:
     - id: 164.308(a)(7)(ii)(A)
       title: 'Data backup plan'
       description: |-
-          Establish and implement procedures to create and maintain retrievable exact copies of electronic protected
+          Establish and implement procedures to create and maintain retrievable exact copies of
+          electronic protected
           health information.
       levels:
           - required
@@ -596,9 +608,12 @@ controls:
       title: 'Evaluation'
       description: |-
           Perform a periodic technical and nontechnical evaluation, based initially upon
-          the standards implemented under this rule and, subsequently, in response to environmental or
-          operational changes affecting the security of electronic protected health information, that
-          establishes the extent to which a covered entity's or business associate's security policies and
+          the standards implemented under this rule and, subsequently, in response to
+          environmental or
+          operational changes affecting the security of electronic protected health information,
+          that
+          establishes the extent to which a covered entity's or business associate's security
+          policies and
           procedures meet the requirements of this subpart.
       levels:
           - base
@@ -611,10 +626,14 @@ controls:
       title: 'Business associate contracts and other arrangements'
       description: |-
           A covered entity may permit a business
-          associate to create, receive, maintain, or transmit electronic protected health information on the
-          covered entity's behalf only if the covered entity obtains satisfactory assurances, in accordance with
-          § 164.314(a), that the business associate will appropriately safeguard the information. A covered
-          entity is not required to obtain such satisfactory assurances from a business associate that is a
+          associate to create, receive, maintain, or transmit electronic protected health
+          information on the
+          covered entity's behalf only if the covered entity obtains satisfactory assurances, in
+          accordance with
+          § 164.314(a), that the business associate will appropriately safeguard the information.
+          A covered
+          entity is not required to obtain such satisfactory assurances from a business associate
+          that is a
           subcontractor
       levels:
           - base
@@ -670,9 +689,12 @@ controls:
       notes: |-
           This title was created by analysis, not by the CFR.
       description: |-
-          A business associate may permit a business associate that is a subcontractor to create, receive, maintain,
-          or transmit electronic protected health information on its behalf only if the business associate obtains
-          satisfactory assurances, in accordance with § 164.314(a), that the subcontractor will appropriately
+          A business associate may permit a business associate that is a subcontractor to create,
+          receive, maintain,
+          or transmit electronic protected health information on its behalf only if the business
+          associate obtains
+          satisfactory assurances, in accordance with § 164.314(a), that the subcontractor will
+          appropriately
           safeguard the information.
       levels:
           - base
@@ -732,8 +754,10 @@ controls:
     - id: 164.310(a)(1)
       title: 'Facility access controls'
       description: |-
-          Implement policies and procedures to limit physical access to its electronic information systems and the
-          facility or facilities in which they are housed, while ensuring that properly authorized access is allowed.
+          Implement policies and procedures to limit physical access to its electronic information
+          systems and the
+          facility or facilities in which they are housed, while ensuring that properly authorized
+          access is allowed.
       levels:
           - base
       rules:
@@ -763,8 +787,10 @@ controls:
     - id: 164.310(a)(2)(i)
       title: 'Contingency operations'
       description: |-
-          Establish (and implement as needed) procedures that allow facility access in support of restoration of los
-          data under the disaster recovery plan and emergency mode operations plan in the event of an emergency.
+          Establish (and implement as needed) procedures that allow facility access in support of
+          restoration of los
+          data under the disaster recovery plan and emergency mode operations plan in the event of
+          an emergency.
       levels:
           - addressable
       rules:
@@ -795,8 +821,10 @@ controls:
     - id: 164.310(a)(2)(ii)
       title: 'Contingency operations'
       description: |-
-          Establish (and implement as needed) procedures that allow facility access in support of restoration of lost
-          data under the disaster recovery plan and emergency mode operations plan in the event of an emergency.
+          Establish (and implement as needed) procedures that allow facility access in support of
+          restoration of lost
+          data under the disaster recovery plan and emergency mode operations plan in the event of
+          an emergency.
       levels:
           - addressable
       rules:
@@ -827,8 +855,10 @@ controls:
     - id: 164.310(a)(2)(iii)
       title: 'Access control and validation procedures'
       description: |-
-          Implement procedures to control and validate a person's access to facilities based on their role or
-          function, including visitor control, and control of access to software programs for testing and revision.
+          Implement procedures to control and validate a person's access to facilities based on
+          their role or
+          function, including visitor control, and control of access to software programs for
+          testing and revision.
       levels:
           - addressable
       rules:
@@ -859,7 +889,8 @@ controls:
     - id: 164.310(a)(2)(iv)
       title: 'Maintenance records'
       description: |-
-          Implement policies and procedures to document repairs and modifications to the physical components of a
+          Implement policies and procedures to document repairs and modifications to the physical
+          components of a
           facility which are related to security (for example, hardware, walls, doors, and locks).
       levels:
           - base
@@ -875,9 +906,12 @@ controls:
     - id: 164.310(b)
       title: 'Workstation use'
       description: |-
-          Implement policies and procedures that specify the proper functions to be performed, the manner in which
-          those functions are to be performed, and the physical attributes of the surroundings of a specific
-          workstation or class of workstation that can access electronic protected health information.
+          Implement policies and procedures that specify the proper functions to be performed, the
+          manner in which
+          those functions are to be performed, and the physical attributes of the surroundings of
+          a specific
+          workstation or class of workstation that can access electronic protected health
+          information.
       levels:
           - addressable
       rules:
@@ -962,7 +996,8 @@ controls:
     - id: 164.310(c)
       title: 'Workstation security'
       description: |-
-          Implement physical safeguards for all workstations that access electronic protected health information,
+          Implement physical safeguards for all workstations that access electronic protected
+          health information,
           to restrict access to authorized users.
       levels:
           - base
@@ -1007,7 +1042,8 @@ controls:
     - id: 164.310(d)
       title: 'Person or entity authentication'
       description: |-
-          Implement procedures to verify that a person or entity seeking access to electronic protected health
+          Implement procedures to verify that a person or entity seeking access to electronic
+          protected health
           information is the one claimed.
       levels:
           - base
@@ -1050,8 +1086,10 @@ controls:
     - id: 164.310(d)(2)
       title: 'Device and media controls'
       description: |-
-          Implement policies and procedures that govern the receipt and removal of hardware and electronic media that
-          contain electronic protected health information into and out of a facility, and the movement of these items
+          Implement policies and procedures that govern the receipt and removal of hardware and
+          electronic media that
+          contain electronic protected health information into and out of a facility, and the
+          movement of these items
           within the facility.
       levels:
           - base
@@ -1064,7 +1102,8 @@ controls:
     - id: 164.310(d)(2)(iii)
       title: 'Accountability'
       description: |-
-          Maintain a record of the movements of hardware and electronic media and any person responsible therefore.
+          Maintain a record of the movements of hardware and electronic media and any person
+          responsible therefore.
       levels:
           - addressable
       rules:
@@ -1103,8 +1142,10 @@ controls:
     - id: 164.312(a)
       title: 'Access Control'
       description: |-
-          Implement technical policies and procedures for electronic information systems that maintain electronic
-          protected health information to allow access only to those persons or software programs that have been
+          Implement technical policies and procedures for electronic information systems that
+          maintain electronic
+          protected health information to allow access only to those persons or software programs
+          that have been
           granted access rights as specified in § 164.308(a)(4).
       levels:
           - base
@@ -1128,8 +1169,10 @@ controls:
     - id: 164.312(a)(1)
       title: 'Access Control'
       description: |-
-          Implement technical policies and procedures for electronic information systems that maintain electronic
-          protected health information to allow access only to those persons or software programs that have been
+          Implement technical policies and procedures for electronic information systems that
+          maintain electronic
+          protected health information to allow access only to those persons or software programs
+          that have been
           granted access rights as specified in § 164.308(a)(4).
       levels:
           - base
@@ -1240,7 +1283,8 @@ controls:
     - id: 164.312(a)(2)(ii)
       title: 'Emergency access procedure'
       description: |-
-          Establish (and implement as needed) procedures for obtaining necessary electronic protected health
+          Establish (and implement as needed) procedures for obtaining necessary electronic
+          protected health
           information during an emergency.
       levels:
           - required
@@ -1259,7 +1303,8 @@ controls:
     - id: 164.312(a)(2)(iii)
       title: 'Automatic logoff'
       description: |-
-          Implement electronic procedures that terminate an electronic session after a predetermined time of
+          Implement electronic procedures that terminate an electronic session after a
+          predetermined time of
           inactivity.
       levels:
           - addressable
@@ -1283,7 +1328,8 @@ controls:
     - id: 164.312(b)
       title: 'Audit controls.'
       description: |-
-          Implement hardware, software, and/or procedural mechanisms that record and examine activity in information
+          Implement hardware, software, and/or procedural mechanisms that record and examine
+          activity in information
           systems that contain or use electronic protected health information.
       levels:
           - base
@@ -1401,7 +1447,8 @@ controls:
     - id: 164.312(c)
       title: 'Integrity.'
       description: |-
-          Implement policies and procedures to protect electronic protected health information from improper
+          Implement policies and procedures to protect electronic protected health information
+          from improper
           alteration or destruction.
       levels:
           - base
@@ -1412,7 +1459,8 @@ controls:
     - id: 164.312(c)(1)
       title: 'Integrity.'
       description: |-
-          Implement policies and procedures to protect electronic protected health information from improper
+          Implement policies and procedures to protect electronic protected health information
+          from improper
           alteration or destruction.
       levels:
           - base
@@ -1430,9 +1478,11 @@ controls:
       status: automated
 
     - id: 164.312(c)(2)
-      title: 'Implementation specification: Mechanism to authenticate electronic protected health information'
+      title: 'Implementation specification: Mechanism to authenticate electronic protected health
+          information'
       description: |-
-          Implement electronic mechanisms to corroborate that electronic protected health information has not been
+          Implement electronic mechanisms to corroborate that electronic protected health
+          information has not been
           altered or destroyed in an unauthorized manner.
       levels:
           - addressable
@@ -1452,7 +1502,8 @@ controls:
     - id: 164.312(d)
       title: 'Person or entity authentication.'
       description: |-
-          Implement procedures to verify that a person or entity seeking access to electronic protected health information
+          Implement procedures to verify that a person or entity seeking access to electronic
+          protected health information
           is the one claimed.
       levels:
           - base
@@ -1550,7 +1601,8 @@ controls:
     - id: 164.312(e)
       title: 'Transmission security.'
       description: |-
-          Implement technical security measures to guard against unauthorized access to electronic protected health
+          Implement technical security measures to guard against unauthorized access to electronic
+          protected health
           information that is being transmitted over an electronic communications network.
       levels:
           - base
@@ -1659,7 +1711,8 @@ controls:
     - id: 164.312(e)(1)
       title: 'Transmission security.'
       description: |-
-          Implement technical security measures to guard against unauthorized access to electronic protected health
+          Implement technical security measures to guard against unauthorized access to electronic
+          protected health
           information that is being transmitted over an electronic communications network.
       levels:
           - base
@@ -1711,7 +1764,8 @@ controls:
     - id: 164.312(e)(2)(i)
       title: 'Integrity controls'
       description: |-
-          Implement security measures to ensure that electronically transmitted electronic protected health information is not
+          Implement security measures to ensure that electronically transmitted electronic
+          protected health information is not
           improperly modified without detection until disposed of.
       levels:
           - addressable
@@ -1733,7 +1787,8 @@ controls:
     - id: 164.312(e)(2)(ii)
       title: 'Encryption'
       description: |-
-          Implement a mechanism to encrypt electronic protected health information whenever deemed appropriate.
+          Implement a mechanism to encrypt electronic protected health information whenever deemed
+          appropriate.
       levels:
           - addressable
       rules:
@@ -1785,7 +1840,8 @@ controls:
     - id: 164.314(a)(2)(i)(C)
       title: 'Business associate contracts.'
       description: |-
-          Report to the covered entity any security incident of which it becomes aware, including breaches of
+          Report to the covered entity any security incident of which it becomes aware, including
+          breaches of
           unsecured protected health information as required by § 164.410.
       levels:
           - required
@@ -1797,9 +1853,12 @@ controls:
     - id: 164.314(a)(2)(iii)
       title: 'Business associate contracts with subcontractors.'
       description: |-
-          The requirements of paragraphs (a)(2)(i) and (a)(2)(ii) of this section apply to the contract or other
-          arrangement between a business associate and a subcontractor required by § 164.308(b)(4) in the same manner
-          as such requirements apply to contracts or other arrangements between a covered entity and business
+          The requirements of paragraphs (a)(2)(i) and (a)(2)(ii) of this section apply to the
+          contract or other
+          arrangement between a business associate and a subcontractor required by § 164.308(b)(4)
+          in the same manner
+          as such requirements apply to contracts or other arrangements between a covered entity
+          and business
           associate.
       levels:
           - required
@@ -1811,8 +1870,10 @@ controls:
     - id: 164.314(b)(2)(i)
       title: 'Implementation specifications'
       description: |-
-          Implement administrative, physical, and technical safeguards that reasonably and appropriately protect the
-          confidentiality, integrity, and availability of the electronic protected health information that it creates,
+          Implement administrative, physical, and technical safeguards that reasonably and
+          appropriately protect the
+          confidentiality, integrity, and availability of the electronic protected health
+          information that it creates,
           receives, maintains, or transmits on behalf of the group health plan;
       levels:
           - required

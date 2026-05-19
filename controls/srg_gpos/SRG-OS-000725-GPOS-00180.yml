@@ -6,7 +6,8 @@ controls:
             - medium
         status: inherently met
         rationale: |-
-            A long passphrase is better than a shorter complex password. By not allowing spaces or other printable
+            A long passphrase is better than a shorter complex password. By not allowing spaces or
+            other printable
             charters it limits users choice to create a long, memorable passwords.
         artifact_description:
             PAM and shadow-utils don't provide facilitates to limit the characters used in passwords.

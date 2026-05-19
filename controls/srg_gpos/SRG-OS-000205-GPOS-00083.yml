@@ -7,12 +7,21 @@ controls:
             by adversaries.
         status: inherently met
         rationale : |-
-            Any operating system providing too much information in error messages risks compromising the data and security of the structure, and content of error messages needs to be carefully considered by the organization.
+            Any operating system providing too much information in error messages risks
+            compromising the data and security of the structure, and content of error messages
+            needs to be carefully considered by the organization.
 
-            Organizations carefully consider the structure/content of error messages. The extent to which information systems are able to identify and handle error conditions is guided by organizational policy and operational requirements.
-            Information that could be exploited by adversaries includes, for example, erroneous logon attempts with passwords entered by mistake as the username, mission/business information that can be derived from (if not stated explicitly by) information recorded, and personal information, such as account numbers, social security numbers, and credit card numbers.
+            Organizations carefully consider the structure/content of error messages. The extent
+            to which information systems are able to identify and handle error conditions is
+            guided by organizational policy and operational requirements.
+            Information that could be exploited by adversaries includes, for example, erroneous
+            logon attempts with passwords entered by mistake as the username, mission/business
+            information that can be derived from (if not stated explicitly by) information
+            recorded, and personal information, such as account numbers, social security numbers,
+            and credit card numbers.
         check: |-
-           {{{ full_name }}} supports this requirement and cannot be configured to be out of compliance.
+           {{{ full_name }}} supports this requirement and cannot be configured to be out of
+           compliance.
            {{{ full_name }}} inherently meets this requirement.
         fixtext: |-
             {{{ full_name }}} inherently meets this requirement.

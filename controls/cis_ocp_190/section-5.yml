@@ -65,21 +65,24 @@ controls:
                   levels:
                       - level_1
                 - id: 5.2.2
-                  title: Minimize the admission of containers wishing to share the host process ID namespace
+                  title: Minimize the admission of containers wishing to share the host process ID
+                      namespace
                   status: manual
                   rules:
                       - scc_limit_process_id_namespace
                   levels:
                       - level_1
                 - id: 5.2.3
-                  title: Minimize the admission of containers wishing to share the host IPC namespace
+                  title: Minimize the admission of containers wishing to share the host IPC
+                      namespace
                   status: manual
                   rules:
                       - scc_limit_ipc_namespace
                   levels:
                       - level_1
                 - id: 5.2.4
-                  title: Minimize the admission of containers wishing to share the host network namespace
+                  title: Minimize the admission of containers wishing to share the host network
+                      namespace
                   status: manual
                   rules:
                       - scc_limit_network_namespace
@@ -194,7 +197,8 @@ controls:
                   levels:
                       - level_1
                 - id: 5.7.2
-                  title: Ensure that the seccomp profile is set to docker/default in your pod definitions
+                  title: Ensure that the seccomp profile is set to docker/default in your pod
+                      definitions
                   status: manual
                   rules:
                       - general_default_seccomp_profile

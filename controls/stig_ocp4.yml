@@ -19,8 +19,8 @@ controls:
     - id: CNTR-OS-000010
       levels:
           - medium
-      title: OpenShift must use TLS 1.2 or greater for secure container image transport from trusted
-          sources.
+      title: OpenShift must use TLS 1.2 or greater for secure container image transport from
+          trusted sources.
       rules:
           - ocp_insecure_allowed_registries_for_import
           - ocp_insecure_registries
@@ -39,8 +39,8 @@ controls:
     - id: CNTR-OS-000030
       levels:
           - medium
-      title: OpenShift must use a centralized user management solution to support account management
-          functions.
+      title: OpenShift must use a centralized user management solution to support account
+          management functions.
       rules:
           - idp_is_configured
           - kubeadmin_removed
@@ -125,8 +125,9 @@ controls:
     - id: CNTR-OS-000100
       levels:
           - medium
-      title: OpenShift must enforce network policy on the namespace for controlling the flow of information
-          within the container platform based on organization-defined information flow control policies.
+      title: OpenShift must enforce network policy on the namespace for controlling the flow of
+          information within the container platform based on organization-defined information flow
+          control policies.
       rules:
           - configure_network_policies
           - configure_network_policies_namespaces
@@ -135,8 +136,9 @@ controls:
     - id: CNTR-OS-000110
       levels:
           - medium
-      title: OpenShift must enforce approved authorizations for controlling the flow of information within
-          the container platform based on organization-defined information flow control policies.
+      title: OpenShift must enforce approved authorizations for controlling the flow of
+          information within the container platform based on organization-defined information flow
+          control policies.
       rules:
           - project_config_and_template_network_policy
       status: automated
@@ -144,8 +146,8 @@ controls:
     - id: CNTR-OS-000130
       levels:
           - low
-      title: OpenShift must display the Standard Mandatory DOD Notice and Consent Banner before granting
-          access to platform components.
+      title: OpenShift must display the Standard Mandatory DOD Notice and Consent Banner before
+          granting access to platform components.
       rules:
           - classification_banner
           - oauth_login_template_set
@@ -156,8 +158,8 @@ controls:
     - id: CNTR-OS-000150
       levels:
           - medium
-      title: OpenShift must generate audit records for all DOD-defined auditable events within all components
-          in the platform.
+      title: OpenShift must generate audit records for all DOD-defined auditable events within all
+          components in the platform.
       rules:
           - audit_profile_set
           - service_auditd_enabled
@@ -166,8 +168,8 @@ controls:
     - id: CNTR-OS-000160
       levels:
           - medium
-      title: OpenShift must generate audit records when successful/unsuccessful attempts to access privileges
-          occur.
+      title: OpenShift must generate audit records when successful/unsuccessful attempts to access
+          privileges occur.
       rules:
           - audit_access_failed
           - audit_create_failed
@@ -190,7 +192,8 @@ controls:
     - id: CNTR-OS-000170
       levels:
           - high
-      title: Red Hat Enterprise Linux CoreOS (RHCOS) must initiate session audits at system startup.
+      title: Red Hat Enterprise Linux CoreOS (RHCOS) must initiate session audits at system
+          startup.
       rules:
           - audit_log_forwarding_enabled
           - cluster_logging_operator_exist
@@ -242,8 +245,8 @@ controls:
     - id: CNTR-OS-000220
       levels:
           - medium
-      title: OpenShift components must provide the ability to send audit logs to a central enterprise
-          repository for review and analysis.
+      title: OpenShift components must provide the ability to send audit logs to a central
+          enterprise repository for review and analysis.
       rules:
           - audit_log_forwarding_enabled
           - cluster_logging_operator_exist
@@ -263,8 +266,8 @@ controls:
     - id: CNTR-OS-000240
       levels:
           - medium
-      title: The Red Hat Enterprise Linux CoreOS (RHCOS) chrony Daemon must use multiple NTP servers
-          to generate audit record time stamps.
+      title: The Red Hat Enterprise Linux CoreOS (RHCOS) chrony Daemon must use multiple NTP
+          servers to generate audit record time stamps.
       rules:
           - chronyd_or_ntpd_specify_remote_server
           - service_chronyd_or_ntpd_enabled
@@ -289,8 +292,8 @@ controls:
     - id: CNTR-OS-000260
       levels:
           - medium
-      title: OpenShift must protect system journal file from any type of unauthorized access by setting
-          file permissions.
+      title: OpenShift must protect system journal file from any type of unauthorized access by
+          setting file permissions.
       rules:
           - file_groupowner_system_journal
           - file_groupowner_var_log
@@ -306,8 +309,8 @@ controls:
     - id: CNTR-OS-000270
       levels:
           - medium
-      title: OpenShift must protect system journal file from any type of unauthorized access by setting
-          owner permissions.
+      title: OpenShift must protect system journal file from any type of unauthorized access by
+          setting owner permissions.
       rules:
           - file_groupowner_system_journal
           - file_groupowner_var_log
@@ -323,8 +326,8 @@ controls:
     - id: CNTR-OS-000280
       levels:
           - medium
-      title: OpenShift must protect log directory from any type of unauthorized access by setting file
-          permissions.
+      title: OpenShift must protect log directory from any type of unauthorized access by setting
+          file permissions.
       rules:
           - file_groupowner_system_journal
           - file_groupowner_var_log
@@ -340,8 +343,8 @@ controls:
     - id: CNTR-OS-000290
       levels:
           - medium
-      title: OpenShift must protect log directory from any type of unauthorized access by setting owner
-          permissions.
+      title: OpenShift must protect log directory from any type of unauthorized access by setting
+          owner permissions.
       rules:
           - file_groupowner_system_journal
           - file_groupowner_var_log
@@ -357,8 +360,8 @@ controls:
     - id: CNTR-OS-000300
       levels:
           - medium
-      title: OpenShift must protect pod log files from any type of unauthorized access by setting owner
-          permissions.
+      title: OpenShift must protect pod log files from any type of unauthorized access by setting
+          owner permissions.
       rules:
           - file_groupowner_system_journal
           - file_groupowner_var_log
@@ -402,8 +405,8 @@ controls:
     - id: CNTR-OS-000340
       levels:
           - medium
-      title: OpenShift must use FIPS-validated cryptographic mechanisms to protect the integrity of log
-          information.
+      title: OpenShift must use FIPS-validated cryptographic mechanisms to protect the integrity
+          of log information.
       rules:
           - audit_log_forwarding_uses_tls
           - fips_mode_enabled_on_all_nodes
@@ -420,8 +423,8 @@ controls:
     - id: CNTR-OS-000380
       levels:
           - medium
-      title: OpenShift must contain only container images for those capabilities being offered by the
-          container platform.
+      title: OpenShift must contain only container images for those capabilities being offered by
+          the container platform.
       rules: []
       related_rules:
           - reject_unsigned_images_by_default
@@ -438,7 +441,8 @@ controls:
     - id: CNTR-OS-000390
       levels:
           - medium
-      title: OpenShift runtime must enforce ports, protocols, and services that adhere to the PPSM CAL.
+      title: OpenShift runtime must enforce ports, protocols, and services that adhere to the PPSM
+          CAL.
       rules: []
       notes: >-
           Satisfies SRG-APP-000142-CTR-000325
@@ -477,8 +481,8 @@ controls:
     - id: CNTR-OS-000440
       levels:
           - medium
-      title: OpenShift must use FIPS-validated SHA-1 or higher hash function to provide replay-resistant
-          authentication mechanisms for network access to privileged accounts.
+      title: OpenShift must use FIPS-validated SHA-1 or higher hash function to provide
+          replay-resistant authentication mechanisms for network access to privileged accounts.
       notes: |-
           Verify the authentication operator is configured to use a secure transport
           to an OpenIDConnect provider.
@@ -498,7 +502,8 @@ controls:
           - ocp_idp_no_htpasswd
           - kubeadmin_removed
       notes: >-
-          Satisfies SRG-APP-000172-CTR-000440, SRG-APP-000024-CTR-000060, SRG-APP-000025-CTR-000065,
+          Satisfies SRG-APP-000172-CTR-000440, SRG-APP-000024-CTR-000060,
+          SRG-APP-000025-CTR-000065,
           SRG-APP-000065-CTR-000115, SRG-APP-000151-CTR-000365, SRG-APP-000152-CTR-000370,
           SRG-APP-000157-CTR-000385, SRG-APP-000163-CTR-000395, SRG-APP-000164-CTR-000400,
           SRG-APP-000165-CTR-000405, SRG-APP-000166-CTR-000410, SRG-APP-000167-CTR-000415,
@@ -517,9 +522,9 @@ controls:
     - id: CNTR-OS-000490
       levels:
           - medium
-      title: 'OpenShift must terminate all network connections associated with a communications session
-          at the end of the session, or as follows: for in-band management sessions (privileged sessions),
-          the session must be terminated after 10 minutes of inactivity.'
+      title: 'OpenShift must terminate all network connections associated with a communications
+          session at the end of the session, or as follows: for in-band management sessions
+          (privileged sessions), the session must be terminated after 10 minutes of inactivity.'
       rules:
           - oauth_or_oauthclient_inactivity_timeout
           - sshd_disable_root_login
@@ -528,8 +533,8 @@ controls:
     - id: CNTR-OS-000500
       levels:
           - medium
-      title: OpenShift must separate user functionality (including user interface services) from information
-          system management functionality.
+      title: OpenShift must separate user functionality (including user interface services) from
+          information system management functionality.
       rules: []
       notes: >-
           Satisfies SRG-APP-000211-CTR-000530.
@@ -540,8 +545,8 @@ controls:
     - id: CNTR-OS-000510
       levels:
           - high
-      title: OpenShift must protect authenticity of communications sessions with the use of FIPS-validated
-          140-2 or 140-3 validated cryptography.
+      title: OpenShift must protect authenticity of communications sessions with the use of
+          FIPS-validated 140-2 or 140-3 validated cryptography.
       rules:
           - audit_log_forwarding_uses_tls
           - fips_mode_enabled_on_all_nodes
@@ -560,8 +565,8 @@ controls:
     - id: CNTR-OS-000560
       levels:
           - medium
-      title: OpenShift must prevent unauthorized and unintended information transfer via shared system
-          resources and enable page poisoning.
+      title: OpenShift must prevent unauthorized and unintended information transfer via shared
+          system resources and enable page poisoning.
       rules:
           - coreos_page_poison_kernel_argument
           - coreos_slub_debug_kernel_argument
@@ -633,8 +638,9 @@ controls:
     - id: CNTR-OS-000620
       levels:
           - medium
-      title: OpenShift must restrict individuals the ability to launch organizational-defined Denial-of-Service
-          (DOS) attacks against other information systems by setting a default Resource Quota.
+      title: OpenShift must restrict individuals the ability to launch organizational-defined
+          Denial-of-Service (DOS) attacks against other information systems by setting a default
+          Resource Quota.
       rules:
           - project_config_and_template_resource_quota
           - resource_requests_quota_per_project
@@ -644,8 +650,8 @@ controls:
     - id: CNTR-OS-000630
       levels:
           - medium
-      title: OpenShift must restrict individuals the ability to launch organizational-defined Denial-of-Service
-          (DOS) attacks against other information systems by rate-limiting.
+      title: OpenShift must restrict individuals the ability to launch organizational-defined
+          Denial-of-Service (DOS) attacks against other information systems by rate-limiting.
       rules:
           - project_config_and_template_resource_quota
           - resource_requests_quota_per_project
@@ -655,8 +661,8 @@ controls:
     - id: CNTR-OS-000650
       levels:
           - low
-      title: OpenShift must display an explicit logout message indicating the reliable termination of
-          authenticated communication sessions.
+      title: OpenShift must display an explicit logout message indicating the reliable termination
+          of authenticated communication sessions.
       rules:
           - oauth_logout_url_set
       status: automated
@@ -678,9 +684,9 @@ controls:
     - id: CNTR-OS-000670
       levels:
           - low
-      title: Red Hat Enterprise Linux CoreOS (RHCOS) must allocate audit record storage capacity to store
-          at least one weeks' worth of audit records, when audit records are not immediately sent to
-          a central audit record storage facility.
+      title: Red Hat Enterprise Linux CoreOS (RHCOS) must allocate audit record storage capacity
+          to store at least one weeks' worth of audit records, when audit records are not
+          immediately sent to a central audit record storage facility.
       rules:
           - auditd_data_disk_error_action
           - auditd_data_retention_max_log_file_action_stig
@@ -691,8 +697,8 @@ controls:
     - id: CNTR-OS-000690
       levels:
           - medium
-      title: OpenShift must configure Alert Manger Receivers to notify SA and ISSO of all audit failure
-          events requiring real-time alerts.
+      title: OpenShift must configure Alert Manger Receivers to notify SA and ISSO of all audit
+          failure events requiring real-time alerts.
       rules: []
       notes: |-
           This needs further investigation: CMP-2437
@@ -701,7 +707,8 @@ controls:
     - id: CNTR-OS-000720
       levels:
           - medium
-      title: OpenShift must enforce access restrictions and support auditing of the enforcement actions.
+      title: OpenShift must enforce access restrictions and support auditing of the enforcement
+          actions.
       rules:
           - audit_rules_suid_privilege_function
       status: automated
@@ -709,9 +716,9 @@ controls:
     - id: CNTR-OS-000740
       levels:
           - medium
-      title: OpenShift must prevent the installation of patches, service packs, device drivers, or operating
-          system components without verification they have been digitally signed using a certificate
-          that is recognized and approved by the organization.
+      title: OpenShift must prevent the installation of patches, service packs, device drivers, or
+          operating system components without verification they have been digitally signed using a
+          certificate that is recognized and approved by the organization.
       rules:
           - cluster_version_operator_exists
           - cluster_version_operator_verify_integrity
@@ -728,17 +735,17 @@ controls:
     - id: CNTR-OS-000770
       levels:
           - medium
-      title: Vulnerability scanning applications must implement privileged access authorization to all
-          OpenShift components, containers, and container images for selected organization-defined vulnerability
-          scanning activities.
+      title: Vulnerability scanning applications must implement privileged access authorization to
+          all OpenShift components, containers, and container images for selected
+          organization-defined vulnerability scanning activities.
       rules: []
       status: manual
 
     - id: CNTR-OS-000780
       levels:
           - medium
-      title: OpenShift keystore must implement encryption to prevent unauthorized disclosure of information
-          at rest within the container platform.
+      title: OpenShift keystore must implement encryption to prevent unauthorized disclosure of
+          information at rest within the container platform.
       rules:
           - api_server_encryption_provider_cipher
       status: automated
@@ -746,9 +753,9 @@ controls:
     - id: CNTR-OS-000800
       levels:
           - medium
-      title: OpenShift must protect against or limit the effects of all types of Denial-of-Service (DoS)
-          attacks by employing organization-defined security safeguards by including a default resource
-          quota.
+      title: OpenShift must protect against or limit the effects of all types of Denial-of-Service
+          (DoS) attacks by employing organization-defined security safeguards by including a
+          default resource quota.
       rules:
           - project_config_and_template_resource_quota
           - resource_requests_quota_per_project
@@ -758,8 +765,8 @@ controls:
     - id: CNTR-OS-000810
       levels:
           - medium
-      title: OpenShift must protect against or limit the effects of all types of Denial-of-Service (DoS)
-          attacks by defining resource quotas on a namespace.
+      title: OpenShift must protect against or limit the effects of all types of Denial-of-Service
+          (DoS) attacks by defining resource quotas on a namespace.
       rules:
           - bios_enable_execution_restrictions
           - project_config_and_template_resource_quota
@@ -774,15 +781,16 @@ controls:
       title: OpenShift must protect the confidentiality and integrity of transmitted information.
       rules: []
       notes: |-
-          This item is manual and kindof vague by design as e.g. with passthrough TLS, the TLS settings
+          This item is manual and kindof vague by design as e.g. with passthrough TLS, the TLS
+          settings
           must be checked in the app anyway.
       status: manual
 
     - id: CNTR-OS-000860
       levels:
           - medium
-      title: Red Hat Enterprise Linux CoreOS (RHCOS) must implement nonexecutable data to protect its
-          memory from unauthorized code execution.
+      title: Red Hat Enterprise Linux CoreOS (RHCOS) must implement nonexecutable data to protect
+          its memory from unauthorized code execution.
       rules:
           - bios_enable_execution_restrictions
           - resource_requests_quota_per_project
@@ -792,8 +800,8 @@ controls:
     - id: CNTR-OS-000870
       levels:
           - medium
-      title: Red Hat Enterprise Linux CoreOS (RHCOS) must implement ASLR (Address Space Layout Randomization)
-          from unauthorized code execution.
+      title: Red Hat Enterprise Linux CoreOS (RHCOS) must implement ASLR (Address Space Layout
+          Randomization) from unauthorized code execution.
       rules:
           - bios_enable_execution_restrictions
           - resource_requests_quota_per_project
@@ -811,8 +819,8 @@ controls:
     - id: CNTR-OS-000890
       levels:
           - medium
-      title: OpenShift must contain the latest images with most recent updates and execute within the
-          container platform runtime as authorized by IAVM, CTOs, DTMs, and STIGs.
+      title: OpenShift must contain the latest images with most recent updates and execute within
+          the container platform runtime as authorized by IAVM, CTOs, DTMs, and STIGs.
       rules:
           - imagestream_sets_schedule
           - ocp_allowed_registries
@@ -822,8 +830,8 @@ controls:
     - id: CNTR-OS-000900
       levels:
           - medium
-      title: OpenShift runtime must have updates installed within the period directed by an authoritative
-          source (e.g., IAVM, CTOs, DTMs, and STIGs).
+      title: OpenShift runtime must have updates installed within the period directed by an
+          authoritative source (e.g., IAVM, CTOs, DTMs, and STIGs).
       rules:
           - imagestream_sets_schedule
           - ocp_allowed_registries
@@ -841,8 +849,9 @@ controls:
     - id: CNTR-OS-000920
       levels:
           - medium
-      title: 'OpenShift must perform verification of the correct operation of security functions: upon
-          startup and/or restart; upon command by a user with privileged access; and/or every 30 days.'
+      title: 'OpenShift must perform verification of the correct operation of security functions:
+          upon startup and/or restart; upon command by a user with privileged access; and/or every
+          30 days.'
       rules:
           - scansettings_have_schedule
       status: automated
@@ -850,8 +859,8 @@ controls:
     - id: CNTR-OS-000930
       levels:
           - medium
-      title: OpenShift must generate audit records when successful/unsuccessful attempts to modify privileges
-          occur.
+      title: OpenShift must generate audit records when successful/unsuccessful attempts to modify
+          privileges occur.
       rules:
           - audit_immutable_login_uids
           - audit_rules_dac_modification_chmod
@@ -916,8 +925,8 @@ controls:
     - id: CNTR-OS-000940
       levels:
           - medium
-      title: OpenShift must generate audit records when successful/unsuccessful attempts to modify security
-          objects occur.
+      title: OpenShift must generate audit records when successful/unsuccessful attempts to modify
+          security objects occur.
       rules:
           - audit_rules_dac_modification_fremovexattr
           - audit_rules_dac_modification_fsetxattr
@@ -934,8 +943,8 @@ controls:
     - id: CNTR-OS-000950
       levels:
           - medium
-      title: OpenShift must generate audit records when successful/unsuccessful attempts to delete privileges
-          occur.
+      title: OpenShift must generate audit records when successful/unsuccessful attempts to delete
+          privileges occur.
       rules:
           - audit_rules_dac_modification_chmod
           - audit_rules_dac_modification_chown
@@ -968,8 +977,8 @@ controls:
     - id: CNTR-OS-000960
       levels:
           - medium
-      title: OpenShift must generate audit records when successful/unsuccessful attempts to delete security
-          objects occur.
+      title: OpenShift must generate audit records when successful/unsuccessful attempts to delete
+          security objects occur.
       rules:
           - audit_delete_failed
           - audit_rules_dac_modification_fsetxattr
@@ -989,7 +998,8 @@ controls:
     - id: CNTR-OS-000970
       levels:
           - medium
-      title: OpenShift must generate audit records when successful/unsuccessful logon attempts occur.
+      title: OpenShift must generate audit records when successful/unsuccessful logon attempts
+          occur.
       rules:
           - audit_rules_login_events_faillock
           - audit_rules_login_events_lastlog
@@ -1006,8 +1016,8 @@ controls:
     - id: CNTR-OS-000980
       levels:
           - medium
-      title: Red Hat Enterprise Linux CoreOS (RHCOS) must be configured to audit the loading and unloading
-          of dynamic kernel modules.
+      title: Red Hat Enterprise Linux CoreOS (RHCOS) must be configured to audit the loading and
+          unloading of dynamic kernel modules.
       rules:
           - audit_rules_kernel_module_loading_delete
           - audit_rules_kernel_module_loading_finit
@@ -1026,8 +1036,8 @@ controls:
     - id: CNTR-OS-001000
       levels:
           - medium
-      title: OpenShift must generate audit records when concurrent logons from different workstations
-          and systems occur.
+      title: OpenShift must generate audit records when concurrent logons from different
+          workstations and systems occur.
       rules:
           - audit_rules_login_events_faillock
           - audit_rules_login_events_lastlog
@@ -1062,7 +1072,8 @@ controls:
     - id: CNTR-OS-001030
       levels:
           - medium
-      title: Red Hat Enterprise Linux CoreOS (RHCOS) must use USBGuard for hosts that include a USB Controller.
+      title: Red Hat Enterprise Linux CoreOS (RHCOS) must use USBGuard for hosts that include a
+          USB Controller.
       rules:
           - configure_usbguard_auditbackend
           - kernel_module_usb-storage_disabled
@@ -1075,7 +1086,8 @@ controls:
     - id: CNTR-OS-001060
       levels:
           - medium
-      title: OpenShift must continuously scan components, containers, and images for vulnerabilities.
+      title: OpenShift must continuously scan components, containers, and images for
+          vulnerabilities.
       rules:
           - container_security_operator_exists
       status: automated
@@ -1083,8 +1095,8 @@ controls:
     - id: CNTR-OS-001080
       levels:
           - medium
-      title: OpenShift must use FIPS-validated SHA-2 or higher hash function for digital signature generation
-          and verification (nonlegacy use).
+      title: OpenShift must use FIPS-validated SHA-2 or higher hash function for digital signature
+          generation and verification (nonlegacy use).
       rules:
           - fips_mode_enabled_on_all_nodes
       status: automated

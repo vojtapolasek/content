@@ -395,7 +395,8 @@ controls:
           of various profiles, including disabled, force-complain,
           and unconfined. Currently, the control changes the default apparmor
           mode for all profiles in /etc/apparmor.d which can
-          break certain applications. See https://workbench.cisecurity.org/benchmarks/18959/tickets/23987
+          break certain applications. See
+          https://workbench.cisecurity.org/benchmarks/18959/tickets/23987
           The remediation for this rule sets apparmor in complain mode. The remediation can be
           deactivated by setting var_apparmor_mode to keep_existing_mode
 
@@ -412,7 +413,8 @@ controls:
           of various profiles, including disabled, force-complain,
           and unconfined. Currently, the control changes the default apparmor
           mode for all profiles in /etc/apparmor.d which can
-          break certain applications. See https://workbench.cisecurity.org/benchmarks/18959/tickets/23987
+          break certain applications. See
+          https://workbench.cisecurity.org/benchmarks/18959/tickets/23987
 
     - id: 1.4.1
       title: Ensure bootloader password is set (Automated)
@@ -602,7 +604,8 @@ controls:
           The rules satisfy both controls 1.7.6 and 1.7.7
 
     - id: 1.7.7
-      title: Ensure GDM disabling automatic mounting of removable media is not overridden (Automated)
+      title: Ensure GDM disabling automatic mounting of removable media is not overridden
+          (Automated)
       levels:
           - l1_server
           - l2_workstation
@@ -1096,8 +1099,8 @@ controls:
           - file_owner_at_deny
           - file_permissions_at_deny
       status: automated
-      notes: file_owner_at_deny and file_owner_at_allow currently require root as owner and don't accept
-          daemon
+      notes: file_owner_at_deny and file_owner_at_allow currently require root as owner and don't
+          accept daemon
 
     - id: 3.1.1
       title: Ensure IPv6 status is identified (Manual)
@@ -2172,8 +2175,8 @@ controls:
       rules:
           - ensure_root_access_controlled
       status: automated
-      notes: This rule doesn't come with a remediation, as the exact requirement allows root to either
-          have a password or be locked.
+      notes: This rule doesn't come with a remediation, as the exact requirement allows root to
+          either have a password or be locked.
 
     - id: 5.4.2.5
       title: Ensure root path integrity (Automated)
@@ -2655,7 +2658,8 @@ controls:
       status: automated
 
     - id: 6.2.3.9
-      title: Ensure discretionary access control permission modification events are collected (Automated)
+      title: Ensure discretionary access control permission modification events are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2717,7 +2721,8 @@ controls:
       status: automated
 
     - id: 6.2.3.14
-      title: Ensure events that modify the system's Mandatory Access Controls are collected (Automated)
+      title: Ensure events that modify the system's Mandatory Access Controls are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2727,7 +2732,8 @@ controls:
       status: automated
 
     - id: 6.2.3.15
-      title: Ensure successful and unsuccessful attempts to use the chcon command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chcon command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2736,7 +2742,8 @@ controls:
       status: automated
 
     - id: 6.2.3.16
-      title: Ensure successful and unsuccessful attempts to use the setfacl command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the setfacl command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2745,7 +2752,8 @@ controls:
       status: automated
 
     - id: 6.2.3.17
-      title: Ensure successful and unsuccessful attempts to use the chacl command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chacl command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2754,7 +2762,8 @@ controls:
       status: automated
 
     - id: 6.2.3.18
-      title: Ensure successful and unsuccessful attempts to use the usermod command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the usermod command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2904,7 +2913,8 @@ controls:
       status: automated
 
     - id: 6.3.3
-      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
+      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+          (Automated)
       levels:
           - l2_server
           - l2_workstation

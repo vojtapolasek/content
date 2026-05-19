@@ -8,11 +8,16 @@ controls:
   - audit_rules_sysadmin_actions
   - audit_rules_usergroup_modification
   check: |-
-    Verify for each of the files that contain account information the system is configured to emit an audit event in case of a write, by executing the following:
+    Verify for each of the files that contain account information the system is configured to emit
+    an audit event in case of a write, by executing the following:
 
-    for node in $(oc get node -oname); do oc debug $node -- chroot /host /bin/bash -c 'echo -n "$HOSTNAME "; for f in /etc/passwd /etc/group /etc/gshadow /etc/security/opasswd /etc/shadow /etc/sudoers /etc/sudoers.d/; do grep -q "\-w $f \-p wa \-k" /etc/audit/audit.rules || echo "rule for $f not found"; done' 2>/dev/null; done
+    for node in $(oc get node -oname); do oc debug $node -- chroot /host /bin/bash -c 'echo -n
+    "$HOSTNAME "; for f in /etc/passwd /etc/group /etc/gshadow /etc/security/opasswd /etc/shadow
+    /etc/sudoers /etc/sudoers.d/; do grep -q "\-w $f \-p wa \-k" /etc/audit/audit.rules || echo
+    "rule for $f not found"; done' 2>/dev/null; done
 
-    If for any of the files a line saying "rule for $filename not found" is printed, this is a finding.
+    If for any of the files a line saying "rule for $filename not found" is printed, this is a
+    finding.
   fixtext: |-
     Apply the machine config using the following command:
 
@@ -40,7 +45,8 @@ controls:
             path: /etc/audit/rules.d/30-etc_group_usergroup_modification.rules
             overwrite: true
           - contents:
-              source: data:,-w%20/etc/gshadow%20-p%20wa%20-k%20audit_rules_usergroup_modification%0A
+              source:
+              data:,-w%20/etc/gshadow%20-p%20wa%20-k%20audit_rules_usergroup_modification%0A
             mode: 0644
             path: /etc/audit/rules.d/30-etc_gshadow_usergroup_modification.rules
             overwrite: true

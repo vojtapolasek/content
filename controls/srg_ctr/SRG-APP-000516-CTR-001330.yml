@@ -9,4 +9,6 @@ controls:
     Supporting evidence is in the following documentation
     https://docs.openshift.com/container-platform/latest/architecture/architecture.html
   status_justification: |-
-    Red Hat OpenShift leverages CRI-O as its runtime which was designed as a container engine specifically to work with Kubernetes and can run the legacy Docker container format as well as the newer industry standard OCI container image format
+    Red Hat OpenShift leverages CRI-O as its runtime which was designed as a container engine
+    specifically to work with Kubernetes and can run the legacy Docker container format as well as
+    the newer industry standard OCI container image format

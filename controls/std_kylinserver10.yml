@@ -212,8 +212,8 @@ controls:
       status: planned
 
     - id: 1.25
-      title: operating system must use SSH to protect the confidentiality and integrity of transmitted
-          information.
+      title: operating system must use SSH to protect the confidentiality and integrity of
+          transmitted information.
       levels:
           - l2_server
       status: automated
@@ -270,8 +270,8 @@ controls:
           - sshd_limit_user_access
 
     - id: 1.33
-      title: SSH daemon must display the date and time of the last successful account logon upon an SSH
-          logon.
+      title: SSH daemon must display the date and time of the last successful account logon upon
+          an SSH logon.
       levels:
           - l2_server
       status: automated
@@ -568,8 +568,8 @@ controls:
           - disable_users_coredumps
 
     - id: 6.8
-      title: operating system must disable the x86 Ctrl-Alt-Delete key sequence if a graphical user interface
-          is installed.
+      title: operating system must disable the x86 Ctrl-Alt-Delete key sequence if a graphical
+          user interface is installed.
       levels:
           - l2_server
       status: automated
@@ -585,8 +585,8 @@ controls:
           - dconf_gnome_screensaver_idle_delay
 
     - id: 6.10
-      title: via the session lock, information previously visible on the display with a publicly viewable
-          image.
+      title: via the session lock, information previously visible on the display with a publicly
+          viewable image.
       levels:
           - l2_server
       status: automated

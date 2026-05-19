@@ -10,6 +10,7 @@ controls:
 
     https://docs.openshift.com/container-platform/latest/installing/installing_bare_metal/installing-bare-metal.html#installation-network-user-infra_installing-bare-metal
   status_justification: |-
-    The container platform inherently only exposes the ports which are needed and adhere to DoD standards. By default all communications use two-way TLS. A full list is available here:
+    The container platform inherently only exposes the ports which are needed and adhere to DoD
+    standards. By default all communications use two-way TLS. A full list is available here:
 
     https://docs.openshift.com/container-platform/latest/installing/installing_bare_metal/installing-bare-metal.html#installation-network-user-infra_installing-bare-metal

@@ -18,7 +18,8 @@ controls:
     applications within the context of the API, without allowing for UID
     collision across logical namespaces.
 
-    For more background information, see: https://cloud.redhat.com/blog/a-guide-to-openshift-and-uids
+    For more background information, see:
+    https://cloud.redhat.com/blog/a-guide-to-openshift-and-uids
   artifact_description: |-
     Supporting evidence is in the following documentation:
     https://cloud.redhat.com/blog/a-guide-to-openshift-and-uids

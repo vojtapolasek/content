@@ -3,7 +3,7 @@ policy: CCN-STIC-620
 title: Security Profile Application Guide for Oracle Linux 9
 id: ccn_ol9
 version: '2022-08'
-source: https://www.ccn-cert.cni.es/es/guias-de-acceso-publico-ccn-stic/6669-ccn-stic-620-guia-de-aplicaciones-de-perfilado-de-seguridad-para-oracle-linux/file.html
+source: https://www.ccn-cert.cni.es/es/guias-de-acceso-publico-ccn-stic/6669-ccn-stic-620-guia-de-aplicaciones-de-perfilado-de-seguridad-para-oracle-linux/file.html  # yamllint disable-line rule:line-length
 
 levels:
     - id: basic
@@ -121,10 +121,10 @@ controls:
           - var_auditd_max_log_file_action=keep_logs
 
     - id: A.3.SEC-OL7
-      title: Modifications to the Sudoers File Are Audited, As Are Changes to Permissions, Users, Groups,
-          and Passwords
-      original_title: Se auditan las modificaciones del fichero sudoers, así como los cambios en permisos,
-          usuarios, grupos y contraseñas.
+      title: Modifications to the Sudoers File Are Audited, As Are Changes to Permissions, Users,
+          Groups, and Passwords
+      original_title: Se auditan las modificaciones del fichero sudoers, así como los cambios en
+          permisos, usuarios, grupos y contraseñas.
       levels:
           - basic
           - intermediate
@@ -154,14 +154,15 @@ controls:
 
     - id: A.3.SEC-OL8
       title: Changes to Cron Settings and Scheduled Tasks Including Startup Scripts Are Audited
-      original_title: Se auditan los cambios en la configuración de Cron y en tareas programadas incluyendo
-          los de scripts de inicio.
+      original_title: Se auditan los cambios en la configuración de Cron y en tareas programadas
+          incluyendo los de scripts de inicio.
       levels:
           - advanced
       status: pending
       notes: |-
           Some possible rules were included here but it is not clear if the requirement intends to
-          check more than these rules. We can see if more related rules are available in the project
+          check more than these rules. We can see if more related rules are available in the
+          project
           and include everything that makes sense in the context of cron and chrony.
       related_rules:
           - audit_rules_time_adjtimex
@@ -185,14 +186,15 @@ controls:
 
     - id: A.3.SEC-OL10
       title: All Mount Operations on the System and Changes to the Swap Are Audited
-      original_title: Se audita toda operación de montaje en el sistema y modificaciones en la memoria
-          de intercambio.
+      original_title: Se audita toda operación de montaje en el sistema y modificaciones en la
+          memoria de intercambio.
       levels:
           - intermediate
           - advanced
       status: partial
       notes: |-
-          We probably have audit related rule to monitor mount related syscalls, but it is not clear
+          We probably have audit related rule to monitor mount related syscalls, but it is not
+          clear
           about the swap. Is the intention to monitor when swap is changed?
       rules:
           - audit_rules_media_export
@@ -204,21 +206,23 @@ controls:
           - advanced
       status: pending
       notes: |-
-          The intention here is probably to audit changes in /etc/pam.d files, but we need to confirm
+          The intention here is probably to audit changes in /etc/pam.d files, but we need to
+          confirm
           this assumption and get more context.
 
     - id: A.4.SEC-OL1
-      title: Common Users Do Dot Have Local Administrator Permissions and Are Not Included in a Sudo
-          Group
-      original_title: Los usuarios estándar no disponen de permisos de administrador local ni se encuentran
-          incluidos en un grupo sudoer.
+      title: Common Users Do Dot Have Local Administrator Permissions and Are Not Included in a
+          Sudo Group
+      original_title: Los usuarios estándar no disponen de permisos de administrador local ni se
+          encuentran incluidos en un grupo sudoer.
       levels:
           - basic
           - intermediate
           - advanced
       status: pending
       notes: |-
-          It is a little tricky to interpret this requirement. Assuming the "Common users" are actually
+          It is a little tricky to interpret this requirement. Assuming the "Common users" are
+          actually
           interactive users, this requirement would automatically enforce all admin actions to be
           performed only by the root user. I am not sure if this is the intetion here.
 
@@ -231,7 +235,8 @@ controls:
           - advanced
       status: pending
       notes: |-
-          New templated rule is necessary to install the package. But to ensure the chosen antivirus
+          New templated rule is necessary to install the package. But to ensure the chosen
+          antivirus
           is actually updated would demand a more complex rule. Maybe this requirement can have at
           leastthe partial status after the templated rule.
 
@@ -259,8 +264,8 @@ controls:
 
     - id: A.5.SEC-OL2
       title: Elevation Attempts Are Controlled by Defining Users and Sudoer Groups
-      original_title: Se controlan los intentos de elevación mediante definición de usuarios y grupos
-          sudoers.
+      original_title: Se controlan los intentos de elevación mediante definición de usuarios y
+          grupos sudoers.
       levels:
           - basic
           - intermediate
@@ -279,7 +284,8 @@ controls:
           - advanced
       status: pending
       notes: |-
-          There are rules for ssh_keys, for example. We need to confirm the scope of this requirement
+          There are rules for ssh_keys, for example. We need to confirm the scope of this
+          requirement
 
     - id: A.5.SEC-OL4
       title: Disable Insecure Encryption Algorithms
@@ -364,8 +370,8 @@ controls:
 
     - id: A.6.SEC-OL2
       title: Access in Recovery Mode Including Grub Boot Modification Mode is Restricted
-      original_title: Se restringen accesos en modo recuperación incluido el modo modificación de inicio
-          de grub.
+      original_title: Se restringen accesos en modo recuperación incluido el modo modificación de
+          inicio de grub.
       levels:
           - basic
           - intermediate
@@ -462,7 +468,8 @@ controls:
 
     - id: A.8.SEC-OL4
       title: Unnecessary Services are Disabled, Reducing the Attack Surface
-      original_title: Se deshabilitan servicios innecesarios, reduciendo la superficie de exposición.
+      original_title: Se deshabilitan servicios innecesarios, reduciendo la superficie de
+          exposición.
       levels:
           - intermediate
           - advanced
@@ -531,8 +538,8 @@ controls:
 
     - id: A.8.SEC-OL7
       title: Password Encrypted Boot That Prevents Modification is Enabled (Protected GRUB)
-      original_title: Está habilitado el arranque cifrado con contraseña que evite modificaciones (GRUB
-          protegido).
+      original_title: Está habilitado el arranque cifrado con contraseña que evite modificaciones
+          (GRUB protegido).
       levels:
           - basic
           - intermediate
@@ -550,7 +557,8 @@ controls:
           - advanced
       status: pending
       notes: |-
-          Is it related to downloads from the Internet to the system or from the system to an external
+          Is it related to downloads from the Internet to the system or from the system to an
+          external
           storage, for example?
       related_rules:
           - audit_rules_file_deletion_events_rename
@@ -608,10 +616,10 @@ controls:
           - var_password_pam_minlen=14
 
     - id: A.11.SEC-OL4
-      title: During Login, the System Displays a Text in Compliance With the Organization's Standards
-          or Directives
-      original_title: Durante el inicio de sesión, el sistema muestra un texto en cumplimiento con las
-          normas o directivas de la organización.
+      title: During Login, the System Displays a Text in Compliance With the Organization's
+          Standards or Directives
+      original_title: Durante el inicio de sesión, el sistema muestra un texto en cumplimiento con
+          las normas o directivas de la organización.
       levels:
           - basic
           - intermediate
@@ -771,7 +779,8 @@ controls:
 
     - id: A.23.SEC-OL1
       title: The Installation And Use of Any Device Connected to the Equipment is Controlled
-      original_title: Se controla la instalación y uso de cualquier dispositivo conectado al equipo.
+      original_title: Se controla la instalación y uso de cualquier dispositivo conectado al
+          equipo.
       levels:
           - basic
           - intermediate

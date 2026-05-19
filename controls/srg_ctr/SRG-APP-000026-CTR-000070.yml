@@ -8,11 +8,14 @@ controls:
   - audit_rules_sysadmin_actions
   - audit_rules_usergroup_modification
   check: |-
-    Verify  Red Hat Enterprise Linux CoreOS (RHCOS) generates audit records for all account creations, modifications, disabling, and termination events that affect "/etc/shadow".
+    Verify  Red Hat Enterprise Linux CoreOS (RHCOS) generates audit records for all account
+    creations, modifications, disabling, and termination events that affect "/etc/shadow".
 
-    Logging on as administrator, check the auditing rules in "/etc/audit/audit.rules" by executing the following:
+    Logging on as administrator, check the auditing rules in "/etc/audit/audit.rules" by executing
+    the following:
 
-    for node in $(oc get node -oname); do oc debug $node -- chroot /host /bin/bash -c 'echo -n "$HOSTNAME: "; grep /etc/shadow /etc/audit/audit.rules /etc/audit/rules.d/*'; done
+    for node in $(oc get node -oname); do oc debug $node -- chroot /host /bin/bash -c 'echo -n
+    "$HOSTNAME: "; grep /etc/shadow /etc/audit/audit.rules /etc/audit/rules.d/*'; done
 
     (Example output:
     -w /etc/shadow -p wa -k identity)
@@ -45,7 +48,8 @@ controls:
             path: /etc/audit/rules.d/30-etc_group_usergroup_modification.rules
             overwrite: true
           - contents:
-              source: data:,-w%20/etc/gshadow%20-p%20wa%20-k%20audit_rules_usergroup_modification%0A
+              source:
+              data:,-w%20/etc/gshadow%20-p%20wa%20-k%20audit_rules_usergroup_modification%0A
             mode: 0644
             path: /etc/audit/rules.d/30-etc_gshadow_usergroup_modification.rules
             overwrite: true

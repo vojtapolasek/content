@@ -768,7 +768,8 @@ controls:
           - audit_rules_networkconfig_modification
 
     - id: 4.1.18
-      title: Ensure events that modify the systems Mandatory Access Control (MAC) settings are collected
+      title: Ensure events that modify the systems Mandatory Access Control (MAC) settings are
+          collected
       levels:
           - l2_server
       status: automated

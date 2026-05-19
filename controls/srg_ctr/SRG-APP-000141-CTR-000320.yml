@@ -12,7 +12,8 @@ controls:
   - ocp_insecure_allowed_registries_for_import
   status: manual
   check: |-
-    To review the container images within the container platform registry, run the following command:
+    To review the container images within the container platform registry, run the following
+    command:
     > oc get images
     Review the container platform container images to validate that only
     necessary container images for the functionality of the information

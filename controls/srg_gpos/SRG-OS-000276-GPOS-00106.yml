@@ -1,12 +1,14 @@
 controls:
     -   id: SRG-OS-000276-GPOS-00106
-        title: '{{{ full_name }}} must notify system administrators and ISSOs when accounts are disabled.'
+        title: '{{{ full_name }}} must notify system administrators and ISSOs when accounts are
+            disabled.'
         levels:
             - medium
         mitigation: |-
             Mitigate with third-party software.
 
-            Although the listed mitigation is supporting the security function, it is not sufficient to reduce the residual risk of this requirement.
+            Although the listed mitigation is supporting the security function, it is not
+            sufficient to reduce the residual risk of this requirement.
         rules:
             - audit_rules_usergroup_modification_passwd
         status: does not meet

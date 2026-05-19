@@ -18,8 +18,8 @@ levels:
 
 controls:
     - id: '0418'
-      title: 'Credentials are kept separate from systems they are used to authenticate to, except for
-          when performing authentication activities.'
+      title: 'Credentials are kept separate from systems they are used to authenticate to, except
+          for when performing authentication activities.'
       levels:
           - base
       rules:
@@ -41,8 +41,8 @@ controls:
       status: automated
 
     - id: '0421'
-      title: 'Passphrases used for single-factor authentication are at least 4 random words with a total
-          minimum length of 14 characters, unless more stringent requirements apply.'
+      title: 'Passphrases used for single-factor authentication are at least 4 random words with a
+          total minimum length of 14 characters, unless more stringent requirements apply.'
       levels:
           - base
       rules:
@@ -77,8 +77,8 @@ controls:
       status: automated
 
     - id: '0422'
-      title: 'Passphrases used for single-factor authentication on TOP SECRET systems are at least 6
-          random words with a total minimum length of 20 characters.'
+      title: 'Passphrases used for single-factor authentication on TOP SECRET systems are at least
+          6 random words with a total minimum length of 20 characters.'
       levels:
           - top_secret
       rules:
@@ -179,8 +179,8 @@ controls:
       status: automated
 
     - id: '0846'
-      title: 'All users (with the exception of local administrator accounts and break glass accounts)
-          cannot disable, bypass or be exempted from application control.'
+      title: 'All users (with the exception of local administrator accounts and break glass
+          accounts) cannot disable, bypass or be exempted from application control.'
       levels:
           - base
       rules:
@@ -236,8 +236,8 @@ controls:
           This needs reevaluation.
 
     - id: '0988'
-      title: 'An accurate time source is established and used consistently across systems to assist with
-          identifying connections between events.'
+      title: 'An accurate time source is established and used consistently across systems to
+          assist with identifying connections between events.'
       levels:
           - base
       rules:
@@ -324,8 +324,8 @@ controls:
       status: partial
 
     - id: '1288'
-      title: 'Files imported or exported via gateways or CDSs undergo antivirus scanning using multiple
-          different scanning engines.'
+      title: 'Files imported or exported via gateways or CDSs undergo antivirus scanning using
+          multiple different scanning engines.'
       levels:
           - base
       rules:
@@ -342,8 +342,8 @@ controls:
       status: partial
 
     - id: '1315'
-      title: 'The administrative interface on wireless access points is disabled for wireless network
-          connections.'
+      title: 'The administrative interface on wireless access points is disabled for wireless
+          network connections.'
       levels:
           - base
       rules:
@@ -385,8 +385,8 @@ controls:
           This needs reevaluation.
 
     - id: '1401'
-      title: 'Multi-factor authentication uses either: something users have and something users know,
-          or something users have that is unlocked by something users know or are.'
+      title: 'Multi-factor authentication uses either: something users have and something users
+          know, or something users have that is unlocked by something users know or are.'
       levels:
           - base
       rules:
@@ -414,8 +414,9 @@ controls:
       status: partial
 
     - id: '1402'
-      title: 'Credentials stored on systems are protected by a password manager; a hardware security
-          module; or by salting, hashing and stretching them before storage within a database'
+      title: 'Credentials stored on systems are protected by a password manager; a hardware
+          security module; or by salting, hashing and stretching them before storage within a
+          database'
       levels:
           - base
       rules:
@@ -436,8 +437,8 @@ controls:
       status: automated
 
     - id: '1405'
-      title: 'A centralised event logging facility is implemented and event logs are sent to the facility
-          as soon as possible after they occur.'
+      title: 'A centralised event logging facility is implemented and event logs are sent to the
+          facility as soon as possible after they occur.'
       levels:
           - base
       rules:
@@ -458,7 +459,8 @@ controls:
       status: automated
 
     - id: '1409'
-      title: 'Operating systems are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur'
+      title: 'Operating systems are hardened using ASD and vendor hardening guidance, with the
+          most restrictive guidance taking precedence when conflicts occur'
       rules:
           - dir_perms_world_writable_sticky_bits
           - file_ownership_binary_dirs
@@ -511,8 +513,9 @@ controls:
           - service_kdump_disabled
 
     - id: '1416'
-      title: 'A software firewall is implemented on workstations and servers to restrict inbound and
-          outbound network connections to an organisation-approved set of applications and services.'
+      title: 'A software firewall is implemented on workstations and servers to restrict inbound
+          and outbound network connections to an organisation-approved set of applications and
+          services.'
       levels:
           - base
       rules:
@@ -530,9 +533,9 @@ controls:
       status: partial
 
     - id: '1418'
-      title: 'If there is no business requirement for reading from removable media and devices, such
-          functionality is disabled via the use of device access control software or by disabling external
-          communication interfaces'
+      title: 'If there is no business requirement for reading from removable media and devices,
+          such functionality is disabled via the use of device access control software or by
+          disabling external communication interfaces'
       levels:
           - base
       rules:
@@ -542,7 +545,8 @@ controls:
       status: automated
 
     - id: '1446'
-      title: 'When using elliptic curve cryptography, a suitable curve from NIST SP 800-186 is used.'
+      title: 'When using elliptic curve cryptography, a suitable curve from NIST SP 800-186 is
+          used.'
       levels:
           - base
       rules:
@@ -564,8 +568,8 @@ controls:
           This needs more
 
     - id: '1467'
-      title: 'The latest release of office productivity suites, web browsers and their extensions, email
-          clients, PDF software, and security products are used.'
+      title: 'The latest release of office productivity suites, web browsers and their extensions,
+          email clients, PDF software, and security products are used.'
       levels:
           - base
       rules:
@@ -594,8 +598,8 @@ controls:
       status: automated
 
     - id: '1493'
-      title: 'Software registers for workstations, servers, network devices and other ICT equipment are
-          developed, implemented, maintained and verified on a regular basis.'
+      title: 'Software registers for workstations, servers, network devices and other ICT
+          equipment are developed, implemented, maintained and verified on a regular basis.'
       levels:
           - base
       rules:
@@ -612,8 +616,8 @@ controls:
       status: automated
 
     - id: '1504'
-      title: 'Multi-factor authentication is used to authenticate users to their organisation’s online
-          services that process, store or communicate their organisation’s sensitive data.'
+      title: 'Multi-factor authentication is used to authenticate users to their organisation’s
+          online services that process, store or communicate their organisation’s sensitive data.'
       levels:
           - base
       rules:
@@ -726,8 +730,8 @@ controls:
       status: partial
 
     - id: '1557'
-      title: 'Passphrases used for single-factor authentication on SECRET systems are at least 5 random
-          words with a total minimum length of 17 characters.'
+      title: 'Passphrases used for single-factor authentication on SECRET systems are at least 5
+          random words with a total minimum length of 17 characters.'
       levels:
           - secret
       rules:
@@ -757,9 +761,9 @@ controls:
       status: partial
 
     - id: '1558'
-      title: 'Passphrases used for single-factor authentication are not a list of categorised words;
-          do not form a real sentence in a natural language; and are not constructed from song lyrics,
-          movies, literature or any other publicly available material.'
+      title: 'Passphrases used for single-factor authentication are not a list of categorised
+          words; do not form a real sentence in a natural language; and are not constructed from
+          song lyrics, movies, literature or any other publicly available material.'
       levels:
           - base
       rules:
@@ -787,8 +791,8 @@ controls:
       status: automated
 
     - id: '1559'
-      title: 'Memorised secrets used for multi-factor authentication are a minimum of 6 characters, unless
-          more stringent requirements apply.'
+      title: 'Memorised secrets used for multi-factor authentication are a minimum of 6
+          characters, unless more stringent requirements apply.'
       levels:
           - base
       rules:
@@ -816,8 +820,8 @@ controls:
       status: automated
 
     - id: '1560'
-      title: 'Memorised secrets used for multi-factor authentication on SECRET systems are a minimum
-          of 8 characters'
+      title: 'Memorised secrets used for multi-factor authentication on SECRET systems are a
+          minimum of 8 characters'
       levels:
           - secret
       rules:
@@ -845,8 +849,8 @@ controls:
       status: automated
 
     - id: '1561'
-      title: 'Memorised secrets used for multi-factor authentication on TOP SECRET systems are a minimum
-          of 10 characters.'
+      title: 'Memorised secrets used for multi-factor authentication on TOP SECRET systems are a
+          minimum of 10 characters.'
       levels:
           - top_secret
       rules:
@@ -874,8 +878,8 @@ controls:
       status: automated
 
     - id: '1745'
-      title: 'Early Launch Antimalware, Secure Boot, Trusted Boot and Measured Boot functionality is
-          enabled.'
+      title: 'Early Launch Antimalware, Secure Boot, Trusted Boot and Measured Boot functionality
+          is enabled.'
       levels:
           - base
       rules:

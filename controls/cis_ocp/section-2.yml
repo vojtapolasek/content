@@ -28,7 +28,8 @@ controls:
             levels:
                 - level_1
           - id: '2.4'
-            title: Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate
+            title: Ensure that the --peer-cert-file and --peer-key-file arguments are set as
+                appropriate
             status: automated
             rules:
                 - etcd_peer_cert_file

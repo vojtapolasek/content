@@ -333,7 +333,8 @@ controls:
           - aide_periodic_cron_checking
 
     - id: 1.3.3
-      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
+      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+          (Automated)
       levels:
           - l1_server
       status: automated
@@ -1299,9 +1300,11 @@ controls:
           - l1_server
       status: automated
       notes: |-
-          Members of "wheel" or GID 0 groups are checked by default if the group option is not set for
+          Members of "wheel" or GID 0 groups are checked by default if the group option is not set
+          for
           pam_wheel.so module. The recommendation states the group should be empty to reinforce the
-          use of "sudo" for privileged access. Therefore, members of these groups should be manually
+          use of "sudo" for privileged access. Therefore, members of these groups should be
+          manually
           checked or a different group should be informed.
       rules:
           - var_pam_wheel_group_for_su=cis
@@ -1331,9 +1334,12 @@ controls:
           - l1_server
       status: automated
       notes: |-
-          The Benchmark mentions that the try_first_pass option should be included in pam_pwquality.so
-          module. However, the pam_pwquality.so module, by default, is always the first module from in
-          the PAM password stack. Therefore, the option is useless and not necessary. It was already
+          The Benchmark mentions that the try_first_pass option should be included in
+          pam_pwquality.so
+          module. However, the pam_pwquality.so module, by default, is always the first module
+          from in
+          the PAM password stack. Therefore, the option is useless and not necessary. It was
+          already
           proposed to update the requirement in the next CIS version.
       rules:
           - accounts_password_pam_minclass
@@ -1744,7 +1750,8 @@ controls:
           - audit_rules_usergroup_modification_shadow
 
     - id: 5.2.3.9
-      title: Ensure discretionary access control permission modification events are collected (Automated)
+      title: Ensure discretionary access control permission modification events are collected
+          (Automated)
       levels:
           - l2_server
       status: automated
@@ -1801,7 +1808,8 @@ controls:
           - audit_rules_file_deletion_events_unlinkat
 
     - id: 5.2.3.14
-      title: Ensure events that modify the system's Mandatory Access Controls are collected (Automated)
+      title: Ensure events that modify the system's Mandatory Access Controls are collected
+          (Automated)
       levels:
           - l2_server
       status: automated
@@ -1810,7 +1818,8 @@ controls:
           - audit_rules_mac_modification_usr_share
 
     - id: 5.2.3.15
-      title: Ensure successful and unsuccessful attempts to use the chcon command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chcon command are recorded
+          (Automated)
       levels:
           - l2_server
       status: automated
@@ -1818,7 +1827,8 @@ controls:
           - audit_rules_execution_chcon
 
     - id: 5.2.3.16
-      title: Ensure successful and unsuccessful attempts to use the setfacl command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the setfacl command are recorded
+          (Automated)
       levels:
           - l2_server
       status: automated
@@ -1826,7 +1836,8 @@ controls:
           - audit_rules_execution_setfacl
 
     - id: 5.2.3.17
-      title: Ensure successful and unsuccessful attempts to use the chacl command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chacl command are recorded
+          (Automated)
       levels:
           - l2_server
       status: automated
@@ -1834,7 +1845,8 @@ controls:
           - audit_rules_execution_chacl
 
     - id: 5.2.3.18
-      title: Ensure successful and unsuccessful attempts to use the usermod command are recorded (Automated)
+      title: Ensure successful and unsuccessful attempts to use the usermod command are recorded
+          (Automated)
       levels:
           - l2_server
       status: automated

@@ -6,13 +6,18 @@ controls:
             - medium
         fixtext: |-
             This requirement is a permanent finding and cannot be fixed.
-            An appropriate mitigation for the system must be implemented, but this finding cannot be considered fixed.
+            An appropriate mitigation for the system must be implemented, but this finding cannot
+            be considered fixed.
         mitigation: |-
-            Ensure system level controls are in place to restrict access to resources upon account reset.
+            Ensure system level controls are in place to restrict access to resources upon account
+            reset.
 
-            Although the listed mitigation is supporting the security function, it is not sufficient to reduce the residual risk of this requirement.
+            Although the listed mitigation is supporting the security function, it is not
+            sufficient to reduce the residual risk of this requirement.
         status_justification: |-
-            {{{ full_name }}} does not natively support a method of immediately requiring a password reset should an account be reset during an active user session.
+            {{{ full_name }}} does not natively support a method of immediately requiring a
+            password reset should an account be reset during an active user session.
 
-            Processes for resetting user passwords should include produces to set the password expiry in the past so that users are prompted to change their password on next logon.
+            Processes for resetting user passwords should include produces to set the password
+            expiry in the past so that users are prompted to change their password on next logon.
         status: does not meet

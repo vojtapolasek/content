@@ -6,11 +6,14 @@ controls:
             attributes on users, the operating system, or the operating systems components.
         status: inherently met
         rationale: |-
-            Administrators of {{{ full_name }}} need to be able change attributes on users, the operating system, 
-            or {{{ full_name }}} components in order secure the system and ensure that the system is setup
+            Administrators of {{{ full_name }}} need to be able change attributes on users, the
+            operating system,
+            or {{{ full_name }}} components in order secure the system and ensure that the system
+            is setup
             to perform the mission.
         check: |-
-            {{{ full_name }}} supports this requirement and cannot be configured to be out of compliance.
+            {{{ full_name }}} supports this requirement and cannot be configured to be out of
+            compliance.
             {{{ full_name }}} inherently meets this requirement.
         fixtext: |-
             {{{ full_name }}} inherently meets this requirement.

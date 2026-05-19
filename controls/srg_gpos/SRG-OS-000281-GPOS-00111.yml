@@ -6,12 +6,16 @@ controls:
             the reliable termination of authenticated communications sessions.
         status: inherently met
         rationale: |-
-            If a user cannot explicitly end an operating system session, the session may remain open and be exploited by an attacker; this is referred to as a zombie session.
+            If a user cannot explicitly end an operating system session, the session may remain
+            open and be exploited by an attacker; this is referred to as a zombie session.
             Users need to be aware of whether or not the session has been terminated.
 
-            Information resources to which users gain access via authentication includes for example, local workstations and remote services.
+            Information resources to which users gain access via authentication includes for
+            example, local workstations and remote services.
             Logoff messages can be displayed after authenticated sessions have been terminated. 
-            However, for some types of interactive sessions, including, for example, remote logon, and information systems typically send logoff messages as final messages prior to terminating sessions.
+            However, for some types of interactive sessions, including, for example, remote logon,
+            and information systems typically send logoff messages as final messages prior to
+            terminating sessions.
         check:
             {{{ full_name }}} supports this requirement and cannot be configured to be out of compliance.
             {{{ full_name }}} inherently meets this requirement.

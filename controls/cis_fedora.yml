@@ -373,8 +373,10 @@ controls:
       rules:
           - ensure_fedora_gpgkey_installed
       notes: >
-        In CIS Benchmark, the requirement is manual, because of GPG keys for 3rd party repositories.
-        But, add the rule ensure_fedora_gpgkey_installed to the profile because the requirement 1.2.1.2
+        In CIS Benchmark, the requirement is manual, because of GPG keys for 3rd party
+        repositories.
+        But, add the rule ensure_fedora_gpgkey_installed to the profile because the requirement
+        1.2.1.2
         adds ensure_gpgcheck_globally_activated which requires GPG key checking. If the Fedora
         GPG key wouldn't be installed, people won't be able to install any RPM package using dnf.
 
@@ -1741,7 +1743,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          The requirement gives an example of 45 seconds, but is flexible about the values. It is only
+          The requirement gives an example of 45 seconds, but is flexible about the values. It is
+          only
           necessary to ensure there is a timeout configured in alignment to the site policy.
       rules:
           - sshd_idle_timeout_value=5_minutes
@@ -1806,7 +1809,8 @@ controls:
       status: automated
       notes: |-
           The CIS benchmark is not opinionated about which loglevel is selected here. Here, this
-          profile uses VERBOSE by default, as it allows for the capture of login and logout activity
+          profile uses VERBOSE by default, as it allows for the capture of login and logout
+          activity
           as well as key fingerprints.
       rules:
           - sshd_set_loglevel_verbose
@@ -1941,9 +1945,11 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          Members of "wheel" or GID 0 groups are checked by default if the group option is not set for
+          Members of "wheel" or GID 0 groups are checked by default if the group option is not set
+          for
           pam_wheel.so module. The recommendation states the group should be empty to reinforce the
-          use of "sudo" for privileged access. Therefore, members of these groups should be manually
+          use of "sudo" for privileged access. Therefore, members of these groups should be
+          manually
           checked or a different group should be informed.
       rules:
           - var_pam_wheel_group_for_su=cis
@@ -2069,7 +2075,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          The policy also accepts value 0, which means the locked accounts should be manually unlocked
+          The policy also accepts value 0, which means the locked accounts should be manually
+          unlocked
           by an administrator. However, it also mentions that using value 0 can facilitate a DoS
           attack to legitimate users.
       rules:
@@ -2173,7 +2180,8 @@ controls:
       status: automated
       notes: |-
           Although mentioned in the section 5.3.3.3, there is no explicit requirement to configure
-          retry option of pam_pwhistory. If come in the future, the rule accounts_password_pam_retry
+          retry option of pam_pwhistory. If come in the future, the rule
+          accounts_password_pam_retry
           can be used.
       rules:
           - accounts_password_pam_pwhistory_remember_password_auth
@@ -2238,7 +2246,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          Changes in logindefs mentioned in this requirement are more specifically covered by 5.4.1.4
+          Changes in logindefs mentioned in this requirement are more specifically covered by
+          5.4.1.4
       rules:
           - set_password_hashing_algorithm_systemauth
           - set_password_hashing_algorithm_passwordauth
@@ -2252,7 +2261,8 @@ controls:
       status: automated
       notes: |-
           In RHEL 9 pam_unix is enabled by default in all authselect profiles already with the
-          use_authtok option set. In any case, we don't have a rule to check this option specifically,
+          use_authtok option set. In any case, we don't have a rule to check this option
+          specifically,
           like in 5.3.3.3.3.
       rules:
           - accounts_password_pam_unix_authtok
@@ -2336,7 +2346,8 @@ controls:
           - l1_workstation
       status: partial
       notes: |-
-          There is assessment but no automated remediation for this rule and this sounds reasonable.
+          There is assessment but no automated remediation for this rule and this sounds
+          reasonable.
       rules:
           - accounts_root_gid_zero
 
@@ -2347,7 +2358,8 @@ controls:
           - l1_workstation
       status: automated
       notes: |-
-          There is assessment but no automated remediation for this rule and this sounds reasonable.
+          There is assessment but no automated remediation for this rule and this sounds
+          reasonable.
       rules:
           - groups_no_zero_gid_except_root
 
@@ -2449,7 +2461,8 @@ controls:
           - aide_periodic_cron_checking
 
     - id: 6.1.3
-      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
+      title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+          (Automated)
       levels:
           - l1_server
           - l1_workstation
@@ -2793,7 +2806,8 @@ controls:
           - audit_rules_networkconfig_modification_hostname_file
 
     - id: 6.3.3.8
-      title: Ensure events that modify /etc/sysconfig/network and /etc/sysconfig/network-scripts/ are collected (Automated)
+      title: Ensure events that modify /etc/sysconfig/network and /etc/sysconfig/network-scripts/
+          are collected (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2880,7 +2894,8 @@ controls:
           - audit_rules_usergroup_modification_nsswitch_conf
 
     - id: 6.3.3.17
-      title: Ensure events that modify /etc/pam.conf and /etc/pam.d/ information are collected (Automated)
+      title: Ensure events that modify /etc/pam.conf and /etc/pam.d/ information are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2890,7 +2905,8 @@ controls:
           - audit_rules_usergroup_modification_pamd
 
     - id: 6.3.3.18
-      title: Ensure discretionary access control permission modification events are collected (Automated)
+      title: Ensure discretionary access control permission modification events are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2956,7 +2972,8 @@ controls:
           - audit_rules_file_deletion_events_unlinkat
 
     - id: 6.3.3.23
-      title: Ensure events that modify the system's Mandatory Access Controls are collected (Automated)
+      title: Ensure events that modify the system's Mandatory Access Controls are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2967,7 +2984,8 @@ controls:
           - audit_rules_mac_modification_var_lib_selinux
 
     - id: 6.3.3.24
-      title: Ensure successful and unsuccessful attempts to use the chcon command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chcon command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2976,7 +2994,8 @@ controls:
           - audit_rules_execution_chcon
 
     - id: 6.3.3.25
-      title: Ensure successful and unsuccessful attempts to use the setfacl command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the setfacl command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2985,7 +3004,8 @@ controls:
           - audit_rules_execution_setfacl
 
     - id: 6.3.3.26
-      title: Ensure successful and unsuccessful attempts to use the chacl command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the chacl command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2994,7 +3014,8 @@ controls:
           - audit_rules_execution_chacl
 
     - id: 6.3.3.27
-      title: Ensure successful and unsuccessful attempts to use the usermod command are collected (Automated)
+      title: Ensure successful and unsuccessful attempts to use the usermod command are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -3012,7 +3033,8 @@ controls:
           - audit_rules_privileged_commands_kmod
 
     - id: 6.3.3.29
-      title: Ensure kernel "init_module" and "finit_module" loading unloading and modification is collected (Automated)
+      title: Ensure kernel "init_module" and "finit_module" loading unloading and modification is
+          collected (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -3022,7 +3044,8 @@ controls:
           - audit_rules_kernel_module_loading_init
 
     - id: 6.3.3.30
-      title: Ensure kernel "delete_module" loading unloading and modification is collected (Automated)
+      title: Ensure kernel "delete_module" loading unloading and modification is collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -3031,7 +3054,8 @@ controls:
           - audit_rules_kernel_module_loading_delete
 
     - id: 6.3.3.31
-      title: Ensure kernel "create_module" and "query_module" loading unloading and modification is collected (Automated)
+      title: Ensure kernel "create_module" and "query_module" loading unloading and modification
+          is collected (Automated)
       levels:
           - l2_server
           - l2_workstation

@@ -3,7 +3,7 @@ policy: 'Firefox Common User Security Policy'
 title: 'Firefox Common User Security Policy'
 id: cusp_firefox
 version: '1.0.0'
-source: "jodehnal's bachelor thesis on creating a SCAP profile for common users of Fedora workstation\
+source: "jodehnal's bachelor thesis on creating a SCAP profile for common users of Fedora workstation\  # yamllint disable-line rule:line-length
     \ - link will be added after publication"
 
 controls:

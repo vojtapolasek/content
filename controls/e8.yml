@@ -1,7 +1,7 @@
 ---
 id: 'e8'
 policy: 'e8'
-source: 'https://www.cyber.gov.au/sites/default/files/2023-11/PROTECT%20-%20Hardening%20Linux%20Workstations%20and%20Servers%20%28November%202023%29.pdf'
+source: 'https://www.cyber.gov.au/sites/default/files/2023-11/PROTECT%20-%20Hardening%20Linux%20Workstations%20and%20Servers%20%28November%202023%29.pdf'  # yamllint disable-line rule:line-length
 title: 'Australian Cyber Security Centre (ACSC)'
 
 levels:

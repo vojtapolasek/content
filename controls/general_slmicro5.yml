@@ -1171,7 +1171,7 @@ controls:
       title: Set Interactive Session Timeout
       levels:
           - medium
-      automated: partially  # we check only for value of tmout variable, no export or readonly and we do not check /etc/bashrc
+      automated: partially  # we check only for value of tmout variable, no export or readonly and we do not check /etc/bashrc  # yamllint disable-line rule:line-length
       rules:
           - accounts_tmout
           - var_accounts_tmout=15_min

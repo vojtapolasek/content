@@ -1364,7 +1364,8 @@ controls:
           - audit_rules_networkconfig_modification
 
     - id: 4.1.6
-      title: Ensure events that modify the system's Mandatory Access Controls are collected (Automated)
+      title: Ensure events that modify the system's Mandatory Access Controls are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -1394,7 +1395,8 @@ controls:
           - audit_rules_session_events
 
     - id: 4.1.9
-      title: Ensure discretionary access control permission modification events are collected (Automated)
+      title: Ensure discretionary access control permission modification events are collected
+          (Automated)
       levels:
           - l2_server
           - l2_workstation
@@ -2065,7 +2067,7 @@ controls:
       levels:
           - l1_server
           - l1_workstation
-      automated: partially  # we check only for value of tmout variable, no export or readonly and we do not check /etc/bashrc
+      automated: partially  # we check only for value of tmout variable, no export or readonly and we do not check /etc/bashrc  # yamllint disable-line rule:line-length
       rules:
           - accounts_tmout
           - var_accounts_tmout=15_min
@@ -2075,7 +2077,7 @@ controls:
       levels:
           - l1_server
           - l1_workstation
-      automated: partially  # checking only for numeric umask and we do not check for user_enab in /etc/login.defs
+      automated: partially  # checking only for numeric umask and we do not check for user_enab in /etc/login.defs  # yamllint disable-line rule:line-length
       rules:
           - accounts_umask_etc_bashrc
           - accounts_umask_etc_login_defs

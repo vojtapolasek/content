@@ -23,8 +23,8 @@ controls:
     - id: OL09-00-000001
       levels:
           - medium
-      title: The OL 9 operating system must implement cryptographic mechanisms to prevent unauthorized
-          modification of all information at rest.
+      title: The OL 9 operating system must implement cryptographic mechanisms to prevent
+          unauthorized modification of all information at rest.
       rules:
           - encrypt_partitions
       status: automated
@@ -40,7 +40,8 @@ controls:
     - id: OL09-00-000015
       levels:
           - medium
-      title: OL 9 vendor packaged system security patches and updates must be installed and up to date.
+      title: OL 9 vendor packaged system security patches and updates must be installed and up to
+          date.
       rules:
           - security_patches_up_to_date
       status: automated
@@ -48,8 +49,8 @@ controls:
     - id: OL09-00-000090
       levels:
           - medium
-      title: OL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local
-          or remote access to the system via a command line user logon.
+      title: OL 9 must display the Standard Mandatory DOD Notice and Consent Banner before
+          granting local or remote access to the system via a command line user logon.
       rules:
           - banner_etc_issue
           - login_banner_text=dod_default
@@ -123,8 +124,8 @@ controls:
     - id: OL09-00-000050
       levels:
           - high
-      title: OL 9 must require a unique superusers name upon booting into single-user and maintenance
-          modes.
+      title: OL 9 must require a unique superusers name upon booting into single-user and
+          maintenance modes.
       rules:
           - grub2_admin_username
       status: automated
@@ -220,7 +221,8 @@ controls:
     - id: OL09-00-002401
       levels:
           - medium
-      title: OL 9 must enable kernel parameters to enforce discretionary access control on hardlinks.
+      title: OL 9 must enable kernel parameters to enforce discretionary access control on
+          hardlinks.
       rules:
           - sysctl_fs_protected_hardlinks
       status: automated
@@ -228,7 +230,8 @@ controls:
     - id: OL09-00-002402
       levels:
           - medium
-      title: OL 9 must enable kernel parameters to enforce discretionary access control on symlinks.
+      title: OL 9 must enable kernel parameters to enforce discretionary access control on
+          symlinks.
       rules:
           - sysctl_fs_protected_symlinks
       status: automated
@@ -284,8 +287,8 @@ controls:
     - id: OL09-00-002423
       levels:
           - medium
-      title: OL 9 must implement address space layout randomization (ASLR) to protect its memory from
-          unauthorized code execution.
+      title: OL 9 must implement address space layout randomization (ASLR) to protect its memory
+          from unauthorized code execution.
       rules:
           - sysctl_kernel_randomize_va_space
       status: automated
@@ -365,8 +368,8 @@ controls:
     - id: OL09-00-000497
       levels:
           - high
-      title: OL 9 must check the GPG signature of software packages originating from external software
-          repositories before installation.
+      title: OL 9 must check the GPG signature of software packages originating from external
+          software repositories before installation.
       rules:
           - ensure_gpgcheck_globally_activated
       status: automated
@@ -374,7 +377,8 @@ controls:
     - id: OL09-00-000496
       levels:
           - high
-      title: OL 9 must check the GPG signature of locally installed software packages before installation.
+      title: OL 9 must check the GPG signature of locally installed software packages before
+          installation.
       rules:
           - ensure_gpgcheck_local_packages
       status: automated
@@ -422,7 +426,8 @@ controls:
     - id: OL09-00-000105
       levels:
           - medium
-      title: OL 9 must not install packages from the Extra Packages for Enterprise Linux (EPEL) repository.
+      title: OL 9 must not install packages from the Extra Packages for Enterprise Linux (EPEL)
+          repository.
       rules:
           - ensure_epel_repos_disabled
       status: automated
@@ -534,8 +539,8 @@ controls:
     - id: OL09-00-000003
       levels:
           - medium
-      title: A separate OL 9 file system must be used for user home directories (such as /home or an
-          equivalent).
+      title: A separate OL 9 file system must be used for user home directories (such as /home or
+          an equivalent).
       rules:
           - partition_for_home
       status: automated
@@ -591,8 +596,8 @@ controls:
     - id: OL09-00-002070
       levels:
           - medium
-      title: OL 9 must prevent device files from being interpreted on file systems that contain user
-          home directories.
+      title: OL 9 must prevent device files from being interpreted on file systems that contain
+          user home directories.
       rules:
           - mount_option_home_nodev
       status: automated
@@ -600,8 +605,8 @@ controls:
     - id: OL09-00-002071
       levels:
           - medium
-      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on file systems
-          that contain user home directories.
+      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on
+          file systems that contain user home directories.
       rules:
           - mount_option_home_nosuid
       status: automated
@@ -609,7 +614,8 @@ controls:
     - id: OL09-00-002072
       levels:
           - medium
-      title: OL 9 must prevent code from being executed on file systems that contain user home directories.
+      title: OL 9 must prevent code from being executed on file systems that contain user home
+          directories.
       rules:
           - mount_option_home_noexec
       status: automated
@@ -617,8 +623,8 @@ controls:
     - id: OL09-00-002011
       levels:
           - medium
-      title: OL 9 must prevent special devices on file systems that are imported via Network File System
-          (NFS).
+      title: OL 9 must prevent special devices on file systems that are imported via Network File
+          System (NFS).
       rules:
           - mount_option_nodev_remote_filesystems
       status: automated
@@ -626,8 +632,8 @@ controls:
     - id: OL09-00-002012
       levels:
           - medium
-      title: OL 9  must prevent code from being executed on file systems that are imported via Network
-          File System (NFS).
+      title: OL 9  must prevent code from being executed on file systems that are imported via
+          Network File System (NFS).
       rules:
           - mount_option_noexec_remote_filesystems
       status: automated
@@ -635,8 +641,8 @@ controls:
     - id: OL09-00-002013
       levels:
           - medium
-      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on file systems
-          that are imported via Network File System (NFS).
+      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on
+          file systems that are imported via Network File System (NFS).
       rules:
           - mount_option_nosuid_remote_filesystems
       status: automated
@@ -644,8 +650,8 @@ controls:
     - id: OL09-00-002020
       levels:
           - medium
-      title: OL 9 must prevent code from being executed on file systems that are used with removable
-          media.
+      title: OL 9 must prevent code from being executed on file systems that are used with
+          removable media.
       rules:
           - mount_option_noexec_removable_partitions
       status: automated
@@ -661,8 +667,8 @@ controls:
     - id: OL09-00-002022
       levels:
           - medium
-      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on file systems
-          that are used with removable media.
+      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on
+          file systems that are used with removable media.
       rules:
           - mount_option_nosuid_removable_partitions
       status: automated
@@ -678,8 +684,8 @@ controls:
     - id: OL09-00-002031
       levels:
           - medium
-      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on the /boot
-          directory.
+      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on the
+          /boot directory.
       rules:
           - mount_option_boot_nosuid
       status: automated
@@ -687,8 +693,8 @@ controls:
     - id: OL09-00-002032
       levels:
           - medium
-      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on the /boot/efi
-          directory.
+      title: OL 9 must prevent files with the setuid and setgid bit set from being executed on the
+          /boot/efi directory.
       rules:
           - mount_option_boot_efi_nosuid
       status: automated
@@ -824,8 +830,9 @@ controls:
     - id: OL09-00-002418
       levels:
           - high
-      title: OL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized
-          disclosure or modification of all information that requires at rest protection.
+      title: OL 9 local disk partitions must implement cryptographic mechanisms to prevent
+          unauthorized disclosure or modification of all information that requires at rest
+          protection.
       rules:
           - encrypt_partitions
       status: automated
@@ -937,7 +944,8 @@ controls:
     - id: OL09-00-002536
       levels:
           - medium
-      title: OL 9 /etc/group file must have mode 0644 or less permissive to prevent unauthorized access.
+      title: OL 9 /etc/group file must have mode 0644 or less permissive to prevent unauthorized
+          access.
       rules:
           - file_permissions_etc_group
       status: automated
@@ -945,7 +953,8 @@ controls:
     - id: OL09-00-002537
       levels:
           - medium
-      title: OL 9 /etc/group- file must have mode 0644 or less permissive to prevent unauthorized access.
+      title: OL 9 /etc/group- file must have mode 0644 or less permissive to prevent unauthorized
+          access.
       rules:
           - file_permissions_backup_etc_group
       status: automated
@@ -953,7 +962,8 @@ controls:
     - id: OL09-00-002542
       levels:
           - medium
-      title: OL 9 /etc/gshadow file must have mode 0000 or less permissive to prevent unauthorized access.
+      title: OL 9 /etc/gshadow file must have mode 0000 or less permissive to prevent unauthorized
+          access.
       rules:
           - file_permissions_etc_gshadow
       status: automated
@@ -961,7 +971,8 @@ controls:
     - id: OL09-00-002543
       levels:
           - medium
-      title: OL 9 /etc/gshadow- file must have mode 0000 or less permissive to prevent unauthorized access.
+      title: OL 9 /etc/gshadow- file must have mode 0000 or less permissive to prevent
+          unauthorized access.
       rules:
           - file_permissions_backup_etc_gshadow
       status: automated
@@ -969,7 +980,8 @@ controls:
     - id: OL09-00-002548
       levels:
           - medium
-      title: OL 9 /etc/passwd file must have mode 0644 or less permissive to prevent unauthorized access.
+      title: OL 9 /etc/passwd file must have mode 0644 or less permissive to prevent unauthorized
+          access.
       rules:
           - file_permissions_etc_passwd
       status: automated
@@ -977,7 +989,8 @@ controls:
     - id: OL09-00-002549
       levels:
           - medium
-      title: OL 9 /etc/passwd- file must have mode 0644 or less permissive to prevent unauthorized access.
+      title: OL 9 /etc/passwd- file must have mode 0644 or less permissive to prevent unauthorized
+          access.
       rules:
           - file_permissions_backup_etc_passwd
       status: automated
@@ -985,7 +998,8 @@ controls:
     - id: OL09-00-002554
       levels:
           - medium
-      title: OL 9 /etc/shadow- file must have mode 0000 or less permissive to prevent unauthorized access.
+      title: OL 9 /etc/shadow- file must have mode 0000 or less permissive to prevent unauthorized
+          access.
       rules:
           - file_permissions_backup_etc_shadow
       status: automated
@@ -1245,7 +1259,8 @@ controls:
     - id: OL09-00-002516
       levels:
           - medium
-      title: OL 9 world-writable directories must be owned by root, sys, bin, or an application user.
+      title: OL 9 world-writable directories must be owned by root, sys, bin, or an application
+          user.
       rules:
           - dir_perms_world_writable_system_owned
       status: automated
@@ -1277,8 +1292,8 @@ controls:
     - id: OL09-00-002500
       levels:
           - medium
-      title: OL 9 must be configured so that all system device files are correctly labeled to prevent
-          unauthorized modification.
+      title: OL 9 must be configured so that all system device files are correctly labeled to
+          prevent unauthorized modification.
       rules:
           - selinux_all_devicefiles_labeled
       status: automated
@@ -1318,8 +1333,8 @@ controls:
     - id: OL09-00-000224
       levels:
           - medium
-      title: A OL 9 firewall must employ a deny-all, allow-by-exception policy for allowing connections
-          to other systems.
+      title: A OL 9 firewall must employ a deny-all, allow-by-exception policy for allowing
+          connections to other systems.
       rules:
           - configured_firewalld_default_deny
       status: automated
@@ -1335,8 +1350,8 @@ controls:
     - id: OL09-00-006000
       levels:
           - medium
-      title: OL 9 must protect against or limit the effects of denial-of-service (DoS) attacks by ensuring
-          rate-limiting measures on impacted network interfaces are implemented.
+      title: OL 9 must protect against or limit the effects of denial-of-service (DoS) attacks by
+          ensuring rate-limiting measures on impacted network interfaces are implemented.
       rules:
           - firewalld-backend
       status: automated
@@ -1344,9 +1359,9 @@ controls:
     - id: OL09-00-000222
       levels:
           - medium
-      title: OL 9 must be configured to prohibit or restrict the use of functions, ports, protocols,
-          and/or services, as defined in the Ports, Protocols, and Services Management (PPSM) Category
-          Assignments List (CAL) and vulnerability assessments.
+      title: OL 9 must be configured to prohibit or restrict the use of functions, ports,
+          protocols, and/or services, as defined in the Ports, Protocols, and Services Management
+          (PPSM) Category Assignments List (CAL) and vulnerability assessments.
       rules:
           - configure_firewalld_ports
       status: supported
@@ -1414,8 +1429,8 @@ controls:
     - id: OL09-00-006003
       levels:
           - medium
-      title: OL 9 systems using Domain Name Servers (DNS) resolution must have at least two name servers
-          configured.
+      title: OL 9 systems using Domain Name Servers (DNS) resolution must have at least two name
+          servers configured.
       rules:
           - network_configure_name_resolution
       status: automated
@@ -1448,8 +1463,8 @@ controls:
     - id: OL09-00-002426
       levels:
           - medium
-      title: If the Trivial File Transfer Protocol (TFTP) server is required, OL 9 TFTP daemon must be
-          configured to operate in secure mode.
+      title: If the Trivial File Transfer Protocol (TFTP) server is required, OL 9 TFTP daemon
+          must be configured to operate in secure mode.
       rules:
           - tftp_uses_secure_mode_systemd
       status: automated
@@ -1497,8 +1512,8 @@ controls:
     - id: OL09-00-006020
       levels:
           - medium
-      title: OL 9 must ignore Internet Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP)
-          redirect messages.
+      title: OL 9 must ignore Internet Protocol version 4 (IPv4) Internet Control Message Protocol
+          (ICMP) redirect messages.
       rules:
           - sysctl_net_ipv4_conf_all_accept_redirects
       status: automated
@@ -1538,8 +1553,8 @@ controls:
     - id: OL09-00-006025
       levels:
           - medium
-      title: OL 9 must prevent IPv4 Internet Control Message Protocol (ICMP) redirect messages from being
-          accepted.
+      title: OL 9 must prevent IPv4 Internet Control Message Protocol (ICMP) redirect messages
+          from being accepted.
       rules:
           - sysctl_net_ipv4_conf_default_accept_redirects
       status: automated
@@ -1563,8 +1578,8 @@ controls:
     - id: OL09-00-006030
       levels:
           - medium
-      title: OL 9 must not respond to Internet Control Message Protocol (ICMP) echoes sent to a broadcast
-          address.
+      title: OL 9 must not respond to Internet Control Message Protocol (ICMP) echoes sent to a
+          broadcast address.
       rules:
           - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
       status: automated
@@ -1572,8 +1587,8 @@ controls:
     - id: OL09-00-006031
       levels:
           - medium
-      title: OL 9 must limit the number of bogus Internet Control Message Protocol (ICMP) response errors
-          logs.
+      title: OL 9 must limit the number of bogus Internet Control Message Protocol (ICMP) response
+          errors logs.
       rules:
           - sysctl_net_ipv4_icmp_ignore_bogus_error_responses
       status: automated
@@ -1589,8 +1604,8 @@ controls:
     - id: OL09-00-006033
       levels:
           - medium
-      title: OL 9 must not allow interfaces to perform Internet Control Message Protocol (ICMP) redirects
-          by default.
+      title: OL 9 must not allow interfaces to perform Internet Control Message Protocol (ICMP)
+          redirects by default.
       rules:
           - sysctl_net_ipv4_conf_default_send_redirects
       status: automated
@@ -1646,8 +1661,8 @@ controls:
     - id: OL09-00-006045
       levels:
           - medium
-      title: OL 9 must prevent IPv6 Internet Control Message Protocol (ICMP) redirect messages from being
-          accepted.
+      title: OL 9 must prevent IPv6 Internet Control Message Protocol (ICMP) redirect messages
+          from being accepted.
       rules:
           - sysctl_net_ipv6_conf_default_accept_redirects
       status: automated
@@ -1671,8 +1686,9 @@ controls:
     - id: OL09-00-000251
       levels:
           - medium
-      title: OL 9 networked systems must have and implement SSH to protect the confidentiality and integrity
-          of transmitted and received information, as well as information during preparation for transmission.
+      title: OL 9 networked systems must have and implement SSH to protect the confidentiality and
+          integrity of transmitted and received information, as well as information during
+          preparation for transmission.
       rules:
           - service_sshd_enabled
       status: automated
@@ -1688,8 +1704,8 @@ controls:
     - id: OL09-00-000256
       levels:
           - medium
-      title: OL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local
-          or remote access to the system via a SSH logon.
+      title: OL 9 must display the Standard Mandatory DOD Notice and Consent Banner before
+          granting local or remote access to the system via a SSH logon.
       rules:
           - sshd_enable_warning_banner
       status: automated
@@ -1705,8 +1721,8 @@ controls:
     - id: OL09-00-002355
       levels:
           - medium
-      title: OL 9 SSH daemon must not allow compression or must only allow compression after successful
-          authentication.
+      title: OL 9 SSH daemon must not allow compression or must only allow compression after
+          successful authentication.
       rules:
           - sshd_disable_compression
           - var_sshd_disable_compression=no
@@ -1747,8 +1763,8 @@ controls:
     - id: OL09-00-000261
       levels:
           - high
-      title: OL 9 must implement DOD-approved encryption ciphers to protect the confidentiality of SSH
-          client connections.
+      title: OL 9 must implement DOD-approved encryption ciphers to protect the confidentiality of
+          SSH client connections.
       rules:
           - harden_sshd_ciphers_openssh_conf_crypto_policy
           - sshd_approved_ciphers=stig_ol9
@@ -1757,8 +1773,8 @@ controls:
     - id: OL09-00-000254
       levels:
           - high
-      title: OL 9 SSH server must be configured to use only ciphers employing FIPS 140-3 validated cryptographic
-          hash algorithms to protect the confidentiality of SSH server connections.
+      title: OL 9 SSH server must be configured to use only ciphers employing FIPS 140-3 validated
+          cryptographic hash algorithms to protect the confidentiality of SSH server connections.
       rules:
           - harden_sshd_ciphers_opensshserver_conf_crypto_policy
           - harden_sshd_ciphers_opensshserver_conf_crypto_policy.severity=high
@@ -1768,8 +1784,8 @@ controls:
     - id: OL09-00-000262
       levels:
           - high
-      title: OL 9 SSH client must be configured to use only Message Authentication Codes (MACs) employing
-          FIPS 140-3 validated cryptographic hash algorithms.
+      title: OL 9 SSH client must be configured to use only Message Authentication Codes (MACs)
+          employing FIPS 140-3 validated cryptographic hash algorithms.
       status: automated
       rules:
           - harden_sshd_macs_openssh_conf_crypto_policy
@@ -1779,8 +1795,8 @@ controls:
     - id: OL09-00-000255
       levels:
           - high
-      title: OL 9 SSH server must be configured to use only Message Authentication Codes (MACs) employing
-          FIPS 140-3 validated cryptographic hash algorithms.
+      title: OL 9 SSH server must be configured to use only Message Authentication Codes (MACs)
+          employing FIPS 140-3 validated cryptographic hash algorithms.
       rules:
           - harden_sshd_macs_opensshserver_conf_crypto_policy
           - harden_sshd_macs_opensshserver_conf_crypto_policy.severity=high
@@ -1806,7 +1822,8 @@ controls:
     - id: OL09-00-002342
       levels:
           - medium
-      title: OL 9 must force a frequent session key renegotiation for SSH connections to the server.
+      title: OL 9 must force a frequent session key renegotiation for SSH connections to the
+          server.
       rules:
           - sshd_rekey_limit
           - var_rekey_limit_size=1G
@@ -1816,8 +1833,8 @@ controls:
     - id: OL09-00-002346
       levels:
           - medium
-      title: OL 9 must be configured so that all network connections associated with SSH traffic terminate
-          after becoming unresponsive.
+      title: OL 9 must be configured so that all network connections associated with SSH traffic
+          terminate after becoming unresponsive.
       rules:
           - sshd_set_keepalive
           - var_sshd_set_keepalive=1
@@ -1826,8 +1843,8 @@ controls:
     - id: OL09-00-002347
       levels:
           - medium
-      title: OL 9 must be configured so that all network connections associated with SSH traffic are
-          terminated after 10 minutes of becoming unresponsive.
+      title: OL 9 must be configured so that all network connections associated with SSH traffic
+          are terminated after 10 minutes of becoming unresponsive.
       rules:
           - sshd_set_idle_timeout
           - sshd_idle_timeout_value=10_minutes
@@ -1922,7 +1939,8 @@ controls:
     - id: OL09-00-002351
       levels:
           - medium
-      title: OL 9 SSH daemon must perform strict mode checking of home directory configuration files.
+      title: OL 9 SSH daemon must perform strict mode checking of home directory configuration
+          files.
       rules:
           - sshd_enable_strictmodes
       status: automated
@@ -1930,8 +1948,8 @@ controls:
     - id: OL09-00-002352
       levels:
           - medium
-      title: OL 9 SSH daemon must display the date and time of the last successful account logon upon
-          an SSH logon.
+      title: OL 9 SSH daemon must display the date and time of the last successful account logon
+          upon an SSH logon.
       rules:
           - sshd_print_last_log
       status: automated
@@ -1947,8 +1965,9 @@ controls:
     - id: OL09-00-002150
       levels:
           - medium
-      title: OL 9 must be configured to enable the display of the Standard Mandatory DOD Notice and Consent
-          Banner before granting local or remote access to the system via a graphical user logon.
+      title: OL 9 must be configured to enable the display of the Standard Mandatory DOD Notice
+          and Consent Banner before granting local or remote access to the system via a graphical
+          user logon.
       rules:
           - dconf_gnome_banner_enabled
       status: automated
@@ -1956,8 +1975,8 @@ controls:
     - id: OL09-00-002151
       levels:
           - medium
-      title: OL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local
-          or remote access to the system via a graphical user logon.
+      title: OL 9 must display the Standard Mandatory DOD Notice and Consent Banner before
+          granting local or remote access to the system via a graphical user logon.
       rules:
           - dconf_gnome_login_banner_text
           - dconf_login_banner_text=dod_default
@@ -1966,8 +1985,8 @@ controls:
     - id: OL09-00-002122
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the banner-message-enable setting for the graphical
-          user interface.
+      title: OL 9 must prevent a user from overriding the banner-message-enable setting for the
+          graphical user interface.
       rules:
           - dconf_gnome_banner_enabled
       status: automated
@@ -1983,8 +2002,8 @@ controls:
     - id: OL09-00-002120
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the disabling of the graphical user interface automount
-          function.
+      title: OL 9 must prevent a user from overriding the disabling of the graphical user
+          interface automount function.
       rules:
           - dconf_gnome_disable_automount_open
       status: automated
@@ -2000,8 +2019,8 @@ controls:
     - id: OL09-00-002121
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the disabling of the graphical user interface autorun
-          function.
+      title: OL 9 must prevent a user from overriding the disabling of the graphical user
+          interface autorun function.
       rules:
           - dconf_gnome_disable_autorun
       status: automated
@@ -2017,8 +2036,8 @@ controls:
     - id: OL09-00-002160
       levels:
           - medium
-      title: OL 9 must be able to initiate directly a session lock for all connection types using smart
-          card when the smart card is removed.
+      title: OL 9 must be able to initiate directly a session lock for all connection types using
+          smart card when the smart card is removed.
       rules:
           - dconf_gnome_lock_screen_on_smartcard_removal
       status: automated
@@ -2026,8 +2045,8 @@ controls:
     - id: OL09-00-002126
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the disabling of the graphical user smart card
-          removal action.
+      title: OL 9 must prevent a user from overriding the disabling of the graphical user smart
+          card removal action.
       rules:
           - dconf_gnome_lock_screen_on_smartcard_removal
       status: automated
@@ -2035,8 +2054,8 @@ controls:
     - id: OL09-00-002123
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the screensaver lock-enabled setting for the graphical
-          user interface.
+      title: OL 9 must prevent a user from overriding the screensaver lock-enabled setting for the
+          graphical user interface.
       rules:
           - dconf_gnome_screensaver_lock_enabled
       status: automated
@@ -2053,8 +2072,8 @@ controls:
     - id: OL09-00-002124
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the session idle-delay setting for the graphical
-          user interface.
+      title: OL 9 must prevent a user from overriding the session idle-delay setting for the
+          graphical user interface.
       rules:
           - dconf_gnome_session_idle_user_locks
       status: automated
@@ -2062,8 +2081,8 @@ controls:
     - id: OL09-00-002103
       levels:
           - medium
-      title: OL 9 must initiate a session lock for graphical user interfaces when the screensaver is
-          activated.
+      title: OL 9 must initiate a session lock for graphical user interfaces when the screensaver
+          is activated.
       rules:
           - dconf_gnome_screensaver_lock_delay
           - var_screensaver_lock_delay=5_seconds
@@ -2072,8 +2091,8 @@ controls:
     - id: OL09-00-002125
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the session lock-delay setting for the graphical
-          user interface.
+      title: OL 9 must prevent a user from overriding the session lock-delay setting for the
+          graphical user interface.
       rules:
           - dconf_gnome_screensaver_user_locks
       status: automated
@@ -2081,8 +2100,8 @@ controls:
     - id: OL09-00-002106
       levels:
           - medium
-      title: OL 9 must conceal, via the session lock, information previously visible on the display with
-          a publicly viewable image.
+      title: OL 9 must conceal, via the session lock, information previously visible on the
+          display with a publicly viewable image.
       rules:
           - dconf_gnome_screensaver_mode_blank
       status: automated
@@ -2106,8 +2125,8 @@ controls:
     - id: OL09-00-002128
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the disable-restart-buttons setting for the graphical
-          user interface.
+      title: OL 9 must prevent a user from overriding the disable-restart-buttons setting for the
+          graphical user interface.
       rules:
           - dconf_gnome_disable_restart_shutdown
       status: automated
@@ -2115,8 +2134,8 @@ controls:
     - id: OL09-00-002107
       levels:
           - medium
-      title: OL 9 must disable the ability of a user to accidentally press Ctrl-Alt-Del and cause a system
-          to shut down or reboot.
+      title: OL 9 must disable the ability of a user to accidentally press Ctrl-Alt-Del and cause
+          a system to shut down or reboot.
       rules:
           - dconf_gnome_disable_ctrlaltdel_reboot
       status: automated
@@ -2124,8 +2143,8 @@ controls:
     - id: OL09-00-002129
       levels:
           - medium
-      title: OL 9 must prevent a user from overriding the Ctrl-Alt-Del sequence settings for the graphical
-          user interface.
+      title: OL 9 must prevent a user from overriding the Ctrl-Alt-Del sequence settings for the
+          graphical user interface.
       rules:
           - dconf_gnome_disable_ctrlaltdel_reboot
       status: automated
@@ -2197,7 +2216,8 @@ controls:
     - id: OL09-00-001090
       levels:
           - medium
-      title: OL 9 passwords must have a 24-hour minimum password lifetime restriction in /etc/shadow.
+      title: OL 9 passwords must have a 24-hour minimum password lifetime restriction in
+          /etc/shadow.
       rules:
           - accounts_password_set_min_life_existing
           - var_accounts_minimum_age_login_defs=1
@@ -2206,8 +2226,8 @@ controls:
     - id: OL09-00-001095
       levels:
           - medium
-      title: OL 9 user account passwords for new users or password changes must have a 60-day maximum
-          password lifetime restriction in /etc/login.defs.
+      title: OL 9 user account passwords for new users or password changes must have a 60-day
+          maximum password lifetime restriction in /etc/login.defs.
       rules:
           - accounts_maximum_age_login_defs
       status: automated
@@ -2273,8 +2293,8 @@ controls:
     - id: OL09-00-003065
       levels:
           - medium
-      title: OL 9 must disable account identifiers (individuals, groups, roles, and devices) after 35
-          days of inactivity.
+      title: OL 9 must disable account identifiers (individuals, groups, roles, and devices) after
+          35 days of inactivity.
       rules:
           - account_disable_post_pw_expiration
           - var_account_disable_post_pw_expiration=35
@@ -2283,8 +2303,9 @@ controls:
     - id: OL09-00-003053
       levels:
           - medium
-      title: Executable search paths within the initialization files of all local interactive OL 9 users
-          must only contain paths that resolve to the system default or the users home directory.
+      title: Executable search paths within the initialization files of all local interactive OL 9
+          users must only contain paths that resolve to the system default or the users home
+          directory.
       rules:
           - accounts_user_home_paths_only
       status: automated
@@ -2292,7 +2313,8 @@ controls:
     - id: OL09-00-003002
       levels:
           - medium
-      title: OL 9 local interactive users must have a home directory assigned in the /etc/passwd file.
+      title: OL 9 local interactive users must have a home directory assigned in the /etc/passwd
+          file.
       rules:
           - accounts_user_interactive_home_directory_defined
       status: automated
@@ -2300,7 +2322,8 @@ controls:
     - id: OL09-00-003050
       levels:
           - medium
-      title: OL 9 local interactive user home directories defined in the /etc/passwd file must exist.
+      title: OL 9 local interactive user home directories defined in the /etc/passwd file must
+          exist.
       rules:
           - accounts_user_interactive_home_directory_exists
       status: automated
@@ -2308,8 +2331,8 @@ controls:
     - id: OL09-00-002514
       levels:
           - medium
-      title: OL 9 local interactive user home directories must be group-owned by the home directory owner's
-          primary group.
+      title: OL 9 local interactive user home directories must be group-owned by the home
+          directory owner's primary group.
       rules:
           - file_groupownership_home_directories
       status: automated
@@ -2326,8 +2349,9 @@ controls:
     - id: OL09-00-003021
       levels:
           - medium
-      title: OL 9 must automatically lock the root account until the root account is released by an administrator
-          when three unsuccessful logon attempts occur during a 15-minute time period.
+      title: OL 9 must automatically lock the root account until the root account is released by
+          an administrator when three unsuccessful logon attempts occur during a 15-minute time
+          period.
       rules:
           - accounts_passwords_pam_faillock_deny_root
       status: automated
@@ -2335,8 +2359,8 @@ controls:
     - id: OL09-00-002416
       levels:
           - medium
-      title: OL 9 must automatically lock an account when three unsuccessful logon attempts occur during
-          a 15-minute time period.
+      title: OL 9 must automatically lock an account when three unsuccessful logon attempts occur
+          during a 15-minute time period.
       rules:
           - accounts_passwords_pam_faillock_interval
           - var_accounts_passwords_pam_faillock_fail_interval=900
@@ -2345,7 +2369,8 @@ controls:
     - id: OL09-00-002417
       levels:
           - medium
-      title: OL 9 must maintain an account lock until the locked account is released by an administrator.
+      title: OL 9 must maintain an account lock until the locked account is released by an
+          administrator.
       rules:
           - accounts_passwords_pam_faillock_unlock_time
           - var_accounts_passwords_pam_faillock_unlock_time=never
@@ -2387,7 +2412,8 @@ controls:
     - id: OL09-00-002422
       levels:
           - medium
-      title: OL 9 must implement nonexecutable data to protect its memory from unauthorized code execution.
+      title: OL 9 must implement nonexecutable data to protect its memory from unauthorized code
+          execution.
       rules:
           - sysctl_kernel_exec_shield
       status: automated
@@ -2395,8 +2421,8 @@ controls:
     - id: OL09-00-002411
       levels:
           - medium
-      title: OL 9 must automatically exit interactive command shell user sessions after 15 minutes of
-          inactivity.
+      title: OL 9 must automatically exit interactive command shell user sessions after 15 minutes
+          of inactivity.
       rules:
           - accounts_tmout
           - var_accounts_tmout=15_min
@@ -2405,8 +2431,8 @@ controls:
     - id: OL09-00-002415
       levels:
           - low
-      title: OL 9 must limit the number of concurrent sessions to ten for all accounts and/or account
-          types.
+      title: OL 9 must limit the number of concurrent sessions to ten for all accounts and/or
+          account types.
       rules:
           - accounts_max_concurrent_login_sessions
           - var_accounts_max_concurrent_login_sessions=10
@@ -2423,8 +2449,8 @@ controls:
     - id: OL09-00-003070
       levels:
           - medium
-      title: OL 9 must enforce a delay of at least four seconds between logon prompts following a failed
-          logon attempt.
+      title: OL 9 must enforce a delay of at least four seconds between logon prompts following a
+          failed logon attempt.
       rules:
           - accounts_logon_fail_delay
           - var_accounts_fail_delay=4
@@ -2449,8 +2475,8 @@ controls:
     - id: OL09-00-002304
       levels:
           - medium
-      title: OL 9 must define default permissions for all authenticated users in such a way that the
-          user can only read and modify their own files.
+      title: OL 9 must define default permissions for all authenticated users in such a way that
+          the user can only read and modify their own files.
       rules:
           - accounts_umask_etc_login_defs
       status: automated
@@ -2484,8 +2510,8 @@ controls:
     - id: OL09-00-003010
       levels:
           - medium
-      title: OL 9 must configure SELinux context type to allow the use of a nondefault faillock tally
-          directory.
+      title: OL 9 must configure SELinux context type to allow the use of a nondefault faillock
+          tally directory.
       rules:
           - account_password_selinux_faillock_dir
       status: automated
@@ -2574,8 +2600,8 @@ controls:
     - id: OL09-00-001001
       levels:
           - medium
-      title: OL 9 must ensure the password complexity module in the system-auth file is configured for
-          three retries or less.
+      title: OL 9 must ensure the password complexity module in the system-auth file is configured
+          for three retries or less.
       rules:
           - accounts_password_pam_pwquality_retry
           - var_password_pam_retry=3
@@ -2592,8 +2618,8 @@ controls:
     - id: OL09-00-003011
       levels:
           - medium
-      title: OL 9 must configure the use of the pam_faillock.so module in the /etc/pam.d/system-auth
-          file.
+      title: OL 9 must configure the use of the pam_faillock.so module in the
+          /etc/pam.d/system-auth file.
       rules:
           - account_password_pam_faillock_system_auth
       status: automated
@@ -2601,8 +2627,8 @@ controls:
     - id: OL09-00-003012
       levels:
           - medium
-      title: OL 9 must configure the use of the pam_faillock.so module in the /etc/pam.d/password-auth
-          file.
+      title: OL 9 must configure the use of the pam_faillock.so module in the
+          /etc/pam.d/password-auth file.
       rules:
           - account_password_pam_faillock_password_auth
       status: automated
@@ -2651,8 +2677,8 @@ controls:
     - id: OL09-00-001015
       levels:
           - medium
-      title: OL 9 must enforce password complexity by requiring that at least one lowercase character
-          be used.
+      title: OL 9 must enforce password complexity by requiring that at least one lowercase
+          character be used.
       rules:
           - accounts_password_pam_lcredit
           - var_password_pam_lcredit=1
@@ -2661,8 +2687,8 @@ controls:
     - id: OL09-00-001020
       levels:
           - medium
-      title: OL 9 must enforce password complexity by requiring that at least one numeric character be
-          used.
+      title: OL 9 must enforce password complexity by requiring that at least one numeric
+          character be used.
       rules:
           - accounts_password_pam_dcredit
           - var_password_pam_dcredit=1
@@ -2671,8 +2697,8 @@ controls:
     - id: OL09-00-001085
       levels:
           - medium
-      title: OL 9 passwords for new users or password changes must have a 24 hours minimum password lifetime
-          restriction in /etc/login.defs.
+      title: OL 9 passwords for new users or password changes must have a 24 hours minimum
+          password lifetime restriction in /etc/login.defs.
       rules:
           - accounts_minimum_age_login_defs
           - var_accounts_minimum_age_login_defs=1
@@ -2698,8 +2724,8 @@ controls:
     - id: OL09-00-001120
       levels:
           - medium
-      title: OL 9 must enforce password complexity by requiring that at least one special character be
-          used.
+      title: OL 9 must enforce password complexity by requiring that at least one special
+          character be used.
       rules:
           - accounts_password_pam_ocredit
           - var_password_pam_ocredit=1
@@ -2717,8 +2743,8 @@ controls:
     - id: OL09-00-001005
       levels:
           - medium
-      title: OL 9 must enforce password complexity by requiring that at least one uppercase character
-          be used.
+      title: OL 9 must enforce password complexity by requiring that at least one uppercase
+          character be used.
       rules:
           - accounts_password_pam_ucredit
           - var_password_pam_ucredit=1
@@ -2736,8 +2762,8 @@ controls:
     - id: OL09-00-001030
       levels:
           - medium
-      title: OL 9 must require the maximum number of repeating characters of the same character class
-          be limited to four when passwords are changed.
+      title: OL 9 must require the maximum number of repeating characters of the same character
+          class be limited to four when passwords are changed.
       rules:
           - accounts_password_pam_maxclassrepeat
           - var_password_pam_maxclassrepeat=4
@@ -2746,8 +2772,8 @@ controls:
     - id: OL09-00-001035
       levels:
           - medium
-      title: OL 9 must require the maximum number of repeating characters be limited to three when passwords
-          are changed.
+      title: OL 9 must require the maximum number of repeating characters be limited to three when
+          passwords are changed.
       rules:
           - accounts_password_pam_maxrepeat
           - var_password_pam_maxrepeat=3
@@ -2756,7 +2782,8 @@ controls:
     - id: OL09-00-001040
       levels:
           - medium
-      title: OL 9 must require the change of at least four character classes when passwords are changed.
+      title: OL 9 must require the change of at least four character classes when passwords are
+          changed.
       rules:
           - accounts_password_pam_minclass
           - var_password_pam_minclass=4
@@ -2765,8 +2792,8 @@ controls:
     - id: OL09-00-001050
       levels:
           - medium
-      title: OL 9 must be configured so that user and group account administration utilities are configured
-          to store only encrypted representations of passwords.
+      title: OL 9 must be configured so that user and group account administration utilities are
+          configured to store only encrypted representations of passwords.
       rules:
           - set_password_hashing_algorithm_libuserconf
           - var_password_hashing_algorithm_pam=sha512
@@ -2775,8 +2802,8 @@ controls:
     - id: OL09-00-001055
       levels:
           - medium
-      title: OL 9 must be configured to use the shadow file to store only encrypted representations of
-          passwords.
+      title: OL 9 must be configured to use the shadow file to store only encrypted
+          representations of passwords.
       rules:
           - set_password_hashing_algorithm_logindefs
           - var_password_hashing_algorithm=SHA512
@@ -2793,7 +2820,8 @@ controls:
     - id: OL09-00-001075
       levels:
           - medium
-      title: OL 9 shadow password suite must be configured to use a sufficient number of hashing rounds.
+      title: OL 9 shadow password suite must be configured to use a sufficient number of hashing
+          rounds.
       rules:
           - set_password_hashing_min_rounds_logindefs
           - var_password_hashing_min_rounds_login_defs=100000
@@ -2860,8 +2888,8 @@ controls:
     - id: OL09-00-000905
       levels:
           - medium
-      title: OL 9, for PKI-based authentication, must enforce authorized access to the corresponding
-          private key.
+      title: OL 9, for PKI-based authentication, must enforce authorized access to the
+          corresponding private key.
       rules:
           - ssh_keys_passphrase_protected
       status: automated
@@ -2885,8 +2913,8 @@ controls:
     - id: OL09-00-000900
       levels:
           - medium
-      title: OL 9, for PKI-based authentication, must validate certificates by constructing a certification
-          path (which includes status information) to an accepted trust anchor.
+      title: OL 9, for PKI-based authentication, must validate certificates by constructing a
+          certification path (which includes status information) to an accepted trust anchor.
       rules:
           - sssd_has_trust_anchor
       status: automated
@@ -2894,7 +2922,8 @@ controls:
     - id: OL09-00-000910
       levels:
           - medium
-      title: OL 9 must map the authenticated identity to the user or group account for PKI-based authentication.
+      title: OL 9 must map the authenticated identity to the user or group account for PKI-based
+          authentication.
       rules:
           - sssd_enable_certmap
       status: automated
@@ -2919,8 +2948,9 @@ controls:
     - id: OL09-00-000301
       levels:
           - medium
-      title: OL 9 must routinely check the baseline configuration for unauthorized changes and notify
-          the system administrator when anomalies in the operation of any security functions are discovered.
+      title: OL 9 must routinely check the baseline configuration for unauthorized changes and
+          notify the system administrator when anomalies in the operation of any security
+          functions are discovered.
       rules:
           - aide_scan_notification
       status: automated
@@ -2928,8 +2958,8 @@ controls:
     - id: OL09-00-000302
       levels:
           - medium
-      title: OL 9 must use a file integrity tool that is configured to use FIPS 140-3-approved cryptographic
-          hashes for validating file contents and directories.
+      title: OL 9 must use a file integrity tool that is configured to use FIPS 140-3-approved
+          cryptographic hashes for validating file contents and directories.
       rules:
           - aide_use_fips_hashes
       status: automated
@@ -2945,7 +2975,8 @@ controls:
     - id: OL09-00-000303
       levels:
           - low
-      title: OL 9 must be configured so that the file integrity tool verifies Access Control Lists (ACLs).
+      title: OL 9 must be configured so that the file integrity tool verifies Access Control Lists
+          (ACLs).
       rules:
           - aide_verify_acls
       status: automated
@@ -2985,8 +3016,8 @@ controls:
     - id: OL09-00-005030
       levels:
           - medium
-      title: OL 9 must be configured so that the rsyslog daemon does not accept log messages from other
-          servers unless the server is being used for log aggregation.
+      title: OL 9 must be configured so that the rsyslog daemon does not accept log messages from
+          other servers unless the server is being used for log aggregation.
       rules:
           - rsyslog_nolisten
       status: automated
@@ -3002,8 +3033,8 @@ controls:
     - id: OL09-00-000855
       levels:
           - medium
-      title: OL 9 must be configured to offload audit records onto a different system from the system
-          being audited via syslog.
+      title: OL 9 must be configured to offload audit records onto a different system from the
+          system being audited via syslog.
       rules:
           - auditd_audispd_syslog_plugin_activated
       status: automated
@@ -3011,7 +3042,8 @@ controls:
     - id: OL09-00-005015
       levels:
           - medium
-      title: OL 9 must authenticate the remote logging server for offloading audit logs via rsyslog.
+      title: OL 9 must authenticate the remote logging server for offloading audit logs via
+          rsyslog.
       rules:
           - rsyslog_encrypt_offload_actionsendstreamdriverauthmode
       status: automated
@@ -3019,8 +3051,8 @@ controls:
     - id: OL09-00-005020
       levels:
           - medium
-      title: OL 9 must encrypt the transfer of audit records offloaded onto a different system or media
-          from the system being audited via rsyslog.
+      title: OL 9 must encrypt the transfer of audit records offloaded onto a different system or
+          media from the system being audited via rsyslog.
       rules:
           - rsyslog_encrypt_offload_actionsendstreamdrivermode
       status: automated
@@ -3028,8 +3060,8 @@ controls:
     - id: OL09-00-005025
       levels:
           - medium
-      title: OL 9 must encrypt via the gtls driver the transfer of audit records offloaded onto a different
-          system or media from the system being audited via rsyslog.
+      title: OL 9 must encrypt via the gtls driver the transfer of audit records offloaded onto a
+          different system or media from the system being audited via rsyslog.
       rules:
           - rsyslog_encrypt_offload_defaultnetstreamdriver
       status: automated
@@ -3037,8 +3069,8 @@ controls:
     - id: OL09-00-005005
       levels:
           - medium
-      title: OL 9 must be configured to forward audit records via TCP to a different system or media
-          from the system being audited via rsyslog.
+      title: OL 9 must be configured to forward audit records via TCP to a different system or
+          media from the system being audited via rsyslog.
       rules:
           - rsyslog_remote_loghost
       status: automated
@@ -3070,8 +3102,8 @@ controls:
     - id: OL09-00-000760
       levels:
           - medium
-      title: OL 9 audit system must take appropriate action when an error writing to the audit storage
-          volume occurs.
+      title: OL 9 audit system must take appropriate action when an error writing to the audit
+          storage volume occurs.
       rules:
           - auditd_data_disk_error_action_stig
           - var_auditd_disk_error_action=halt
@@ -3089,8 +3121,8 @@ controls:
     - id: OL09-00-000850
       levels:
           - medium
-      title: OL 9 must allocate audit record storage capacity to store at least one week's worth of audit
-          records.
+      title: OL 9 must allocate audit record storage capacity to store at least one week's worth
+          of audit records.
       rules:
           - auditd_audispd_configure_sufficiently_large_partition
       status: automated
@@ -3098,8 +3130,8 @@ controls:
     - id: OL09-00-000865
       levels:
           - medium
-      title: OL 9 must take action when allocated audit record storage volume reaches 75 percent of the
-          repository maximum audit record storage capacity.
+      title: OL 9 must take action when allocated audit record storage volume reaches 75 percent
+          of the repository maximum audit record storage capacity.
       rules:
           - auditd_data_retention_space_left_percentage
           - var_auditd_space_left_percentage=25pc
@@ -3108,8 +3140,9 @@ controls:
     - id: OL09-00-000870
       levels:
           - medium
-      title: OL 9 must notify the system administrator (SA) and information system security officer (ISSO)
-          (at a minimum) when allocated audit record storage volume 75 percent utilization.
+      title: OL 9 must notify the system administrator (SA) and information system security
+          officer (ISSO) (at a minimum) when allocated audit record storage volume 75 percent
+          utilization.
       rules:
           - auditd_data_retention_space_left_action
           - var_auditd_space_left_action=email
@@ -3118,8 +3151,8 @@ controls:
     - id: OL09-00-000875
       levels:
           - medium
-      title: OL 9 must take action when allocated audit record storage volume reaches 95 percent of the
-          audit record storage capacity.
+      title: OL 9 must take action when allocated audit record storage volume reaches 95 percent
+          of the audit record storage capacity.
       rules:
           - auditd_data_retention_admin_space_left_percentage
           - var_auditd_admin_space_left_percentage=5pc
@@ -3128,8 +3161,8 @@ controls:
     - id: OL09-00-000770
       levels:
           - medium
-      title: OL 9 audit system must take appropriate action when the audit files have reached maximum
-          size.
+      title: OL 9 audit system must take appropriate action when the audit files have reached
+          maximum size.
       rules:
           - auditd_data_retention_max_log_file_action_stig
           - var_auditd_max_log_file_action=rotate
@@ -3138,7 +3171,8 @@ controls:
     - id: OL09-00-000755
       levels:
           - medium
-      title: OL 9 must label all offloaded audit logs before sending them to the central log server.
+      title: OL 9 must label all offloaded audit logs before sending them to the central log
+          server.
       rules:
           - auditd_name_format
           - var_auditd_name_format=stig
@@ -3155,8 +3189,8 @@ controls:
     - id: OL09-00-000825
       levels:
           - medium
-      title: OL 9 System Administrator (SA) and/or information system security officer (ISSO) (at a minimum)
-          must be alerted of an audit processing failure event.
+      title: OL 9 System Administrator (SA) and/or information system security officer (ISSO) (at
+          a minimum) must be alerted of an audit processing failure event.
       rules:
           - auditd_data_retention_action_mail_acct
           - var_auditd_action_mail_acct=root
@@ -3173,8 +3207,8 @@ controls:
     - id: OL09-00-000785
       levels:
           - medium
-      title: OL 9 audit logs must be group-owned by root or by a restricted logging group to prevent
-          unauthorized read access.
+      title: OL 9 audit logs must be group-owned by root or by a restricted logging group to
+          prevent unauthorized read access.
       rules:
           - directory_group_ownership_var_log_audit
       status: automated
@@ -3190,8 +3224,8 @@ controls:
     - id: OL09-00-000795
       levels:
           - medium
-      title: OL 9 audit logs file must have mode 0600 or less permissive to prevent unauthorized access
-          to the audit log.
+      title: OL 9 audit logs file must have mode 0600 or less permissive to prevent unauthorized
+          access to the audit log.
       rules:
           - file_permissions_var_log_audit
       status: automated
@@ -3199,7 +3233,8 @@ controls:
     - id: OL09-00-000775
       levels:
           - medium
-      title: OL 9 must periodically flush audit records to disk to prevent the loss of audit records.
+      title: OL 9 must periodically flush audit records to disk to prevent the loss of audit
+          records.
       rules:
           - auditd_freq
           - var_auditd_freq=100
@@ -3208,8 +3243,8 @@ controls:
     - id: OL09-00-000835
       levels:
           - medium
-      title: OL 9 must produce audit records containing information to establish the identity of any
-          individual or process associated with the event.
+      title: OL 9 must produce audit records containing information to establish the identity of
+          any individual or process associated with the event.
       rules:
           - auditd_log_format
       status: automated
@@ -3225,8 +3260,8 @@ controls:
     - id: OL09-00-000885
       levels:
           - medium
-      title: OL 9 must act when allocated audit record storage volume reaches 95 percent of the repository
-          maximum audit record storage capacity.
+      title: OL 9 must act when allocated audit record storage volume reaches 95 percent of the
+          repository maximum audit record storage capacity.
       rules:
           - auditd_data_retention_admin_space_left_action
           - var_auditd_admin_space_left_action=single
@@ -3235,8 +3270,8 @@ controls:
     - id: OL09-00-000805
       levels:
           - medium
-      title: OL 9 must allow only the information system security manager (ISSM) (or individuals or roles
-          appointed by the ISSM) to select which auditable events are to be audited.
+      title: OL 9 must allow only the information system security manager (ISSM) (or individuals
+          or roles appointed by the ISSM) to select which auditable events are to be audited.
       rules:
           - file_permissions_audit_configuration
       status: automated
@@ -3244,8 +3279,8 @@ controls:
     - id: OL09-00-000810
       levels:
           - medium
-      title: OL 9 /etc/audit/auditd.conf file must have 0640 or less permissive to prevent unauthorized
-          access.
+      title: OL 9 /etc/audit/auditd.conf file must have 0640 or less permissive to prevent
+          unauthorized access.
       rules:
           - file_permissions_etc_audit_auditd
       status: automated
@@ -3253,8 +3288,8 @@ controls:
     - id: OL09-00-000830
       levels:
           - low
-      title: OL 9 must allocate an audit_backlog_limit of sufficient size to capture processes that start
-          prior to the audit daemon.
+      title: OL 9 must allocate an audit_backlog_limit of sufficient size to capture processes
+          that start prior to the audit daemon.
       rules:
           - grub2_audit_backlog_limit_argument
           - var_audit_backlog_limit=8192
@@ -3263,8 +3298,8 @@ controls:
     - id: OL09-00-002405
       levels:
           - medium
-      title: OL 9 must have mail aliases to notify the information system security officer (ISSO) and
-          system administrator (SA) (at a minimum) in the event of an audit processing failure.
+      title: OL 9 must have mail aliases to notify the information system security officer (ISSO)
+          and system administrator (SA) (at a minimum) in the event of an audit processing failure.
       rules:
           - postfix_client_configure_mail_alias
       status: automated
@@ -3309,8 +3344,8 @@ controls:
     - id: OL09-00-000545
       levels:
           - medium
-      title: OL 9 must audit all uses of the setxattr, fsetxattr, lsetxattr, removexattr, fremovexattr,
-          and lremovexattr system calls.
+      title: OL 9 must audit all uses of the setxattr, fsetxattr, lsetxattr, removexattr,
+          fremovexattr, and lremovexattr system calls.
       rules:
           - audit_rules_dac_modification_setxattr
           - audit_rules_dac_modification_fsetxattr
@@ -3379,7 +3414,8 @@ controls:
     - id: OL09-00-000680
       levels:
           - medium
-      title: OL 9 must audit all uses of the rename, unlink, rmdir, renameat, and unlinkat system calls.
+      title: OL 9 must audit all uses of the rename, unlink, rmdir, renameat, and unlinkat system
+          calls.
       rules:
           - audit_rules_file_deletion_events_rename
           - audit_rules_file_deletion_events_unlink
@@ -3391,8 +3427,8 @@ controls:
     - id: OL09-00-000635
       levels:
           - medium
-      title: OL 9 must audit all uses of the truncate, ftruncate, creat, open, openat, and open_by_handle_at
-          system calls.
+      title: OL 9 must audit all uses of the truncate, ftruncate, creat, open, openat, and
+          open_by_handle_at system calls.
       rules:
           - audit_rules_unsuccessful_file_modification_creat
           - audit_rules_unsuccessful_file_modification_truncate
@@ -3582,7 +3618,8 @@ controls:
     - id: OL09-00-000730
       levels:
           - medium
-      title: Successful/unsuccessful uses of the init command in OL 9 must generate an audit record.
+      title: Successful/unsuccessful uses of the init command in OL 9 must generate an audit
+          record.
       rules:
           - audit_privileged_commands_init
       status: automated
@@ -3590,7 +3627,8 @@ controls:
     - id: OL09-00-000735
       levels:
           - medium
-      title: Successful/unsuccessful uses of the poweroff command in OL 9 must generate an audit record.
+      title: Successful/unsuccessful uses of the poweroff command in OL 9 must generate an audit
+          record.
       rules:
           - audit_privileged_commands_poweroff
       status: automated
@@ -3598,7 +3636,8 @@ controls:
     - id: OL09-00-000740
       levels:
           - medium
-      title: Successful/unsuccessful uses of the reboot command in OL 9 must generate an audit record.
+      title: Successful/unsuccessful uses of the reboot command in OL 9 must generate an audit
+          record.
       rules:
           - audit_privileged_commands_reboot
       status: automated
@@ -3606,7 +3645,8 @@ controls:
     - id: OL09-00-000745
       levels:
           - medium
-      title: Successful/unsuccessful uses of the shutdown command in OL 9 must generate an audit record.
+      title: Successful/unsuccessful uses of the shutdown command in OL 9 must generate an audit
+          record.
       rules:
           - audit_privileged_commands_shutdown
       status: automated
@@ -3614,7 +3654,8 @@ controls:
     - id: OL09-00-000840
       levels:
           - medium
-      title: Successful/unsuccessful uses of the umount system call in OL 9 must generate an audit record.
+      title: Successful/unsuccessful uses of the umount system call in OL 9 must generate an audit
+          record.
       rules:
           - audit_rules_dac_modification_umount
       status: automated
@@ -3622,7 +3663,8 @@ controls:
     - id: OL09-00-000845
       levels:
           - medium
-      title: Successful/unsuccessful uses of the umount2 system call in OL 9 must generate an audit record.
+      title: Successful/unsuccessful uses of the umount2 system call in OL 9 must generate an
+          audit record.
       rules:
           - audit_rules_dac_modification_umount2
       status: automated
@@ -3630,8 +3672,8 @@ controls:
     - id: OL09-00-000500
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /etc/sudoers.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /etc/sudoers.
       rules:
           - audit_rules_sudoers
       status: automated
@@ -3639,8 +3681,8 @@ controls:
     - id: OL09-00-000505
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /etc/sudoers.d/ directory.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /etc/sudoers.d/ directory.
       rules:
           - audit_rules_sudoers_d
       status: automated
@@ -3648,8 +3690,8 @@ controls:
     - id: OL09-00-000510
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /etc/group.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /etc/group.
       rules:
           - audit_rules_usergroup_modification_group
       status: automated
@@ -3657,8 +3699,8 @@ controls:
     - id: OL09-00-000515
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /etc/gshadow.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /etc/gshadow.
       rules:
           - audit_rules_usergroup_modification_gshadow
       status: automated
@@ -3666,8 +3708,8 @@ controls:
     - id: OL09-00-000520
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /etc/opasswd.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /etc/opasswd.
       rules:
           - audit_rules_usergroup_modification_opasswd
       status: automated
@@ -3675,8 +3717,8 @@ controls:
     - id: OL09-00-000525
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /etc/passwd.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /etc/passwd.
       rules:
           - audit_rules_usergroup_modification_passwd
       status: automated
@@ -3684,8 +3726,8 @@ controls:
     - id: OL09-00-000530
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /etc/shadow.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /etc/shadow.
       rules:
           - audit_rules_usergroup_modification_shadow
       status: automated
@@ -3693,8 +3735,8 @@ controls:
     - id: OL09-00-000720
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /var/log/faillock.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /var/log/faillock.
       rules:
           - audit_rules_login_events_faillock
       status: automated
@@ -3702,8 +3744,8 @@ controls:
     - id: OL09-00-000700
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /var/log/lastlog.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /var/log/lastlog.
       rules:
           - audit_rules_login_events_lastlog
       status: automated
@@ -3711,8 +3753,8 @@ controls:
     - id: OL09-00-000725
       levels:
           - medium
-      title: OL 9 must generate audit records for all account creations, modifications, disabling, and
-          termination events that affect /var/log/tallylog.
+      title: OL 9 must generate audit records for all account creations, modifications, disabling,
+          and termination events that affect /var/log/tallylog.
       rules:
           - audit_rules_login_events_tallylog
       status: automated
@@ -3756,7 +3798,8 @@ controls:
     - id: OL09-00-001080
       levels:
           - medium
-      title: OL 9 must employ FIPS 140-3 approved cryptographic hashing algorithms for all stored passwords.
+      title: OL 9 must employ FIPS 140-3 approved cryptographic hashing algorithms for all stored
+          passwords.
       rules:
           - accounts_password_all_shadowed_sha512
       status: automated
@@ -3772,8 +3815,8 @@ controls:
     - id: OL09-00-001060
       levels:
           - medium
-      title: OL 9 pam_unix.so module must be configured in the password-auth file to use a FIPS 140-3
-          approved cryptographic hashing algorithm for system authentication.
+      title: OL 9 pam_unix.so module must be configured in the password-auth file to use a FIPS
+          140-3 approved cryptographic hashing algorithm for system authentication.
       rules:
           - set_password_hashing_algorithm_passwordauth
           - var_password_hashing_algorithm_pam=sha512
@@ -3791,7 +3834,8 @@ controls:
     - id: OL09-00-000243
       levels:
           - medium
-      title: OL 9 must be configured so that the cryptographic hashes of system files match vendor values.
+      title: OL 9 must be configured so that the cryptographic hashes of system files match vendor
+          values.
       rules:
           - rpm_verify_hashes
       status: automated
@@ -3824,8 +3868,8 @@ controls:
     - id: OL09-00-900140
       levels:
           - medium
-      title: OL 9 must only allow the use of DOD PKI-established certificate authorities for authentication
-          in the establishment of protected sessions to OL 9.
+      title: OL 9 must only allow the use of DOD PKI-established certificate authorities for
+          authentication in the establishment of protected sessions to OL 9.
       rules:
           - only_allow_dod_certs
       status: supported

@@ -6,11 +6,13 @@ controls:
     information.
   status: manual
   check: |-
-    Verify that routes and ingress are using secured transmission ports and protocols by executing the following:
+    Verify that routes and ingress are using secured transmission ports and protocols by executing
+    the following:
 
     oc get routes --all-namespaces
 
-    Review the ingress ports, if the Ingress is not using a secure TLS transport, this is a finding.
+    Review the ingress ports, if the Ingress is not using a secure TLS transport, this is a
+    finding.
   fixtext: |-
     Delete any Route or Ingress that does not use a secure transport.
 

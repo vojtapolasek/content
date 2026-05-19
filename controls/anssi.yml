@@ -79,7 +79,8 @@ controls:
           Enabling Secure Boot can't be accomplished from the operating system.
           Also, OVAL doesn't provide any reliable ways to detect the Secure Boot status.
           Therefore, we will not provide any rules to automate this requirement.
-          We recommend checking the Secure Boot status using the `mokutil --sb-state` or `bootctl status`
+          We recommend checking the Secure Boot status using the `mokutil --sb-state` or `bootctl
+          status`
           commands.
       status: manual
 
@@ -120,9 +121,11 @@ controls:
           It is recommended that UEFI Secure Boot is used to protect the Linux Kernel
           command line parameters during boot.
       notes: >-
-          To protect the Linux Kernel command line one needs to create an Unified Kernel Image and use
+          To protect the Linux Kernel command line one needs to create an Unified Kernel Image and
+          use
           it with the UEFI Secure Boot mechanism.
-          To check if the Kernel image contains the kernel command one needs to inspect the binary, on
+          To check if the Kernel image contains the kernel command one needs to inspect the
+          binary, on
           the command line one can use the objdump command. But unfortunately OVAL is not able to
           inspect kernel images.
           Also, it is not trivial to automate creation of such image or configuration of the
@@ -574,7 +577,8 @@ controls:
       levels:
           - high
       notes: >-
-          If the system can function without support for kernel modules, module support should be disabled
+          If the system can function without support for kernel modules, module support should be
+          disabled
           by setting CONFIG_MODULES=n.
       status: automated
       rules:
@@ -697,7 +701,8 @@ controls:
           In any case, access to the /boot folder should only be allowed for the root user.
       notes: >-
           The /boot partition mounted is essential to perform certain administrative actions, for
-          example updating the kernel. Therefore, for better stability, in this requirement only rules
+          example updating the kernel. Therefore, for better stability, in this requirement only
+          rules
           to restrict the access to /boot are selected. It is not changed how the /boot is mounted.
       status: automated
       rules:
@@ -801,10 +806,12 @@ controls:
       levels:
           - intermediary
       description: >-
-          Local user sessions (console TTY, graphical session) must be locked after a certain period
+          Local user sessions (console TTY, graphical session) must be locked after a certain
+          period
           of inactivity.
       notes: >-
-          ANSSI doesn't specify the length of the inactivity period, we are choosing 10 minutes as reasonable
+          ANSSI doesn't specify the length of the inactivity period, we are choosing 10 minutes as
+          reasonable
           number.
       status: automated
       rules:
@@ -865,9 +872,12 @@ controls:
           write access to its owner only. This value can be defined in the configuration file
           /etc/profile that most shells (bash, dash, ksh…) will use.
           The default value of UMASK for services must be determined for each service, but in most
-          cases, it should be set to 0027 (or more restrictive). This allows read access to its owner
-          and its group, and a full access to its owner. For services such as systemd, this value can
-          be defined directly in the configuration file of the service with the directive UMask=0027.
+          cases, it should be set to 0027 (or more restrictive). This allows read access to its
+          owner
+          and its group, and a full access to its owner. For services such as systemd, this value
+          can
+          be defined directly in the configuration file of the service with the directive
+          UMask=0027.
       notes: >-
           There are cases of Systemd services which would stop working in case umask
           would be configured to 0027 for all services. One such example is the
@@ -925,7 +935,8 @@ controls:
 
     - id: R40
       title: Privileges of target sudo users
-      description: The targeted users of a rule should be, as much as possible, non privileged users.
+      description: The targeted users of a rule should be, as much as possible, non privileged
+          users.
       levels:
           - intermediary
       status: automated
@@ -1004,10 +1015,11 @@ controls:
       levels:
           - high
       description: >-
-          Interactive non-privileged users of a system must be confined by associating them with a SELinux
+          Interactive non-privileged users of a system must be confined by associating them with a
+          SELinux
           confined user.
-      notes: Interactive users who still need to perform administrative tasks should not be confined
-          with user_u.
+      notes: Interactive users who still need to perform administrative tasks should not be
+          confined with user_u.
       status: manual
 
     - id: R48
@@ -1017,13 +1029,14 @@ controls:
       description: >-
           It is recommended to set the following Booleans:
           allow_execheap to off, forbids processes to make their heap executable;
-          allow_execmem to off, forbids processes to have both write and execute rights on memory pages;
+          allow_execmem to off, forbids processes to have both write and execute rights on memory
+          pages;
           allow_execstack to off, forbids processes to make their stack executable;
           secure_mode_insmod to on, prohibits dynamic loading of modules by any process;
           ssh_sysadm_login to off, forbids SSH logins to connect directly in sysadmin role.
-      notes: In RHEL, the SELinux boolean allow_execheap is renamed to selinuxuser_execheap, and the
-          boolean allow_execstack is renamed to selinuxuser_execstack. And allow_execmem is not available,
-          deny_execmem provides the same functionality.
+      notes: In RHEL, the SELinux boolean allow_execheap is renamed to selinuxuser_execheap, and
+          the boolean allow_execstack is renamed to selinuxuser_execstack. And allow_execmem is
+          not available, deny_execmem provides the same functionality.
       status: automated
       rules:
           - var_selinuxuser_execheap=off
@@ -1199,12 +1212,15 @@ controls:
       levels:
           - minimal
       notes: >-
-          Only programs specifically designed to be used with setuid or setgid bits can have these privilege
+          Only programs specifically designed to be used with setuid or setgid bits can have these
+          privilege
           bits set.
-          This requirement considers apropriate for setuid and setgid bits the binaries that are installed
+          This requirement considers apropriate for setuid and setgid bits the binaries that are
+          installed
           from
           recognized and authorized repositories (covered in R15).
-          The remediation resets the sticky bit to intended value by vendor/developer, any finding after
+          The remediation resets the sticky bit to intended value by vendor/developer, any finding
+          after
           remediation
           should be reviewed.
       status: automated
@@ -1217,7 +1233,8 @@ controls:
       levels:
           - enhanced
       description: >-
-          The executables with setuid executables root and setgid root special rights should be as few
+          The executables with setuid executables root and setgid root special rights should be as
+          few
           as possible.
           When only administrators are expected to execute them, these special rights should
           be removed and prefer them commands like su or sudo, which can be monitored
@@ -1232,9 +1249,11 @@ controls:
           The selection of packages installed should be as small as possible,
           limiting itself to select only what is required.
       notes: >-
-          It is not possible to automatically decide in general way if a package is required or not for
+          It is not possible to automatically decide in general way if a package is required or
+          not for
           given system.
-          As a future improvement, there could be rules assisting assessment by listing the installed
+          As a future improvement, there could be rules assisting assessment by listing the
+          installed
           packages.
       status: manual
 
@@ -1245,9 +1264,11 @@ controls:
       description: Only up-to-date official repositories of the distribution must be used.
       notes: >-
           It is not trivial to distinguish an official repository from an unofficial one.
-          We cannot draw conclusions from the repo name or URL of the repo (as they can be arbitrary
+          We cannot draw conclusions from the repo name or URL of the repo (as they can be
+          arbitrary
           or behind a proxy).
-          One approach to check the origin of installed packages is to check the signature of the packages.
+          One approach to check the origin of installed packages is to check the signature of the
+          packages.
           If the public key of a repository is not installed, the repo is not trusted.
       status: automated
       rules:
@@ -1339,8 +1360,10 @@ controls:
           The deployed services must have their access restricted to the system
           strict minimum, especially when it comes to files, processes or network.
       notes: >-
-          SELinux policies limit the privileges of services and daemons just to those which are required.
-          The policies should be enough to restrict the services' privileges to its essentials, but the
+          SELinux policies limit the privileges of services and daemons just to those which are
+          required.
+          The policies should be enough to restrict the services' privileges to its essentials,
+          but the
           automated content cannot assess whether they are the minimum required for the deployment.
       status: automated
       rules:
@@ -1379,8 +1402,10 @@ controls:
       notes: |-
           In systems where remote authentication is handled through sssd service, PAM delegates
           requests for remote authentication to sssd service through a local Unix socket. The sssd
-          service can use IPA, AD or LDAP as a remote database containing information required for authentication.
-          In case LDAP is configured manually, there are several configuration options which should be chedked.
+          service can use IPA, AD or LDAP as a remote database containing information required for
+          authentication.
+          In case LDAP is configured manually, there are several configuration options which
+          should be chedked.
       status: automated
       rules:
           - package_sssd_installed
@@ -1399,7 +1424,8 @@ controls:
           - minimal
       description: Any password must be protected by cryptographic mechanisms.
       notes: >-
-          The selection of rules doesn't cover the use of hardware devices to protect the passwords.
+          The selection of rules doesn't cover the use of hardware devices to protect the
+          passwords.
       status: supported
       rules:
           - var_password_hashing_algorithm=yescrypt
@@ -1422,8 +1448,10 @@ controls:
           be configured to establish a secure link that allows, at minimum, to
           authenticate the server and protect the communication channel.
       notes: |-
-          A nsswitch service connecting to remote database is provided by sssd. This is checked in requirement R67.
-          Another such service is winbind which is by default configured to connect securely to Samba domains.
+          A nsswitch service connecting to remote database is provided by sssd. This is checked in
+          requirement R67.
+          Another such service is winbind which is by default configured to connect securely to
+          Samba domains.
           Other relevant services are NIS and Hesiod. These should not be used.
       status: pending
       rules:
@@ -1445,9 +1473,11 @@ controls:
           (DAT-PA-012 v2.0) accessible on the ANSSI website
           (https://www.ssi.gouv.fr/journalisation).
       notes: >-
-          A lot of recommendations and requirements from the DAT-PA-012 document are administrative and
+          A lot of recommendations and requirements from the DAT-PA-012 document are
+          administrative and
           hard to automate.
-          The rules selected below address a few of the aspects that can be covered, keep in mind that
+          The rules selected below address a few of the aspects that can be covered, keep in mind
+          that
           these configurations should
           be customized for the systems deployment requirements.
       status: automated
@@ -1662,5 +1692,6 @@ controls:
       description: All network services must be listening on the correct network intefaces.
       notes: >-
           Manual review is necessary to decide if the list of resident daemons is minimal.
-          Assisting rules could be created to list sevices listening on the network for manual review.
+          Assisting rules could be created to list sevices listening on the network for manual
+          review.
       status: manual
