@@ -11,10 +11,16 @@ controls:
       levels:
           - low
       rules:
+          - var_auditd_space_left_action=cis_rhel9
+          - var_audit_backlog_limit=8192
+          - var_auditd_disk_full_action=cis_rhel9
           - var_auditd_action_mail_acct=root
           - var_auditd_space_left_action=cis_rhel9
           - var_auditd_admin_space_left_action=cis_rhel9
-          - var_audit_backlog_limit=8192
+          - var_auditd_admin_space_left_action=cis_rhel9
+          - var_auditd_space_left_action=cis_rhel9
+          - var_auditd_disk_error_action=cis_rhel9
+          - var_auditd_admin_space_left_action=cis_rhel9
           - aide_build_database
           - aide_periodic_cron_checking
           - audit_rules_execution_chacl
@@ -56,10 +62,11 @@ controls:
       levels:
           - low
       rules:
+          - var_accounts_passwords_pam_faillock_dir=run
           - sysctl_net_ipv4_conf_all_log_martians_value=enabled
-          - sysctl_net_ipv4_conf_default_log_martians_value=enabled
-          - var_multiple_time_servers=rhel
           - sshd_max_auth_tries_value=4
+          - var_multiple_time_servers=rhel
+          - sysctl_net_ipv4_conf_default_log_martians_value=enabled
           - audit_rules_dac_modification_chmod
           - audit_rules_dac_modification_chown
           - audit_rules_dac_modification_fchmod
@@ -155,6 +162,8 @@ controls:
           - low
       rules:
           - var_auditd_disk_full_action=cis_rhel9
+          - var_auditd_disk_full_action=cis_rhel9
+          - var_auditd_disk_error_action=cis_rhel9
           - var_auditd_disk_error_action=cis_rhel9
           - auditd_data_disk_error_action
           - auditd_data_disk_full_action
@@ -258,6 +267,7 @@ controls:
       levels:
           - low
       rules:
+          - var_auditd_max_log_file=6
           - var_auditd_max_log_file_action=keep_logs
           - var_auditd_max_log_file=6
           - auditd_data_retention_max_log_file
